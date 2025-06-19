@@ -1,0 +1,1145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cinematic Strawberry</title>
+    <link href="css/style.css?v=1.1" rel="stylesheet" />
+    <link href="css/index-styles.css?v=1.1" rel="stylesheet" />
+    <link rel="icon" type="image/png" href="images/favicon.png">
+    <div id="fonts"></div>
+</head>
+    <style>
+        @font-face {
+            font-family: 'Merriweather';
+            src: url('/fonts/Merriweather-Italic.ttf') format('truetype');
+            font-style: italic;
+        }
+
+        @font-face {
+            font-family: 'Chakra Petch';
+            src: url('fonts/ChakraPetch-Regular.ttf') format('truetype');
+        }
+
+        /* Navigation styles */
+        nav ul {
+            list-style: none;
+            display: flex;
+            padding-left: 0;
+            margin-top: 2px;
+            margin-left: -15px;
+            flex-wrap: wrap; /* Allow wrapping on small screens */
+        }
+
+        nav ul li {
+            margin-left: 20px;
+            position: relative;
+        }
+
+        nav ul li:not(:last-child)::after {
+            content: "|";
+            margin-left: 25px;
+        }
+
+        nav ul li a {
+            font-family: 'Merriweather', serif;
+            font-style: italic;
+            text-decoration: none;
+            color: red;
+            position: relative;
+        }
+
+        nav ul li a::after {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 2px;
+            bottom: -2px;
+            left: 0;
+            background-color: black;
+            visibility: hidden;
+            transform: scaleX(0);
+            transition: all 0.3s ease-in-out;
+        }
+
+        nav ul li a:hover::after {
+            visibility: visible;
+            transform: scaleX(1);
+        }
+
+        nav ul li:first-child a {
+            color: black;
+        }
+
+        nav ul li:last-child a {
+            color: black;
+        }
+
+        /* Documentation styles */
+        .sidebar-heading {
+            font-size: 24px;
+            font-weight: bold;
+            margin: 0 0 20px 16px;
+            color: #111827;
+        }
+
+        .docs-nav {
+            list-style: none;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            gap: 0;
+            margin-bottom: 30px;
+        }
+
+        .bottom-nav-item {
+            margin-top: auto !important;
+            border-top: 1px solid #e5e7eb;
+        }
+
+        .docs-nav li {
+            padding: 0.5rem 1rem;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: #4b5563;
+            transition: background-color 0.2s;
+            margin: 0;
+            border-bottom: 1px solid #e5e7eb;
+            position: relative;
+        }
+
+        .docs-nav li:hover {
+            background-color: #f3f4f6;
+        }
+
+        .docs-nav li.active {
+            background-color: #eff6ff;
+            color: #e53935;
+        }
+
+        .docs-nav li::after,
+        .docs-nav li::before {
+            content: none !important;
+        }
+
+        .docs-container {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .docs-sidebar {
+            width: 250px;
+            flex-shrink: 0;
+        }
+
+        .docs-content {
+            flex: 1;
+        }
+
+        /* Modified content section styles for left alignment */
+        .content-section {
+            max-width: 1200px;
+            margin: 0 0;
+            padding: 20px;
+            font-family: 'Chakra Petch', sans-serif;
+            text-align: left;
+        }
+
+        .content-section h2 {
+            font-family: 'Aboreto', cursive;
+            font-size: 28px;
+            margin-bottom: 24px;
+            letter-spacing: 1px;
+            text-align: left;
+        }
+
+        .content-section h3 {
+            font-size: 24px;
+            margin-top: 30px;
+            margin-bottom: 20px;
+            text-align: left;
+        }
+
+        .content-section p {
+            margin-bottom: 16px;
+            font-weight: 300;
+            font-size: 20px;
+            line-height: 1.6;
+            text-align: left;
+        }
+
+        .content-section li {
+            margin-bottom: 16px;
+            font-weight: 300;
+            font-size: 20px;
+            line-height: 1.6;
+            text-align: left;
+        }
+
+        blockquote {
+            border-left: 4px solid red;
+            padding-left: 20px;
+            margin: 20px 0;
+            font-style: italic;
+            text-align: left;
+        }
+
+        .chevron {
+            margin-right: 8px;
+        }
+
+        .active .chevron {
+            transform: rotate(90deg);
+        }
+
+        .section {
+            display: none;
+            text-align: left;
+        }
+
+        .section.active {
+            display: block;
+        }
+
+        /* Visualization Section Styles */
+        /* Container for the demonstration */
+        .lite-visualization-container {
+            max-width: 1000px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #f9f9f9;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .lite-visualization-container h4 {
+            margin-bottom: 10px;
+            text-align: center;
+            font-size: 22px;
+            color: #333;
+        }
+
+        .lite-explanation p:not(strong) {
+            font-weight: normal;
+        }
+
+        .lite-explanation {
+            background-color: #f5f5f5;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 20px 0;
+            border: 1px solid #e1e1e1;
+        }
+
+        .lite-explanation h5 {
+            margin-bottom: 10px;
+            font-size: 18px;
+            color: #333;
+        }
+
+        .lite-explanation p {
+            margin-bottom: 10px;
+            color: #555;
+        }
+
+        .lite-controls {
+            margin: 20px 0;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .lite-controls button,
+        .lite-controls select {
+            padding: 12px 25px;
+            cursor: pointer;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            transition: background-color 0.3s, transform 0.2s;
+        }
+
+        /* Start = black, Stop = red, Reset = blue */
+        .lite-controls button.stop-mode {
+            background-color: #000;
+            /* black */
+            color: #fff;
+        }
+
+        .lite-controls button.start-mode {
+            background-color: #e53935;
+            /* red */
+            color: #fff;
+        }
+
+        .lite-controls #liteResetBtn {
+            background-color: #1976d2;
+            /* blue */
+            color: #fff;
+        }
+
+        .lite-controls button:hover {
+            opacity: 0.85;
+            transform: translateY(-2px);
+        }
+
+        .lite-controls select {
+            background-color: #fafafa;
+            color: #333;
+            border: 1px solid #ccc;
+            padding: 10px 15px;
+            border-radius: 5px;
+        }
+
+        .lite-state-display {
+            font-size: 20px;
+            margin: 20px 0;
+            padding: 15px;
+            border: 2px solid #333;
+            border-radius: 8px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            background-color: #fff;
+        }
+
+        .lite-state-display div {
+            margin: 5px 0;
+        }
+
+        .lite-state-explanation {
+            font-size: 14px;
+            color: #333;
+            max-width: 60%;
+            margin-top: 10px;
+        }
+
+        .lite-current-action {
+            background-color: #e3f2fd;
+            padding: 10px 20px;
+            border-radius: 5px;
+            margin: 10px 0;
+            font-weight: bold;
+            transition: background-color 0.3s, transform 0.2s;
+            position: relative;
+            color: #333;
+        }
+
+        .lite-components {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            margin: 20px 0;
+        }
+
+        .lite-component.active {
+            background-color: #d0e7fa;
+            border-color: #1d78ce;
+            transform: scale(1.05);
+            box-shadow: 0 0 10px rgba(29, 120, 206, 0.5);
+            transition: transform 0.3s, box-shadow 0.3s, background-color 0.3s;
+        }
+
+        .lite-component.searching {
+            animation: searchPulse 1s infinite;
+        }
+
+        .lite-proof-search.searching {
+            border-color: #e53935;
+            background-color: #ffe5e5;
+        }
+
+        .lite-component {
+            padding: 15px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            position: relative;
+            min-height: 150px;
+            transition: box-shadow 0.3s, transform 0.2s;
+            background-color: #fff;
+        }
+
+        .lite-component:hover {
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            transform: translateY(-3px);
+        }
+
+        .lite-component.active {
+            background-color: #eff6ff;
+            border-color: #1d78ce;
+        }
+
+        .lite-history {
+            margin-top: 30px;
+            padding: 15px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            background-color: #fff;
+            max-height: 200px;
+            overflow-y: auto;
+        }
+
+        .lite-history h5 {
+            margin-bottom: 10px;
+            font-size: 18px;
+            color: #333;
+            margin-top: 5px;
+            /* Reduced top margin */
+        }
+
+        @keyframes searchPulse {
+            0% {
+                background-color: #eff6ff;
+            }
+
+            50% {
+                background-color: #bbdefb;
+            }
+
+            100% {
+                background-color: #eff6ff;
+            }
+        }
+
+        .lite-proof-search.searching {
+            animation: searchPulse 1s infinite;
+        }
+
+        /* Bounding function display */
+        .lite-bounding-function {
+            margin-top: 20px;
+            font-size: 16px;
+        }
+
+        .lite-bounding-function span {
+            font-weight: bold;
+            color: #e53935;
+        }
+
+        /* Responsive for smaller screens */
+        @media (max-width: 700px) {
+            /* Stack navigation links vertically */
+            nav ul {
+                flex-direction: column;
+                align-items: flex-start;
+                margin-left: 0;
+            }
+
+            nav ul li {
+                margin-left: 0;
+                margin-bottom: 10px;
+            }
+
+            nav ul li:not(:last-child)::after {
+                content: none;
+            }
+
+            /* Stack sidebar and content vertically */
+            .docs-container {
+                flex-direction: column;
+            }
+
+            .docs-sidebar {
+                width: 100%;
+                margin-bottom: 20px;
+            }
+
+            .docs-content {
+                width: 100%;
+            }
+
+            /* Adjust header layout */
+            .header {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .logo-container {
+                margin-bottom: 10px;
+            }
+
+            /* Adjust lite-components grid */
+            .lite-components {
+                grid-template-columns: 1fr;
+            }
+
+            /* Ensure images are responsive */
+            .logo-image {
+                max-width: 100%;
+                height: auto;
+            }
+
+            /* Adjust font sizes for better readability */
+            .content-section h2 {
+                font-size: 22px;
+            }
+
+            .content-section h3 {
+                font-size: 20px;
+            }
+
+            .content-section p,
+            .content-section li {
+                font-size: 18px;
+            }
+
+            .lite-controls button,
+            .lite-controls select {
+                width: 100%;
+                padding: 10px 20px;
+                font-size: 16px;
+            }
+
+            .lite-state-display {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .lite-state-explanation {
+                max-width: 100%;
+            }
+        }
+
+        /* Ensure images are responsive on all screens */
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="header" style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap;">
+            <div class="logo-container">
+                <a href="index.html" style="text-decoration: none; color: inherit;">
+                    <h1 class="logo-text">Cinematic Strawberry</h1>
+                </a>
+                <a href="index.html">
+                    <img src="images/logo.jpg" alt="Logo" class="logo-image">
+                </a>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Look In The Eye</a></li>
+                    <li><a href="00110000.html">Universe 00110000</a></li>
+                </ul>
+            </nav>
+        </div>
+
+        <div class="content-section">
+            <div class="docs-container">
+                <nav class="docs-sidebar">
+                    <h2 class="sidebar-heading">LITE</h2>
+                    <ul class="docs-nav">
+                        <li class="active" data-section="intro">
+                            <span class="chevron">›</span>
+                            Understanding LITE
+                        </li>
+                        <li data-section="self-reference">
+                            <span class="chevron">›</span>
+                            Self-Reference
+                        </li>
+                        <li data-section="bounded-proof">
+                            <span class="chevron">›</span>
+                            Bounded Proof Search
+                        </li>
+                        <li data-section="dynamic-response">
+                            <span class="chevron">›</span>
+                            Dynamic Response
+                        </li>
+                        <li data-section="recursion-theorem">
+                            <span class="chevron">›</span>
+                            The Recursion Theorem
+                        </li>
+                        <li data-section="why-matters">
+                            <span class="chevron">›</span>
+                            Why LITE Matters
+                        </li>
+                        <li data-section="visualization" class="bottom-nav-item">
+                            <span class="chevron">›</span>
+                            Visualization
+                        </li>
+                    </ul>
+                </nav>
+
+                <div class="docs-content">
+                    <!-- INTRO SECTION -->
+                    <section id="intro" class="section active">
+                        <h3>Understanding LITE: Arithmetic as a Dynamic Framework</h3>
+                        <p>
+                            The Look In The Eye (LITE) framework fundamentally alters our perspective on how arithmetic can evolve and
+                            respond to its own statements. We traditionally view mathematics as a static discipline,
+                            used to describe or analyze external processes. LITE challenges this entrenched view,
+                            revealing that arithmetic itself can exhibit internal feedback guided by self-reference
+                            and bounded proof discovery.
+                        </p>
+                        <p>
+                            Through these self-referential mechanisms, LITE shows that arithmetic need not be viewed
+                            merely as a passive collection of axioms and theorems. Instead, it can adapt its own
+                            outputs once it verifies or refutes certain statements about itself. This inherent
+                            capacity to update and adjust reshapes our usual distinction between a rigid mathematical
+                            framework and a more fluid, dynamic one.
+                        </p>
+                        <p>
+                            This introduction will guide you through the foundational ideas of LITE, illustrating how
+                            arithmetic, equipped with self-reference and bounded searches for proofs, can demonstrate
+                            an unfolding kind of “responsiveness.” Far from being an abstract novelty, these methods
+                            unveil deeper insights into how mathematics can reflect upon, and react to, its own
+                            processes.
+                        </p>
+                        <p>
+                            For a more detailed exploration of these ideas and their significance,
+                            <a href="00110000/articles/liteframework.html" target="_blank" id="fullPaperLink">read the full paper</a>.
+                        </p>
+                    </section>
+
+                    <!-- SELF REFERENCE SECTION -->
+                    <section id="self-reference" class="section">
+                        <h3>Self-Reference: Arithmetic Looking Inward</h3>
+                        <p>
+                            At the heart of LITE lies the concept of self-reference, enabled by Gödel numbering. This
+                            technique allows statements in arithmetic to refer to themselves in a systematic way.
+                            It is akin to a mirror reflecting its own image, establishing a feedback loop that lets
+                            arithmetic internally monitor its own formulas and proofs.
+                        </p>
+                        <h4>Key Ideas:</h4>
+                        <ul>
+                            <li><strong>Gödel Numbering:</strong> A process for encoding mathematical statements as
+                                numbers. This encoding lets arithmetic “talk about” its own statements and proofs by
+                                referencing these numeric codes.</li>
+                            <li><strong>Self-Referential Statements:</strong> Sentences that include their own Gödel
+                                code within them, thus enabling claims like “I have property P” or “I do not have
+                                property P,” all from within arithmetic itself.</li>
+                        </ul>
+                        <h4>Why It Matters:</h4>
+                        <p>
+                            Self-reference is more than just a formal curiosity. It transforms arithmetic into a system
+                            capable of reflecting on its own structure, rather than remaining a static repository of
+                            theorems. Traditional Gödelian arguments illustrate self-reference in a single, fixed
+                            statement. LITE extends that idea across infinitely many statements, allowing the entire
+                            framework to adapt as these statements become proven or refuted.
+                        </p>
+                    </section>
+
+                    <!-- BOUNDED PROOF SEARCH SECTION -->
+                    <section id="bounded-proof" class="section">
+                        <h3>Bounded Proof Search: The Key Mechanism</h3>
+                        <p>
+                            LITE’s distinctive twist is its reliance on bounded proof searches. Rather than surveying
+                            all possible derivations, the system confines its search to proofs below certain finite
+                            limits. This practice injects a dynamic quality: it tracks whether a statement (or its
+                            negation) has been established within these specific bounds.
+                        </p>
+                        <h4>Key Features:</h4>
+                        <ul>
+                            <li><strong>Proof Predicate (Prf):</strong> An internal way of expressing that some
+                                numerical code encodes a valid proof of a given statement within arithmetic.</li>
+                            <li><strong>Bounding Function (g(n)):</strong> A rapidly growing function that defines how
+                                large a proof search can be for a given input <code>n</code>. If a proof is within
+                                this threshold, it gets “noticed”; otherwise, it remains out of reach.</li>
+                            <li><strong>Progressive Checking:</strong> Because <code>g(n)</code> increases with
+                                <code>n</code>, more proofs become accessible step by step. When a relevant proof is
+                                found, the system can shift its behavior accordingly.</li>
+                        </ul>
+                        <h4>Implications:</h4>
+                        <p>
+                            By enforcing these finite constraints, LITE ensures that each stage of investigation stays
+                            well-defined within arithmetic. This approach prevents unbounded or paradoxical searches,
+                            while still giving the system the ability to adapt whenever a new derivation is
+                            successfully found.
+                        </p>
+                    </section>
+
+                    <!-- DYNAMIC RESPONSE SECTION -->
+                    <section id="dynamic-response" class="section">
+                        <h3>Dynamic Response: Arithmetic in Action</h3>
+                        <p>
+                            The power of LITE emerges most clearly in its ability to change based on newly found
+                            proofs. When the system verifies a given statement (or its negation) within the bounded
+                            search, it shifts how future evaluations will proceed. This functionality mirrors a
+                            conditional “if-then” structure: if a short proof is discovered, take a significant jump;
+                            otherwise, proceed in a simpler way.
+                        </p>
+                        <h4>How It Works:</h4>
+                        <ul>
+                            <li><strong>Conditional Changes:</strong> Depending on whether a specific statement is
+                                proven or refuted within the set bounds, the value of the defining function moves in a
+                                larger or smaller step. This branching can greatly alter subsequent behavior.</li>
+                            <li><strong>State Transitions:</strong> Because the statements reference the function’s own
+                                code, each verification or refutation modifies the “landscape” that future statements
+                                will explore.</li>
+                            <li><strong>Iterative Refinement:</strong> Over time, a chain of these shifts weaves
+                                together an evolving pattern of outputs, reflecting the proofs that appear at each
+                                stage.</li>
+                        </ul>
+                        <h4>The Significance:</h4>
+                        <p>
+                            LITE illustrates that arithmetic, far from being static, can exhibit unfolding patterns
+                            once it incorporates these bounded checks. Such iterative transformations blur the usual
+                            line between “the system stating facts” and “the system reacting to facts about itself.”
+                            In doing so, LITE underscores arithmetic’s capacity for a more active, feedback-rich form
+                            of definability.
+                        </p>
+                    </section>
+
+                    <!-- RECURSION THEOREM SECTION -->
+                    <section id="recursion-theorem" class="section">
+                        <h3>The Recursion Theorem: Enabling Self-Awareness</h3>
+                        <p>
+                            A key part of LITE’s construction is the Recursion Theorem, which guarantees that a
+                            function can legitimately refer to its own description from within arithmetic. By exploiting
+                            this powerful result, LITE encodes self-referential statements that mention “the function’s
+                            own code,” without paradox.
+                        </p>
+                        <h4>What It States (Informally):</h4>
+                        <p>
+                            There exists a mechanism ensuring that if we want to define a function <em>f</em> which
+                            internally references its own definition, we can do so consistently. In other words,
+                            <em>f</em> can “hand itself” its own code, letting <em>f</em> speak about itself.
+                        </p>
+                        <h4>How It Enables Self-Reference in LITE:</h4>
+                        <ul>
+                            <li><strong>Building Blocks:</strong> By applying the Recursion Theorem, we create
+                                statements that mention “the code of <em>f</em>” right inside <em>f</em>’s defining
+                                clauses.</li>
+                            <li><strong>Adaptive Loop:</strong> Once <em>f</em> has a reference to itself, it can
+                                trigger updates or changes if statements about <em>f</em> turn out to be derivable.
+                                This self-pointing capacity is what drives LITE’s dynamic feedback.</li>
+                        </ul>
+                        <h4>Implications:</h4>
+                        <p>
+                            Without the Recursion Theorem, embedding these loops of “function references itself”
+                            would be difficult to manage. With it, LITE can seamlessly create an ever-updating
+                            structure where new self-referential statements arise and alter the function’s next
+                            steps.
+                        </p>
+                    </section>
+
+                    <!-- WHY LITE MATTERS SECTION -->
+                    <section id="why-matters" class="section">
+                        <h3>Why LITE Matters: A Paradigm Shift</h3>
+                        <p>
+                            LITE reshapes how we view the potential of formal arithmetic. Traditionally, we conceive of
+                            arithmetic as presenting truths in a static way. LITE, however, demonstrates that by
+                            including carefully framed self-reference and bounded searches for proofs, we can create
+                            processes that adapt in a step-by-step fashion.
+                        </p>
+                        <h4>Key Implications:</h4>
+                        <ul>
+                            <li><strong>An Inherent Dynamic:</strong> LITE reveals a capacity for response that is
+                                intrinsically housed within standard arithmetic—no external mechanisms required.</li>
+                            <li><strong>Changing Internal Behavior:</strong> Because large jumps occur whenever a new
+                                proof is found, LITE highlights how arithmetic can record these breakthroughs in its
+                                own output.</li>
+                            <li><strong>Rethinking the Static View:</strong> We often assume that once definitions
+                                are laid down, arithmetic remains unchanged. LITE offers an alternate viewpoint—one
+                                in which arithmetical objects can shift according to new discoveries.</li>
+                            <li><strong>Bridging Logical Concepts:</strong> By blending self-reference, proof
+                                predicates, and definable bounding functions, LITE unifies several pivotal ideas in
+                                modern logic and reveals a new angle on each.</li>
+                            <li><strong>A Vision of Flexibility:</strong> This framework shows that the “inner life”
+                                of arithmetic could be far more flexible than commonly assumed, hinting at further
+                                constructions that exploit self-observation and adaptability.</li>
+                        </ul>
+                        <h4>A Call to Re-examine Foundations:</h4>
+                        <p>
+                            LITE encourages us to look beyond static snapshots of formal systems. It invites deeper
+                            investigations into how self-reference, bounded proof hunts, and iterative definitions can
+                            produce startling and expansive forms of arithmetical behavior.
+                        </p>
+                    </section>
+
+                    <!-- VISUALIZATION SECTION -->
+                    <section id="visualization" class="section">
+                        <h3>Visualization: Evolving Behavior Within Arithmetic</h3>
+                        <p>
+                            In this interactive demonstration, we illustrate a simplified version of how LITE might
+                            operate. Rather than viewing these changes as imposed from the outside, the point is to
+                            see that such transformations can arise directly from arithmetical definitions that
+                            reference themselves and check proofs up to certain bounds.
+                        </p>
+
+                        <div class="lite-visualization-container">
+                            <h4 style="color: red; text-shadow: 1px 1px 1px #d2d2d2;">The Arithmetic Feedback Loop</h4>
+
+                            <hr>
+                            <div class="lite-explanation">
+                                <h5>What’s Happening Here?</h5>
+                                <p>
+                                    This visualization presents three essential pillars of a simplified LITE-style
+                                    approach: <strong>Self-Reference</strong>, <strong>Bounded Proof Search</strong>,
+                                    and <strong>State Transitions</strong>. The system begins from an initial
+                                    statement in arithmetic and repeatedly updates its state if it detects a proof
+                                    for that statement (or its negation) within a certain limit.
+                                </p>
+                                <p>
+                                    The core insight is that arithmetic isn’t just describing these steps—it is
+                                    capable of incorporating them directly. The Recursion Theorem ensures statements
+                                    can mention their own framework, creating a self-referential loop. The Bounding
+                                    Function grows quickly, guaranteeing that if a proof does exist, the system will
+                                    eventually stumble upon it, prompting a notable shift in state.
+                                </p>
+                                <p>
+                                    <strong>Note:</strong> In this demo, “finding a proof for φ(n)” is loosely
+                                    represented by checking if “n is even,” and we use a simple pseudo-random check
+                                    to stand in for more complex logical searches. In a true LITE system, φ(n) would
+                                    be a genuine self-referential statement, with proofs verified under strict
+                                    numerical bounds <code>g(n)</code>.
+                                </p>
+
+                                <div class="lite-controls">
+                                    <button id="liteStartBtn" class="start-mode">Start Engine</button>
+                                    <button id="liteResetBtn">Reset</button>
+                                </div>
+
+                                <div class="lite-state-display">
+                                    <div>Current State: n = <span id="liteCurrentState">0</span></div>
+                                    <div class="lite-state-explanation" id="liteStateExplanation">
+                                        System is ready to start. Initial state is n=0.
+                                    </div>
+                                </div>
+
+                                <div class="lite-current-action" id="liteCurrentAction">
+                                    System ready
+                                </div>
+
+                                <div class="lite-bounding-function">
+                                    Current Bound (g(n)): <span id="liteBoundingValue">0.00</span>
+                                </div>
+                                <div class="lite-bounding-function">
+                                    Jump Size (H(n)): <span id="liteJumpValue">1.00</span>
+                                </div>
+
+                                <div class="lite-components">
+                                    <!-- SELF-REFERENCE COMPONENT -->
+                                    <div id="liteSelfRef" class="lite-component">
+                                        <h5>Self-Referential Statement</h5>
+                                        <div id="liteSelfRefContent">φ(n): Checking if n is even</div>
+                                        <div class="lite-component-explanation">
+                                            <p>Embodies the statement that can involve the function's own definition.
+                                                In this simplified example, φ(n) simply checks whether the current
+                                                value of n is even. In a full LITE setting, φ(n) would encode a more
+                                                intricate statement referencing the system’s own code.</p>
+                                        </div>
+                                    </div>
+
+                                    <!-- PROOF SEARCH COMPONENT -->
+                                    <div id="liteProofSearch" class="lite-component lite-proof-search">
+                                        <h5>Bounded Proof Search</h5>
+                                        <div id="liteProofSearchContent">Searching for proof...</div>
+                                        <div class="lite-component-explanation">
+                                            <p>Looks for a derivation of φ(n) or ¬φ(n) up to the allowed bound.
+                                                If located, the system updates accordingly. If not, it proceeds
+                                                more gradually. This demonstrates how finite proof checks can
+                                                guide the next step.</p>
+                                        </div>
+                                    </div>
+
+                                    <!-- STATE TRANSITION COMPONENT -->
+                                    <div id="liteStateTransition" class="lite-component">
+                                        <h5>Dynamic Branching</h5>
+                                        <div id="liteTransitionContent">Next: Awaiting Proof</div>
+                                        <div class="lite-component-explanation">
+                                            <p>If a short proof for φ(n) is found, the system makes a large jump,
+                                                otherwise it increments by a smaller step. These jumps create
+                                                branching paths in the numeric sequence, reflecting internal
+                                                adjustments driven by each discovery.</p>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="lite-history">
+                                    <h5>Execution Log</h5>
+                                    <div id="liteHistoryLog"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                    <!-- END VISUALIZATION SECTION -->
+                </div>
+            </div>
+        </div>
+
+          <!-- Footer component will be loaded here -->
+          <div id="footer"></div>
+        </div>
+        
+        <script src="js/components.js"></script>
+
+    <script>
+        // Navigation Section Handling
+        document.querySelectorAll('.docs-nav li').forEach(item => {
+            item.addEventListener('click', () => {
+                // Remove active from all nav items
+                document.querySelectorAll('.docs-nav li').forEach(navItem => {
+                    navItem.classList.remove('active');
+                });
+                // Hide all sections
+                document.querySelectorAll('.section').forEach(section => {
+                    section.classList.remove('active');
+                });
+
+                // Activate chosen item
+                item.classList.add('active');
+                const sectionId = item.dataset.section;
+                document.getElementById(sectionId).classList.add('active');
+            });
+        });
+    </script>
+
+    <script>
+        class LiteSystem {
+            constructor() {
+                this.currentState = 0;
+                this.history = [];
+                this.isRunning = false;
+                this.steps = 0;
+
+                // Animation timing (milliseconds)
+                this.animationSpeeds = {
+                    selfRef: 500,
+                    proofSearch: 1000,
+                    stateTrans: 500
+                };
+
+                /***********************************************
+                 * φ(n) ~ "Self-Referential Statement"
+                 * - Here, simply "n is even" for demonstration.
+                 ***********************************************/
+                this.phi = (n) => {
+                    return (n % 2 === 0);
+                };
+
+                /***********************************************
+                 * Probability of discovering a proof if φ(n) is "true"
+                 * Increase or decrease as you like (0.0 to 1.0)
+                 ***********************************************/
+                this.probProofFound = 0.5; // 50% chance if φ(n) is true
+
+                /***********************************************
+                 * g(n) ~ "Bounding Function"
+                 ***********************************************/
+                this.g = (n) => {
+                    const cycleLength = 10;
+                    const effectiveStep = this.steps % cycleLength;
+                    return 2 ** effectiveStep;
+                };
+
+                /***********************************************
+                 * H(n) ~ "Large Jump" function
+                 ***********************************************/
+                this.H = (n) => {
+                    const cycleLength = 10;
+                    const effectiveStep = this.steps % cycleLength;
+                    return 2 ** (2 ** effectiveStep);
+                };
+            }
+
+            async simulateProofSearch(n) {
+                const proofSearchElement = document.getElementById('liteProofSearch');
+                proofSearchElement.classList.add('active', 'searching');
+                document.getElementById('liteProofSearchContent').textContent = 'Searching for proof...';
+
+                // Display the bounding function's current value
+                const boundValue = this.g(n);
+                document.getElementById('liteBoundingValue').textContent =
+                    isFinite(boundValue) ? Math.log2(boundValue).toFixed(2) : 'Large';
+
+                // Simulate "search time" based on the bounding function
+                const searchTime = Math.min(this.g(n) * 50, this.animationSpeeds.proofSearch);
+                await new Promise(resolve => setTimeout(resolve, searchTime));
+
+                // 1) Check if φ(n) is conceptually "true" (n even)
+                const phiIsTrue = this.phi(n);
+
+                // 2) Decide if we "found" the proof:
+                let proofFound = false;
+                if (phiIsTrue) {
+                    // Probability-based approach
+                    const randomDraw = Math.random();
+                    if (randomDraw < this.probProofFound) {
+                        proofFound = true;
+                    }
+                }
+
+                // Update UI text
+                document.getElementById('liteProofSearchContent').textContent =
+                    proofFound
+                        ? 'Proof Found for φ(n)'
+                        : 'Proof Not Found';
+                proofSearchElement.classList.remove('searching');
+
+                return proofFound;
+            }
+
+            updateDisplay() {
+                // Current numerical state
+                document.getElementById('liteCurrentState').textContent = this.currentState;
+
+                // Explanation
+                document.getElementById('liteStateExplanation').textContent =
+                    'System state updated based on proof search outcome.';
+
+                // History log
+                document.getElementById('liteHistoryLog').innerHTML =
+                    this.history.map(entry => `<div>${entry}</div>`).join('');
+
+                // Show bounding function & jump size in log-scale (base 2)
+                const boundValue = this.g(this.currentState);
+                const jumpValue = this.H(this.currentState);
+                document.getElementById('liteBoundingValue').textContent =
+                    isFinite(boundValue) ? Math.log2(boundValue).toFixed(2) : 'Large';
+                document.getElementById('liteJumpValue').textContent =
+                    isFinite(jumpValue) ? Math.log2(jumpValue).toFixed(2) : 'Very Large';
+            }
+
+            updateAction(msg) {
+                document.getElementById('liteCurrentAction').textContent = msg;
+            }
+
+            addToHistory(step, oldState, action, newState) {
+                const logString = `Step ${step}: n=${oldState} → ${action} → n=${newState}`;
+                this.history.unshift(logString);
+                if (this.history.length > 50) {
+                    this.history.pop();
+                }
+            }
+
+            async step() {
+                if (!this.isRunning) return;
+
+                this.steps++;
+                const oldState = this.currentState;
+
+                // Reset components each step
+                this.deactivateAllComponents();
+
+                // 1) Self-Reference
+                await this.activateComponent('liteSelfRef', 'active');
+                document.getElementById('liteSelfRefContent').textContent =
+                    `φ(${this.currentState}): ${this.phi(this.currentState) ? 'True' : 'False'}`;
+                await new Promise(resolve => setTimeout(resolve, this.animationSpeeds.selfRef));
+                await this.deactivateComponent('liteSelfRef');
+
+                // 2) Attempt proof search
+                await this.activateComponent('liteProofSearch', 'active', 'searching');
+                const proofFound = await this.simulateProofSearch(this.currentState);
+                await this.deactivateComponent('liteProofSearch');
+
+                // 3) Branch logic
+                let newState;
+                let action;
+                if (proofFound) {
+                    const jump = this.H(this.currentState);
+                    newState = this.currentState + jump;
+                    action = `Proof found. Jump to n + H(${this.currentState}) = ${newState}`;
+                } else {
+                    newState = this.currentState + 1;
+                    action = `Proof not found. Increment to n + 1 = ${newState}`;
+                }
+
+                // 4) Visualize transition
+                await this.activateComponent('liteStateTransition', 'active');
+                document.getElementById('liteTransitionContent').textContent = `Next: ${action}`;
+                await new Promise(resolve => setTimeout(resolve, this.animationSpeeds.stateTrans));
+                await this.deactivateComponent('liteStateTransition');
+
+                // Update
+                this.currentState = newState;
+                this.addToHistory(this.steps, oldState, action, this.currentState);
+                this.updateDisplay();
+                this.updateAction(`Step ${this.steps}: ${action}`);
+
+                // Keep going if running
+                if (this.isRunning) {
+                    setTimeout(() => this.step(), 500);
+                }
+            }
+
+            async activateComponent(componentId, ...classes) {
+                const component = document.getElementById(componentId);
+                component.classList.add(...classes);
+                return Promise.resolve();
+            }
+
+            async deactivateComponent(componentId) {
+                const component = document.getElementById(componentId);
+                component.classList.remove('active', 'searching');
+                return Promise.resolve();
+            }
+
+            deactivateAllComponents() {
+                const components = ['liteSelfRef', 'liteProofSearch', 'liteStateTransition'];
+                components.forEach(componentId => {
+                    this.deactivateComponent(componentId);
+                });
+            }
+
+            start() {
+                if (!this.isRunning) {
+                    this.isRunning = true;
+                    this.updateAction('Engine started');
+                    this.step();
+                }
+            }
+
+            stop() {
+                if (this.isRunning) {
+                    this.isRunning = false;
+                    this.updateAction('Engine stopped');
+                }
+            }
+
+            reset() {
+                this.stop();
+                this.currentState = 0;
+                this.steps = 0;
+                this.history = [];
+                this.updateDisplay();
+                document.getElementById('liteProofSearchContent').textContent = 'Searching for proof...';
+                document.getElementById('liteTransitionContent').textContent = 'Next: Awaiting Proof';
+                document.getElementById('liteSelfRefContent').textContent = 'φ(n): Checking if n is even';
+                this.updateAction('System reset, ready to start.');
+
+                document.getElementById('liteBoundingValue').textContent = '0.00';
+                document.getElementById('liteJumpValue').textContent = '1.00';
+                this.deactivateAllComponents();
+            }
+        }
+
+        const lite = new LiteSystem();
+        lite.updateDisplay();
+
+        // Start/Stop Button Event Listener
+        document.getElementById('liteStartBtn').addEventListener('click', () => {
+            if (lite.isRunning) {
+                lite.stop();
+                document.getElementById('liteStartBtn').textContent = 'Start Engine';
+                document.getElementById('liteStartBtn').classList.remove('stop-mode');
+                document.getElementById('liteStartBtn').classList.add('start-mode');
+            } else {
+                lite.start();
+                document.getElementById('liteStartBtn').textContent = 'Stop Engine';
+                document.getElementById('liteStartBtn').classList.remove('start-mode');
+                document.getElementById('liteStartBtn').classList.add('stop-mode');
+            }
+        });
+
+        // Reset Button Event Listener
+        document.getElementById('liteResetBtn').addEventListener('click', () => {
+            lite.reset();
+            document.getElementById('liteStartBtn').textContent = 'Start Engine';
+            document.getElementById('liteStartBtn').classList.remove('stop-mode');
+            document.getElementById('liteStartBtn').classList.add('start-mode');
+        });
+    </script>
+</body>
+
+</html>
