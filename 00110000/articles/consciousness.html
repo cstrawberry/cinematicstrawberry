@@ -1,0 +1,876 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>A Mathematical Model of Consciousness</title>
+    <meta name="description"
+        content="A comprehensive mathematical model of consciousness derived from first principles, linking self-awareness to prediction, logic, dynamic self-reference, and meaning.">
+    <link href="article-style.css?v=1.0" rel="stylesheet" />
+    <link rel="icon" type="image/png" href="../../images/favicon.png">
+    <style>
+        .theorem .proof {
+            margin-left: 20px;
+            padding-left: 10px;
+            border-left: 2px solid #ccc;
+            font-size: 0.95em;
+        }
+
+        .theorem h3,
+        .definition h3,
+        .proposition h3 {
+            margin-top: 0.5em;
+            margin-bottom: 0.3em;
+        }
+
+        .proposition p,
+        .theorem p,
+        .definition p {
+            margin-top: 0.2em;
+        }
+
+        .formula {
+            text-align: center;
+            font-family: "Times New Roman", serif;
+            font-style: italic;
+            margin: 1em 0;
+            font-size: 1.2em;
+        }
+
+        .math-inline {
+            font-family: "Times New Roman", serif;
+            font-style: italic;
+        }
+
+        .equation-number {
+            float: right;
+            font-family: "Times New Roman", serif;
+        }
+
+        .framework-diagram {
+            width: 100%;
+            max-width: 800px;
+            /* Adjust as needed */
+            display: block;
+            margin: 20px auto;
+            border: 1px solid #ccc;
+        }
+
+        .footnote {
+            font-size: 0.9em;
+            margin-top: 2em;
+            padding-top: 1em;
+            border-top: 1px solid #ccc;
+        }
+
+        #glossary-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 20px;
+        }
+
+        #glossary-table caption {
+            caption-side: top;
+            text-align: left;
+            font-size: 24px;
+            font-weight: bold;
+            padding-bottom: 8px;
+        }
+
+        #glossary-table thead {
+            text-align: left;
+            border-bottom: 2px solid #333;
+        }
+
+        #glossary-table th,
+        #glossary-table td {
+            padding: 12px;
+            border-bottom: 1px solid #ccc;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="header">
+        <div class="logo-container">
+            <a href="../../index.html" style="text-decoration: none; color: inherit;">
+                <h1 class="logo-text">Cinematic Strawberry</h1>
+            </a>
+            <a href="../../index.html">
+                <img src="../../images/logo.jpg" alt="Logo" class="logo-image">
+            </a>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="../../index.html">Look In The Eye</a></li>
+                <li><a href="../../00110000.html">Universe 00110000</a></li>
+            </ul>
+        </nav>
+    </div>
+    <div class="banner">
+        <img src="images/consciousness_banner.jpg" alt=" Mathematical Model of Consciousness Banner Image" />
+    </div>
+    <article>
+        <h1>A Mathematical Model of Consciousness</h1>
+        <hr>
+        <h2>Abstract</h2>
+        <p>This paper presents a comprehensive mathematical model of consciousness derived from the epistemological
+            certainty of Descartes' Cogito ergo sum. This foundational binary substrate is shown to necessitate a
+            predictive operational core for thought. We demonstrate that the inherent binary nature of predictive
+            verification directly gives rise to the axioms of classical logic and the architecture of
+            universal computation. This leads to the definition of the Horizon Constant (K₀), the minimal complexity
+            required for a system to instantiate the logical capabilities for non-trivial self-referential
+            prediction. We introduce the Dynamic Self-Reference Operator as a computational process, realizable
+            in systems of K₀ complexity or greater, that adapts its behavior based on bounded internal checks about its
+            own propositions. Such systems inevitably encounter the Self-Referential Paradox of Accurate Prediction,
+            proving no system can achieve perfect self-prediction. Consciousness is posited to exist within a
+            bounded Space of Becoming, avoiding the stasis of perfect prediction and the incoherence of pure chaos.
+            Within this space, all conscious agents face the Prediction Optimization Problem—the challenge of
+            allocating finite resources to generate predictions that matter. We conclude by introducing Predictive
+            Landscape Semantics, a functional theory where meaning is formally defined as a quantifiable
+            improvement in a receiver's predictive accuracy (ΔQ), and communication is an efficiency-driven strategy for
+            tackling the Prediction Optimization Problem, rooted in the Principle of Compression Efficiency. This
+            framework provides a
+            unified, mathematically-grounded model connecting the certainty of self-awareness to the dynamics of
+            knowledge and meaning.</p>
+
+        <h2>1. Introduction</h2>
+        <p>This paper aims to construct such a formal model derived entirely from first principles, beginning with the
+            sole indubitable premise of subjective experience—Descartes' Cogito—and culminating in a functional,
+            mathematical definition of meaning. We employ mathematics not merely as a descriptive language, but as a
+            rigorous tool for foundational inquiry. Just as mathematics provides the framework for expressing precise
+            relationships and deriving non-obvious consequences in physics, our model leverages its power to formalize
+            the core operational dynamics we propose for consciousness. By translating the properties of self-verifying
+            thought into mathematical structures, we can explore their logical entailments with precision, uncovering
+            the necessary emergence of logic, computation, and ultimately, a quantifiable basis for meaning. The central
+            thesis is that the edifice of consciousness, logic, knowledge, and meaning can be systematically derived
+            from these informational and computational properties. What distinguishes this particular framework is its
+            rigorous, unbroken deductive chain, starting from the sole epistemological certainty of the Cogito and
+            deriving, without additional assumptions, the functional architecture of logic, computation, and meaning.
+            This document serves as a unifying summary of a larger body of work, with detailed arguments and proofs for
+            many core concepts available in supplementary linked documents.</p>
+        <p>This paper will proceed as follows:</p>
+        <ol style="font-size: 20px;">
+            <li>Establish the <a href="cogito.html"
+                    style="text-decoration: none; border-bottom: 1px solid transparent; transition: border-bottom 0.3s;"
+                    onmouseover="this.style.borderBottomColor='black';"
+                    onmouseout="this.style.borderBottomColor='transparent';">Cogito</a> as a foundational binary
+                informational substrate.</li>
+            <li>Formalize thought as a predictive process (<a href="predictionism.html"
+                    style="text-decoration: none; border-bottom: 1px solid transparent; transition: border-bottom 0.3s;"
+                    onmouseover="this.style.borderBottomColor='black';"
+                    onmouseout="this.style.borderBottomColor='transparent';">Predictionism</a>) and show how this
+                naturally gives rise to classical logic and computation.</li>
+            <li>Define the minimal complexity required for non-trivial self-referential prediction (The <a
+                    href="horizon.html"
+                    style="text-decoration: none; border-bottom: 1px solid transparent; transition: border-bottom 0.3s;"
+                    onmouseover="this.style.borderBottomColor='black';"
+                    onmouseout="this.style.borderBottomColor='transparent';">Horizon Constant, K₀</a>).</li>
+            <li>Introduce the Dynamic Self-Reference Operator (DSRO) and its universal limits, primarily the <a
+                    href="self-referential.html"
+                    style="text-decoration: none; border-bottom: 1px solid transparent; transition: border-bottom 0.3s;"
+                    onmouseover="this.style.borderBottomColor='black';"
+                    onmouseout="this.style.borderBottomColor='transparent';">Self-Referential Paradox of Accurate
+                    Prediction (SPAP)</a>.</li>
+            <li>Describe the dynamic arena in which consciousness operates (<a href="becoming.html"
+                    style="text-decoration: none; border-bottom: 1px solid transparent; transition: border-bottom 0.3s;"
+                    onmouseover="this.style.borderBottomColor='black';"
+                    onmouseout="this.style.borderBottomColor='transparent';">The Space of Becoming</a>) and the
+                fundamental
+                challenge it faces (<a href="optimization.html"
+                    style="text-decoration: none; border-bottom: 1px solid transparent; transition: border-bottom 0.3s;"
+                    onmouseover="this.style.borderBottomColor='black';"
+                    onmouseout="this.style.borderBottomColor='transparent';">The Prediction Optimization Problem
+                    (POP)</a>).
+            </li>
+            <li>Propose strategies for tackling POP, including <a href="meaning.html"
+                    style="text-decoration: none; border-bottom: 1px solid transparent; transition: border-bottom 0.3s;"
+                    onmouseover="this.style.borderBottomColor='black';"
+                    onmouseout="this.style.borderBottomColor='transparent';">Predictive Landscape Semantics (PLS)</a>
+                and the <a href="compression.html"
+                    style="text-decoration: none; border-bottom: 1px solid transparent; transition: border-bottom 0.3s;"
+                    onmouseover="this.style.borderBottomColor='black';"
+                    onmouseout="this.style.borderBottomColor='transparent';">Principle of Compression Efficiency
+                    (PCE)</a>.</li>
+        </ol>
+        <p>By integrating these concepts, we offer a novel and rigorous mathematical model of
+            consciousness. </p>
+
+        <img src="images/consciousness1.jpg" alt="From Cogito to Prediction" />
+        <p class="caption">Universe 00110000</p>
+
+
+        <h2>2. The Epistemological Foundation: From Cogito to Prediction</h2>
+
+        <h3>2.1 I Predict, Therefore I Am</h3>
+        <p>The cornerstone of this framework is the axiom that the "thinking" guaranteed by Descartes’ Cogito ergo sum is fundamentally a predictive process. The very act of doubting involves anticipating potential falsification, and the Cogito's resolution—that doubting confirms the doubter—is itself a successful, self-referential prediction about the outcome of this mental act. The continuity of self-awareness (the "I" that thinks)
+            requires a moment-to-moment prediction of one's own persistence. Most critically, the verification at the
+            heart of the Cogito—that the act of doubting confirms the existence of the doubter—is a successful,
+            self-referential prediction about the outcome of a mental act. It is from this necessary, predictive
+            structure of self-verifying thought that logic and computation can be derived.</p>
+
+        <h3>2.2 The Cogito as a Binary Informational Substrate</h3>
+        <p>We begin with the axiom of Descartes’ Cogito ergo sum. This is the only
+            proposition that is invulnerable to systematic doubt. The act of doubting one’s own existence is itself an
+            act of thought, which verifies the existence of a thinking entity.</p>
+        <p>From an informational perspective, the Cogito provides a single, unassailable bit of data. We can formalize
+            this foundational epistemic distinction as a binary substrate:</p>
+        <div class="definition">
+            <h3>Definition 2.1 (Epistemic Certainty):</h3>
+            <p>The self-verifying knowledge of the thinking self is assigned the binary value <strong>1</strong>. This
+                represents a state of zero epistemic uncertainty.</p>
+        </div>
+        <div class="definition">
+            <h3>Definition 2.2 (Epistemic Uncertainty):</h3>
+            <p>All other propositions, including those concerning the external world, sensory data, and memory, which
+                are subject to doubt, are assigned the binary value <strong>0</strong> relative to this foundational
+                certainty.</p>
+        </div>
+        <p>This establishes a fundamental binary partition of reality from the perspective of the conscious agent: the
+            certainty of the self (1) versus the uncertainty of everything else (0). This is the primitive informational
+            ground from which all further knowledge must be constructed.</p>
+
+        <h2>3. The Operational Core of Consciousness: Predictionism</h2>
+        <p>The "thinking" guaranteed by the Cogito is not a passive state but a dynamic process. As argued in Section
+            2.1, we posit that the
+            fundamental operation of consciousness is a predictive cycle.</p>
+        <div class="definition">
+            <h3>Definition 3.1 (The Predictive Cycle):</h3>
+            <p>Conscious processing is an iterative loop comprising three stages:
+            <ol style="font-size: 20px;">
+                <li><strong>Doubt:</strong> A state of uncertainty regarding a future state.</li>
+                <li><strong>Prediction:</strong> The projection of a potential future state based on an internal model.
+                </li>
+                <li><strong>Verification:</strong> The comparison of the predicted state with the actual outcome. The
+                    verification results in a binary outcome, <span class="math-inline">δ(S)</span>, where <span
+                        class="math-inline">δ(S)=1</span> for confirmation and <span class="math-inline">δ(S)=0</span>
+                    for disconfirmation of a proposition <span class="math-inline">S</span>.</li>
+            </ol>
+            </p>
+        </div>
+        <div class="theorem">
+            <h3>Theorem 3.1 (Emergence of Bivalent Logic):</h3>
+            <p>The binary nature of the verification step (<span class="math-inline">δ(S)</span>), inherent in the
+                structure of self-verifying thought as exemplified by the Cogito, provides a
+                non-arbitrary grounding for the principle of bivalence in classical logic. Any verifiable prediction
+                must resolve to a state of being either true (1) or false (0).
+                Even if an agent’s underlying prediction is probabilistic or ‘fuzzy,’ applying any fixed confidence
+                threshold immediately yields a binary verification (0 or 1), so the Boolean structure of the <span
+                    class="math-inline">δ</span>-cycle remains intact.
+            </p>
+        </div>
+        <p><a href="predictionism.html"
+                style="text-decoration: none; border-bottom: 1px solid transparent; transition: border-bottom 0.3s;"
+                onmouseover="this.style.borderBottomColor='black';"
+                onmouseout="this.style.borderBottomColor='transparent';">Predictionism</a> argues that the fundamental
+            operations of thought inherent in this predictive cycle—such as
+            distinguishing outcomes, processing sequential conditions, and considering alternatives—directly map to the
+            functionally complete set of Boolean operators, thus establishing the computational nature of this
+            foundational awareness.</p>
+        <div class="theorem">
+            <h3>Corollary 3.1.1 (Derivation of Boolean Operators):</h3>
+            <p>The fundamental operations of Boolean algebra emerge naturally from the structure of the predictive
+                cycle:</p>
+            <ul style="font-size: 20px;">
+                <li><strong>NOT (¬):</strong> Arises from the distinction between a confirmed prediction (1) and a
+                    disconfirmed one (0).
+                    <p class="formula"><em><span class="math-inline">δ(¬S) = 1 - δ(S)</span></em><span
+                            class="equation-number">(3.1)</span></p>
+                </li>
+                <li><strong>AND (∧):</strong> Arises from the necessity of sequential successful predictions.
+                    <p class="formula"><em><span class="math-inline">δ(S₁ ∧ S₂) = min(δ(S₁), δ(S₂))</span></em><span
+                            class="equation-number">(3.2)</span></p>
+                </li>
+                <li><strong>OR (∨):</strong> Arises from considering alternative predictive outcomes.
+                    <p class="formula"><em><span class="math-inline">δ(S₁ ∨ S₂) = max(δ(S₁), δ(S₂))</span></em><span
+                            class="equation-number">(3.3)</span></p>
+                </li>
+            </ul>
+        </div>
+        <p>Since {NOT, AND, OR} are functionally complete, a system capable of this predictive cycle possesses the
+            building blocks for universal computation. For this potential to be realized, the system must also support
+            two further capacities inherent in the predictive cycle: <strong>sequencing</strong> (the ability to execute
+            operations in a defined order, as in the doubt-predict-verify loop) and <strong>memory</strong> (the ability
+            to store the outcome of a verification, <span class="math-inline">δ(S)</span>, to inform subsequent
+            predictions). A system with these capabilities—functionally complete logic, sequencing, and memory—is
+            formally equivalent to a Turing machine. Consciousness, under this model, is therefore fundamentally computational.</p>
+
+        <img src="images/consciousness2.jpg" alt="The Horizon Constant" />
+        <p class="caption">Universe 00110000</p>
+
+        <h2>4. The Minimal Complexity for Self-Referential Prediction: The Horizon Constant (K₀)</h2>
+        <p>For a system to engage in non-trivial self-referential prediction—that is, to predict aspects of its own
+            future state or behavior based on an internal model of itself—it must possess a certain minimal structural
+            complexity. This threshold is defined by the <a href="horizon.html"
+                style="text-decoration: none; border-bottom: 1px solid transparent; transition: border-bottom 0.3s;"
+                onmouseover="this.style.borderBottomColor='black';"
+                onmouseout="this.style.borderBottomColor='transparent';">Horizon Constant, K₀</a>.</p>
+        <div class="proposition">
+            <h3>Proposition 4.1 (Necessary Logical Structure for Self-Referential Prediction):</h3>
+            <p>Any system engaging in non-trivial self-referential prediction must instantiate a tripartite logical
+                structure enabling:</p>
+            <ul style="font-size: 20px;">
+                <li>(i) <strong>State Distinction (<span class="math-inline">b<sub>m</sub></span>):</strong> The ability
+                    to represent and distinguish between its own internal states.</li>
+                <li>(ii) <strong>Predictive Generation (<span class="math-inline">b<sub>p</sub></span>):</strong> An
+                    internal mechanism or model to generate representations of potential future states.</li>
+                <li>(iii) <strong>Verification (<span class="math-inline">b<sub>v</sub></span>):</strong> The
+                    ability to compare its predictions with actual outcomes and initiate an update to its internal state
+                    or model.</li>
+            </ul>
+            <div class="proof">
+                <h3>Proof Outline:</h3>
+                <p>(i) Self-reference requires the system to identify itself and differentiate its current state from
+                    others. (ii) Prediction involves forming an internal representation of a future state. (iii) For
+                    adaptive prediction, the system must assess its predictions against outcomes.
+            </div>
+        </div>
+        <div class="theorem">
+            <h3>Theorem 4.1 (Horizon Constant K₀ = 3 bits):</h3>
+            <p>The <strong>Horizon Constant K₀</strong> is the minimum informational complexity required to physically
+                instantiate the tripartite logical structure. In any system utilizing binary encoding,
+                this minimum complexity is <strong>3 bits</strong>.</p>
+            <div class="proof">
+                <h3>Proof Outline:</h3>
+                <p>The full proof, detailed in the <a href="horizon.html"
+                        style="text-decoration: none; border-bottom: 1px solid transparent; transition: border-bottom 0.3s;"
+                        onmouseover="this.style.borderBottomColor='black';"
+                        onmouseout="this.style.borderBottomColor='transparent';">Horizon Constant</a> document,
+                    demonstrates
+                    necessity and sufficiency. <em>Necessity:</em> A system engaging in non-trivial self-referential
+                    prediction must reliably distinguish its internal
+                    states corresponding to different phases of its predictive cycle. These phases minimally involve
+                    representing an internal proposition (denoted <span class="math-inline">ϕ</span>), storing the
+                    prediction value (denoted <span class="math-inline">p</span>), and managing a control phase (denoted
+                    <span class="math-inline">c</span>). Each of these minimally requires 1 bit (e.g., to distinguish
+                    proposition true/false; prediction true/false; control phase predict/verify). An unambiguous cycle
+                    distinguishing states like <span class="math-inline">(ϕ, p, c)</span> is essential.
+                </p>
+                <p style="margin-left: 0px;">To uniquely represent all combinations of these three binary components
+                    (<span class="math-inline">ϕ</span>, <span class="math-inline">p</span>, and
+                    <span class="math-inline">c</span>) requires <span class="math-inline">2 × 2 × 2 =
+                        8</span> distinct internal configurations. This necessitates a minimum of 3 bits (since <span class="math-inline">log₂ 8 = 3</span>). Fewer than 3 bits would lead to state
+                    ambiguities (pigeonhole principle), preventing reliable execution of this minimal self-referential
+                    predictive cycle.
+                    <em>Sufficiency:</em> A 3-bit state machine can be constructed that instantiates the necessary
+                    logical capabilities for State Distinction (<span class="math-inline">b<sub>m</sub></span>),
+                    Predictive Generation (<span class="math-inline">b<sub>p</sub></span>), and Verification (<span
+                        class="math-inline">b<sub>v</sub></span>) to achieve non-trivial self-referential prediction
+                    with better-than-chance performance.
+                </p>
+
+            </div>
+        </div>
+        <p>K₀ establishes that systems with complexity less than 3 bits are trivial automata regarding self-referential
+            prediction. Systems with complexity <span class="math-inline">C ≥ K₀</span> possess the minimal structural
+            capacity for such dynamics.</p>
+
+        <h2>5. Dynamic Self-Reference and Its Universal Limits</h2>
+        <div class="definition">
+            <h3>Definition 5.0 (Property R: Bounded Internal Query)</h3>
+            <p>A system possesses Property R if it has the architectural capacity to internally formulate propositions
+                <em>ϕ</em> about its own structure or behavior and to execute a bounded, rule-based search (e.g.,
+                `Prf≤g(n)`) to check for support (e.g., proofs) for <em>ϕ</em> or its negation.
+            </p>
+        </div>
+
+        <h3>5.1 The Dynamic Self-Reference Operator (DSRO)</h3>
+        <p>A Dynamic Self-Reference Operator (DSRO) is a computational process within a system (of at least K₀
+            complexity and possessing Property R) that dynamically adapts its state or output based on internal,
+            bounded checks about its own self-referential propositions.</p>
+        <p>The core logic of a DSRO involves a conditional structure based on checking a self-referential proposition
+            <span class="math-inline">ϕ<sub>S</sub></span>:
+        </p>
+        <ol style="font-size: 20px;">
+            <li>Internal support (e.g., bounded proof) for <span class="math-inline">ϕ<sub>S</sub></span>.</li>
+            <li>Internal support for <span class="math-inline">¬ϕ<sub>S</sub></span>.</li>
+            <li>No decisive support for <span class="math-inline">ϕ<sub>S</sub></span> or <span
+                    class="math-inline">¬ϕ<sub>S</sub></span> within bounds.</li>
+        </ol>
+        <p>A DSRO function <span class="math-inline">f(n)</span> can be formalized as:</p>
+        <p class="formula">
+            <em><span class="math-inline">f(n) =
+                    CASE
+                    (Prf<sub>≤g(n)</sub>(⌈ϕ<sub>β</sub>(n)⌉)): n + H₁(n);
+                    (¬Prf<sub>≤g(n)</sub>(⌈ϕ<sub>β</sub>(n)⌉) ∧ Prf<sub>≤g(n)</sub>(⌈¬ϕ<sub>β</sub>(n)⌉)): n + H₂(n);
+                    (OTHERWISE): n + 1;
+                    ENDCASE
+                </span></em><span class="equation-number">(5.1)</span>
+        </p>
+        <p>Where <span class="math-inline">β</span> is the Gödel code of <span class="math-inline">f</span>,
+            <span class="math-inline">ϕ<sub>β</sub>(n)</span> is the self-referential proposition, <span
+                class="math-inline">Prf<sub>≤g(n)</sub></span> is a bounded proof
+            search, and <span class="math-inline">H₁</span>, <span class="math-inline">H₂</span> are jump functions. The
+            <a href="liteframework.html"
+                style="text-decoration: none; border-bottom: 1px solid transparent; transition: border-bottom 0.3s;"
+                onmouseover="this.style.borderBottomColor='black';"
+                onmouseout="this.style.borderBottomColor='transparent';">LITE framework</a> provides a concrete
+            construction.
+        </p>
+
+        <h3>5.2 The Self-Referential Paradox of Accurate Prediction (SPAP) and Reflexive Limits</h3>
+        <p>Systems complex enough to implement DSROs encounter fundamental logical limits when attempting to predict
+            their own future behavior. This leads directly to the Self-Referential Paradox of Accurate Prediction
+            (SPAP). The underlying dynamics of such systems, where interaction is an integral component that alters the
+            system's state in an outcome-dependent manner, are further explored under the concept of <a
+                href="reflexive.html"
+                style="text-decoration: none; border-bottom: 1px solid transparent; transition: border-bottom 0.3s;"
+                onmouseover="this.style.borderBottomColor='black';"
+                onmouseout="this.style.borderBottomColor='transparent';">Reflexive Undecidability</a>, which details
+            computational limits arising from such dynamic interactions.</p>
+        <div class="definition">
+            <h3>Definition 5.1 (Self-Referential System):</h3>
+            <p>A system <span class="math-inline">S</span> is self-referential if its state <span
+                    class="math-inline">S(t)</span> includes an internal model of
+                itself, <span class="math-inline">M(S(t))</span>. Represented as <span class="math-inline">S(t) = (x(t),
+                    M(S(t)))</span>.</p>
+        </div>
+        <div class="theorem">
+            <h3>Theorem 5.1 (The Self-Referential Paradox of Accurate Prediction - SPAP):</h3>
+            <p>It is logically impossible for non-trivial predictive system to create a complete and
+                perfectly accurate prediction of its own future state.</p>
+            <div class="proof">
+                <h3>Proof Outline:</h3>
+                <p>The full proof is detailed in <a href="self-referential.html"
+                        style="text-decoration: none; border-bottom: 1px solid transparent; transition: border-bottom 0.3s;"
+                        onmouseover="this.style.borderBottomColor='black';"
+                        onmouseout="this.style.borderBottomColor='transparent';">Self-Referential Paradox of Accurate
+                        Prediction</a>. In essence, for a system <span class="math-inline">S</span> to make a
+                    perfectly accurate prediction of its own future state, its current state <span
+                        class="math-inline">S(t)</span> must include a complete model of itself, <span
+                        class="math-inline">M(S(t))</span>, which contains the prediction. This leads to an unavoidable
+                    infinite regress: <span class="math-inline">S(t) = (x(t), M(S(t))) = (x(t), M((x(t), M((x(t),
+                        M(...))))))</span>. Such an infinitely nested structure cannot be finitely represented or
+                    computed, rendering perfect self-prediction logically impossible. Furthermore, the physical
+                    instantiation of any predictive cycle resolving this self-reference within a finite-memory system
+                    necessitates logically irreversible operations, which, as detailed in the <a
+                        href="predictiveuniverse.html"
+                        style="text-decoration: none; border-bottom: 1px solid transparent; transition: border-bottom 0.3s;"
+                        onmouseover="this.style.borderBottomColor='black';"
+                        onmouseout="this.style.borderBottomColor='transparent';">Predictive Universe</a> framework,
+                    incurs a minimal thermodynamic cost.</p>
+            </div>
+        </div>
+        <img src="images/consciousness3.jpg" alt="The Space of Becoming" />
+        <p class="caption">Universe 00110000</p>
+        <h2>6. The Dynamics of Bounded Conscious Systems</h2>
+        <h3>6.1 The Space of Becoming</h3>
+        <p>The impossibility of perfect prediction (SPAP) is a necessary condition for dynamic,
+            adaptive existence. Consciousness operates between perfect predictability and total chaos.</p>
+        <div class="definition">
+            <h3>Definition 6.1 (The Space of Becoming):</h3>
+            <p>Consciousness operates within a bounded interval of predictive accuracy <span
+                    class="math-inline">P</span> regarding its own states and relevant environmental variables, defined
+                by:</p>
+            <p class="formula"><em><span class="math-inline">0 < α < P < β < 1</span></em><span
+                    class="equation-number">(6.1)</span></p>
+            <ul style="font-size: 20px;">
+                <li><span class="math-inline">α</span>: Lower bound; below this, coherence is lost.</li>
+                <li><span class="math-inline">β</span>: Upper bound, limited by SPAP for self-predictions. Approaching
+                    <span class="math-inline">β</span> might lead to stasis.
+                </li>
+            </ul>
+        </div>
+        <p><a href="becoming.html"
+                style="text-decoration: none; border-bottom: 1px solid transparent; transition: border-bottom 0.3s;"
+                onmouseover="this.style.borderBottomColor='black';"
+                onmouseout="this.style.borderBottomColor='transparent';">The Space of Becoming</a> is this operational zone
+            where learning and adaptation are possible.</p>
+
+        <h3>6.2 The Prediction Optimization Problem (POP)</h3>
+        <p>Any system in the Space of Becoming is bounded by K₀, SPAP, and finite physical resources.</p>
+        <div class="definition">
+            <h3>Definition 6.2 (The Prediction Optimization Problem - POP):</h3>
+            <p>POP is the fundamental challenge for predictive systems to allocate its finite resources to generate
+                predictions about itself and its environment that are sufficiently accurate and relevant to its survival
+                and goals, given its inherent predictive limitations and the complexity of the world.</p>
+        </div>
+        <p>POP is the core economic problem of cognition.</p>
+
+        <h2>7. Strategies for Navigating the Predictive Landscape: Meaning and Efficiency</h2>
+        <p>Conscious systems employ various strategies to tackle POP. Communication allows systems
+            to leverage the predictive work of others, leading to a functional understanding of meaning.</p>
+
+        <h3>7.1 Predictive Landscape Semantics (PLS)</h3>
+        <div class="definition">
+            <h3>Definition 7.1 (Predictive Landscape - <span class="math-inline">L<sub>t</sub></span>):</h3>
+            <p>A receiver's internal model of the world at time <span class="math-inline">t</span>: <span
+                    class="math-inline">L<sub>t</sub> = (X<sub>R</sub>, P<sub>R,t</sub>, V<sub>R,t</sub>)</span>, where:
+            </p>
+            <ul style="font-size: 20px;">
+                <li><span class="math-inline">X<sub>R</sub></span>: Relevant state space.</li>
+                <li><span class="math-inline">P<sub>R,t</sub></span>: Subjective probability distribution over <span
+                        class="math-inline">X<sub>R</sub></span>.</li>
+                <li><span class="math-inline">V<sub>R,t</sub></span>: State-value function (goals/utility).</li>
+            </ul>
+        </div>
+        <div class="definition">
+            <h3>Definition 7.2 (Information):</h3>
+            <p>A physically instantiated pattern with the potential to improve a receiver's predictive accuracy
+                regarding states in <span class="math-inline">X<sub>R</sub></span>.</p>
+        </div>
+        <div class="definition">
+            <h3>Definition 7.3 (Meaning - ΔQ):</h3>
+            <p>Meaning is the <strong>quantifiable improvement in the quality (Q) of a receiver's predictive
+                    landscape</strong> (specifically, its belief state <span class="math-inline">P<sub>R,t</sub></span>)
+                after processing an informational signal <span class="math-inline">s</span>.</p>
+            <p class="formula"><span class="math-inline">ΔQ(s) = Q(P<sub>R,t+1</sub>) -
+                    Q(P<sub>R,t</sub>)</span><span class="equation-number">(7.1)</span></p>
+            <p>Quality <span class="math-inline">Q</span> can be measured using metrics like Shannon Entropy
+                (uncertainty reduction: <span class="math-inline">Q = -H</span>) or Kullback-Leibler Divergence
+                (accuracy improvement: <span class="math-inline">Q =
+                    -D<sub>KL</sub></span>). If <span class="math-inline">ΔQ(s) > 0</span>, signal <span
+                    class="math-inline">s</span> was meaningful. (Detailed in <a href="meaning.html"
+                    style="text-decoration: none; border-bottom: 1px solid transparent; transition: border-bottom 0.3s;"
+                    onmouseover="this.style.borderBottomColor='black';"
+                    onmouseout="this.style.borderBottomColor='transparent';">Predictive Landscape Semantics</a>).</p>
+        </div>
+
+        <h3>7.2 The Principle of Compression Efficiency (PCE)</h3>
+        <p>To tackle POP efficiently, systems evolve communication strategies that optimize the trade-off between the
+            predictive benefit of information and its cost. This is governed by the Principle of Compression Efficiency
+            (PCE), which is derived from the broader <a href="compression.html"
+                style="text-decoration: none; border-bottom: 1px solid transparent; transition: border-bottom 0.3s;"
+                onmouseover="this.style.borderBottomColor='black';"
+                onmouseout="this.style.borderBottomColor='transparent';">Law of Compression (LoC)</a>.</p>
+        <div class="definition">
+            <h3>Definition 7.4 (Principle of Compression Efficiency - PCE):</h3>
+            <p>PCE operationalizes the LoC by stating that systems strive to maximize communicative efficiency. This is
+                achieved by optimizing the relationship between a signal's expected predictive benefit, or
+                <strong>Meaning Potential (MP)</strong>, and its comprehensive resource expenditure, or <strong>Signal
+                    Cost (SC)</strong>. Communication favors signals that maximize the ratio <span
+                    class="math-inline">MP/SC</span> or the net utility <span class="math-inline">MP - λ ⋅ SC</span>.
+            </p>
+        </div>
+        <p>PCE explains how highly compressed signals can be profoundly meaningful by delivering a high MP for a low SC,
+            representing a resource-rational approach to the POP.</p>
+
+        <img src="images/consciousness4.jpg" alt="Principle of Compression Efficiency" />
+        <p class="caption">Universe 00110000</p>
+
+
+
+        <h2>8. Conclusion</h2>
+        <p>This paper has constructed a mathematical model of consciousness from first principles. Beginning with the
+            certainty of the Cogito, we have demonstrated that consciousness is a predictive, computational process.
+            This requires a minimum complexity (K₀) to enable non-trivial self-referential prediction. Systems meeting
+            this threshold can implement Dynamic Self-Reference Operators (DSROs),
+            exemplified by LITE, but are subject to the Self-Referential Paradox of Accurate
+            Prediction (SPAP).</p>
+        <p>Conscious agents operate within a dynamic Space of Becoming, facing the Prediction Optimization Problem.
+            Communication, where meaning
+            (ΔQ) is the quantifiable improvement in predictive power, guided by the Principle of Compression
+            Efficiency, is a key strategy. This model suggests that
+            the limits of our knowledge are the conditions for a dynamic, meaningful existence.</p>
+
+        <h2>Glossary of Key Symbols and Terms</h2>
+        <table id="glossary-table">
+            <thead>
+                <tr>
+                    <th>Symbol/Term</th>
+                    <th>Description</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>Cogito</strong></td>
+                    <td>Descartes' principle, Cogito ergo sum, used as the foundational epistemological certainty.
+                    </td>
+                </tr>
+                <tr>
+                    <td><strong>Predictionism</strong></td>
+                    <td>The framework positing that the operational core of thought is a predictive cycle, from which
+                        logic emerges.</td>
+                </tr>
+                <tr>
+                    <td><strong>K₀</strong></td>
+                    <td>The <strong>Horizon Constant</strong> (3 bits), the minimum informational complexity required
+                        for non-trivial self-referential prediction.</td>
+                </tr>
+                <tr>
+                    <td><strong>DSRO</strong></td>
+                    <td><strong>Dynamic Self-Reference Operator</strong>. A computational process that adapts based on
+                        bounded internal proofs about its own behavior.</td>
+                </tr>
+                <tr>
+                    <td><strong>SPAP</strong></td>
+                    <td><strong>Self-Referential Paradox of Accurate Prediction</strong>. The logical impossibility for
+                        any system to perfectly predict its own future state.</td>
+                </tr>
+                <tr>
+                    <td><strong>SoB</strong></td>
+                    <td><strong>Space of Becoming</strong>. The bounded operational range of predictive accuracy (P)
+                        within which consciousness operates, defined by 0 < α < P < β < 1.</td>
+                </tr>
+                <tr>
+                    <td><strong>POP</strong></td>
+                    <td><strong>Prediction Optimization Problem</strong>. The fundamental challenge of allocating finite
+                        resources to generate relevant and accurate predictions.</td>
+                </tr>
+                <tr>
+                    <td><strong>PLS</strong></td>
+                    <td><strong>Predictive Landscape Semantics</strong>. The theory defining meaning as a quantifiable
+                        improvement in predictive accuracy.</td>
+                </tr>
+                <tr>
+                    <td><strong>PCE</strong></td>
+                    <td><strong>Principle of Compression Efficiency</strong>. The principle that communication optimizes
+                        the trade-off between predictive benefit (MP) and resource cost (SC).</td>
+                </tr>
+                <tr>
+                    <td><span class="math-inline">L<sub>t</sub></span></td>
+                    <td><strong>Predictive Landscape</strong>. A receiver's internal model at time t, comprising
+                        (X<sub>R</sub>, P<sub>R,t</sub>, V<sub>R,t</sub>).</td>
+                </tr>
+                <tr>
+                    <td><span class="math-inline">ΔQ</span></td>
+                    <td><strong>Realized Meaning</strong>. The quantifiable improvement in a receiver's predictive
+                        quality (Q) after processing information.</td>
+                </tr>
+                <tr>
+                    <td><span class="math-inline">α</span>, <span class="math-inline">β</span></td>
+                    <td>The lower (α) and upper (β) bounds of predictive accuracy defining the Space of Becoming.</td>
+                </tr>
+                <tr>
+                    <td><span class="math-inline">δ(S)</span></td>
+                    <td>The binary verification outcome (1 for true, 0 for false) of a proposition S.</td>
+                </tr>
+                <tr>
+                    <td><strong>Property R</strong></td>
+                    <td>The ability of a system to perform bounded internal queries about its own propositions.</td>
+                </tr>
+            </tbody>
+        </table>
+        <br>
+        <h2>Appendix A: Toy Model</h2>
+        <p>This appendix provides a Python-based toy model intended as an illustrative conceptual sketch of the
+            framework's core dynamics. It is not an empirical validation but a computational instantiation to
+            demonstrate the logical interoperability of key concepts such as the predictive cycle, K₀-dependent
+            behavior, the Space of Becoming, POP, and PLS. The code uses simplified, high-level abstractions for complex
+            processes like proof-searching (DSRO) to maintain clarity and focus on the interactions between the
+            framework's components.</p>
+
+        <h3>A.1 Model Overview and Core Agent Structure</h3>
+        <p>The `ConsciousAgent` class simulates an agent with an internal state, predictive mechanism, resource
+            constraints, and basic communication ability. Key elements include:</p>
+        <ul style="font-size: 20px;">
+            <li><strong>Predictive Cycle (Predictionism):</strong> Makes and verifies predictions, updating beliefs.
+            </li>
+            <li><strong>K₀ & DSRO/SPAP Logic:</strong> Conceptual check for K₀. `dsro_function_f` simulates
+                self-referential logic with potential SPAP effects.</li>
+            <li><strong>Space of Becoming:</strong> Monitors predictive accuracy against α and β thresholds.</li>
+            <li><strong>POP:</strong> Manages resources and selects tasks based on a simple priority.</li>
+            <li><strong>PLS & PCE:</strong> Processes signals, calculates meaning (ΔQ), and selects signals based on
+                MP/SC.</li>
+        </ul>
+        <h3>A.2 Python Code Implementation</h3>
+        <div class="code-container">
+            <div class="code-header">
+                <span class="language">Python</span>
+                <button class="copy-button" onclick="copyCode(this)">Copy</button>
+            </div>
+            <pre><code><span class="keyword">import</span> numpy <span class="keyword">as</span> np
+<span class="keyword">import</span> random
+<span class="keyword">from</span> typing <span class="keyword">import</span> <span class="class">Dict</span>, <span class="class">Any</span>, <span class="class">List</span>, <span class="class">Tuple</span>
+
+K0_MIN_BITS = <span class="number">3</span>
+ALPHA_COHERENCE_THRESHOLD = <span class="number">0.3</span>
+BETA_SPAP_LIMIT = <span class="number">0.9</span>
+LAMBDA_PCE_TRADEOFF = <span class="number">0.5</span>
+
+<span class="keyword">class</span> <span class="class">ConsciousAgent</span>:
+    <span class="keyword">def</span> <span class="function">__init__</span>(<span class="keyword">self</span>, name: <span class="class">str</span>, initial_compute_resource: <span class="class">float</span>):
+        <span class="keyword">self</span>.name = name
+        <span class="keyword">self</span>.beliefs: <span class="class">Dict</span>[<span class="class">str</span>, <span class="class">bool</span>] = {<span class="string">"event_A_occurs"</span>: <span class="number">True</span>}
+        <span class="keyword">self</span>.accuracy_history: <span class="class">List</span>[<span class="class">int</span>] = []
+        <span class="keyword">self</span>.compute_resource: <span class="class">float</span> = initial_compute_resource
+        <span class="keyword">self</span>.internal_model_bits: <span class="class">int</span> = <span class="number">2</span>  <span class="comment"># Start below K0</span>
+        <span class="keyword">self</span>.dsro_memory: <span class="class">Dict</span>[<span class="class">int</span>, <span class="class">int</span>] = {}
+        <span class="keyword">self</span>.landscape_X_R: <span class="class">set</span> = {<span class="string">"stateX"</span>, <span class="string">"stateY"</span>}
+        <span class="keyword">self</span>.landscape_P_R: <span class="class">Dict</span>[<span class="class">str</span>, <span class="class">float</span>] = {s: <span class="number">1.0</span> / <span class="function">len</span>(<span class="keyword">self</span>.landscape_X_R) <span class="keyword">for</span> s <span class="keyword">in</span> <span class="keyword">self</span>.landscape_X_R}
+
+    <span class="keyword">def</span> <span class="function">log</span>(<span class="keyword">self</span>, msg: <span class="class">str</span>):
+        <span class="function">print</span>(f<span class="string">"[{self.name}]: {msg}"</span>)
+
+    <span class="keyword">def</span> <span class="function">predictive_cycle</span>(<span class="keyword">self</span>, prop: <span class="class">str</span>, truth: <span class="class">bool</span>):
+        pred = <span class="keyword">self</span>.beliefs.<span class="function">get</span>(prop, random.<span class="function">choice</span>([<span class="number">True</span>, <span class="number">False</span>]))
+        verified = (pred == truth)
+        <span class="keyword">self</span>.beliefs[prop] = truth
+        <span class="keyword">self</span>.accuracy_history.<span class="function">append</span>(<span class="number">1</span> <span class="keyword">if</span> verified <span class="keyword">else</span> <span class="number">0</span>)
+        <span class="keyword">self</span>.<span class="function">log</span>(f<span class="string">"PRED: '{prop}' predicted {pred}, truth {truth}. Success: {verified}"</span>)
+
+    <span class="keyword">def</span> <span class="function">_sim_proof_search</span>(<span class="keyword">self</span>, prop_code: <span class="class">int</span>, n: <span class="class">int</span>, bound: <span class="class">int</span>) -> <span class="class">str</span>:
+        <span class="keyword">if</span> (prop_code + n + bound) % <span class="number">7</span> == <span class="number">0</span>:
+            <span class="keyword">return</span> <span class="string">"proof_phi_n_found"</span>
+        <span class="keyword">if</span> (prop_code - n + bound) % <span class="number">5</span> == <span class="number">0</span>:
+            <span class="keyword">return</span> <span class="string">"refutation_phi_n_found"</span>
+        <span class="keyword">return</span> <span class="string">"neither"</span>
+
+    <span class="keyword">def</span> <span class="function">dsro_f</span>(<span class="keyword">self</span>, n: <span class="class">int</span>) -> <span class="class">int</span>:
+        <span class="keyword">if</span> n <span class="keyword">in</span> <span class="keyword">self</span>.dsro_memory:
+            <span class="keyword">return</span> <span class="keyword">self</span>.dsro_memory[n]
+        <span class="keyword">if</span> <span class="keyword">self</span>.internal_model_bits < K0_MIN_BITS:
+            <span class="keyword">return</span> n + <span class="number">1</span>
+        
+        prop_code = <span class="function">hash</span>(f<span class="string">"f({n}) output rule"</span>) % <span class="number">100</span>
+        outcome = <span class="keyword">self</span>.<span class="function">_sim_proof_search</span>(prop_code, n, n + <span class="number">2</span>)
+        avg_acc = np.<span class="function">mean</span>(<span class="keyword">self</span>.accuracy_history[-<span class="number">10</span>:]) <span class="keyword">if</span> <span class="keyword">self</span>.accuracy_history <span class="keyword">else</span> <span class="number">0.5</span>
+        
+        res = n + <span class="number">1</span>
+        <span class="keyword">if</span> avg_acc > BETA_SPAP_LIMIT - <span class="number">0.1</span> <span class="keyword">and</span> random.<span class="function">random</span>() < <span class="number">0.3</span> <span class="keyword">and</span> outcome != <span class="string">"neither"</span>:
+            res = n + <span class="number">20</span> <span class="keyword">if</span> outcome == <span class="string">"proof_phi_n_found"</span> <span class="keyword">else</span> n + <span class="number">10</span>  <span class="comment"># SPAP Effect</span>
+        <span class="keyword">elif</span> outcome == <span class="string">"proof_phi_n_found"</span>:
+            res = n + <span class="number">10</span>
+        <span class="keyword">elif</span> outcome == <span class="string">"refutation_phi_n_found"</span>:
+            res = n + <span class="number">20</span>
+        <span class="keyword">self</span>.dsro_memory[n] = res
+        <span class="keyword">self</span>.<span class="function">log</span>(f<span class="string">"DSRO: f({n}) = {res} (ProofSearch: {outcome})"</span>)
+        <span class="keyword">return</span> res
+
+    <span class="keyword">def</span> <span class="function">check_sob</span>(<span class="keyword">self</span>):
+        avg_acc = np.<span class="function">mean</span>(<span class="keyword">self</span>.accuracy_history[-<span class="number">10</span>:]) <span class="keyword">if</span> <span class="keyword">self</span>.accuracy_history <span class="keyword">else</span> <span class="number">0.5</span>
+        <span class="keyword">if</span> avg_acc < ALPHA_COHERENCE_THRESHOLD:
+            <span class="keyword">self</span>.<span class="function">log</span>(<span class="string">"SOB: Accuracy low, potential incoherence!"</span>)
+        <span class="keyword">if</span> avg_acc > BETA_SPAP_LIMIT:
+            <span class="keyword">self</span>.<span class="function">log</span>(<span class="string">"SOB: Accuracy high, SPAP effects heightened."</span>)
+
+    <span class="keyword">def</span> <span class="function">solve_pop</span>(<span class="keyword">self</span>, tasks: <span class="class">List</span>[<span class="class">Dict</span>]):
+        sorted_tasks = <span class="function">sorted</span>(tasks, key=<span class="keyword">lambda</span> t: t[<span class="string">'importance'</span>] / t[<span class="string">'cost'</span>], reverse=<span class="number">True</span>)
+        <span class="keyword">for</span> task <span class="keyword">in</span> sorted_tasks:
+            <span class="keyword">if</span> <span class="keyword">self</span>.compute_resource >= task[<span class="string">'cost'</span>]:
+                <span class="keyword">self</span>.compute_resource -= task[<span class="string">'cost'</span>]
+                <span class="keyword">self</span>.<span class="function">log</span>(f<span class="string">"POP: Executed '{task['name']}' (cost {task['cost']}). Res left: {self.compute_resource:.1f}"</span>)
+                <span class="keyword">break</span>  <span class="comment"># Simplified: one task per step</span>
+        <span class="keyword">self</span>.compute_resource = <span class="function">min</span>(<span class="number">100</span>, <span class="keyword">self</span>.compute_resource + <span class="number">10</span>)  <span class="comment"># Replenish</span>
+
+    <span class="keyword">def</span> <span class="function">_entropy</span>(<span class="keyword">self</span>, dist: <span class="class">Dict</span>) -> <span class="class">float</span>:
+        probs = np.<span class="function">array</span>(<span class="function">list</span>(dist.<span class="function">values</span>()))
+        <span class="keyword">return</span> -np.<span class="function">sum</span>(probs[probs > <span class="number">0</span>] * np.<span class="function">log2</span>(probs[probs > <span class="number">0</span>]))
+
+    <span class="keyword">def</span> <span class="function">process_signal_pls</span>(<span class="keyword">self</span>, signal_content: <span class="class">str</span>, sig_likelihoods: <span class="class">Dict</span>):
+        prior_H = <span class="keyword">self</span>.<span class="function">_entropy</span>(<span class="keyword">self</span>.landscape_P_R)
+        evidence = <span class="function">sum</span>(sig_likelihoods[h] * <span class="keyword">self</span>.landscape_P_R[h] <span class="keyword">for</span> h <span class="keyword">in</span> <span class="keyword">self</span>.landscape_X_R)
+        <span class="keyword">if</span> evidence < <span class="number">1e-9</span>:
+            delta_q = <span class="number">0.0</span>
+        <span class="keyword">else</span>:
+            posterior_P_R = {h: (sig_likelihoods[h] * <span class="keyword">self</span>.landscape_P_R[h]) / evidence <span class="keyword">for</span> h <span class="keyword">in</span> <span class="keyword">self</span>.landscape_X_R}
+            <span class="keyword">self</span>.landscape_P_R = posterior_P_R
+            delta_q = prior_H - <span class="keyword">self</span>.<span class="function">_entropy</span>(posterior_P_R)
+        <span class="keyword">self</span>.<span class="function">log</span>(f<span class="string">"PLS_RX: Signal '{signal_content}'. ΔQ (Meaning): {delta_q:.3f} bits."</span>)
+        <span class="keyword">return</span> delta_q
+
+    <span class="keyword">def</span> <span class="function">choose_signal_pce</span>(<span class="keyword">self</span>, cand_sigs: <span class="class">List</span>[<span class="class">Tuple</span>], target_P_R: <span class="class">Dict</span>):
+        best_sig, max_util = <span class="keyword">None</span>, -np.inf
+        <span class="keyword">for</span> content, likelihoods <span class="keyword">in</span> cand_sigs:
+            prior_H_target = <span class="keyword">self</span>.<span class="function">_entropy</span>(target_P_R)
+            evidence_target = <span class="function">sum</span>(likelihoods[h] * target_P_R[h] <span class="keyword">for</span> h <span class="keyword">in</span> <span class="keyword">self</span>.landscape_X_R)
+            mp = <span class="number">0.0</span>
+            <span class="keyword">if</span> evidence_target > <span class="number">1e-9</span>:
+                post_P_R_target = {h: (likelihoods[h] * target_P_R[h]) / evidence_target <span class="keyword">for</span> h <span class="keyword">in</span> <span class="keyword">self</span>.landscape_X_R}
+                mp = prior_H_target - <span class="keyword">self</span>.<span class="function">_entropy</span>(post_P_R_target)
+            
+            sc = <span class="number">0.01</span> * <span class="function">len</span>(content)  <span class="comment"># Simplified SC</span>
+            net_util = mp - (LAMBDA_PCE_TRADEOFF * sc)
+            <span class="keyword">if</span> net_util > max_util:
+                max_util, best_sig = net_util, (content, likelihoods)
+        <span class="keyword">if</span> best_sig:
+            <span class="keyword">self</span>.<span class="function">log</span>(f<span class="string">"PCE_TX: Chosen '{best_sig[0]}' (NetUtil: {max_util:.3f})"</span>)
+        <span class="keyword">return</span> best_sig
+
+    <span class="keyword">def</span> <span class="function">run_step</span>(<span class="keyword">self</span>, step: <span class="class">int</span>, world_truth: <span class="class">Dict</span>, other_agent: <span class="class">Any</span> = <span class="keyword">None</span>):
+        <span class="keyword">self</span>.<span class="function">log</span>(f<span class="string">"\n--- {self.name} - Step {step} ---"</span>)
+        prop_choice = random.<span class="function">choice</span>(<span class="function">list</span>(world_truth.<span class="function">keys</span>()))
+        <span class="keyword">self</span>.<span class="function">predictive_cycle</span>(prop_choice, world_truth[prop_choice])
+        _ = <span class="keyword">self</span>.<span class="function">dsro_f</span>(step % <span class="number">3</span>)
+        <span class="keyword">self</span>.<span class="function">check_sob</span>()
+        <span class="keyword">self</span>.<span class="function">solve_pop</span>([
+            {<span class="string">'name'</span>: <span class="string">'task1'</span>, <span class="string">'importance'</span>: <span class="number">0.8</span>, <span class="string">'cost'</span>: <span class="number">20</span>},
+            {<span class="string">'name'</span>: <span class="string">'task2'</span>, <span class="string">'importance'</span>: <span class="number">0.5</span>, <span class="string">'cost'</span>: <span class="number">40</span>}
+        ])
+        
+        <span class="keyword">if</span> other_agent <span class="keyword">and</span> step % <span class="number">2</span> == (<span class="number">0</span> <span class="keyword">if</span> <span class="keyword">self</span>.name == <span class="string">"Agent1"</span> <span class="keyword">else</span> <span class="number">1</span>):
+            cand_signals = [
+                (<span class="string">"SignalAlpha"</span>, {<span class="string">"stateX"</span>: <span class="number">0.7</span>, <span class="string">"stateY"</span>: <span class="number">0.2</span>}),
+                (<span class="string">"SignalBeta"</span>, {<span class="string">"stateX"</span>: <span class="number">0.1</span>, <span class="string">"stateY"</span>: <span class="number">0.9</span>})
+            ]
+            chosen_signal_data = <span class="keyword">self</span>.<span class="function">choose_signal_pce</span>(cand_signals, other_agent.landscape_P_R)
+            <span class="keyword">if</span> chosen_signal_data:
+                other_agent.<span class="function">process_signal_pls</span>(chosen_signal_data[<span class="number">0</span>], chosen_signal_data[<span class="number">1</span>])
+
+<span class="comment"># Simulation</span>
+agent1 = <span class="class">ConsciousAgent</span>(<span class="string">"Agent1"</span>, <span class="number">100.0</span>)
+agent2 = <span class="class">ConsciousAgent</span>(<span class="string">"Agent2"</span>, <span class="number">100.0</span>)
+
+agent1.<span class="function">log</span>(<span class="string">"Agent1 K0: Initially model bits < K0."</span>)
+agent1.dsro_f(<span class="number">0</span>) 
+agent1.internal_model_bits = K0_MIN_BITS
+agent1.<span class="function">log</span>(f<span class="string">"Agent1 K0: Upgraded to {agent1.internal_model_bits} bits. K0 met."</span>)
+agent2.internal_model_bits = K0_MIN_BITS
+
+world_timeline = [
+    {<span class="string">"event_A_occurs"</span>: <span class="number">True</span>, <span class="string">"event_B_occurs"</span>: <span class="number">False</span>},
+    {<span class="string">"event_A_occurs"</span>: <span class="number">False</span>, <span class="string">"event_B_occurs"</span>: <span class="number">True</span>}
+] * <span class="number">2</span>
+
+<span class="keyword">for</span> i <span class="keyword">in</span> <span class="function">range</span>(<span class="number">4</span>):
+    agent1.<span class="function">run_step</span>(i, world_timeline[i], other_agent=agent2)
+    agent2.<span class="function">run_step</span>(i, world_timeline[i], other_agent=agent1)
+
+</code></pre>
+        </div>
+
+
+        <script>
+            function copyCode(button) {
+                const pre = button.parentElement.nextElementSibling;
+                const code = pre.querySelector('code').innerText;
+                navigator.clipboard.writeText(code).then(() => {
+                    button.innerText = 'Copied!';
+                    setTimeout(() => { button.innerText = 'Copy'; }, 2000);
+                }).catch(err => { console.error('Failed to copy: ', err); });
+            }
+        </script>
+
+        <h3>A.3 Interpretation of Model Dynamics</h3>
+        <p>This simplified model demonstrates:</p>
+        <ul style="font-size: 20px;">
+            <li><strong>Predictionism:</strong> Agents make predictions and update beliefs based on outcomes.</li>
+            <li><strong>K₀ and DSRO/SPAP:</strong> `dsro_f` behavior changes once `internal_model_bits` meets
+                `K0_MIN_BITS`. SPAP effects can occur if accuracy is very high.</li>
+            <li><strong>Space of Becoming:</strong> Accuracy is monitored, with potential consequences if it strays
+                outside α/β bounds.</li>
+            <li><strong>POP:</strong> Agents allocate limited `compute_resource` to tasks based on a simple efficiency
+                heuristic.</li>
+            <li><strong>PLS & PCE:</strong> Agents choose signals to send by estimating MP for the receiver and their
+                own SC, and update their predictive landscapes (P_R) upon receiving signals, quantifying meaning (ΔQ).
+            </li>
+        </ul>
+        <p>This toy model, while abstract, provides a computational sketch of the interconnectedness of the framework's
+            core concepts.</p>
+
+
+        <div class="circle-container">
+            <div class="arrow left" onclick="shiftSlide(-1)">❮</div>
+            <div class="circle-wrapper">
+                <!-- Slider items will be dynamically inserted here -->
+            </div>
+            <div class="arrow right" onclick="shiftSlide(1)">❯</div>
+        </div>
+    </article>
+
+    <div class="footer">
+        <div class="footer-links">
+            <a href="../../index.html">Home</a> |
+            <a href="../../about.html">About</a> |
+            <a href="../../privacy.html">Privacy Policy</a> |
+            <a href="https://www.youtube.com/@CinematicStrawberry">YouTube</a>
+        </div>
+        <br>
+        <hr>
+        <p>© 2025 Cinematic Strawberry.</p>
+    </div>
+    <script src="slider.js?v=57"></script>
+</body>
+
+</html>

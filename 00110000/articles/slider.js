@@ -55,6 +55,7 @@ const pages = [
     { href: "fibonacci.html", label: "FIBONACCI STRINGS" },
     { href: "meaning.html", label: "MEANING" },
     { href: "narrative.html", label: "NARRATIVE REALIZATION" },
+    { href: "consciousness.html", label: "CONSCIOUSNESS" },
 
 
 
