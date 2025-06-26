@@ -56,6 +56,7 @@ const pages = [
     { href: "meaning.html", label: "MEANING" },
     { href: "narrative.html", label: "NARRATIVE REALIZATION" },
     { href: "consciousness.html", label: "CONSCIOUSNESS" },
+    { href: "hiddennarratives.html", label: "HIDDEN NARRATIVES" },
 
 
 
