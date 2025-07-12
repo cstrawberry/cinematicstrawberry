@@ -58,6 +58,9 @@ const pages = [
     { href: "consciousness.html", label: "CONSCIOUSNESS" },
     { href: "hiddennarratives.html", label: "HIDDEN NARRATIVES" },
     { href: "time.html", label: "TIME" },
+    { href: "intuitive.html", label: "INTUITIVE SYMBOLICS" },
+    { href: "transparent.html", label: "THE TRANSPARENT MIND" },
+    { href: "instantiation.html", label: "PHYSICAL INSTANTIATION" },
 
 
 
