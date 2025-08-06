@@ -62,6 +62,7 @@ const pages = [
     { href: "transparent.html", label: "THE TRANSPARENT MIND" },
     { href: "instantiation.html", label: "PHYSICAL INSTANTIATION" },
     { href: "quantum.html", label: "QUANTUM MECHANICS" },
+    { href: "cymatics.html", label: "AFFECTIVE CYMATICS" },
 
 
 
