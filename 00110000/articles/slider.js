@@ -63,6 +63,8 @@ const pages = [
     { href: "instantiation.html", label: "PHYSICAL INSTANTIATION" },
     { href: "quantum.html", label: "QUANTUM MECHANICS" },
     { href: "cymatics.html", label: "AFFECTIVE CYMATICS" },
+    { href: "blackhole.html", label: "INFORMATION PARADOX" },
+    { href: "causality.html", label: "CAUSALITY" },
 
 
 
