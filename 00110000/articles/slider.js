@@ -65,6 +65,7 @@ const pages = [
     { href: "cymatics.html", label: "AFFECTIVE CYMATICS" },
     { href: "blackhole.html", label: "INFORMATION PARADOX" },
     { href: "causality.html", label: "CAUSALITY" },
+    { href: "gravity.html", label: "GRAVITY" },
 
 
 
