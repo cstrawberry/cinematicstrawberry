@@ -66,6 +66,7 @@ const pages = [
     { href: "blackhole.html", label: "INFORMATION PARADOX" },
     { href: "causality.html", label: "CAUSALITY" },
     { href: "gravity.html", label: "GRAVITY" },
+    { href: "constant.html", label: "Fine-Structure Constant" },
 
 
 
