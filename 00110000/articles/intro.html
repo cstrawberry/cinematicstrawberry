@@ -4,66 +4,73 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="format-detection" content="telephone=no">
   <title>Universe 00110000: Introduction</title>
-  <meta name="description" content="Universe 00110000 is a digital frontier where imagination and technology intertwine, creating a rich tapestry of interconnected worlds and boundless possibilities.">
-  <link href="article-style.css" rel="stylesheet"/>
+  <meta name="description"
+    content="Universe 00110000 is a digital frontier where imagination and technology intertwine, creating interconnected worlds and open-ended possibilities.">
+  <link href="article-style.min.css?v=39" rel="stylesheet" />
   <link rel="icon" type="image/png" href="../../images/favicon.png">
 
 </head>
 
 <body>
 
-    <div class="header">
-      
-      <div class="logo-container">
-        <a href="../../index.html" style="text-decoration: none; color: inherit;">
-            <h1 class="logo-text">Cinematic Strawberry</h1>
-        </a>
-        <a href="../../index.html">
-            <img src="../../images/logo.jpg" alt="Logo" class="logo-image">
-        </a>
+  <div class="header">
+
+    <div class="logo-container">
+      <a href="../../index.html" style="text-decoration: none; color: inherit;">
+        <h1 class="logo-text">Cinematic Strawberry</h1>
+      </a>
+      <a href="../../index.html">
+        <img src="../../images/logo-transparent.png" alt="Logo" class="logo-image" width="64" height="64"
+          decoding="async">
+      </a>
     </div>
-      <nav>
-        <ul>
-          <li><a href="../../index.html">Look in The Eye</a></li>
-          <li><a href="../../00110000.html">Universe 00110000</a></li>
-        </ul>
-      </nav>
-    </div>
-    <div class="banner">
-      <img src="images/introbanner.jpg" alt="Universe 00110000 Banner Image" />
-    </div>
+    <nav>
+      <ul>
+        <li><a href="../../index.html">Home</a></li>
+        <li><a href="../../00110000.html">Universe 00110000</a></li>
+      </ul>
+    </nav>
+  </div>
+  <div class="banner">
+    <img src="images/introbanner.jpg" alt="Universe 00110000 Banner Image" width="1792" height="1024" decoding="async"
+      fetchpriority="high"
+      srcset="images/introbanner-480.jpg 480w, images/introbanner-800.jpg 800w, images/introbanner.jpg 1792w"
+      sizes="(max-width: 832px) calc(100vw - 24px), 800px">
+  </div>
+  <main>
     <article>
       <h1>Universe 00110000: Introduction</h1>
-    <hr>
-    <p>Welcome to Universe 00110000, a digital frontier where imagination and technology intertwine. This universe, while similar to our own, is a vast canvas for world-building, where each story contributes to a grander narrative. As we layer these narratives, a new reality emerges, parallel to our own yet boundless in its possibilities.</p>
-    <p>In Universe 00110000, we embark on an ambitious journey to construct a simulated reality that mirrors the complexity and depth of our own, while pushing the boundaries of what's possible. By meticulously crafting interconnected worlds, we create a rich tapestry where creativity knows no bounds.</p>
-    <p>As you explore this universe, expect to uncover stories, challenge the very notion of reality, and witness the evolution of a cosmic simulation that grows more vibrant with each addition. Join us on this adventure as we lay the foundation for a digital realm that will captivate and inspire.</p>
-    <div class="circle-container">
-      <div class="arrow left" onclick="shiftSlide(-1)">&#10094;</div>
-      <div class="circle-wrapper">
-        <!-- Slider items will be dynamically inserted here -->
+      <hr>
+      <p>Welcome to Universe 00110000, a digital frontier where imagination and technology intertwine. This universe,
+        while similar to our own, is a vast canvas for world-building, where each story contributes to a grander
+        narrative. As we layer these narratives, a new reality emerges, parallel to our own yet boundless in its
+        possibilities.</p>
+
+      <p>Nothing here is set in stone. This universe is dynamic, always changing. Ideas get revised the same way
+        software does: you iterate, you improve, you ship a better version. The full history of those revisions is
+        tracked openly on <a href="https://github.com/cstrawberry/cinematicstrawberry" target="_blank"
+          rel="noopener noreferrer">GitHub</a>, so anyone can look through the commits and see how the universe has
+        evolved over time.</p>
+      <p>The goal is straightforward and massive: build a simulated reality with the depth and complexity of the real
+        world. Every world we create connects to the others, and the whole thing gets richer the more we add to it.</p>
+      <p>As you explore this universe, expect to uncover stories, challenge the very notion of reality, and witness the
+        evolution of a cosmic simulation that grows more vibrant with each addition.</p>
+      <div class="circle-container">
+        <div class="arrow left" onclick="shiftSlide(-1)">&#10094;</div>
+        <div class="circle-wrapper">
+          <!-- Slider items will be dynamically inserted here -->
+        </div>
+        <div class="arrow right" onclick="shiftSlide(1)">&#10095;</div>
       </div>
-      <div class="arrow right" onclick="shiftSlide(1)">&#10095;</div>
-    </div>
-  </article>
+    </article>
+  </main>
+  <div id="footer"></div>
 
-  <div class="footer">
-    <div class="footer-links">
-                <a href="../../index.html">Home</a> |
-            <a href="../../about.html">About</a> |
-      <a href="../../privacy.html">Privacy Policy</a> |
-      <a href="https://www.youtube.com/@CinematicStrawberry">YouTube</a>
-
-    </div>
-    <br>
-       <hr>
- 
-        <p>© 2025 Cinematic Strawberry.</p>
-
-  </div>
-
-  <script src="slider.js?v=1"></script>
+  <script defer src="../../js/components.min.js?v=8"></script>
+  <script defer src="article-subscribe.min.js?v=13"></script>
+  <script defer src="slider.min.js?v=4"></script>
 </body>
 
 </html>

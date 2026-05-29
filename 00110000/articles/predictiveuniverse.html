@@ -4,10 +4,27 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="format-detection" content="telephone=no">
     <title>The Predictive Universe: A Conceptual Exploration</title>
     <meta name="description"
-        content="An overview of the Predictive Universe (PU) framework, exploring its core ideas on consciousness, quantum mechanics, and gravity derived from prediction.">
-    <link href="article-style.css" rel="stylesheet" />
+        content="A big-picture conceptual exploration of the Predictive Universe framework, showing how prediction, minimal awareness, self-reference, thermodynamics, quantum mechanics, gravity, gauge structure, particle physics, cosmology, mathematics, life, consciousness, and open problems fit into one status-resolved framework.">
+    <link rel="preload" href="../../fonts/Aboreto-Regular.ttf" as="font" type="font/ttf" crossorigin>
+    <link rel="preload" href="../../fonts/Merriweather-Italic.ttf" as="font" type="font/ttf" crossorigin>
+    <style id="critical-article-css">
+        @font-face{font-family:'Aboreto';src:url('../../fonts/Aboreto-Regular.ttf') format('truetype');font-display:swap}@font-face{font-family:'Merriweather';src:url('../../fonts/Merriweather-Italic.ttf') format('truetype');font-style:italic;font-display:swap}*,*::before,*::after{box-sizing:border-box}html{background-color:#fafafa;-webkit-text-size-adjust:100%}body,h1,h2,h3,p,a,img{margin:0;padding:0}body{font-family:'Times New Roman',serif;line-height:1.6;max-width:800px;width:min(800px,calc(100% - 32px));margin:clamp(24px,4vw,40px) auto;padding:0;background-color:#fafafa;overflow-x:hidden}h1,h2,h3{color:#333;margin-bottom:20px;text-shadow:1px 1px 2px rgba(0,0,0,0.1)}h1{font-size:clamp(28px,4vw,36px);line-height:1.2}h2{font-size:clamp(22px,3vw,28px)}h3{font-size:clamp(19px,2.4vw,23px)}p{font-size:clamp(18px,2vw,21px);color:#505050;margin-bottom:20px}article{overflow-wrap:break-word}article li{font-size:clamp(17px,1.9vw,20px);line-height:1.6}article>:not(h1):not(hr):not(.circle-container){content-visibility:auto;contain-intrinsic-size:auto 120px}article>:nth-child(-n+8){content-visibility:visible;contain-intrinsic-size:auto 0px}a{color:#1a0dab;text-decoration:none}article p a,article li a{color:#0645ad;text-decoration:underline !important;text-decoration-thickness:1px;text-underline-offset:3px}a,a:focus,a:active{-webkit-tap-highlight-color:rgba(0,0,0,0);outline:none}.header{display:flex;justify-content:space-between;align-items:center;gap:18px 28px;flex-wrap:wrap;margin-bottom:40px}.logo-container{display:flex;align-items:center;margin-left:0;min-width:0;transform:translateY(-2px)}.logo-text{font-family:'Aboreto',serif;font-size:clamp(22px,2.2vw,28px);line-height:1.2;color:#000;margin:0 10px 0 0;text-shadow:none}.logo-image{height:26px;width:26px;box-shadow:none;margin:0;transform:translateY(-2px)}.logo-container a,.logo-container a:link,.logo-container a:visited,.logo-container a:hover,.logo-container a:focus,.logo-container a:active{display:inline-flex;align-items:center;min-width:28px;min-height:28px;color:inherit;text-decoration:none;outline:none;background-color:transparent;-webkit-tap-highlight-color:transparent}nav ul{list-style:none;display:flex;flex-wrap:wrap;justify-content:center;gap:8px 0;padding-left:0;margin-top:15px;margin-left:0;margin-right:0}nav ul li{margin-left:0;position:relative}nav ul li:not(:last-child)::after{content:"|";margin:0 25px}nav ul li a{font-family:'Merriweather',serif;font-style:italic;text-decoration:none;color:red;position:relative;outline:none;background-color:transparent;-webkit-tap-highlight-color:transparent}nav ul li a:link,nav ul li a:visited,nav ul li a:hover,nav ul li a:focus,nav ul li a:active{color:red;outline:none;background-color:transparent;-webkit-tap-highlight-color:transparent}nav ul li a::after{content:'';position:absolute;width:100%;height:2px;bottom:-2px;left:0;background-color:black;visibility:hidden;transform:scaleX(0);transition:all 0.3s ease-in-out}nav ul li a:hover::after{visibility:visible;transform:scaleX(1)}nav ul li a.active::after{visibility:visible;transform:scaleX(1)}nav ul li:first-child a{color:black}nav ul li:first-child a:visited,nav ul li:first-child a:hover,nav ul li:first-child a:focus,nav ul li:first-child a:active{color:black}nav ul li:last-child a{color:black}nav ul li:last-child a:visited,nav ul li:last-child a:hover,nav ul li:last-child a:focus,nav ul li:last-child a:active{color:black}.banner{max-width:100%;overflow:hidden}.banner img{width:100%;height:auto;display:block}hr{width:80%;height:1px;background-color:#959595;border:none;margin-top:5px;margin-bottom:20px}@media screen and (max-width:1259px){body.has-article-subscribe{padding-bottom:136px}.article-subscribe-card{position:fixed;top:auto;right:12px;bottom:calc(12px + env(safe-area-inset-bottom,0px));left:12px;z-index:120;display:block;width:auto;max-width:480px;margin:0 auto;padding:10px 12px 9px;border-color:#2f2f2f;background-color:rgba(18,18,18,0.96);box-shadow:0 10px 28px rgba(0,0,0,0.24);text-align:left}.article-subscribe-form{display:grid;grid-template-columns:minmax(0,1fr) max-content;gap:5px 6px;align-items:center}.article-subscribe-close{color:#f4f4f4}.article-subscribe-label{grid-column:1 / -1;margin-bottom:0;padding-right:28px;color:#fff}.article-subscribe-input{grid-column:1;border-color:#5a5a5a;background-color:#202020;color:#fff}.article-subscribe-input::placeholder{color:#bdbdbd;opacity:1}.article-subscribe-button{grid-column:2;width:auto;min-width:92px;padding:9px 14px;border-color:#fff;background-color:#fff;color:#111;opacity:1}.article-subscribe-privacy{grid-column:1 / -1;color:#cfcfcf;font-size:clamp(8.5px,2.5vw,10.8px);line-height:1.15;text-align:center;white-space:nowrap}.article-subscribe-privacy+.article-subscribe-privacy{margin-top:3px}}@media screen and (max-width:768px){body{width:min(800px,calc(100% - 24px));margin:0 auto 24px;padding:0}body.has-article-subscribe{padding-bottom:136px}h1{font-size:24px}h2{font-size:20px}.header{position:sticky;top:0;z-index:100;flex-direction:column;align-items:center;gap:14px;margin:0 0 28px;padding:12px 0 14px;background-color:#fafafa;border-bottom:0;box-shadow:none}.logo-container{margin-left:0;transform:none}.logo-image{margin:0;transform:translateY(-2px)}nav ul{margin-top:2px;margin-left:0}.circle-wrapper{display:flex;width:100%;overflow-x:auto;overflow-y:hidden;transform:none !important;transition:none;padding:10px 44px 20px;scroll-snap-type:x mandatory;scroll-padding:0 44px;overscroll-behavior-x:contain;-webkit-overflow-scrolling:touch;touch-action:pan-x pan-y;scrollbar-width:none;-webkit-mask-image:linear-gradient(to right,transparent 0,#000 42px,#000 calc(100% - 42px),transparent 100%);mask-image:linear-gradient(to right,transparent 0,#000 42px,#000 calc(100% - 42px),transparent 100%)}.circle-wrapper::-webkit-scrollbar{display:none}.circle{flex:0 0 auto;scroll-snap-align:center;margin-top:0;margin-bottom:0}.article-subscribe-card{position:fixed;top:auto;right:12px;bottom:calc(12px + env(safe-area-inset-bottom,0px));left:12px;z-index:120;display:block;width:auto;max-width:480px;margin:0 auto;padding:12px 42px 12px 14px;border-color:#2f2f2f;background-color:rgba(18,18,18,0.96);box-shadow:0 10px 28px rgba(0,0,0,0.24);text-align:left}.article-subscribe-form{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:8px 10px;align-items:center}.article-subscribe-close{color:#f4f4f4}.article-subscribe-label{grid-column:1 / -1;margin-bottom:0;color:#fff}.article-subscribe-input{grid-column:1;border-color:#5a5a5a;background-color:#202020;color:#fff}.article-subscribe-input::placeholder{color:#bdbdbd;opacity:1}.article-subscribe-button{grid-column:2;min-width:112px;padding:9px 12px;border-color:#fff;background-color:#fff;color:#111;opacity:1}.article-subscribe-privacy{grid-column:1 / -1;color:#cfcfcf;text-align:center}}body::before{content:"";position:fixed;inset:0;z-index:40;background:rgba(0,0,0,0.82);opacity:0;pointer-events:none;transition:opacity 2200ms ease}body.pu-theater-active::before{opacity:1}.pu-video-banner{position:relative;min-height:clamp(270px,calc(98.125px + 55.859375vw),563px)}@media (max-width:720px){.pu-video-banner{min-height:clamp(270px,calc(94.59375px + 55.859375vw),563px)}}.pu-video-trigger{position:relative;display:block;width:100%;aspect-ratio:512 / 286;overflow:hidden;padding:0;border:0;background:transparent;cursor:pointer}.pu-video-trigger picture{display:block;width:100%;aspect-ratio:512 / 286;background:#000}.pu-video-trigger picture img{width:100%;height:100%;object-fit:cover}.pu-video-trigger::after{content:"";display:block;padding-top:55.859375%}.pu-video-trigger img{position:absolute;inset:0;z-index:1;width:100%;height:100%;display:block;margin:0 auto;border-radius:0;object-fit:cover}.pu-video-trigger:focus-visible{outline:3px solid #b31313;outline-offset:4px}.pu-video-play-indicator{position:absolute;z-index:2;top:50%;left:50%;width:86px;height:86px;border:0;border-radius:50%;background:rgba(0,0,0,0.62);box-shadow:0 12px 34px rgba(0,0,0,0.36);transform:translate(-50%,-50%);animation:pu-video-play-pulse 2.4s ease-in-out infinite;transition:transform 180ms ease,background-color 180ms ease,box-shadow 180ms ease}.pu-video-trigger:hover .pu-video-play-indicator,.pu-video-trigger:focus-visible .pu-video-play-indicator{background:rgba(0,0,0,0.38);box-shadow:0 16px 42px rgba(0,0,0,0.42);animation-play-state:paused;transform:translate(-50%,-50%) scale(1.14)}.pu-video-play-indicator::before{content:"";position:absolute;top:50%;left:52%;width:0;height:0;border-top:14px solid transparent;border-bottom:14px solid transparent;border-left:21px solid #fff;transform:translate(-42%,-50%)}@keyframes pu-video-play-pulse{0%,100%{transform:translate(-50%,-50%) scale(1);box-shadow:0 12px 34px rgba(0,0,0,0.36)}50%{transform:translate(-50%,-50%) scale(1.08);box-shadow:0 18px 48px rgba(0,0,0,0.46)}}.pu-video-banner::before{content:"";display:block;height:58px;background:#000}@media (max-width:720px){.pu-video-banner::before{height:54px}}.pu-video-banner::after{content:"";display:block;height:58px;background:#000}.pu-video-banner.pu-video-inline-player::after{display:none}@media (max-width:720px){.pu-video-banner::after{height:54px}}body.pu-theater-active .header,body.pu-theater-settle .header{z-index:30}body.pu-theater-active .pu-video-banner,body.pu-theater-settle .pu-video-banner{z-index:50}@media screen and (max-width:480px){.logo-image{height:22px;width:22px;box-shadow:none;margin:0}}.pu-video-banner+main article>h1{margin-top:clamp(32px,4.5vw,56px)}
+    </style>
+    <link rel="preload" href="article-style.min.css?v=39" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <link rel="preload" href="video/predictiveuniverse/movie-visuals.css?v=7" as="style"
+        onload="this.onload=null;this.rel='stylesheet'">
+    <noscript>
+        <link href="article-style.min.css?v=39" rel="stylesheet" />
+        <link href="video/predictiveuniverse/player.min.css?v=57" rel="stylesheet" />
+        <link href="video/predictiveuniverse/movie-visuals.css?v=7" rel="stylesheet" />
+    </noscript>
+    <style id="mobile-slide-deck-only">
+        @media (max-width:640px){#slideDeckLightbox.slideshow-lightbox{align-items:stretch;justify-content:stretch;width:100vw;height:100vh;height:100dvh;padding:0;touch-action:pan-y;overscroll-behavior:contain}#slideDeckLightbox .slide-deck-stage{width:100vw;height:100vh;height:100dvh;max-height:none;padding:calc(42px + env(safe-area-inset-top,0px)) 0 calc(104px + env(safe-area-inset-bottom,0px));box-sizing:border-box;justify-content:center;gap:0;touch-action:pan-y}#slideDeckLightbox .slide-deck-lightbox-title{position:fixed;top:calc(12px + env(safe-area-inset-top,0px));left:56px;right:56px;z-index:1001;font-size:14px;pointer-events:none}#slideDeckLightbox .slide-deck-image{width:100vw;max-width:100vw;max-height:calc(100vh - 164px);max-height:calc(100dvh - 164px - env(safe-area-inset-top,0px) - env(safe-area-inset-bottom,0px));object-fit:contain;touch-action:pan-y;user-select:none;-webkit-user-drag:none}#slideDeckLightbox .slide-deck-close{top:calc(8px + env(safe-area-inset-top,0px));right:calc(8px + env(safe-area-inset-right,0px));width:44px;height:44px;font-size:24px}#slideDeckLightbox .slide-deck-nav{top:auto;bottom:calc(18px + env(safe-area-inset-bottom,0px));width:44px;height:44px;border-radius:50%;background:rgba(0,0,0,0.58);font-size:26px;line-height:1;transform:none}#slideDeckLightbox .slide-deck-prev{left:calc(50% - 104px)}#slideDeckLightbox .slide-deck-next{right:calc(50% - 104px)}#slideDeckLightbox .slide-deck-counter{position:fixed;left:50%;bottom:calc(27px + env(safe-area-inset-bottom,0px));z-index:1001;transform:translateX(-50%)}}
+    </style>
+
     <link rel="icon" type="image/png" href="../../images/favicon.png">
 
 </head>
@@ -16,556 +33,1576 @@
     <div class="header">
         <div class="logo-container">
             <a href="../../index.html" style="text-decoration: none; color: inherit;">
-                <h1 class="logo-text">Cinematic Strawberry</h1>
+                <div class="logo-text">Cinematic Strawberry</div>
             </a>
             <a href="../../index.html">
-                <img src="../../images/logo.jpg" alt="Logo" class="logo-image">
+                <img src="../../images/logo-transparent-48.png" alt="Logo" class="logo-image" width="48" height="48"
+                    decoding="async">
             </a>
         </div>
         <nav>
             <ul>
-                <li><a href="../../index.html">Look in The Eye</a></li>
+                <li><a href="../../index.html">Home</a></li>
                 <li><a href="../../00110000.html">Universe 00110000</a></li>
             </ul>
         </nav>
     </div>
-    <div class="banner">
-        <img src="images/predictive_universe_banner.jpg" alt="Banner Image" />
+    <div class="banner pu-video-banner" style="min-height: clamp(270px, calc(94.59375px + 55.859375vw), 563px);">
+        <button type="button" class="pu-video-trigger" aria-label="Play Predictive Universe audio">
+            <picture>
+                <source type="image/webp" media="(max-width: 832px)"
+                    srcset="images/pu_banner-480.webp 480w, images/pu_banner-512.webp 512w, images/pu_banner-680.webp 680w"
+                    sizes="calc(100vw - 24px)">
+                <source type="image/webp" srcset="images/pu_banner-800.webp 800w" sizes="800px">
+                <source type="image/jpeg" media="(max-width: 832px)"
+                    srcset="images/pu_banner-480.jpg 480w, images/pu_banner-512.jpg 512w, images/pu_banner-680.jpg 680w"
+                    sizes="calc(100vw - 24px)">
+                <source type="image/jpeg" srcset="images/pu_banner-800.jpg 800w" sizes="800px">
+                <img src="images/pu_banner-512.jpg" alt="Banner Image" width="512" height="286" decoding="async"
+                    fetchpriority="high"
+                    data-full-src="images/pu_banner.jpeg"
+                    data-desktop-fullscreen-src="images/pu_banner.jpeg">
+            </picture>
+            <span class="pu-video-play-indicator" aria-hidden="true"></span>
+        </button>
     </div>
-    <article>
-        <h1>The Predictive Universe: A Conceptual Exploration</h1>
-        <hr>
-        <h2>Abstract</h2>
-        <p>The <strong>Predictive Universe (PU)</strong> framework offers a novel perspective on reality, proposing that
-            the observed structures of quantum mechanics and spacetime geometry arise from the fundamental act of
-            prediction performed by elemental units possessing a minimal, foundational form of awareness. Rather than
-            starting with matter or fields, PU begins with the operational requirements for adaptive predictive systems,
-            treating conscious experience not as an emergent afterthought but as integral to the foundational processes
-            of modelling, measurement, and meaning that constitute reality. It envisions reality as a vast network of
-            interacting Minimal Predictive Units (MPUs), each embodying this minimal awareness,
-            optimizing their forecasts by efficiently balancing predictive utility against available information and
-            limited resources. This paper explores the core ideas: how logical limits on self-prediction within these
-            aware units might give rise to quantum randomness, how spacetime and gravity could emerge thermodynamically
-            from the network's information processing, how fundamental forces might arise as efficient coherence
-            mechanisms, and how systems achieving high aggregate complexity might subtly influence physical reality
-            within defined limits.
-        <div
-            style="background-color: #f7f7f7; border: 1px solid #e1e1e1; border-radius: 5px; padding: 15px; margin: 20px auto; text-align: center; max-width: 100%; width: 80%; display: flex; align-items: center; justify-content: center;">
-            <p style="margin: 0;">For a more detailed exploration of these ideas including visualizations:<br>
-                <a href="https://github.com/cstrawberry/predictive-universe"
+    <main>
+        <article>
+            <h1>The Predictive Universe: A Conceptual Exploration</h1>
+            <hr>
+            <h2>Abstract</h2>
+            <p>The <strong>Predictive Universe (PU)</strong> framework is epistemically consciousness-first and
+                operationally prediction-first. It begins from Cogito-certified awareness: the unavoidable starting
+                point of <a href="inquiry.html"
                     style="text-decoration: none; border-bottom: 1px solid transparent; transition: border-bottom 0.3s;"
                     onmouseover="this.style.borderBottomColor='black';"
-                    onmouseout="this.style.borderBottomColor='transparent';">get the full paper (GitHub)</a>.
+                    onmouseout="this.style.borderBottomColor='transparent';">inquiry</a>. PU then gives awareness
+                an operational form as the minimal predictive cycle of distinction, anticipation, verification,
+                update, and continuation. Physical law is modeled as the stable finite-resource structure that this
+                predictive activity takes when constrained by self-reference, thermodynamic cost, and compression
+                efficiency.</p>
+
+            <p>On this view, reality is modeled as a network of Minimal Predictive Units (MPUs): minimal
+                finite-response carriers of predictive structure. The philosophical reading interprets each MPU as
+                a locus of minimal awareness, while the formal framework treats MPUs as the basic operational units
+                through which prediction becomes measurable, shareable, and law-governed. Quantum probability, the
+                arrow of time, Prediction Relativity, spacetime, gravity, gauge structure, particle physics,
+                constants, cosmology, life, mathematics, and high-level consciousness are then explored as connected
+                expressions of one predictive order.</p>
+            <div
+                style="background-color: #f7f7f7; border: 1px solid #e1e1e1; border-radius: 5px; padding: 15px; margin: 20px auto; text-align: center; max-width: 100%; width: 80%; display: flex; align-items: center; justify-content: center;">
+                <p style="margin: 0;">For a more detailed exploration of these ideas including visualizations:<br>
+                    <a href="https://github.com/cstrawberry/predictive-universe"
+                        style="text-decoration: none; border-bottom: 1px solid transparent; transition: border-bottom 0.3s;"
+                        onmouseover="this.style.borderBottomColor='black';"
+                        onmouseout="this.style.borderBottomColor='transparent';">get the full paper (GitHub)</a>.
+                </p>
+
+            </div>
+
+
+
+            <h2>1. Introduction: Rethinking Reality Through Prediction</h2>
+            <p>How do physical law, consciousness, meaning, and mathematics fit together? The Predictive Universe
+                framework answers by placing prediction at the center. A universe is approached as an ordered process of
+                distinction, anticipation, verification, and update. The familiar physical world then appears as the
+                stable structure generated by many finite predictive perspectives interacting under shared constraints.
+            </p>
+            <p>This makes PU naturally compatible with certain <a href="idealism.html"
+                    style="text-decoration: none; border-bottom: 1px solid transparent; transition: border-bottom 0.3s;"
+                    onmouseover="this.style.borderBottomColor='black';"
+                    onmouseout="this.style.borderBottomColor='transparent';">idealist</a> philosophies. Awareness is
+                the one datum that cannot be removed from inquiry. PU then asks what awareness must do in order to have
+                a world: it must distinguish, remember, predict, verify, and update. Physical law is the disciplined
+                form of that process when it becomes finite, shared, thermodynamic, and self-referential.</p>
+            <p>Imagine the universe as a vast network of elemental predictive agents. These agents, called Minimal
+                Predictive Units, constantly attempt to model their surroundings, learn from error, and maintain enough
+                stability to keep predicting. They cannot predict perfectly, because self-reference produces logical
+                limits. They cannot update for free, because irreversible update has thermodynamic cost. They cannot
+                carry unlimited distinctions, because finite channels have finite capacity. From these constraints, PU
+                builds a route from minimal awareness to quantum mechanics, spacetime, gravity, gauge forces, particle
+                structure, cosmology, life, mathematics, and complex consciousness. The same route explains why PU
+                treats open problems through status discipline: some are structural derivations, some are conditional
+                branches, some are certificate-gated numerical programs, and some remain experimental frontiers.</p>
+            <p>The route can be read in four moves. First, the Cogito gives a directly given locus of awareness.
+                Second, awareness becomes operational as prediction: distinction, anticipation, verification, update,
+                and continuation. Third, finite self-reference and cost select MPUs and a closed discrete ledger.
+                Fourth,
+                interacting MPU populations recover the physics branches: quantum formalism, spacetime, gravity, gauge
+                structure, constants, cosmology, life, and higher-order consciousness under their stated status gates.
             </p>
 
-        </div>
-
-        <h2>1. Introduction: Rethinking Reality Through Prediction</h2>
-        <p>How do the laws of physics connect to our experience of consciousness? The Predictive Universe (PU) framework
-            offers a distinct approach, one potentially consistent with certain <a href="idealism.html"
-                style="text-decoration: none; border-bottom: 1px solid transparent; transition: border-bottom 0.3s;"
-                onmouseover="this.style.borderBottomColor='black';"
-                onmouseout="this.style.borderBottomColor='transparent';">idealist</a> philosophies. Instead of
-            assuming a pre-existing material substrate from which mind eventually emerges, PU can be seen as starting
-            from the operational requirements for any bounded, adaptive system capable of modelling its world—a process
-            inherently linked to experience. It posits that conscious experience, rather than an afterthought, is
-            integral to the foundational processes of modelling, measurement, and meaning that define reality itself.
-        </p>
-        <p>Imagine the universe as a dynamic network of elemental predictive agents. These agents constantly strive to
-            anticipate their
-            surroundings, learning from errors and optimizing their internal models. PU proposes that from this
-            fundamental drive to predict, constrained by logic, resource limitations, and an overarching principle of
-            efficiency, the familiar structures of physics—quantum uncertainty, spacetime curvature, fundamental
-            forces—naturally emerge.</p>
-
-        <p>This overview explores the intuitive logic behind the PU framework. We will touch upon the core concepts: the
-            central role of prediction optimization, the drive for efficiency, the functional nature of information, the
-            idea of physical complexity as the "cost" of prediction, the fundamental units (MPUs) that
-            perform these predictions, the inherent paradoxes of self-prediction leading to quantum features, the
-            emergence of spacetime geometry and fundamental forces from network interactions, and a hypothesis linking
-            high-level prediction to physical effects.</p>
-        <p class="caption"></p><img src="images/predictive_universe4.jpg"
-            alt="Predictive Universe Framework Overview" />
-        <p class="caption">Universe 00110000</p>
-        <h2>2. The Foundations: Meaningful Prediction, Information, Efficiency, Cost, and Logic</h2>
-        <h3>2.1 The Conditions for Meaningful Prediction: A Meta-Level View</h3>
-        <p>Before delving into how the Predictive Universe (PU) framework constructs reality from predictive dynamics,
-            it's insightful to consider the even more fundamental prerequisites for any system to be capable of
-            prediction, and thus, to "know" or model anything meaningfully. This is a meta-level argument about the very
-            conditions that make <a href="inquiry.html"
-                style="text-decoration: none; border-bottom: 1px solid transparent; transition: border-bottom 0.3s;"
-                onmouseover="this.style.borderBottomColor='black';"
-                onmouseout="this.style.borderBottomColor='transparent';">meaningful inquiry</a> and understanding
-            possible, extending beyond human epistemology to any
-            conceivable predictive agent.</p>
-        <p>For a system to engage in adaptive prediction—to anticipate future states based on current and past
-            information—certain structures must functionally be in place. These are not merely convenient tools but
-            <em>operational necessities</em> for the type of predictive system PU models:
-        </p>
-        <ul style="font-size: 20px;">
-            <li><strong>Time Sequence and Directionality:</strong> Prediction intrinsically involves an ordered concept
-                of time, distinguishing 'past,' 'present,' and 'future.' A consistent forward flow of time is essential
-                for anticipating outcomes based on prior states; without it, prediction becomes operationally
-                ill-defined.</li>
-            <li><strong>Spatial Distinction (Space):</strong> Even the simplest predictor requires a locus and the
-                ability to distinguish itself, its internal state (storing the prediction), and the state it predicts.
-                Some form of spatial or state-space separation is an operational necessity for implementing the
-                predictive cycle.</li>
-            <li><strong>Causal Relationships (Causality):</strong> Effective prediction demands discoverable
-                regularities or consistent patterns of influence where certain conditions reliably correlate with future
-                outcomes. Without such causal links, anticipation better than chance is impossible. This operational
-                requirement underpins the possibility of learning and modeling.</li>
-            <li><strong>Discrete Information and the Predictor-Predicted Distinction:</strong> Meaningful prediction
-                relies on distinguishing the predictor from the predicted, even when predicting one's own future state
-                across time. This inherent separation allows for the representation and processing of discrete
-                information—comparing predictions to actual outcomes—which is fundamental to the adaptive loop.</li>
-        </ul>
-        <p>The PU framework, by grounding itself in the operations of predictive agents (MPUs), implicitly builds upon
-            these operational necessities. It then proceeds to show how the dynamics of these agents, operating under
-            further principles, give rise to the specific forms of spacetime, quantum mechanics, and gravity we observe.
-        </p>
-
-        <h3>2.2 The Drive to Predict: The Prediction Optimization Problem</h3>
-        <p>Within this context of necessary preconditions, the PU framework posits a fundamental drive for systems to
-            improve their predictions about relevant future states. This drive is formalized as the <a
-                href="optimization.html"
-                style="text-decoration: none; border-bottom: 1px solid transparent; transition: border-bottom 0.3s;"
-                onmouseover="this.style.borderBottomColor='black';"
-                onmouseout="this.style.borderBottomColor='transparent';">Prediction Optimization Problem
-                (POP)</a>. This is akin to a universal form of adaptation or learning. Formally, the POP is the ongoing
-            challenge
-            for systems to maximize the expected predictive improvement (ΔQ)—measured by reduced
-            uncertainty
-            <em>or</em> enhanced accuracy—concerning relevant
-            states,
-            all while operating under fundamental constraints of limited physical resources, including
-            available
-            energy, processing time, and achievable system complexity (<em>C<sub>P</sub></em>).
-        </p>
-
-        <h3>2.3 Information, Knowledge, Meaning, and Operational Limits</h3>
-        <p>Within PU, these concepts are defined functionally, relative to the POP. Information is not
-            just raw data, but any physically embodied pattern or correlation that, when processed by a suitable
-            predictive system, has the objective potential to improve predictive quality (increase ΔQ) concerning states
-            relevant to that system's POP. It’s about patterns exploitable for better forecasting.</p>
-        <p>A system possesses knowledge to the extent that its internal models can
-            effectively process this information to generate predictions that demonstrably improve its predictive
-            quality. Knowledge is the realized capacity for effective prediction, the accumulated residue of successful
-            adaptation. The generation of <strong>meaning</strong>, in this context, arises from a system successfully
-            relating its internal predictive models to the patterns it identifies in its environment (or internal
-            states) in a way that enhances its ability to achieve its POP goals. Meaning is thus the functional
-            significance a system assigns to information based on its predictive utility, linking closely to the idea
-            that consciousness is fundamentally about <a href="distinction.html"
-                style="text-decoration: none; border-bottom: 1px solid transparent; transition: border-bottom 0.3s;"
-                onmouseover="this.style.borderBottomColor='black';"
-                onmouseout="this.style.borderBottomColor='transparent';">making distinctions</a>.</p>
-        <p>It's crucial to note, however, that while POP provides the directional drive for improvement (reducing
-            uncertainty or
-            error), the system must operate within the viable <a href="becoming.html"
-                style="text-decoration: none; border-bottom: 1px solid transparent; transition: border-bottom 0.3s;"
-                onmouseover="this.style.borderBottomColor='black';"
-                onmouseout="this.style.borderBottomColor='transparent';">Space of Becoming</a> (between performance
-            levels
-            <em>α</em> and <em>β</em>). Achieving <em>perfect</em> prediction (zero uncertainty/error) is operationally
-            detrimental, hindering adaptation and efficiency. Thus, the drive to reduce uncertainty/error is a means to
-            achieve
-            <em>optimal predictive functioning</em> within necessary bounds, not an unbounded pursuit of perfection.
-        </p>
-        <h3>2.4 The Drive for Efficiency: PCE</h3>
-        <p>Beyond just making predictions (POP), systems in the PU framework are governed by the <strong>Principle of
-                Compression Efficiency (PCE)</strong>. This fundamental principle dictates that systems continuously
-            strive to achieve the best possible predictions using the least amount of resources—complexity, energy,
-            and time. It's an inherent drive towards informational and physical economy, exploring themes related to the
-            <a href="compression.html"
-                style="text-decoration: none; border-bottom: 1px solid transparent; transition: border-bottom 0.3s;"
-                onmouseover="this.style.borderBottomColor='black';"
-                onmouseout="this.style.borderBottomColor='transparent';">Law of Compression</a>. PCE is the crucial
-            optimizing
-            force that sculpts the MPU network into regular spacetime, determines how MPUs adapt their complexity, and
-            even influences the emergence of fundamental forces as efficient mechanisms for managing predictive
-            coherence across the network.
-        </p>
-
-        <h3>2.5 The Cost of Knowing: Predictive Complexity</h3>
-        <p>Making predictions isn't free. It requires physical resources—structure, energy, time—to build and run
-            internal models. PU introduces <strong>Predictive Physical Complexity (<em>C<sub>P</sub></em>)</strong> as a
-            measure of the minimal physical resources needed to achieve a certain predictive capability. While difficult
-            to calculate directly, the theory argues that systems dynamically track this cost using an operational
-            measure, <em>Ĉ<sub>v</sub></em> (like the quantum circuit complexity needed to prepare their state). A core
-            assertion is that optimization dynamics ensure internal accounting aligns with actual physical expenditure
-            at stable states:</p>
-        <p style="text-align: center; font-size: 1.2em;"><em>C<sub>P</sub>(v) = ⟨Ĉ<sub>v</sub>⟩<sub>x</sub></em></p>
-        <p>This dynamically enforced alignment justifies using operational costs in the system's behaviour. Complexity
-            incurs physical costs, such as the Physical Operational Cost rate <em>R(C)</em> and the
-            Reflexive-Information Cost rate <em>R<sub>I</sub>(C)</em>, which grow with complexity:</p>
-        <p style="text-align: center; font-size: 1.2em;"><em>R(C) = R(C<sub>op</sub>) + r<sub>p</sub> (C -
-                C<sub>op</sub>)<sup>γ<sub>p</sub></sup>, (γ<sub>p</sub> > 1)</em></p>
-        <p style="text-align: center; font-size: 1.2em;"><em>R<sub>I</sub>(C) = (r<sub>I</sub> / ln 2) ln(C /
-                K<sub>0</sub>), (C > K<sub>0</sub>)</em></p>
-
-        <h3>2.6 The Law of Prediction: Complexity vs. Performance</h3>
-        <p>Given that acquiring the capability to predict incurs real physical costs (complexity), how does investing
-            more resources translate into better performance? The Predictive Universe framework identifies a fundamental
-            principle governing this relationship, termed the <strong>Law of Prediction</strong>. This concept describes
-            the expected payoff, in terms of predictive accuracy or quality, for increasing a system's complexity.</p>
-        <p>Imagine starting with the bare minimum complexity needed to make predictions slightly better than random
-            chance (the operational threshold, <em>C<sub>op</sub></em>). At this baseline, the system achieves a minimal
-            level of viable performance (<em>α</em>). According to the Law of Prediction, as the system invests more
-            resources and increases its complexity beyond this baseline, its predictive performance generally improves.
-            More sophisticated internal models allow it to capture more subtle patterns and make better forecasts.</p>
-        <p>However, this improvement isn't linear. The law incorporates the crucial concept of diminishing
-            returns. The initial gains in performance from increasing complexity might be significant, but
-            as the system becomes more complex and performance gets higher, each additional unit of complexity yields
-            progressively smaller improvements in accuracy. It becomes increasingly "expensive" in terms of resources to
-            squeeze out the next increment of predictive quality.</p>
-        <p>Furthermore, the Law of Prediction recognizes that performance doesn't increase indefinitely towards
-            perfection. Instead, it approaches an operational upper bound (<em>β</em>), a ceiling
-            significantly less than 100% accuracy. This operational limit exists because achieving near-perfect
-            prediction can be prohibitively inefficient (violating PCE) and, more importantly, can hinder the system's
-            ability to adapt. A system that makes no errors receives no feedback signal to learn or adjust to changing
-            conditions. Therefore, maintaining a state slightly below perfect prediction is necessary for adaptability
-            and long-term viability within the Space of Becoming.</p>
-        <p>This operational performance limit (<em>β</em>) established by the Law of Prediction, driven by efficiency
-            and adaptability needs, is distinct from, and necessarily lower than, the absolute logical limit
-            (<em>α<sub>SPAP</sub></em>) imposed by the Self-Referential Paradox of Accurate Prediction. The Law of
-            Prediction describes the practical performance curve within the realm of achievable, adaptive operation,
-            governed by resource economics (PCE), long before the hard logical boundary of SPAP is even approached.
-            While specific mathematical formulas can model this relationship, the core qualitative insight—increasing
-            complexity yields diminishing returns bounded by an operational ceiling below perfection—is considered a
-            robust feature arising from the fundamental principles of prediction optimization under constraints.</p>
-        <p class="caption"></p><img src="images/predictive_universe1.jpg" alt="The Limits of Self-Knowledge" />
-        <p class="caption">Universe 00110000</p>
-        <h3>2.7 The Limits of Self-Knowledge: Paradox, Thresholds, and Prediction Relativity</h3>
-        <p>When a predictive system becomes complex enough to model itself, it runs into logical paradoxes. The
-            <a href="self-referential.html"
-                style="text-decoration: none; border-bottom: 1px solid transparent; transition: border-bottom 0.3s;"
-                onmouseover="this.style.borderBottomColor='black';"
-                onmouseout="this.style.borderBottomColor='transparent';">Self-Referential Paradox of Accurate
-                Prediction (SPAP)</a> demonstrates that no system can
-            perfectly predict all aspects of its own future state or behavior—trying to do so leads to logical
-            contradictions. This isn't an exotic artifact; the kind of sophisticated, adaptive self-referential logic
-            underpinning SPAP is formally realizable even within standard computational frameworks, as illustrated by
-            constructions like the <a href="liteframework.html"
-                style="text-decoration: none; border-bottom: 1px solid transparent; transition: border-bottom 0.3s;"
-                onmouseover="this.style.borderBottomColor='black';"
-                onmouseout="this.style.borderBottomColor='transparent';">LITE framework</a>. The unavoidable consequence
-            of SPAP
-            is a fundamental ceiling on predictive accuracy (<em>α<sub>SPAP</sub>
-                < 1</em>) and an inherent element of unpredictability, or Logical Indeterminacy.
-                    Approaching this limit incurs rapidly diverging costs:
-        </p>
-        <p style="text-align: center; font-size: 1.2em;"><em>C<sub>pred</sub>(α) = Ω(T / (α<sub>SPAP</sub> -
-                α)<sup>2</sup>)</em></p>
-        <p>This logical structure defines a fundamental threshold: the <a href="horizon.html"
-                style="text-decoration: none; border-bottom: 1px solid transparent; transition: border-bottom 0.3s;"
-                onmouseover="this.style.borderBottomColor='black';"
-                onmouseout="this.style.borderBottomColor='transparent';">Horizon Constant
-                (<em>K<sub>0</sub></em>)</a>. This is the absolute minimum complexity needed for a system
-            to embody
-            the logic of self-reference and predict slightly better than random chance, identified as:</p>
-        <p style="text-align: center; font-size: 1.2em;"><em>K<sub>0</sub> = 3 bits</em></p>
-        <p>Any truly adaptive predictive system must operate at or above a related <strong>Operational Threshold
-                (<em>C<sub>op</sub></em>)</strong>, representing the minimum complexity for its specific prediction
-            cycle (designed to achieve a particular target accuracy greater than chance). This operational threshold
-            necessarily incorporates the <em>K<sub>0</sub></em> logic (<em>C<sub>op</sub> ≥ K<sub>0</sub></em>).</p>
-        <p>The SPAP limit and its consequences lead to a concept termed <strong>Prediction Relativity</strong>. The
-            paradox itself is fundamentally <em>logical</em>: even a hypothetical system with infinite resources
-            (unbounded complexity, energy, and time) could not escape the inherent contradiction of perfect
-            self-prediction for SPAP-limited aspects. The very structure of self-reference within a sufficiently rich
-            computational system makes guaranteed perfect foresight logically impossible. Now, when a <em>physical</em>
-            system with finite resources attempts to approach this unattainable logical limit <em>α<sub>SPAP</sub></em>,
-            the Predictive Physical Complexity required diverges rapidly (<em>C<sub>pred</sub>(α) = Ω(T /
-                (α<sub>SPAP</sub> - α)<sup>2</sup>)</em>). This physical divergence of resource costs, analogous to how
-            achieving the speed of light requires infinite energy, makes attaining performance arbitrarily close to the
-            fundamental SPAP limit physically impossible. Prediction Relativity thus establishes an intrinsic predictive
-            horizon, underscoring a deep connection between information, logic (the SPAP limit), computation, and the
-            physical resources needed to approach that limit within the PU framework. Perfect foresight is prohibited
-            first by logic, and then by physics for any resource-constrained system.</p>
-
-
-        <h3>2.8 The Agents of Prediction: MPUs</h3>
-        <p>PU hypothesizes that the universe is fundamentally composed of <strong>Minimal Predictive Units
-                (MPUs)</strong>—entities operating precisely at this minimal operational threshold
-            <em>C<sub>op</sub></em>. They embody the simplest possible adaptive predictive cycle, constrained by the
-            costs and logical limits just described, and operating within a reality that must satisfy the preconditions
-            for meaningful prediction.
-        </p>
-        <h2>3. Quantum Reality from Predictive Logic</h2>
-        <h3>3.1 The MPU Cycle and Operational Viability</h3>
-        <p>MPUs exist in a state of dynamic balance. For sustained adaptation, their predictive success, or
-            <strong>Predictive Performance (PP)</strong>, must be actively maintained within a specific operational
-            range known as the Space of Becoming (<em>α,
-                β</em>). This range is bounded by a lower
-            limit <em>α > 0</em> (below which prediction is functionally useless) and an upper limit <em>β < 1</em>
-                    (and <em>β < α<sub>SPAP</sub></em>, above which the system loses adaptability and efficiency).
-                    Operating within this <em>(α, β)</em>
-                    window is crucial. The MPU's state is described not just by a quantum amplitude (like a standard
-                    wavefunction <em>|ψ(t)⟩</em> in a Hilbert space) but includes a "perspective" index <em>s</em>,
-                    indicating the context or basis for its next interaction: the Perspectival State
-                    <em>S<sub>(s)</sub>(t) = (|ψ(t)⟩, s)</em>. This state evolves through two modes:
-        </p>
-        <ul style="font-size: 20px;">
-            <li><strong>Internal Prediction:</strong> Between interactions, the quantum amplitude <em>|ψ(t)⟩</em>
-                evolves smoothly and deterministically, governed by an effective energy representing the baseline cost
-                of its predictive processing. This follows the familiar Schrödinger equation:</li>
-            <p style="text-align: center; font-size: 1.2em;"><em>iħ d|ψ⟩/dt = Ĥ|ψ⟩</em></p>
-            <li><strong>Interaction ('Evolve'):</strong> When an MPU interacts significantly, it undergoes a stochastic
-                'Evolve' event. This is where prediction meets reality. The quantum amplitude probabilistically
-                actualizes into one of the potential outcome states defined by the current perspective <em>s</em>.
-                Simultaneously, the perspective itself shifts stochastically to a new context <em>s'</em> reflecting the
-                interaction's nature and outcome. This interaction structure, where outcome determines state change,
-                relates to <a href="reflexive.html"
+            <h3>1.1 I Predict, Therefore I Am</h3>
+            <p>PU begins from the <a href="cogito.html"
                     style="text-decoration: none; border-bottom: 1px solid transparent; transition: border-bottom 0.3s;"
                     onmouseover="this.style.borderBottomColor='black';"
-                    onmouseout="this.style.borderBottomColor='transparent';">Reflexive Interaction Dynamics</a>.</li>
-        </ul>
-        <p>This 'Evolve' step is crucial. It's inherently irreversible due to the logical necessity of updating
-            information within finite resources (specifically, the state-merging required by SPAP logic), incurring a
-            minimum thermodynamic cost:</p>
-        <p style="text-align: center; font-size: 1.2em;"><em>ε ≥ ln 2</em></p>
-        <p>(Where <em>ε</em> is the dimensionless entropy production per relevant cycle). This cost also underpins the
-            <strong>Reflexivity Constraint (<em>κ<sub>r</sub> > 0</em>)</strong>, a fundamental trade-off linking
-            information gain during an 'Evolve' event to the minimum necessary disturbance of the system's state.
-        </p>
+                    onmouseout="this.style.borderBottomColor='transparent';">Cogito</a>: conscious awareness is the
+                self-verifying certainty at the root of inquiry. The act of doubting, questioning, perceiving, or
+                reasoning already confirms the presence of awareness. But PU sharpens the Cogito operationally:
+                the activity called thinking is not passive presence. It is predictive process. To doubt is to test;
+                to question is to anticipate an answer; to perceive is to organize appearances into expected causes;
+                to reason is to predict what follows from what.</p>
 
-        <h3>3.2 Why Quantum?</h3>
-        <p>The characteristic features of quantum mechanics are argued to emerge directly from these MPU dynamics:</p>
-        <ul style="font-size: 20px;">
-            <li><strong>Probability and the Born Rule:</strong> The Logical Indeterminacy inherent in SPAP means
-                outcomes must be probabilistic. PU argues that the specific probabilities, given by the Born
-                rule, arise as the uniquely consistent way to assign predictive weights that reflect the
-                underlying optimization of resources (PCE). Probability reflects optimized cost allocation. The rule
-                states the probability of outcome <em>k</em> (associated with basis state <em>|k⟩<sub>s</sub></em>) from
-                state <em>|ψ⟩</em> in perspective <em>s</em> is:</li>
-            <p style="text-align: center; font-size: 1.2em;"><em>P(k) = |⟨k|ψ⟩<sub>s</sub>|<sup>2</sup></em></p>
-            <li><strong>Randomness:</strong> Quantum randomness is hypothesized to be a direct manifestation of the
-                fundamental Logical Indeterminacy stemming from self-reference limits.</li>
-            <li><strong>Superposition:</strong> Represents the MPU holding multiple predictive possibilities
-                simultaneously before an 'Evolve' interaction forces actualization relative to a specific perspective.
-            </li>
-            <li><strong>Measurement 'Collapse':</strong> Is reinterpreted as the 'Evolve' process: probabilistic
-                actualization of the amplitude coupled with a stochastic shift in perspective. No separate collapse
-                postulate is needed; outcomes become definite relative to the post-interaction perspective.</li>
-            <li><strong>Uncertainty Principle:</strong> Arises because SPAP limits the simultaneous predictability of
-                certain pairs of properties, which mathematically translates to non-commuting operators in the Hilbert
-                space description.</li>
-        </ul>
+            <p>In this sense, the Cogito becomes: <em>I predict, therefore I am</em>. This does not replace the
+                original certainty that awareness exists. It identifies the operational form that awareness takes
+                when it becomes knowledge-bearing. At least one locus of conscious awareness, <em>&#8450;</em>, is
+                directly given; that locus is immediately active as a system of distinction, anticipation,
+                verification, update, and continuation.</p>
 
-        <p class="caption"></p><img src="images/predictive_universe2.jpg"
-            alt="Emergence of Spacetime from MPU Network" />
-        <p class="caption">Universe 00110000</p>
-        <h2>4. Spacetime, Gravity, and Forces as Emergent Structures</h2>
-        <h3>4.1 Weaving the Fabric of Spacetime</h3>
-        <p>Instead of existing within a pre-defined spacetime, MPUs create it through their interactions. The "distance"
-            between MPUs is related to the cost and difficulty of sending predictive information between them via the
-            inherently lossy 'Evolve' interactions. The framework argues that the drive to optimize predictions
-            efficiently (PCE) forces the MPU network to self-organize into a remarkably regular structure, akin to a
-            crystal lattice but allowing for curvature. This large-scale geometric regularity is essential for stable,
-            efficient prediction across the network.</p>
-        <p>This emergent regular structure, when viewed macroscopically, behaves like a continuous, smooth Lorentzian
-            spacetime manifold, complete with a metric defining intervals and a maximum speed (<em>c</em>) for
-            information propagation, arising from the MPU's finite processing speed.</p>
+            <p>The first distinction is therefore not an inert division between self and world. It is the first
+                predictive contrast: awareness distinguishes the certainty of its own occurrence from the contents,
+                patterns, memories, and appearances it must evaluate. From that contrast, awareness becomes
+                structured. It separates, relates, remembers, expects, compares expectation with outcome, and revises
+                its state.</p>
 
-        <h3>4.2 Gravity as an Equation of State</h3>
-        <p>PU derives Einstein's theory of gravity (General Relativity) not from geometry postulates, but from
-            thermodynamics applied to the emergent spacetime. The key steps are:</p>
-        <ul style="font-size: 20px;">
-            <li><strong>Horizon Information Limit (Area Law):</strong> The inherent irreversibility (<em>ε ≥ ln 2</em>)
-                and finite capacity (<em>C<sub>max</sub>
-                    < ln d<sub>0</sub>
-                </em>) of the MPU interaction channels limit the amount of information that can be associated with any
-                boundary, particularly causal horizons. This limit manifests as the Area Law: the maximum entropy
-                of a region is proportional to its boundary area, <em>S = k<sub>B</sub> A / (4
-                    L<sub>P</sub><sup>2</sup>)</em>. PU derives this law from the MPU network's information transfer
-                limits.</li>
-            <li><strong>Thermodynamic Consistency:</strong> Applying the fundamental law of thermodynamics
-                (specifically, the Clausius relation linking heat, temperature, and entropy change, <em>δQ = T δS</em>)
-                to infinitesimal causal horizons requires a specific relationship between the energy-momentum flowing
-                across the horizon (sourced by the MPU network's predictive activity, captured by the <strong>MPU
-                    Stress-Energy Tensor <em>T<sub>μν</sub><sup>(MPU)</sup></em></strong>) and the curvature of the
-                spacetime geometry.</li>
-        </ul>
-        <p>The unique relationship ensuring local thermodynamic consistency across all possible horizons turns out to be
-            Einstein's Field Equations, sourced by the comprehensive MPU stress-energy tensor:
-        <p style="text-align: center; font-size: 1.2em;"><em>R<sub>μν</sub> - ½ R g<sub>μν</sub> + Λ g<sub>μν</sub> =
-                (8πG / c<sup>4</sup>) T<sub>μν</sub><sup>(MPU)</sup></em></p>
-        <p>In this view, gravity isn't a fundamental force mediated by gravitons, but an emergent thermodynamic
-            phenomenon. Spacetime curvature is the geometric manifestation of the system ensuring consistency between
-            energy distribution (predictive activity) and information limits (horizon entropy). The framework lays out a
-            definite route for the emergence of spacetime geometry from the MPU network. The Necessary Emergence of
-            Geometric Regularity follows from POP/PCE optimisation arguments. Imposing local thermodynamic consistency
-            on causal horizons yields the Lorentzian metric and finally Einstein's Field Equations. The derivation
-            depends crucially on the ND-RID–driven <em>Horizon-Entropy Area Law</em> and the MPU stress–energy tensor
-            <em>T<sub>μν</sub><sup>(MPU)</sup></em>. Gravity therefore appears as a macroscopic, thermodynamic
-            consequence of predictive-network dynamics, with its scale fixed by the underlying MPU information
-            parameters, succinctly summarised by:
-        </p>
-        <p style="text-align: center; font-size: 1.2em;"><em>G = c<sup>3</sup>/(4 ħ Σ<sub>I</sub>)</em></p>
-        <p>where <em>Σ<sub>I</sub></em> represents the effective horizon information density. This
-            density combines the geometric surface density of links (<em>σ<sub>geom</sub> ≈ 1/(η δ<sup>2</sup>)</em>,
-            where <em>δ</em> is MPU spacing and <em>η</em> a packing factor), a correlation factor <em>χ</em> (≤ 1), and
-            the ND-RID channel-capacity bound <em>C<sub>max</sub></em>, such that <em>Σ<sub>I</sub> = (χ
-                σ<sub>geom</sub>) C<sub>max</sub> = (χ / (η δ<sup>2</sup>)) C<sub>max</sub></em>. The formula links
-            Newton's constant <em>G</em> inversely to this effective information density, set by microscopic spacings,
-            channel capacity, correlation effects, and the fundamental constants <em>ħ</em> and <em>c</em>.
-        </p>
-
-        <h3>4.3 Emergence of Gauge Forces (Electromagnetism and Beyond)</h3>
-        <p>The PU framework also suggests a pathway for the emergence of fundamental forces like electromagnetism. The
-            complex Hilbert space description of MPU states implies a local phase freedom (multiplying a state by
-            <em>e<sup>iθ(x)</sup></em> doesn't change local probabilities). To maintain predictive coherence across the
-            network (i.e., to compare states at different points meaningfully despite this freedom), PCE favors the
-            introduction of a minimal "connection field" that compensates for these local phase variations. This
-            emergent connection field and its dynamics, optimized for efficiency, are argued to correspond to the
-            <em>U(1)</em> gauge theory of electromagnetism.
-        </p>
-        <p>Further, PU speculates that the more complex gauge structures of the Standard Model (<em>SU(3) × SU(2) ×
-                U(1)</em>) might emerge from similar PCE-driven optimization processes. If the MPU state possesses
-            richer internal degrees of freedom (beyond simple phase, possible given <em>d<sub>0</sub> ≥ 8</em>),
-            maintaining coherence in how these internal states are defined and interact across the network might
-            necessitate the emergence of non-Abelian gauge fields (<em>SU(2)</em> and <em>SU(3)</em>). The specific
-            groups of the Standard Model could represent the unique, maximal stable gauge structure that optimally
-            utilizes the MPU network's capacity for maintaining predictive coherence under information and stability
-            constraints. This provides a path towards deriving the particle content and interactions of the Standard
-            Model from the underlying predictive logic of the MPU network.</p>
-
-        <p class="caption"></p><img src="images/predictive_universe3.jpg" alt="Consciousness Complexity Hypothesis" />
-        <p class="caption">Universe 00110000</p>
-
-        <h2>5. Consciousness, Complexity, and Physical Influence</h2>
-        <h3>5.1 The Consciousness Complexity (CC) Hypothesis</h3>
-        <p>How does high-level cognition or consciousness fit in? PU proposes the <a href="cc.html"
-                style="text-decoration: none; border-bottom: 1px solid transparent; transition: border-bottom 0.3s;"
-                onmouseover="this.style.borderBottomColor='black';"
-                onmouseout="this.style.borderBottomColor='transparent';">Consciousness Complexity
-                (CC)</a> hypothesis. It suggests that MPU aggregates achieving very high predictive
-            complexity (far
-            beyond the minimum <em>C<sub>op</sub></em>) might develop an emergent ability to subtly influence the
-            inherently probabilistic 'Evolve' outcomes of their constituent MPUs. This isn't magic, but an optimization
-            strategy: the complex system learns to use its internal state (its "context," representing its current
-            integrated understanding or prediction) to slightly bias the underlying quantum randomness in ways that
-            favor its overall predictive goals (POP) and enhance the meaning it derives, exploiting the
-            context-dependence of the 'Evolve' process. </p>
-        <p>The strength of this influence is quantified by the operational CC value, representing the maximum deviation
-            from standard Born rule probabilities the system can induce: <em>CC(S) = sup |P<sub>observed</sub> -
-                P<sub>Born</sub>|</em>.</p>
-
-        <h3>5.2 Causality and the CC Limit</h3>
-        <p>Could such influence lead to paradoxes or violate causality? PU argues no, by imposing a strict limit derived
-            from the requirement that deterministic faster-than-light signaling must be impossible. This leads to the
-            crucial prediction:</p>
-        <p style="text-align: center; font-size: 1.2em;"><em>α<sub>CC,max</sub>
-                < 0.5</em>
-        </p>
-        <p>This bound ensures that even a maximally effective CC system cannot force a quantum outcome to be 100%
-            certain against the baseline probabilities. It can only bias the odds within a limited range.</p>
-        <p>However, this constrained influence, when applied to entangled systems, might still allow for
-            <strong>statistical correlations</strong> across space-like distances that depend on the "conscious context"
-            at one end. This is a radical prediction of potential "statistical FTL influence," distinct from signaling,
-            which the framework argues is compatible with operational causality due to the inherent noise and
-            information limits of the MPU interactions. The potential for this kind of communication is explored in the
-            <a href="protocol.html"
-                style="text-decoration: none; border-bottom: 1px solid transparent; transition: border-bottom 0.3s;"
-                onmouseover="this.style.borderBottomColor='black';"
-                onmouseout="this.style.borderBottomColor='transparent';">Quantum Communication Protocol</a>.
-        </p>
-
-        <h3>5.3 Testing the Hypothesis</h3>
-        <p>The CC hypothesis, leads to concrete experimental predictions:
-            looking for tiny, context-dependent statistical deviations from Born rule probabilities in quantum random
-            number generators interacting with complex systems (human minds or sophisticated AI, potentially evaluated
-            via an <a href="aitest.html"
-                style="text-decoration: none; border-bottom: 1px solid transparent; transition: border-bottom 0.3s;"
-                onmouseover="this.style.borderBottomColor='black';"
-                onmouseout="this.style.borderBottomColor='transparent';">AI Consciousness Test</a>), or subtle changes
-            in
-            quantum coherence times, or context-dependent correlations in Bell tests.</p>
-
-        <h2>6. Discussion: A Universe Learning to Predict</h2>
-        <h3>6.1 Implications of a Predictive Reality</h3>
-        <p>The PU framework paints a picture of reality as an evolving, self-organizing computational network driven by
-            the imperative to predict. Key implications include:</p>
-        <ul style="font-size: 20px;">
-            <li><strong>Ontology:</strong> Reality is fundamentally process and interaction, not static substance. This
-                perspective is
-                consistent with some idealist views where mind or mind-like processes (prediction, information
-                processing) are primary.</li>
-            <li><strong>Energy as Predictive Cost:</strong> The PU framework views energy as the physical price paid for
-                prediction. It's the resource consumed when systems gather and process information to improve their
-                models under core optimization principles. Costs arise from the baseline predictive cycle, the
-                complexity needed for accurate modeling, interactions between predictive units, and fundamentally, from
-                the irreducible heat generated when self-referential information is updated. This total energy footprint
-                shapes the emergent spacetime geometry, making efficient energy use crucial for optimal prediction.</li>
-            <li><strong>Physical Laws:</strong> Core physical frameworks, including quantum mechanics (Hilbert space,
-                Born rule, Schrödinger dynamics) and general relativity (spacetime geometry, Einstein's Field
-                Equations), along with potentially fundamental gauge forces, are derived as emergent structures
-                governing efficient prediction under foundational logical and thermodynamic constraints.</li>
-            <li><strong>Consciousness:</strong> Understood as intrinsically linked to the foundational predictive
-                processes (modeling, measurement, meaning), associating minimal awareness with basic MPU operations.
-                High aggregate complexity may give rise to Consciousness Complexity (CC), conferring a potential (though
-                constrained) causal role in biasing quantum events, with meaning derived functionally from successful
-                prediction.</li>
-            <li><strong>Simulation Hypothesis:</strong> If our reality is a simulation, the PU framework describes the
-                operational logic
-                such a simulation might employ, perhaps governed by something akin to the <a href="authenticity.html"
+            <p><a href="predictionism.html"
                     style="text-decoration: none; border-bottom: 1px solid transparent; transition: border-bottom 0.3s;"
                     onmouseover="this.style.borderBottomColor='black';"
-                    onmouseout="this.style.borderBottomColor='transparent';">Simulation Authenticity Principle</a>. The
-                Principle of Compression Efficiency (PCE) would be a prime directive
-                for any resource-constrained simulation, favoring the emergence of simple underlying rules (like MPU
-                dynamics) that generate complex phenomena efficiently, rather than simulating every detail explicitly
-                from the top down. </li>
-        </ul>
+                    onmouseout="this.style.borderBottomColor='transparent';">Predictionism</a> names this
+                Cogito-grounded view of awareness as active predictive structure. Knowledge is possible because
+                awareness does not merely contain experiences; it uses distinctions to anticipate, verify, and
+                update. Prediction is the minimal operational form awareness takes when it becomes organized enough
+                to support inquiry.</p>
 
-        <h3>6.2 Unique Perspectives</h3>
-        <p>PU offers novel takes on long-standing issues. It provides a specific mechanism for quantum measurement
-            grounded in perspectival interaction. It derives gravity thermodynamically from information limits inherent
-            in its fundamental interactions. It potentially explains phenomena attributed to dark matter via
-            scale-dependent gravity, arguing that PCE adapts MPU network parameters to local information density,
-            effectively altering gravitational coupling on large, sparse scales. It grounds the arrow of time in the
-            irreversible cost of self-referential processing.</p>
-        <img src="images/predictive_universe5.jpg" alt="Conclusion - The Predictive Universe" />
-        <p class="caption">Universe 00110000</p>
+            <p>The formal PU derivations follow the finite conditions of this predictive Cogito: self-reference,
+                thermodynamic cost, compression efficiency, and physical instantiation. The philosophical reading
+                identifies the predictive cycle as the minimal structure of awareness, while the physics develops the
+                finite-resource laws that such predictive structure can stably instantiate.</p>
+            <h3>1.2 Predictionism: Logic from Cogito</h3>
+            <p>Predictionism sharpens the Cogito into an operational principle: <em>I predict, therefore I am</em>.
+                Thinking already involves prediction. Doubt tests a possibility. A question anticipates an answer.
+                Perception organizes appearances into expected causes. Reasoning anticipates what follows from given
+                distinctions.</p>
 
-        <h2>7. Conclusion:</h2>
-        <p>The Predictive Universe framework presents a radical synthesis, suggesting that the fundamental operations of
-            reality might be prediction, adaptation, and optimization under constraints. It proposes that consciousness,
-            quantum mechanics, gravity, and even fundamental forces are not disparate domains but interconnected facets
-            of a universe striving for predictive efficiency. From the logical limits of self-prediction (SPAP) leading
-            to quantum indeterminacy, to the thermodynamic constraints on interaction (the cost <em>ε</em>) grounding
-            the Area Law and emergent gravity, the framework weaves a narrative grounded in information processing and
-            the construction of meaning through successful prediction.</p>
+            <p>The first certainty is the occurrence of awareness. Any denial of that occurrence still performs an act
+                of awareness. This gives PU its first verified distinction: awareness occurs, marked as <em>1</em>;
+                what is not verified with the same certainty is marked as <em>0</em>. The self/non-self contrast begins
+                here: the verified occurrence of awareness stands apart from the contents, appearances, memories, and
+                world-claims it evaluates.</p>
 
-        <p>Its core prediction—the Consciousness Complexity hypothesis linking complex systems to subtle influences on
-            quantum outcomes, constrained by causality (<em>α<sub>CC,max</sub>
-                < 0.5</em>)—offers a path, albeit challenging, to empirical testing. While many aspects require deeper
-                    theoretical grounding and experimental validation, PU provides a first principles, coherent,
-                    efficient, mathematically structured
-                    way to understand the cosmos.</p>
-        <div class="circle-container">
-            <div class="arrow left" onclick="shiftSlide(-1)">&#10094;</div>
-            <div class="circle-wrapper">
-                <!-- Slider items will be dynamically inserted here -->
+            <p>Prediction turns this binary distinction into logic. A prediction must meet an outcome. At update, the
+                system distinguishes verified from unverified, success from failure, retained from revised. Let
+                <em>V(S)</em> be the verification value of a statement or prediction <em>S</em>, with
+                <em>V(S) = 1</em> when verified and <em>V(S) = 0</em> when unverified.
+            </p>
+
+            <p>Negation follows from reversal of verification:</p>
+
+            <p style="text-align: center; font-size: 1.2em;"><em>V(&not;S) = 1 - V(S)</em></p>
+
+            <p>Conjunction follows from joint verification:</p>
+
+            <p style="text-align: center; font-size: 1.2em;"><em>V(S<sub>1</sub> &and; S<sub>2</sub>) =
+                    min(V(S<sub>1</sub>), V(S<sub>2</sub>))</em></p>
+
+            <p>Disjunction follows from allowed alternatives:</p>
+
+            <p style="text-align: center; font-size: 1.2em;"><em>V(S<sub>1</sub> &or; S<sub>2</sub>) =
+                    max(V(S<sub>1</sub>), V(S<sub>2</sub>))</em></p>
+
+            <p>Logic is the invariant grammar of predictive verification. A system that distinguishes, anticipates,
+                verifies, updates, composes predictions, and preserves outcomes already carries the roots of Boolean
+                logic. These principles are immutable because any attempted denial still depends on distinction,
+                verification, and update.</p>
+
+
+            <p>Computation follows from the same binary root. A computational state is a retained distinction; an
+                operation is a rule-governed update; an output is a verified result. Since negation, conjunction, and
+                disjunction are sufficient to build finite computation, the predictive Cogito supplies a foundation for
+                logic, mathematics, and computation in one chain: awareness, distinction, prediction, verification,
+                composition, and update.</p>
+
+            <h3>1.3 Consciousness-First Resolution of the Hard Problem</h3>
+            <p>The hard problem of <a href="consciousness.html"
+                    style="text-decoration: none; border-bottom: 1px solid transparent; transition: border-bottom 0.3s;"
+                    onmouseover="this.style.borderBottomColor='black';"
+                    onmouseout="this.style.borderBottomColor='transparent';">consciousness</a> arises most sharply for
+                views that
+                begin with non-conscious matter and then try to explain how subjective experience appears. PU begins
+                from the one
+                fact that cannot coherently be doubted: conscious awareness is already present. Any act of doubting,
+                questioning,
+                measuring, or explaining confirms the occurrence of awareness.</p>
+
+            <p>This makes PU naturally compatible with idealism. Idealism takes consciousness
+                as the
+                foundation of reality, giving the framework the simplest starting point available to inquiry. It does
+                not need to
+                generate experience from something defined as non-experiential. It begins where every investigation
+                begins: within
+                awareness.</p>
+
+            <p>Materialism starts with matter as primary and must bridge the gap from physical process to subjective
+                experience.
+                Dualism starts with two basic kinds of reality, mind and matter, and then must explain how they
+                interact. Idealism
+                uses a smaller ontology. Consciousness is fundamental, while matter is modeled as stable, lawful,
+                shareable
+                structure within conscious experience.</p>
+
+            <p>PU gives this idealist starting point an operational form through prediction. Awareness makes
+                distinctions;
+                distinctions support anticipation; anticipation requires verification; verification drives update;
+                update carries
+                cost; efficient update selects stable forms. Physical law is the stable finite-resource organization of
+                predictive
+                awareness.</p>
+
+            <p>Minimal Predictive Units carry this structure at the most basic level. On the Minimal Awareness
+                interpretive
+                postulate, each MPU contains minimal awareness: the capacity to distinguish, anticipate, verify, update,
+                and
+                continue. Matter is modeled as the public, cost-bearing structure formed by interacting MPUs under
+                shared predictive
+                constraints.</p>
+
+            <p>Complex consciousness arises when many MPU cycles integrate into a shared system-level context state.
+                Unified minds
+                are higher-order predictive organizations built from coordinated MPU aggregates. The hard problem is
+                resolved at the
+                foundation because consciousness is the starting point, while physics explains how predictive awareness
+                becomes
+                stable, measurable, shared, and law-governed.</p>
+
+            <img src="images/predictive_universe4.jpg" alt="Predictive Universe Framework Overview" width="1024"
+                height="1536" decoding="async" loading="lazy">
+            <p class="caption">Universe 00110000</p>
+
+            <h2>2. The Foundations: Meaningful Prediction, Information, Efficiency, Cost, and Logic</h2>
+            <h3>2.1 The Conditions for Meaningful Prediction</h3>
+            <p>For any system to predict meaningfully, certain structures must be present. It needs temporal order,
+                because prediction distinguishes what is anticipated from what is later verified. It needs distinctions,
+                because a predictor must separate states that matter from states that do not. It needs <a
+                    href="causality.html"
+                    style="text-decoration: none; border-bottom: 1px solid transparent; transition: border-bottom 0.3s;"
+                    onmouseover="this.style.borderBottomColor='black';"
+                    onmouseout="this.style.borderBottomColor='transparent';">causal regularity</a>, because without
+                reliable patterns, anticipation cannot outperform chance. It needs memory, because update requires
+                comparison between what was expected and what occurred. It needs finite resources, because every real
+                predictor must operate with limited capacity, time, and energy.</p>
+            <p>PU treats these requirements as operational necessities. They are the conditions under which a
+                predictive world can exist. Time, causality, information, and meaning are
+                therefore embedded predictive structures. They are the structures required for finite awareness to
+                become a working predictive system.</p>
+
+            <h3>2.2 POP, PCE, and PPI</h3>
+            <p>The first large-scale drive in PU is the <a href="optimization.html"
+                    style="text-decoration: none; border-bottom: 1px solid transparent; transition: border-bottom 0.3s;"
+                    onmouseover="this.style.borderBottomColor='black';"
+                    onmouseout="this.style.borderBottomColor='transparent';">Prediction Optimization Problem</a> (POP).
+                A predictive system seeks to improve the quality of its expectations about relevant future states. It
+                does this under limited resources, including energy, time, memory, and complexity. Predictive
+                improvement is valuable only inside a viable window: too little success gives noise, while perfect
+                success removes error signals and blocks adaptation.</p>
+            <p>The second drive is the <a href="compression.html"
+                    style="text-decoration: none; border-bottom: 1px solid transparent; transition: border-bottom 0.3s;"
+                    onmouseover="this.style.borderBottomColor='black';"
+                    onmouseout="this.style.borderBottomColor='transparent';">Principle of Compression Efficiency</a>
+                (PCE). PCE selects the least costly representation that preserves predictive power. It is the pressure
+                that removes redundant descriptions, favors stable patterns, turns operational equivalence into physical
+                equivalence, and makes efficient structures persist. PCE is why PU treats many apparently separate
+                physical laws as compressed solutions to the same underlying problem.</p>
+            <p>The third bridge is the <a href="instantiation.html"
+                    style="text-decoration: none; border-bottom: 1px solid transparent; transition: border-bottom 0.3s;"
+                    onmouseover="this.style.borderBottomColor='black';"
+                    onmouseout="this.style.borderBottomColor='transparent';">Principle of Physical Instantiation</a>
+                (PPI). PPI says that operational distinctions become physical only when they are finite-response,
+                cost-bearing, and protocol-detectable. A distinction that makes no difference to any finite predictive
+                protocol falls outside extra physical ontology. This is how PU keeps its idealism-compatible foundation
+                disciplined: physical reality is the finite, testable, cost-bearing structure of predictive distinction.
+            </p>
+            <p>These elements can be read as public versions of PU's formal commitments. POP says prediction is
+                optimized under finite resources. Predictive Capacity says successful prediction requires
+                information-bearing internal models or response structures. The viable prediction window, called the <a
+                    href="becoming.html"
+                    style="text-decoration: none; border-bottom: 1px solid transparent; transition: border-bottom 0.3s;"
+                    onmouseover="this.style.borderBottomColor='black';"
+                    onmouseout="this.style.borderBottomColor='transparent';">Space of Becoming</a>, says a system must
+                remain between collapse into noise and perfect closure
+                without error signal. PCE and PPI then discipline which structures persist and which distinctions count
+                as physical.</p>
+
+            <h3>2.3 Distinction, Information, Knowledge, and Meaning</h3>
+            <p>At the deepest level, PU treats <a href="distinction.html"
+                    style="text-decoration: none; border-bottom: 1px solid transparent; transition: border-bottom 0.3s;"
+                    onmouseover="this.style.borderBottomColor='black';"
+                    onmouseout="this.style.borderBottomColor='transparent';">distinction</a> as prior to information.
+                Information exists only when a difference can improve prediction for some system. A distinction
+                separates one possible state from another. Prediction gives the distinction temporal direction.
+                Verification gives it consequence. Update gives it memory.</p>
+            <p>Within PU, <strong>information</strong> is a physically embodied pattern that can improve predictive
+                quality. <strong>Knowledge</strong> is realized predictive capacity: the ability of internal models to
+                generate successful expectations. <a href="meaning.html"
+                    style="text-decoration: none; border-bottom: 1px solid transparent; transition: border-bottom 0.3s;"
+                    onmouseover="this.style.borderBottomColor='black';"
+                    onmouseout="this.style.borderBottomColor='transparent';">Meaning</a> is the functional significance
+                of information for the predictive life of a system. A pattern means something when using it changes what
+                the system can anticipate, avoid, pursue, preserve, or become.</p>
+            <p>This gives the framework a bridge between philosophy and science. Meaning is not a purely subjective
+                decoration, and it is not reducible to raw data. It is the operational role a distinction plays inside a
+                predictive cycle.</p>
+
+            <h3>2.4 The Cost of Knowing</h3>
+            <p>Prediction is physically costly. A system needs structure to store models, energy to update them, time to
+                compare them with outcomes, and capacity to preserve relevant distinctions. PU describes this cost using
+                Predictive Physical Complexity, <em>C<sub>P</sub></em>, and operational proxy complexity,
+                <em>C<sub>v</sub></em>. Stable systems align their internal accounting with real physical expenditure:
+            </p>
+            <p style="text-align: center; font-size: 1.2em;"><em>C<sub>P</sub>(v) =
+                    &lang;C<sub>v</sub>&rang;<sub>x</sub></em></p>
+            <p>The cost of self-reference is especially important. When a predictor tries to include itself in what it
+                predicts, it encounters the <a href="self-referential.html"
+                    style="text-decoration: none; border-bottom: 1px solid transparent; transition: border-bottom 0.3s;"
+                    onmouseover="this.style.borderBottomColor='black';"
+                    onmouseout="this.style.borderBottomColor='transparent';">Self-Referential Paradox of Accurate
+                    Prediction</a> (SPAP). No sufficiently rich system can perfectly predict its own future state in all
+                relevant respects. The attempt produces contradiction, infinite regress, or update instability.</p>
+            <p>PU pairs SPAP with <a href="reflexive.html"
+                    style="text-decoration: none; border-bottom: 1px solid transparent; transition: border-bottom 0.3s;"
+                    onmouseover="this.style.borderBottomColor='black';"
+                    onmouseout="this.style.borderBottomColor='transparent';">Reflexive Undecidability</a> (RUD). In a sufficiently rich Property-R class, no embedded
+                predictor can decide every statement about its own future behavior within bounded resources. SPAP
+                limits perfect accuracy; RUD limits total self-decision. Together they define Logical Indeterminacy, the
+                finite self-reference boundary from which the quantum branch later descends.</p>
+            <p>SPAP gives the framework its first deep limit: perfect self-knowledge is forbidden by logic before it is
+                forbidden by physics. Physical systems then express this limit through a log-enhanced quadratic
+                divergence in the verification/update resources required to approach the SPAP boundary:</p>
+            <p style="text-align: center; font-size: 1.2em;"><em>C<sub>uni</sub>(&delta;<sub>SPAP</sub>) =
+                    &Omega;(log(1/&delta;<sub>SPAP</sub>) / &delta;<sub>SPAP</sub><sup>2</sup>)</em></p>
+            <p>Here <em>&delta;<sub>SPAP</sub> = &alpha;<sub>SPAP</sub> - &alpha;</em>. The same asymptotic lower bound
+                transfers to <em>C<sub>pred</sub>(&alpha;)</em> when the chosen predictive-complexity notion
+                lower-bounds those verification/update operations.</p>
+            <p>Because update must break perfect self-reference, every completed predictive cycle carries an irreducible
+                structural entropy cost on the minimal PCE-Attractor branch:</p>
+            <p style="text-align: center; font-size: 1.2em;"><em>&epsilon;<sub>0</sub> = ln 2</em></p>
+            <p>Any physical implementation has <em>&epsilon;<sub>phys</sub> = &epsilon;<sub>0</sub> +
+                    &epsilon;<sub>diss</sub> &ge; &epsilon;<sub>0</sub></em>; saturation is the ideal overhead-free
+                branch
+                and applies only when realized updates meet that gate.</p>
+
+            <h3>2.5 Minimal Predictive Units</h3>
+            <p>PU models the substrate of reality as a network of <strong>Minimal Predictive Units</strong> (MPUs). An
+                MPU is the minimal finite-response predictive cycle: distinction, prediction, verification, update, and
+                persistence under cost. Philosophically, it is interpreted as a locus of minimal awareness. Formally, it
+                is the smallest operational structure able to carry self-referential prediction under SPAP and PCE.</p>
+            <p>MPUs sit at the physical foundation because PU chooses the foundation by maximal epistemic certainty.
+                The Cogito gives that certainty as an occurring process: to doubt, inquire, perceive, or reason is
+                already to anticipate, test, compare, and update. The predictive character of the Cogito is therefore
+                prior to PU's formal model; PU formalizes it as the minimal cycle of distinction, anticipation,
+                verification, update, and persistence under cost. The MPU is the smallest finite physical carrier of
+                that Cogito-rooted predictive process: the basic unit through which the most certain foundation becomes
+                stable, measurable, shareable, and law-governed.</p>
+            <p>Each MPU carries a perspective, an internal predictive state, and a finite interaction capacity. Between
+                interactions, its state follows regular evolution. During an interaction, it undergoes an irreversible
+                update called an <em>Evolve</em> event. Technically, these interaction updates are modeled by Reflexive
+                Interaction Dynamics (RID), with the nondeterministic branch (ND-RID) supplying the stochastic
+                actualization step. This event is where prediction meets actualization: possibilities become
+                outcome-relative records, and the perspective shifts.</p>
+
+
+            <!-- =========================== Predictive Cycle =========================== -->
+            <div class="pu-cycle"
+                style="display:flex;justify-content:center;padding:24px 0;background:#fafaf7;border-radius:4px;"
+                data-om-id="0f0e1c4a:128">
+                <svg viewBox="0 0 360 360" style="width:100%;max-width:360px;height:auto;"
+                    aria-label="The minimal predictive cycle" data-om-id="0f0e1c4a:129">
+                    <defs data-om-id="0f0e1c4a:130">
+                        <style>
+                            .pu-cycle text {
+                                font-family: Georgia, serif;
+                                font-size: 13px;
+                                fill: #444;
+                                letter-spacing: 0.04em;
+                                text-transform: uppercase;
+                            }
+
+                            .pu-cycle .ring {
+                                fill: none;
+                                stroke: #c8c2b3;
+                                stroke-width: 1;
+                            }
+
+                            .pu-cycle .phase-dot {
+                                fill: #c8c2b3;
+                                transition: fill 0.4s, r 0.4s;
+                            }
+
+                            .pu-cycle .phase-label {
+                                fill: #888;
+                                transition: fill 0.4s, font-weight 0.4s;
+                            }
+
+                            .pu-cycle .traveler {
+                                fill: #1a1a1a;
+                            }
+
+                            .pu-cycle .center {
+                                fill: #1a1a1a;
+                            }
+
+                            .pu-cycle .center-label {
+                                font-size: 11px;
+                                letter-spacing: 0.1em;
+                                fill: #1a1a1a;
+                            }
+                        </style>
+                    </defs>
+                    <circle class="ring" cx="180" cy="180" r="120" data-om-id="0f0e1c4a:131"></circle>
+                    <g class="phases" data-om-id="0f0e1c4a:132"></g>
+                    <circle class="center" cx="180" cy="180" r="6" data-om-id="0f0e1c4a:133"></circle>
+                    <text class="center-label" x="180" y="210" text-anchor="middle" data-om-id="0f0e1c4a:134">MPU</text>
+                    <circle class="traveler" cx="180" cy="60" r="5" data-om-id="0f0e1c4a:135"></circle>
+                </svg>
             </div>
-            <div class="arrow right" onclick="shiftSlide(1)">&#10095;</div>
+            <script>
+                (() => {
+                    const targets = document.querySelectorAll('.pu-cycle, .pu-backbone, .pu-sm, .slide-deck-trigger');
+                    let requested = false;
+                    const load = () => {
+                        if (requested) {
+                            return;
+                        }
+                        requested = true;
+                        const script = document.createElement('script');
+                        script.src = 'predictiveuniverse-inline.js?v=6';
+                        script.defer = true;
+                        document.body.appendChild(script);
+                    };
+                    if ('IntersectionObserver' in window && targets.length) {
+                        const observer = new IntersectionObserver((entries) => {
+                            if (entries.some((entry) => entry.isIntersecting || entry.intersectionRatio > 0)) {
+                                observer.disconnect();
+                                load();
+                            }
+                        }, { rootMargin: '900px 0px' });
+                        targets.forEach((target) => observer.observe(target));
+                    } else if (targets.length) {
+                        window.addEventListener('load', () => window.setTimeout(load, 1200), { once: true });
+                    }
+                })();
+            </script>
+            <h3>2.6 The Closed Discrete Backbone</h3>
+            <p>One reason PU is powerful is that its central physical branches are tied to a compact discrete backbone.
+                On the minimal finite-response PCE-Attractor branch, the recurrent minimal-branch ledger is:</p>
+            <p style="text-align: center; font-size: 1.2em;"><em>K<sub>0</sub> = 3, &nbsp;
+                    d<sub>0</sub> = 8, &nbsp; &epsilon;<sub>0</sub> = ln 2, &nbsp; a = 2, b = 6, &nbsp; M = 24, &nbsp;
+                    k = 12, &nbsp; D = 4</em></p>
+            <p>This ledger is read under the branch being summarized. Some arrows in PU diagrams represent derivational
+                dependence, while others represent ledger order or downstream branch use. SPAP supplies the
+                self-reference boundary; the <a href="horizon.html"
+                    style="text-decoration: none; border-bottom: 1px solid transparent; transition: border-bottom 0.3s;"
+                    onmouseover="this.style.borderBottomColor='black';"
+                    onmouseout="this.style.borderBottomColor='transparent';">smallest robust self-referential
+                    horizon</a> has three bits, giving an eight-state minimal carrier. Irreversible update has a minimal
+                entropy cost. The most efficient active kernel has two states, leaving a six-state inactive complement.
+                The active-inactive interface has twenty-four Quantum Fisher Information modes. On the
+                predictive-recovery
+                MacWilliams branch, those twenty-four interface modes split into <em>k = 12</em> prediction modes and
+                twelve recovery modes, selecting the extended Golay code parameters <em>[24, 12, 8]</em> under the
+                fixed-rate distance gate. Mode-channel matching then selects four-dimensional spacetime. This same
+                backbone feeds the quantum, gauge, dimensional, horizon, recovery-code, and fine-structure branches.</p>
+
+            <img src="images/predictive_universe1.jpg" alt="The Limits of Self-Knowledge" width="1024" height="1536"
+                decoding="async" loading="lazy">
+            <p class="caption">Universe 00110000</p>
+
+            <h2>3. Quantum Reality from Predictive Logic</h2>
+            <h3>3.1 Probability, Born Weights, and Actualization</h3>
+            <p><a href="quantum.html"
+                    style="text-decoration: none; border-bottom: 1px solid transparent; transition: border-bottom 0.3s;"
+                    onmouseover="this.style.borderBottomColor='black';"
+                    onmouseout="this.style.borderBottomColor='transparent';">Quantum behavior</a> appears when finite
+                predictive systems must represent possibilities before an irreversible update. Superposition is the
+                operational state of unresolved predictive alternatives. Measurement is the <em>Evolve</em> event that
+                actualizes one outcome relative to a perspective. Randomness is the physical expression of SPAP-limited
+                self-reference and finite update.</p>
+            <p>In the updated PU chain, the Born rule is not inserted as a separate quantum postulate. PCE removes
+                response-null contextual labels, yielding non-contextual additivity over operationally equivalent
+                projectors. On the MPU Hilbert branch, the Gleason-Busch representation fixes the probability assignment
+                to the Born form:</p>
+            <p style="text-align: center; font-size: 1.2em;"><em>P(k) =
+                    |&lang;k|&psi;&rang;<sub>s</sub>|<sup>2</sup></em></p>
+            <p>Quantum probability is therefore the Hilbert-space descent of self-reference-limited predictive
+                actualization. The probabilities are the stable weights assigned by a finite predictive substrate when
+                it must update under SPAP, PCE, and finite-response consistency.</p>
+            <p>On the ordinary local branch, PU recovers standard quantum behavior. Entanglement is the joint predictive
+                structure of systems whose outcome records cannot be separated into independent local ledgers without
+                losing operational content. Decoherence is the loss of usable phase distinction when a system becomes
+                embedded in a larger interaction context. Context-dependent CC effects are kept in validation-gated
+                branches, so standard quantum predictions remain the baseline for ordinary local experiments.</p>
+
+            <h3>3.2 Hilbert Space, Schr&ouml;dinger Evolution, and Perspective</h3>
+            <p>The MPU state can be represented as a pair: a Hilbert state and a perspective index. Between
+                interactions, the state evolves coherently, giving the familiar Schr&ouml;dinger-type dynamics:</p>
+            <p style="text-align: center; font-size: 1.2em;"><em>i&#8463; d|&psi;&rang;/dt = H|&psi;&rang;</em></p>
+            <p>At interaction, the state actualizes relative to a perspective and the perspective itself shifts. This
+                perspectival structure helps PU address puzzles such as measurement and Wigner's friend. Actuality is
+                indexed by finite perspectives, then reconciled through interaction, update, and consistency
+                constraints.</p>
+            <p>The uncertainty principle has the same origin. A single finite-response ledger cannot give zero-error
+                access to all complementary sharp observables. Mathematically, this descends to noncommuting operators.
+                Operationally, it is the impossibility of compressing all distinctions into one perfect self-transparent
+                predictive record.</p>
+
+            <h3>3.3 The Arrow of Time</h3>
+            <p>Prediction requires an order: anticipation first, verification second, update third. Because update is
+                irreversible on SPAP-limited branches and carries entropy cost, time obtains a direction. The <a
+                    href="time.html"
+                    style="text-decoration: none; border-bottom: 1px solid transparent; transition: border-bottom 0.3s;"
+                    onmouseover="this.style.borderBottomColor='black';"
+                    onmouseout="this.style.borderBottomColor='transparent';">arrow of time</a> is the thermodynamic
+                expression of finite predictive systems having to update from expectation to outcome.</p>
+
+            <h3>3.4 Prediction Relativity</h3>
+            <p><a href="predictionrelativity.html"
+                    style="text-decoration: none; border-bottom: 1px solid transparent; transition: border-bottom 0.3s;"
+                    onmouseover="this.style.borderBottomColor='black';"
+                    onmouseout="this.style.borderBottomColor='transparent';">Prediction Relativity</a> extends the logic
+                of relativity into the cost of self-knowledge. In ordinary
+                relativity, the speed of light is the invariant limit governing motion and signal propagation. In PU,
+                the same kind of invariant limit appears inside prediction: no finite system can obtain perfect
+                self-knowledge, because approaching the SPAP boundary requires divergent verification and update
+                resources.</p>
+            <p>The central identity is:</p>
+            <p style="text-align: center; font-size: 1.2em;"><em>c<sub>&gamma;</sub> = c<sub>&epsilon;</sub></em></p>
+            <p>Here <em>c<sub>&gamma;</sub></em> names the invariant motion limit and
+                <em>c<sub>&epsilon;</sub></em> names the invariant predictive transgression limit. The equality is a
+                branch result: finite motion and finite self-knowledge share one cost boundary. Acceleration, Unruh
+                temperature, horizon formation, and predictive update cost become linked expressions of the same
+                finite-resource constraint.
+            </p>
+            <p>This gives PU a distinctive answer to the problem of time and the meaning of relativity. Time is the
+                order required for prediction, the arrow of time is the entropy cost of update, and relativistic speed
+                limits express the operational limit of finite systems that cannot outrun their own conditions of
+                verification.</p>
+
+            <img src="images/predictive_universe2.jpg" alt="Emergence of Spacetime from MPU Network" width="1024"
+                height="1536" decoding="async" loading="lazy">
+            <p class="caption">Universe 00110000</p>
+
+            <h2>4. Spacetime, Gravity, and Forces as Emergent Structures</h2>
+            <h3>4.1 Operational Continuum and <em>D = 4</em></h3>
+            <p>In PU, spacetime is built from MPU relations. The apparent distance between MPUs is defined by the cost
+                and fidelity of propagating predictive information. PCE favors stable propagation structures because
+                chaotic or incoherent networks waste resources and destroy predictive utility. On the geometrically
+                regular branch, these propagation-cost relations admit an operational continuum description at finite
+                macroscopic resolution.</p>
+            <p>This continuum is a finite-resolution closure that behaves like a smooth Lorentzian spacetime manifold
+                when viewed at the appropriate scale. The dimensionality is fixed on the minimal branch by the
+                twenty-four QFI interface modes, which are matched to finite channel geometry through the mode-channel
+                condition <em>M = K(D)</em>. The isolated positive integer solution is <em>D = 4</em>, giving the
+                effective four-dimensional spacetime branch used by the continuum and gravity derivations.</p>
+
+            <h3>4.2 Gravity as Horizon Thermodynamics</h3>
+            <p><a href="gravity.html"
+                    style="text-decoration: none; border-bottom: 1px solid transparent; transition: border-bottom 0.3s;"
+                    onmouseover="this.style.borderBottomColor='black';"
+                    onmouseout="this.style.borderBottomColor='transparent';">Gravity emerges</a> when the finite
+                information capacity of MPU interactions is applied to causal horizons. Each horizon is crossed by a
+                finite number of effective channels. Because each channel has bounded capacity and irreversible update
+                cost, the maximum distinguishable information associated with a region scales with boundary area. This
+                gives the horizon entropy Area Law from MPU channel counting.</p>
+            <p>On the local KMS/LTE branch, PU applies the Clausius relation to local causal horizons:</p>
+            <p style="text-align: center; font-size: 1.2em;"><em>&delta;Q = T&delta;S</em></p>
+            <p>The heat flow <em>&delta;Q</em> is identified with the flux of predictive work through the MPU
+                stress-energy tensor. The entropy change <em>&delta;S</em> is fixed by the horizon Area Law. The
+                temperature is the local Unruh temperature. Requiring this relation to hold for all local null horizons
+                yields Einstein's Field Equations as an equation of state:</p>
+            <p style="text-align: center; font-size: 1.2em;"><em>R<sub>&mu;&nu;</sub> - &frac12; R g<sub>&mu;&nu;</sub>
+                    + &Lambda; g<sub>&mu;&nu;</sub> = (8&pi;G / c<sup>4</sup>) T<sub>&mu;&nu;</sub><sup>(MPU)</sup></em>
+            </p>
+            <p>The scale of gravity is fixed by the effective horizon information density:</p>
+            <p style="text-align: center; font-size: 1.2em;"><em>G = c<sup>3</sup>/(4&#8463;&Sigma;<sub>I</sub>)</em>
+            </p>
+            <p>Here <em>&Sigma;<sub>I</sub> = &sigma;<sub>eff&nbsp;link</sub>C<sub>max</sub></em>. Gravity is therefore
+                inversely related to effective horizon information density. Lower effective information density produces
+                a stronger effective gravitational response.</p>
+
+            <h3>4.3 Black Holes and Retained Information</h3>
+            <p><a href="blackhole.html"
+                    style="text-decoration: none; border-bottom: 1px solid transparent; transition: border-bottom 0.3s;"
+                    onmouseover="this.style.borderBottomColor='black';"
+                    onmouseout="this.style.borderBottomColor='transparent';">Black holes</a> become limiting cases of
+                horizon-channel capacity. The event horizon saturates finite information-transfer structure, and the
+                Area Law follows from the number of effective channels crossing the causal boundary. PU treats
+                information as retained at the global response level. Exterior recovery from Hawking
+                radiation and full Page-curve behavior require additional scrambling and continuity certificates. The
+                Perspectival Information Channel reframes the paradox as a problem of local sequential recovery.</p>
+
+            <h3>4.4 Gauge Structure and the Standard Model Branch</h3>
+            <p>Gauge fields emerge as coherence mechanisms for finite predictive states. A complex Hilbert state has
+                local phase freedom. To compare predictive states across the network, the system needs a connection
+                field that compensates local phase changes. On the efficient branch, this gives the <em>U(1)</em>
+                structure of electromagnetism.</p>
+            <p>The updated framework goes further. On the finite-response block-frame branch, the minimal backbone gives
+                <em>d<sub>0</sub> = 8</em> and active rank <em>a = 2</em>, leaving an inactive sector <em>b = 6</em>.
+                PCE selection of the capacity-saturating inactive-sector partition gives the split:
+            </p>
+            <p style="text-align: center; font-size: 1.2em;"><em>6 = 3 + 2 + 1</em></p>
+            <p>The determinant-compatible gauge algebra associated with this split is <em>su(3) &oplus; su(2) &oplus;
+                    u(1)</em>, matching the Standard Model gauge algebra on that branch. The claim is scoped to the
+                determinant-compatible block-frame/interface category; classification of all compact connected
+                subgroups of <em>U(6)</em> is outside this branch claim. Quantitative thresholds, masses, running, and
+                flavor remain separate certificate-dependent sectors.</p>
+
+            <h3>4.5 Constants and the Fine-Structure Core</h3>
+            <p>The same backbone feeds the PU derivation of the Thomson-limit <a href="constant.html"
+                    style="text-decoration: none; border-bottom: 1px solid transparent; transition: border-bottom 0.3s;"
+                    onmouseover="this.style.borderBottomColor='black';"
+                    onmouseout="this.style.borderBottomColor='transparent';">fine-structure constant</a> core. The
+                twenty-four QFI interface modes saturate the <em>ln 8</em> capacity of the minimal carrier, fixing the
+                bare rate coordinate:</p>
+            <p style="text-align: center; font-size: 1.2em;"><em>u<sup>*</sup> = 2<sup>1/8</sup> - 1</em></p>
+            <p>After Predictive-Ward normalization, interface correction, curvature correction, and transport
+                correction, the framework obtains the closed-form Thomson-limit core:</p>
+            <p style="text-align: center; font-size: 1.2em;"><em>&alpha;<sub>0</sub><sup>-1</sup> = 4&pi;/u<sup>*</sup>
+                    - &pi;/&radic;K<sub>0</sub> + (&pi;u<sup>*</sup>/(24&radic;K<sub>0</sub>)) sinc(u<sup>*</sup>)</em>
+            </p>
+            <p style="text-align: center; font-size: 1.2em;"><em>&alpha;<sub>0</sub><sup>-1</sup> =
+                    137.036092055...</em></p>
+            <p>The comparison row is residual-gated: <em>&alpha;<sub>cert</sub><sup>-1</sup> =
+                    &alpha;<sub>0</sub><sup>-1</sup> + R<sub>&alpha;</sub></em>. The residual must be fixed before
+                empirical comparison and cannot be used as an after-the-fact fit.</p>
+            <p>More generally, PU treats apparent constants as joint readouts of the recurrent within-unit ledger
+                <em>(K<sub>0</sub>, d<sub>0</sub>, &epsilon;<sub>0</sub>, a, b, M, k, D)</em>, population
+                configuration, accepted overlap maps, and certificate gates. The fine-tuning question is therefore
+                handled by checking whether a sector's parent data reduce to the closed ledger and accepted
+                certificates. Closed rows inherit their stated status; certificate-pending rows remain audit targets.
+            </p>
+
+            <h3>4.6 Dark Sector and Cosmology</h3>
+            <p>Because <em>G</em> is a macroscopic response parameter tied to effective horizon information density, PU
+                allows environment-dependent gravitational response kernels. At galactic scales, the model expresses
+                this through an effective kernel <em>G(R)</em> constrained by local-gravity limits and
+                acceleration-scale regularities. At cluster scales, the framework favors a separate non-local
+                source-modification response, often described as predictive matter, with no universal large-scale
+                change in <em>G</em> assumed. Cosmological dark-energy-like behavior remains a branch/model-level
+                adaptation
+                hypothesis that must pass independent tests.</p>
+
+            <img src="images/predictive_universe3.jpg" alt="Consciousness Complexity Hypothesis" width="1024"
+                height="1536" decoding="async" loading="lazy">
+            <p class="caption">Universe 00110000</p>
+
+            <h2>5. Consciousness, Life, and Biological Organization</h2>
+            <h3>5.1 From Minimal Awareness to Unified Experience</h3>
+            <p>If MPUs are read philosophically as loci of minimal awareness, a further question arises: how can many
+                such units form a unified conscious perspective? PU answers through predictive binding. A complex system
+                becomes unified when many predictive processes are compressed into a shared context state,
+                <em>context<sub>S</sub>(t)</em>, that functions as the system's minimal sufficient self-model.
+            </p>
+            <p>Unity of consciousness is therefore operational integration. Many local predictive updates become one
+                coherent trajectory of meaning because they are organized around a shared, compressed, system-level
+                context. SPAP prevents perfect self-transparency, so conscious unity is real and always incomplete. This
+                gives a natural place for introspective opacity, changing attention, and the sense of a self that
+                persists while continuously updating.</p>
+
+            <h3>5.2 The Consciousness Complexity Hypothesis</h3>
+            <p>The <a href="cc.html"
+                    style="text-decoration: none; border-bottom: 1px solid transparent; transition: border-bottom 0.3s;"
+                    onmouseover="this.style.borderBottomColor='black';"
+                    onmouseout="this.style.borderBottomColor='transparent';">Consciousness Complexity</a> (CC)
+                hypothesis concerns high-complexity MPU aggregates. Such aggregates may use their integrated context
+                state to bias probabilistic <em>Evolve</em> outcomes within strict limits. The effect is a constrained
+                context-dependent statistical influence on transitions already governed by uncertainty.</p>
+            <p>Operationally, CC is the norm of the probability-modification map:</p>
+            <p style="text-align: center; font-size: 1.2em;"><em>CC(S) = ||L<sub>S</sub>||<sub>op</sub> =
+                    sup<sub>&rho;,E</sub> |tr(L<sub>S</sub>(&rho;)E)|</em></p>
+            <p>For a retained event algebra, this quantity bounds the maximum observed deviation from the Born baseline.
+            </p>
+            <p>PU separates ordinary local quantum evolution from stronger, validation-gated context effects. On the
+                local CPTP branch, context-dependent biasing remains compatible with no deterministic faster-than-light
+                signaling. More radical nonlocal or state-mediated marginal anomalies are separated experimental
+                branches. The empirical target is carefully controlled detection of context-dependent deviations from
+                baseline Born statistics under strict causality and calibration constraints.</p>
+
+            <h3>5.3 Life as Predictive Self-Maintenance</h3>
+            <p>PU also gives a predictive definition of life. A living system is a self-maintaining predictive
+                organization that uses resources to preserve, repair, and improve its own future viability. Metabolism
+                is resource acquisition for prediction. Reproduction is predictive continuity across generations.
+                Evolution is PCE acting across populations: structures that compress environmental regularities
+                efficiently tend to persist, while inefficient or fragile structures disappear.</p>
+            <p>This places biology inside the same framework while preserving its organized character. Living systems
+                are predictive organizations that preserve distinctions, manage error, and transmit viable models of the
+                world. The genetic code is treated as biological error-tolerant organization shaped by predictive
+                robustness, with no literal formal Golay-code identification required.</p>
+
+            <h2>6. Philosophy, Mathematics, and Meaning</h2>
+            <h3>6.1 The Effectiveness of Mathematics</h3>
+            <p>PU reframes the puzzle of why mathematics describes physics so well. Mathematics is the abstract grammar
+                of stable distinction, relation, symmetry, transformation, and proof. Physics is the finite,
+                cost-bearing instantiation of those structures inside predictive reality. They meet because both are
+                governed by compression, consistency, finite response, and operational equivalence.</p>
+            <p>This is why the framework gives special significance to structures such as the 24-mode backbone, the
+                predictive-recovery <em>k = 12</em> gate, Golay/Leech geometry, and finite-response extremal
+                configurations. They appear as efficient structures selected by finite response, error correction,
+                capacity, and symmetry constraints. Their physical relevance remains branch-labeled, while their
+                recurring role expresses the same principle: stable reality is compressed predictive structure.</p>
+            <!-- =========================== 24-Mode Backbone =========================== -->
+            <div class="pu-backbone"
+                style="position:relative;width:100%;aspect-ratio:16/9;background:#0a0a0a;overflow:hidden;border-radius:4px;"
+                data-om-id="27778387:174">
+                <canvas style="position:absolute;inset:0;width:100%;height:100%;display:block;"
+                    data-om-id="27778387:175"></canvas>
+                <div class="pu-bb-label"
+                    style="position:absolute;left:0;right:0;bottom:18px;text-align:center;color:#d0d0d0;font:13px Georgia,serif;letter-spacing:0.06em;"
+                    data-om-id="27778387:176"></div>
+            </div>
+
+            <br>
+            <h3>6.2 Why Anything Exists</h3>
+            <p>The question "Why is there something rather than nothing?" is treated by PU as meaningful and
+                structurally closed. Any system capable of asking the question is already inside the domain called
+                something. A full internal specification of the totality would have to include the questioner, the act
+                of specification, the specification itself, and the rules that make specification possible.</p>
+            <p>This creates self-inclusion. A predictor cannot close a complete account of the whole that also
+                contains its own act of accounting. The obstruction is SPAP at the scale of existence: total
+                self-description generates diagonal obstruction, infinite regress, or an unstable update loop. PU
+                therefore places the fundamental question in a third category. It is meaningful, because it arises from
+                real awareness and real distinction. It is structurally closed, because no embedded predictor can
+                complete it from inside the totality it is trying to describe.</p>
+
+            <h3>6.3 Monstrous Moonshine and Vacuum Symmetry</h3>
+            <p>PU also gives a public-facing role to Monster Moonshine. In mathematics, Monstrous Moonshine is the
+                surprising relation between the Monster group, modular functions, and vertex operator algebras. In PU,
+                the relation is read through the conditional Leech/Moonshine branch of the 24-mode backbone:</p>
+            <p style="text-align: center; font-size: 1.2em;"><em>&epsilon; = ln 2 &rarr; a = 2 &rarr; M = 24 &rarr;
+                    k = 12 &rarr; &Lambda;<sub>24</sub> &rarr; V<sup>&natural;</sup> &rarr; &#120132;</em></p>
+            <p>The chain begins with the entropy floor and active-inactive split, reaches the 24-mode interface, then
+                applies the predictive-recovery gate that fixes <em>k = 12</em> on the Golay branch. It then enters the
+                Leech structure and the Moonshine module. On that branch, the Monster group appears as a vacuum-symmetry
+                endpoint. The claim is branch-resolved: Monster Moonshine is used as a mathematical signal of extreme
+                predictive symmetry, with no free empirical fit. Its significance is that deep mathematical symmetry
+                becomes intelligible as the symmetry of a vacuum-like predictive optimum.</p>
+
+            <h3>6.4 Simulation Hypothesis</h3>
+            <p>PU reframes the <a href="authenticity.html"
+                    style="text-decoration: none; border-bottom: 1px solid transparent; transition: border-bottom 0.3s;"
+                    onmouseover="this.style.borderBottomColor='black';"
+                    onmouseout="this.style.borderBottomColor='transparent';">simulation hypothesis</a>
+                not primarily as a probability claim, but as a modeling language
+                for finite,
+                informational, consciousness-compatible reality. Since experience is the unavoidable starting point of
+                inquiry, PU
+                treats physical law as the stable predictive structure through which experience becomes ordered,
+                shareable, and
+                testable.</p>
+            <p>Consciousness is taken as the epistemic primitive, while matter is modeled as the lawful structure of
+                predictive experience. PU begins from conscious experience and asks how prediction becomes constrained
+                by finite capacity, compression, self-reference, and thermodynamic cost.</p>
+            <p>The simulation model is compatible with idealism because information processing is substrate independent.
+                A predictive structure can be instantiated through different carriers while preserving the same
+                operational law. This gives a direct model for matter as the public, lawful, finite-response structure
+                of
+                information within experience.</p>
+            <p>PU distinguishes a synthetic simulation from an authentic simulation. A synthetic simulation is
+                externally
+                controlled: its internal states can be overwritten, paused, replayed, or trivially predicted. It
+                resembles a video game or film, where the world is an artifact managed by a controller outside the
+                simulated order.</p>
+            <p>An authentic simulation is an information-processing world that maintains epistemic and control
+                boundaries. It generates genuine novelty through its own internal dynamics, while any simulator remains
+                outside the world's write-path. External agents may observe only through a non-interventional channel:
+                they can read information about the simulation, while overwrite access, outcome steering, injected
+                causes, and conservation-law alteration remain inaccessible. The observational cost is paid at the
+                external observer interface, while the simulated world preserves internal causality, unpredictability,
+                and autonomy.</p>
+            <p>The sharper question is whether any external access could bypass SPAP, PCE, finite capacity, and
+                thermodynamic cost. PU treats such bypassing as structurally forbidden for authentic worlds. This is why
+                the simulation hypothesis is a strong model for PU: it is efficient, natural, information-theoretic, and
+                suited to explaining observation, law, prediction, and consciousness within one coherent framework.</p>
+
+            <h3>6.5 Classic Philosophical Problems</h3>
+            <p>PU also gives a compact map of several classical philosophical problems. The goal is status-resolved
+                orientation: each problem is assigned a predictive role, a structural constraint, or a boundary of
+                meaningful inquiry.</p>
+            <table style="width: 100%; border-collapse: collapse; font-size: 18px; margin: 20px 0;">
+                <thead>
+                    <tr>
+                        <th style="border: 1px solid #ddd; padding: 8px;">Problem</th>
+                        <th style="border: 1px solid #ddd; padding: 8px;">PU framing</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td style="border: 1px solid #ddd; padding: 8px;">Hard problem of consciousness</td>
+                        <td style="border: 1px solid #ddd; padding: 8px;">Conscious awareness is the epistemic starting
+                            point. The central task is explaining how awareness organizes into lawful shared structure.
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="border: 1px solid #ddd; padding: 8px;">Induction</td>
+                        <td style="border: 1px solid #ddd; padding: 8px;">Stable regularity is a condition for
+                            prediction. A world with no reliable structure cannot support meaningful prediction.</td>
+                    </tr>
+                    <tr>
+                        <td style="border: 1px solid #ddd; padding: 8px;">Gettier problem</td>
+                        <td style="border: 1px solid #ddd; padding: 8px;">Knowledge is prediction that survives
+                            verification and update. Justification must be connected to the predictive cycle that
+                            produced the successful expectation.</td>
+                    </tr>
+                    <tr>
+                        <td style="border: 1px solid #ddd; padding: 8px;">Problem of the criterion</td>
+                        <td style="border: 1px solid #ddd; padding: 8px;">The Cogito gives a self-certifying starting
+                            point. Verification supplies the operational criterion for later knowledge claims.</td>
+                    </tr>
+                    <tr>
+                        <td style="border: 1px solid #ddd; padding: 8px;">M&uuml;nchhausen trilemma</td>
+                        <td style="border: 1px solid #ddd; padding: 8px;">The Cogito supplies a foundation that is
+                            self-verifying at the point of awareness, while later claims must pass finite predictive
+                            verification.</td>
+                    </tr>
+                    <tr>
+                        <td style="border: 1px solid #ddd; padding: 8px;">Universals</td>
+                        <td style="border: 1px solid #ddd; padding: 8px;">Mathematical universals become physically
+                            relevant when they are instantiated as finite, cost-bearing predictive invariants.</td>
+                    </tr>
+                    <tr>
+                        <td style="border: 1px solid #ddd; padding: 8px;">Other minds</td>
+                        <td style="border: 1px solid #ddd; padding: 8px;">Plural predictive centers are required for
+                            shared objective structure, cross-perspective verification, and stable public records.</td>
+                    </tr>
+                    <tr>
+                        <td style="border: 1px solid #ddd; padding: 8px;">Something rather than nothing</td>
+                        <td style="border: 1px solid #ddd; padding: 8px;">The question is meaningful and structurally
+                            closed. An embedded predictor cannot complete a total self-description of existence.
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h3>6.6 Explanatory Compression</h3>
+            <p>The value of PU is explanatory compression. The same operational principles recur across domains:
+                awareness makes distinctions, prediction updates them, self-reference imposes limits, irreversible
+                update has thermodynamic cost, PCE selects efficient structure, and stable branches become physical law.
+            </p>
+            <p>This creates a single map. Quantum randomness follows from self-reference-limited actualization. The
+                arrow of time follows from irreversible update. Prediction Relativity links motion limits with
+                self-knowledge limits. Spacetime follows from efficient propagation geometry. Gravity follows from
+                horizon thermodynamics. Gauge structure follows from the minimal inactive-sector split. The
+                fine-structure constant core is assigned to the same 24-mode backbone with a residual gate. Life follows
+                from predictive self-maintenance. Consciousness is the starting condition that makes the story
+                meaningful.</p>
+
+            <h2>7. PU and Open Problems in Physics and Mathematics</h2>
+            <p>PU is a status-resolved map of open problems. It assigns problems to different levels. Some are
+                structural consequences of the framework, some are branch-level derivations, some are conditional
+                mathematical programs, some require numerical certificates, and some are empirical model layers. This
+                distinction is central to how PU handles theory of everything claims, particle physics, singularities,
+                infinities, time, and mathematical existence problems.</p>
+
+            <h3>7.1 Standards for Addressing an Open Problem</h3>
+            <p>For each open problem, PU asks four questions. First, what operational distinction must be explained?
+                Second, what finite predictive cost carries that distinction? Third, is the result theorem-level,
+                branch-level, certificate-gated, model-layer, or experimental? Fourth, what observation, calculation,
+                or certificate could count against it?</p>
+            <table style="width: 100%; border-collapse: collapse; font-size: 18px; margin: 20px 0;">
+                <thead>
+                    <tr>
+                        <th style="border: 1px solid #ddd; padding: 8px;">Status</th>
+                        <th style="border: 1px solid #ddd; padding: 8px;">Meaning in PU</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td style="border: 1px solid #ddd; padding: 8px;">Structural or theorem-level</td>
+                        <td style="border: 1px solid #ddd; padding: 8px;">Follows from the stated logic of prediction,
+                            finite response, SPAP, PCE, or PPI.</td>
+                    </tr>
+                    <tr>
+                        <td style="border: 1px solid #ddd; padding: 8px;">Branch-level</td>
+                        <td style="border: 1px solid #ddd; padding: 8px;">Follows after explicit branch assumptions,
+                            such as the minimal finite-response branch, local KMS/LTE branch, or block-frame gauge
+                            branch.</td>
+                    </tr>
+                    <tr>
+                        <td style="border: 1px solid #ddd; padding: 8px;">Certificate-gated</td>
+                        <td style="border: 1px solid #ddd; padding: 8px;">Requires a fixed precomparison certificate,
+                            residual interval, spectral tuple, or numerical audit before empirical comparison.</td>
+                    </tr>
+                    <tr>
+                        <td style="border: 1px solid #ddd; padding: 8px;">Forward-locked</td>
+                        <td style="border: 1px solid #ddd; padding: 8px;">The value, branch, certificate, residual
+                            interval, evidence protocol, and falsification rule are fixed before the validation data are
+                            collected.</td>
+                    </tr>
+                    <tr>
+                        <td style="border: 1px solid #ddd; padding: 8px;">Conditional mathematical program</td>
+                        <td style="border: 1px solid #ddd; padding: 8px;">Gives a constructive route or criterion while
+                            leaving a full proof, such as a Clay-level existence proof, as an explicit completion task.
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="border: 1px solid #ddd; padding: 8px;">Model-layer or experimental</td>
+                        <td style="border: 1px solid #ddd; padding: 8px;">Provides a physical model, test protocol, or
+                            data-facing hypothesis that must survive observation.</td>
+                    </tr>
+                </tbody>
+            </table>
+            <img src="images/infographic.png" alt="Infographic" width="1024" height="1536" decoding="async"
+                loading="lazy">
+            <p class="caption">Universe 00110000</p>
+            <h3>7.2 Theory of Everything</h3>
+            <p>The theory of everything problem asks whether one coherent framework can connect all physical domains:
+                quantum mechanics, spacetime, gravity, forces, constants, matter, cosmology, and observers. PU addresses
+                the problem by using prediction as the common operational substrate. Quantum mechanics arises from
+                self-reference-limited actualization. Spacetime arises from efficient propagation geometry. Gravity
+                arises from horizon thermodynamics. Gauge structure arises from finite-response coherence. Constants
+                become compressed boundary coordinates of the same predictive backbone.</p>
+            <p>The effort to unify the theory of gravity with the principles of quantum mechanics asks how general
+                relativity and quantum mechanics can belong to one consistent structure. PU does this through finite
+                horizon channels. The quantum side is carried by MPU Hilbert-state evolution and perspective-indexed
+                actualization. The gravitational side is carried by horizon entropy, local Unruh temperature, and the
+                Clausius relation. Einstein's equations then appear as a thermodynamic equation of state on the local
+                causal-horizon branch.</p>
+            <p>The problem of time asks why physical time has a direction, why time is treated differently in quantum
+                mechanics and general relativity, and how temporal order arises. PU assigns time to the predictive
+                cycle:
+                anticipation, verification, update, and persistence. The arrow of time follows from irreversible update
+                cost. Prediction Relativity then links temporal order, motion limits, and self-knowledge limits through
+                one finite-resource boundary.</p>
+            <p>This gives PU a route to emergent spacetime, holographic behavior, black-hole information, and
+                dimensional selection. The continuum is a finite-resolution closure of propagation cost, while horizon
+                area counts effective channel capacity. Black-hole information is treated as retained at the global
+                response level, with Page-curve recovery requiring additional scrambling and continuity certificates.
+            </p>
+            <table style="width: 100%; border-collapse: collapse; font-size: 18px; margin: 20px 0;">
+                <thead>
+                    <tr>
+                        <th style="border: 1px solid #ddd; padding: 8px;">Open problem</th>
+                        <th style="border: 1px solid #ddd; padding: 8px;">Background</th>
+                        <th style="border: 1px solid #ddd; padding: 8px;">PU address</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td style="border: 1px solid #ddd; padding: 8px;">Dimensionality</td>
+                        <td style="border: 1px solid #ddd; padding: 8px;">Physics usually assumes four effective
+                            spacetime dimensions, while higher-dimensional theories often leave dimensional selection
+                            as a separate question.</td>
+                        <td style="border: 1px solid #ddd; padding: 8px;">The minimal branch matches the 24 QFI
+                            interface modes to finite channel geometry. The isolated positive integer solution is
+                            <em>D = 4</em>.
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="border: 1px solid #ddd; padding: 8px;">Black-hole information</td>
+                        <td style="border: 1px solid #ddd; padding: 8px;">Black holes appear to hide information behind
+                            horizons while Hawking radiation looks locally thermal.</td>
+                        <td style="border: 1px solid #ddd; padding: 8px;">Information is retained at the global response
+                            level. Local channels may look thermal, while recovery requires accepted scrambling and
+                            continuity certificates.</td>
+                    </tr>
+                    <tr>
+                        <td style="border: 1px solid #ddd; padding: 8px;">Measurement</td>
+                        <td style="border: 1px solid #ddd; padding: 8px;">Quantum theory requires a rule for how
+                            unresolved possibilities become outcome-relative records.</td>
+                        <td style="border: 1px solid #ddd; padding: 8px;">Measurement is an <em>Evolve</em> event:
+                            perspective-indexed actualization under SPAP, PCE, and finite-response consistency.</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h3>7.3 Singularities, Infinities, and Continuum Limits</h3>
+            <p>Singularities occur when a mathematical description produces infinite curvature, infinite density, or a
+                breakdown of ordinary spacetime description, such as in classical descriptions of the Big Bang or black
+                hole interiors. PU treats such infinities as signs that a continuum approximation has exceeded its
+                operational domain. A real physical distinction must be finite-response, cost-bearing, and
+                protocol-detectable.</p>
+            <p>On this view, the smooth spacetime manifold is a macroscopic approximation to finite predictive
+                structure. The Planck-scale and horizon-channel branches impose finite resolution and finite information
+                density. Computation-induced horizons and finite update costs provide a route to singularity exclusion:
+                before an infinite operational distinction is physically instantiated, the system reaches a horizon,
+                resolution bound, or update-cost barrier. Quantitative singularity modeling remains a formalized
+                completion task.</p>
+            <p>This same standard applies to infinities in quantum field theory. PU accepts effective continuum
+                mathematics as a powerful approximation, while physical ontology is assigned only to distinctions that
+                survive finite response, certificate, and operational access. Infinite quantities must be renormalized,
+                quotiented as response-null, or replaced by finite predictive ledgers.</p>
+
+            <h3>7.4 Yang-Mills Existence, Mass Gap, and Confinement</h3>
+            <p>The Yang-Mills existence and mass gap problem asks for a rigorous construction of non-abelian quantum
+                Yang-Mills theory in four dimensions and proof that the theory has a positive mass gap. Physically, this
+                is connected to the short range of the strong interaction and to confinement: isolated quarks and gluons
+                are absent from low-energy observations.</p>
+            <p>PU addresses this problem through the finite-response gauge branch. Gauge fields are coherence mechanisms
+                for comparing predictive states across a network. The Standard Model gauge algebra appears on the
+                determinant-compatible inactive-sector split:</p>
+            <p style="text-align: center; font-size: 1.2em;"><em>6 = 3 + 2 + 1, &nbsp;&nbsp;
+                    su(3) &oplus; su(2) &oplus; u(1)</em></p>
+            <p>For the Yang-Mills mass gap, PU uses a higher-form predictive ledger. Extended line and surface
+                protocols carry response classes. On the confinement branch, an unbroken electric center one-form ledger
+                with a positive surface gap enforces an area law for Wilson-loop behavior. In public terms:
+                color-charged
+                information cannot be separated at finite cost into isolated low-energy records. The observable spectrum
+                is therefore organized into neutral, finite-response bound structures.</p>
+            <p>Status: conditional mathematical program. PU supplies a constructive criterion and physical mechanism for
+                confinement-like behavior and positive gap structure. A full Clay-level proof would still require the
+                accepted rigorous construction of the four-dimensional quantum theory, its Hilbert space or Euclidean
+                measure, its locality and positivity properties, and its positive spectral gap.</p>
+
+            <h3>7.5 Particle Physics and the Standard Model</h3>
+            <p>Particle physics contains several open problems: why the Standard Model gauge group has its observed
+                form, whether the forces unify, why there are three generations of matter, why particle masses and
+                mixings have their specific pattern, why neutrinos are light, why the strong interaction preserves CP so
+                accurately, why matter dominates antimatter, and why the electroweak scale is so much smaller than the
+                Planck scale.</p>
+            <table style="width: 100%; border-collapse: collapse; font-size: 18px; margin: 20px 0;">
+                <thead>
+                    <tr>
+                        <th style="border: 1px solid #ddd; padding: 8px;">Open problem</th>
+                        <th style="border: 1px solid #ddd; padding: 8px;">Background</th>
+                        <th style="border: 1px solid #ddd; padding: 8px;">PU address</th>
+                        <th style="border: 1px solid #ddd; padding: 8px;">Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td style="border: 1px solid #ddd; padding: 8px;">Gauge group</td>
+                        <td style="border: 1px solid #ddd; padding: 8px;">The Standard Model uses
+                            <em>SU(3) &times; SU(2) &times; U(1)</em>, while the origin of this exact gauge structure is
+                            usually taken as input.
+                        </td>
+                        <td style="border: 1px solid #ddd; padding: 8px;">The minimal backbone gives
+                            <em>d<sub>0</sub> = 8</em>, active rank <em>a = 2</em>, inactive sector <em>b = 6</em>, and
+                            the efficient split <em>6 = 3 + 2 + 1</em>, yielding the matching gauge algebra on the
+                            block-frame branch.
+                        </td>
+                        <td style="border: 1px solid #ddd; padding: 8px;">Branch-level</td>
+                    </tr>
+                    <tr>
+                        <td style="border: 1px solid #ddd; padding: 8px;">Grand unification</td>
+                        <td style="border: 1px solid #ddd; padding: 8px;">The open question is whether electromagnetic,
+                            weak, and strong forces are different aspects of one deeper symmetry.</td>
+                        <td style="border: 1px solid #ddd; padding: 8px;">PU gives structural unification through one
+                            predictive backbone. Coupling thresholds and running remain spectral-gate tasks.</td>
+                        <td style="border: 1px solid #ddd; padding: 8px;">Structural plus certificate-gated</td>
+                    </tr>
+                    <tr>
+                        <td style="border: 1px solid #ddd; padding: 8px;">Three generations</td>
+                        <td style="border: 1px solid #ddd; padding: 8px;">Quarks and leptons appear in three repeated
+                            families, with different masses and mixings.</td>
+                        <td style="border: 1px solid #ddd; padding: 8px;">PU derives <em>N<sub>g</sub> = 3</em> as the
+                            minimal admissible count in the anomaly and CP family-charge class, with
+                            <em>D<sub>4</sub></em>,
+                            <em>E<sub>8</sub></em>, Leech, and <em>M = 24 = 8 &times; 3</em> as compatibility layers.
+                        </td>
+                        <td style="border: 1px solid #ddd; padding: 8px;">Structural, with flavor model layers</td>
+                    </tr>
+                    <tr>
+                        <td style="border: 1px solid #ddd; padding: 8px;">Yukawa hierarchy</td>
+                        <td style="border: 1px solid #ddd; padding: 8px;">Particle masses differ by huge factors, and
+                            the Standard Model inserts these values as Yukawa couplings.</td>
+                        <td style="border: 1px solid #ddd; padding: 8px;">PU treats masses as relational update
+                            resistance and reorganizes multiplicative mass ratios into additive predictive costs.
+                            Detailed fermion masses require hierarchy, threshold, and normalization certificates.</td>
+                        <td style="border: 1px solid #ddd; padding: 8px;">Model layer with certificates</td>
+                    </tr>
+                    <tr>
+                        <td style="border: 1px solid #ddd; padding: 8px;">Neutrino mass</td>
+                        <td style="border: 1px solid #ddd; padding: 8px;">Neutrinos have small masses, and their exact
+                            absolute scale, ordering, and Dirac or Majorana character remain open.</td>
+                        <td style="border: 1px solid #ddd; padding: 8px;">PU assigns neutrino structure to the
+                            Takagi-Weyl and <em>A<sub>2</sub></em> closure branch, with PMNS angles, mass scale, and CP
+                            phase tied to stated geometric assumptions.</td>
+                        <td style="border: 1px solid #ddd; padding: 8px;">Conditional model branch</td>
+                    </tr>
+                    <tr>
+                        <td style="border: 1px solid #ddd; padding: 8px;">Strong CP</td>
+                        <td style="border: 1px solid #ddd; padding: 8px;">QCD permits a CP-violating angle, yet observed
+                            strong interactions preserve CP to extremely high precision.</td>
+                        <td style="border: 1px solid #ddd; padding: 8px;">PU uses a structural branch route in which a
+                            sigma-involution and positive-orientation real-Yukawa branch give
+                            <em>&theta;&#772; = 0</em> under stated assumptions.
+                        </td>
+                        <td style="border: 1px solid #ddd; padding: 8px;">Structural branch route</td>
+                    </tr>
+                    <tr>
+                        <td style="border: 1px solid #ddd; padding: 8px;">Baryon asymmetry</td>
+                        <td style="border: 1px solid #ddd; padding: 8px;">The early universe should have produced matter
+                            and antimatter in nearly equal amounts, yet the visible universe is matter-dominated.</td>
+                        <td style="border: 1px solid #ddd; padding: 8px;">PU realizes the Sakharov ingredients through
+                            anomaly inflow, CP-root structure, and out-of-equilibrium update. The baryon-to-entropy
+                            ratio is assigned to an efficiency, washout, and electroweak-threshold branch.</td>
+                        <td style="border: 1px solid #ddd; padding: 8px;">Model and thermal branch</td>
+                    </tr>
+                    <tr>
+                        <td style="border: 1px solid #ddd; padding: 8px;">Hierarchy problem</td>
+                        <td style="border: 1px solid #ddd; padding: 8px;">The electroweak scale is far smaller than the
+                            Planck scale, and ordinary quantum corrections make this separation difficult to stabilize.
+                        </td>
+                        <td style="border: 1px solid #ddd; padding: 8px;">PU treats the electroweak hierarchy as a
+                            predictive complexity exponent and threshold problem. The hierarchy is part of the spectral
+                            and mass-cost machinery.</td>
+                        <td style="border: 1px solid #ddd; padding: 8px;">Certificate-gated branch</td>
+                    </tr>
+                </tbody>
+            </table>
+            <!-- =========================== Standard Model from Backbone =========================== -->
+            <div class="pu-sm"
+                style="position:relative;width:100%;aspect-ratio:16/9;background:#fafaf7;overflow:hidden;border-radius:4px;"
+                data-om-id="c8bebfaa:170">
+                <canvas style="position:absolute;inset:0;width:100%;height:100%;display:block;"
+                    data-om-id="c8bebfaa:171"></canvas>
+            </div>
+            <p class="caption">Three generations are shown as part of the Standard Model integration; their PU route is
+                a separate anomaly/CP-family branch.</p>
+
+            <br>
+            <h3>7.6 Spinors, Chirality, and CKM Flavor Mixing</h3>
+
+            <p>The Standard Model branch described above explains how the determinant-compatible
+                inactive-sector split <em>6 = 3 + 2 + 1</em> gives the gauge-algebra pattern
+                <em>su(3) &oplus; su(2) &oplus; u(1)</em> on its stated branch. That result fixes the
+                gauge-frame architecture, but it does not by itself complete the matter sector. A full
+                particle account also needs spinorial matter, weak chirality, three generation spaces,
+                and the flavor-mixing matrix that appears when the up-type and down-type quark mass
+                bases are not aligned.
+            </p>
+
+            <p><strong>Spinors.</strong> On the emergent Lorentzian <em>D = 4</em> branch, local spacetime
+                frames are described by the Lorentz group and, when the spin obstruction is absent or
+                locally bypassed, by its double cover <em>Spin(1,3)</em>. PU connects this standard
+                spinor structure to the two-state active kernel. The active rank <em>a = 2</em> supplies
+                the minimal amplitude carrier whose projective rotations act like ordinary spatial
+                rotations on rays while retaining the double-cover sign on amplitudes. In public terms,
+                a full turn can return the physical ray to itself while reversing the underlying
+                amplitude sign. This is the operational signature of spinorial matter. In the continuum
+                language, left-handed and right-handed Weyl spinors transform as the two inequivalent
+                spinor representations of <em>Spin(1,3)</em>, and a Dirac spinor combines the two
+                chiral parts.</p>
+
+            <p><strong>Chirality.</strong> Chirality enters when the finite-response gauge branch is
+                restricted to the weak interaction. On the predictive-recovery branch, the
+                twenty-four interface modes split into <em>k = 12</em> signal modes and twelve recovery
+                modes. On the weak-left projection branch, the weak interaction selects a Lagrangian
+                half-polarization of the signal space, giving</p>
+
+            <p style="text-align: center; font-size: 1.2em;"><em>n<sub>L</sub> = k / 2 = 6</em></p>
+
+            <p>These six left-chiral modes couple to the six-dimensional inactive reservoir
+                <em>b = 6</em>. On the row-pair branch, the same six-dimensional weak-left space is
+                organized as
+            </p>
+
+            <p style="text-align: center; font-size: 1.2em;"><em>&#8477;<sup>6</sup> &cong;
+                    &#8477;<sup>3</sup><sub>generation</sub> &otimes; &#8477;<sup>2</sup><sub>weak</sub></em></p>
+
+            <p>This gives a compact public interpretation: three generation slots, each carrying a
+                weak doublet structure. The left-handed quark and lepton doublets are therefore
+                response-active under <em>SU(2)<sub>L</sub></em>, while the right-handed fields are
+                weak singlets that still participate in hypercharge and Yukawa structure. This is why
+                PU treats weak chirality as a branch feature of the finite-response Standard Model
+                reconstruction, not as a separate arbitrary add-on.</p>
+
+            <p><strong>Flavor mixing.</strong> Once three generations are present, the quark mass bases
+                need not coincide with the weak-interaction basis. In ordinary Standard Model language,
+                the CKM matrix is the mismatch between the left-handed diagonalization maps of the
+                up-type and down-type Yukawa sectors:</p>
+
+            <p style="text-align: center; font-size: 1.2em;"><em>V<sub>CKM</sub> =
+                    U<sub>uL</sub><sup>&dagger;</sup> U<sub>dL</sub></em></p>
+
+            <p>PU reads this mismatch geometrically. The generation states occupy positions and
+                transport paths on the flavor-generation manifold, with the up and down sectors carrying
+                different geometric orientations. The CKM entries are then not treated as independent
+                arbitrary angles. They are modeled as overlap and holonomy data: wavefunction overlap
+                gives the magnitudes of mixing, while Berry holonomy around flavor-changing loops gives
+                the CP-violating phase. The public formula is:</p>
+
+            <p style="text-align: center; font-size: 1.2em;"><em>|V<sub>ij</sub>| =
+                    &#8472;<sub>ij</sub> &times; &#927;<sub>ij</sub></em></p>
+
+            <p>Here <em>&#8472;<sub>ij</sub></em> is a geometric projection factor, and
+                <em>&#927;<sub>ij</sub></em> is the overlap factor between generation states. In the
+                Gaussian-overlap branch used for the CKM sector, the overlap has the schematic form
+            </p>
+
+            <p style="text-align: center; font-size: 1.2em;"><em>&#927;<sub>ij</sub> &sim;
+                    exp(-&alpha; d<sup>2</sup><sub>eff</sub>) &times;
+                    |sin(&Theta;<sub>ij</sub>/2)|, &nbsp;&nbsp; &alpha; = 3/2</em></p>
+
+            <p>The hierarchy of CKM magnitudes then has a simple interpretation. Heavy-generation
+                transitions are tunneling-like and are exponentially suppressed. The 3-to-2 transition
+                gives</p>
+
+            <p style="text-align: center; font-size: 1.2em;"><em>|V<sub>cb</sub>| =
+                    &radic;(2/3) e<sup>-3</sup> &asymp; 0.0407</em></p>
+
+            <p>The 3-to-1 transition includes interference between up-sector and down-sector paths,
+                producing</p>
+
+            <p style="text-align: center; font-size: 1.2em;"><em>|V<sub>ub</sub>| &asymp; 0.00392</em></p>
+
+            <p>By contrast, the light-generation Cabibbo angle is not primarily an exponential
+                tunneling effect. It comes from geometric frustration between the up-sector and
+                down-sector orientations. With the A<sub>2</sub> root-weight projection and the
+                curvature correction on the stated branch, PU writes the public result as</p>
+
+            <p style="text-align: center; font-size: 1.2em;"><em>|V<sub>us</sub>| =
+                    (&radic;3/2) sin(15.15&deg;) f<sub>curv</sub> &asymp; 0.2261</em></p>
+
+            <p>The CP-violating CKM phase is assigned to Berry holonomy around the minimal
+                flavor-changing loop. In the branch language, the flat Berry-area value is</p>
+
+            <p style="text-align: center; font-size: 1.2em;"><em>&delta;<sub>flat</sub> =
+                    2 arctan(&radic;2 / 2) = 70.53&deg;</em></p>
+
+            <p>Finite generation-subspace averaging then applies the coherent sinc factor</p>
+
+            <p style="text-align: center; font-size: 1.2em;"><em>f<sub>sinc</sub> =
+                    sinc(1/&radic;3) &asymp; 0.9454</em></p>
+
+            <p>giving the CKM phase</p>
+
+            <p style="text-align: center; font-size: 1.2em;"><em>&delta;<sub>CKM</sub> =
+                    70.53&deg; &times; sinc(1/&radic;3) &asymp; 66.7&deg;</em></p>
+
+            <p>Combining the directly modeled entries with unitarity gives the following public
+                magnitude summary:</p>
+
+            <table style="width: 100%; border-collapse: collapse; font-size: 18px; margin: 20px 0;">
+                <thead>
+                    <tr>
+                        <th style="border: 1px solid #ddd; padding: 8px;">CKM magnitude matrix</th>
+                        <th style="border: 1px solid #ddd; padding: 8px;">Approximate PU branch value</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td style="border: 1px solid #ddd; padding: 8px;">First row</td>
+                        <td style="border: 1px solid #ddd; padding: 8px;">
+                            <em>|V<sub>ud</sub>| &asymp; 0.9741, &nbsp;
+                                |V<sub>us</sub>| &asymp; 0.2261, &nbsp;
+                                |V<sub>ub</sub>| &asymp; 0.00392</em>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="border: 1px solid #ddd; padding: 8px;">Second row</td>
+                        <td style="border: 1px solid #ddd; padding: 8px;">
+                            <em>|V<sub>cd</sub>| &asymp; 0.2260, &nbsp;
+                                |V<sub>cs</sub>| &asymp; 0.9732, &nbsp;
+                                |V<sub>cb</sub>| &asymp; 0.0407</em>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="border: 1px solid #ddd; padding: 8px;">Third row</td>
+                        <td style="border: 1px solid #ddd; padding: 8px;">
+                            <em>|V<sub>td</sub>| &asymp; 0.0087, &nbsp;
+                                |V<sub>ts</sub>| &asymp; 0.0399, &nbsp;
+                                |V<sub>tb</sub>| &asymp; 0.9992</em>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="border: 1px solid #ddd; padding: 8px;">CP phase</td>
+                        <td style="border: 1px solid #ddd; padding: 8px;">
+                            <em>&delta;<sub>CKM</sub> &asymp; 66.7&deg;</em>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <p>This also clarifies the difference between weak CP violation and strong CP. The CKM
+                phase is a relative flavor holonomy: it is generated by transport around a loop in the
+                generation sector. The strong-CP angle belongs to a different determinant-line and
+                orientation branch. PU can therefore allow a nonzero CKM phase while still assigning
+                <em>&theta;&#772; = 0</em> to the strong-CP branch under its stated assumptions.
+            </p>
+
+            <p><strong>Status.</strong> The spinor statement is branch-derived from the active-kernel
+                double-cover and emergent Lorentzian-spacetime structure. The chirality statement is
+                branch-level on the weak-left projection and row-pair branches. The CKM magnitudes and
+                phase are flavor-model outputs: they require the adopted generation geometry, overlap
+                model, stiffness/curvature choices, Berry-area certificate, and unitarity closure.
+                They should therefore be presented as certificate-gated flavor-branch results, not as
+                consequences of <em>6 = 3 + 2 + 1</em> alone.</p>
+            <h3>7.7 Cosmology and Constants</h3>
+            <p>Cosmology contains open questions about inflation, the horizon problem, the cosmological constant, dark
+                matter, dark energy, Hubble tension, matter-antimatter asymmetry, the size and shape of the universe,
+                and the origin of the conditions that allow anything to exist. PU approaches these through finite
+                horizon information, environment-dependent gravitational response, vacuum complexity, and the same
+                predictive status discipline used elsewhere.</p>
+            <table style="width: 100%; border-collapse: collapse; font-size: 18px; margin: 20px 0;">
+                <thead>
+                    <tr>
+                        <th style="border: 1px solid #ddd; padding: 8px;">Problem</th>
+                        <th style="border: 1px solid #ddd; padding: 8px;">Background</th>
+                        <th style="border: 1px solid #ddd; padding: 8px;">PU address</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td style="border: 1px solid #ddd; padding: 8px;">Dimensionless constants</td>
+                        <td style="border: 1px solid #ddd; padding: 8px;">Physics measures constants such as the
+                            fine-structure constant, while their deeper origin remains unclear.</td>
+                        <td style="border: 1px solid #ddd; padding: 8px;">PU treats constants as normalized predictive
+                            shadow prices or boundary coordinates. The fine-structure core comes from the 24-mode
+                            backbone with a residual gate fixed before comparison.</td>
+                    </tr>
+                    <tr>
+                        <td style="border: 1px solid #ddd; padding: 8px;">Cosmological constant</td>
+                        <td style="border: 1px solid #ddd; padding: 8px;">Vacuum energy estimates and observed cosmic
+                            acceleration differ by an enormous hierarchy in standard treatments.</td>
+                        <td style="border: 1px solid #ddd; padding: 8px;">PU assigns the vacuum scale to a complexity
+                            hierarchy on the Appendix U branch. Numerical promotion requires the named Fredholm,
+                            determinant, and prefactor certificates.</td>
+                    </tr>
+                    <tr>
+                        <td style="border: 1px solid #ddd; padding: 8px;">Dark matter</td>
+                        <td style="border: 1px solid #ddd; padding: 8px;">Galaxies and clusters show gravitational
+                            behavior usually attributed to unseen matter or modified gravity.</td>
+                        <td style="border: 1px solid #ddd; padding: 8px;">PU allows environment-dependent response
+                            kernels tied to effective horizon information density. Galactic and cluster regimes are kept
+                            as separate response branches.</td>
+                    </tr>
+                    <tr>
+                        <td style="border: 1px solid #ddd; padding: 8px;">Dark energy</td>
+                        <td style="border: 1px solid #ddd; padding: 8px;">The universe appears to undergo accelerated
+                            expansion, and the cause of that behavior remains open.</td>
+                        <td style="border: 1px solid #ddd; padding: 8px;">PU treats dark-energy-like behavior as a
+                            vacuum-response and cosmological adaptation branch that must pass independent tests.</td>
+                    </tr>
+                    <tr>
+                        <td style="border: 1px solid #ddd; padding: 8px;">Hubble tension</td>
+                        <td style="border: 1px solid #ddd; padding: 8px;">Early-universe and local measurements of the
+                            expansion rate disagree under the standard cosmological model.</td>
+                        <td style="border: 1px solid #ddd; padding: 8px;">PU places this in the modified-cosmology and
+                            response-kernel sector. Any proposed resolution must keep local gravity, lensing, CMB, and
+                            expansion data inside one closed error budget.</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h3>7.8 Mathematical Problems and Physical Existence</h3>
+            <p>PU distinguishes mathematical existence from physical instantiation. A structure may be mathematically
+                consistent, finitely describable, finitely generable, certificate-accessible, physically instantiated,
+                and observer-accessible at different levels. PPI prevents the article from treating every mathematical
+                object as a physical object. A mathematical structure becomes physically relevant when it is carried by
+                finite response, cost, protocol access, and predictive stability.</p>
+            <p>This standard matters for Yang-Mills, quantum field theory, infinities, continua, and exact symmetry.
+                A continuum field can be a successful large-scale description while the retained physical ledger remains
+                finite-response. A continuous symmetry can be useful in the effective theory while exact physical
+                structure may descend to discrete or certificate-finite invariants on the vacuum branch. Monster
+                Moonshine is important here because it shows how a deep discrete symmetry can appear as a vacuum
+                endpoint of the 24-mode predictive backbone.</p>
+
+            <h2>8. Falsifiability and Status Discipline</h2>
+
+            <h3>8.1 Status Discipline</h3>
+            <p>PU distinguishes the status of its claims. Some results are logical or structural, such as SPAP, the
+                minimal horizon <em>K<sub>0</sub> = 3</em>, and the entropy floor <em>&epsilon;<sub>0</sub> = ln 2</em>.
+                Some are branch-level outputs, such as the discrete backbone, dimensional selection, Prediction
+                Relativity, and Standard Model gauge algebra on stated branches. Some are conditional mathematical
+                programs, such as the Yang-Mills mass-gap route through higher-form predictive ledgers. Others,
+                including detailed dark-sector modeling, cosmological-constant numerics, flavor thresholds, baryon
+                asymmetry, CC experiments, and residual-complete numerical comparisons, require certificates or
+                empirical gates. Numerical rows can be structural-reachability, certificate-retrodictive,
+                forward-locked,
+                or prospective-confirmed/prospective-falsified. Already published targets count as compression evidence
+                after certificate closure. Completed forward evidence requires a prediction register fixed before the
+                relevant validation data are collected. This status discipline prevents the framework from assigning the
+                same evidential weight to theorem-level structure, branch output, numerical validation, and open
+                experimental programs.</p>
+
+            <h3>8.2 Testing PU</h3>
+            <p>PU is falsifiable because its branches make structural and quantitative commitments. A failed test may
+                refute a branch, bridge law, or model-layer closure. For numerical claims, a test becomes forward
+                evidence only when the branch, residual interval, evidence protocol, and falsification rule are fixed
+                before the validation data are collected. The framework is scientific because it identifies which layer
+                is at risk.</p>
+            <table style="width: 100%; border-collapse: collapse; font-size: 18px; margin: 20px 0;">
+                <thead>
+                    <tr>
+                        <th style="border: 1px solid #ddd; padding: 8px;">Test area</th>
+                        <th style="border: 1px solid #ddd; padding: 8px;">PU commitment</th>
+                        <th style="border: 1px solid #ddd; padding: 8px;">What would count against it</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td style="border: 1px solid #ddd; padding: 8px;">Discrete backbone</td>
+                        <td style="border: 1px solid #ddd; padding: 8px;"><em>K<sub>0</sub> = 3</em>, <em>d<sub>0</sub>
+                                = 8</em>, <em>&epsilon;<sub>0</sub> = ln 2</em>, <em>a = 2</em>, <em>b = 6</em>,
+                            <em>M = 24</em>, <em>k = 12</em>, <em>D = 4</em> on the minimal and predictive-recovery
+                            branches
+                        </td>
+                        <td style="border: 1px solid #ddd; padding: 8px;">Operational evidence that the minimal branch
+                            requires different integers or that <em>M = K(D)</em> fails</td>
+                    </tr>
+                    <tr>
+                        <td style="border: 1px solid #ddd; padding: 8px;">Fine-structure constant</td>
+                        <td style="border: 1px solid #ddd; padding: 8px;">Closed Thomson-limit core plus fixed residual
+                            gate</td>
+                        <td style="border: 1px solid #ddd; padding: 8px;">A certified residual interval fixed before
+                            comparison that misses the measured value</td>
+                    </tr>
+                    <tr>
+                        <td style="border: 1px solid #ddd; padding: 8px;">Gauge structure</td>
+                        <td style="border: 1px solid #ddd; padding: 8px;">The <em>6 = 3 + 2 + 1</em> branch gives the
+                            Standard Model gauge algebra under the stated admissibility conditions</td>
+                        <td style="border: 1px solid #ddd; padding: 8px;">Failure of the determinant-compatible
+                            block-frame branch or anomaly/gauge reconstruction conditions</td>
+                    </tr>
+                    <tr>
+                        <td style="border: 1px solid #ddd; padding: 8px;">Prediction Relativity</td>
+                        <td style="border: 1px solid #ddd; padding: 8px;">The unified cost of transgression gives
+                            <em>c<sub>&gamma;</sub> = c<sub>&epsilon;</sub></em> and links motion limits with
+                            predictive self-knowledge limits
+                        </td>
+                        <td style="border: 1px solid #ddd; padding: 8px;">Accepted bridge tests showing that the
+                            proposed prediction-motion cost identity fails under its stated activation conditions</td>
+                    </tr>
+                    <tr>
+                        <td style="border: 1px solid #ddd; padding: 8px;">Yang-Mills and confinement</td>
+                        <td style="border: 1px solid #ddd; padding: 8px;">Higher-form predictive ledgers give a
+                            conditional route to area-law confinement and positive gap behavior</td>
+                        <td style="border: 1px solid #ddd; padding: 8px;">Failure of the higher-form ledger criterion,
+                            surface-gap condition, or finite constructive field-theory completion</td>
+                    </tr>
+                    <tr>
+                        <td style="border: 1px solid #ddd; padding: 8px;">Particle generations and flavor</td>
+                        <td style="border: 1px solid #ddd; padding: 8px;"><em>N<sub>g</sub> = 3</em> on the
+                            anomaly-plus-CP family-charge class; masses and mixings require flavor certificates</td>
+                        <td style="border: 1px solid #ddd; padding: 8px;">A confirmed fourth sequential generation, or
+                            certified flavor, neutrino, CKM, or PMNS intervals that miss empirical values under closed
+                            residual budgets</td>
+                    </tr>
+                    <tr>
+                        <td style="border: 1px solid #ddd; padding: 8px;">Gravity and dark sector</td>
+                        <td style="border: 1px solid #ddd; padding: 8px;">Horizon-channel entropy, emergent EFE, and
+                            environment-dependent response kernels</td>
+                        <td style="border: 1px solid #ddd; padding: 8px;">Rotation, lensing, cluster, or cosmological
+                            data that reject the specified kernels under closed error budgets</td>
+                    </tr>
+                    <tr>
+                        <td style="border: 1px solid #ddd; padding: 8px;">Consciousness Complexity</td>
+                        <td style="border: 1px solid #ddd; padding: 8px;">Context-dependent deviations from Born
+                            baselines under strict causality constraints</td>
+                        <td style="border: 1px solid #ddd; padding: 8px;">Well-powered null results across calibrated
+                            QRNG, coherence, Bell-context, and biological/AI context protocols</td>
+                    </tr>
+                    <tr>
+                        <td style="border: 1px solid #ddd; padding: 8px;">Quantum error correction</td>
+                        <td style="border: 1px solid #ddd; padding: 8px;">Predictive-recovery MacWilliams branch fixes
+                            <em>k = 12</em> and selects the extended Golay <em>[24, 12, 8]</em> structure on
+                            substrate-aligned branches
+                        </td>
+                        <td style="border: 1px solid #ddd; padding: 8px;">Equal-mode QFI without the certified
+                            12-plus-12 parity correlation pattern, or no statistically significant 24/Golay advantage
+                            after controlled comparison with equal-distance alternatives</td>
+                    </tr>
+                </tbody>
+            </table><br>
+            <section class="slide-deck-section" aria-labelledby="puSlideDeckTitle">
+                <h3 class="slide-deck-title" id="puSlideDeckTitle">Slide Deck</h3>
+                <figure class="slide-deck-preview">
+                    <button type="button" class="slide-deck-trigger">
+                        <img src="images/slideshow/pu/PU_slide_01-800.jpg" alt="Predictive Universe slide deck cover"
+                            width="800" height="450" decoding="async" loading="lazy"
+                            srcset="images/slideshow/pu/PU_slide_01-480.jpg 480w, images/slideshow/pu/PU_slide_01-800.jpg 800w"
+                            sizes="(max-width: 832px) calc(100vw - 24px), 800px">
+                        <span class="image-expand-indicator" aria-hidden="true">&#8599;</span>
+                        <span class="slide-deck-count" aria-hidden="true">30 slides</span>
+                    </button>
+                </figure>
+            </section>
+            <h2>9. Conclusion</h2>
+            <p>The Predictive Universe framework presents a consciousness-first synthesis of physics, mathematics, and
+                philosophy. It begins from awareness, distinction, and prediction, then follows the consequences of
+                finite self-reference under thermodynamic cost and compression efficiency. From this chain, PU proposes
+                that quantum indeterminacy, the arrow of time, Prediction Relativity, spacetime, gravity, gauge
+                structure, particle physics, constants, cosmology, life, mathematics, and high-level consciousness are
+                interconnected expressions of one predictive order.</p>
+            <p>Its philosophical significance is that minimal awareness is present at the foundation as the operational
+                capacity to distinguish, anticipate, verify, and update. The hard problem becomes a structural problem:
+                how awareness organizes itself into shared worlds, stable laws, unified observers, and measurable
+                context effects. The question of why anything exists is meaningful and structurally closed, because a
+                predictor inside the totality cannot complete a total self-description of that same totality.</p>
+            <p>Its mathematical significance is that stable physical structure is treated as finite, cost-bearing
+                instantiation of predictive invariants. The 24-mode backbone, Golay/Leech geometry, and conditional
+                Monster/Moonshine branch become part of the same compression story: deep symmetry appears where
+                predictive structure reaches vacuum-like stability.</p>
+            <p>Its scientific significance is that the same finite-response backbone supports concrete derivational and
+                testable targets: <em>K<sub>0</sub> = 3</em>, <em>d<sub>0</sub> = 8</em>,
+                <em>&epsilon;<sub>0</sub> = ln 2</em>, <em>a = 2</em>, <em>b = 6</em>, <em>M = 24</em>,
+                <em>k = 12</em>, <em>D = 4</em>,
+                <em>c<sub>&gamma;</sub> = c<sub>&epsilon;</sub></em>, the Standard Model gauge-algebra branch, gravity
+                as horizon thermodynamics, the fine-structure constant core, branch routes for generations, Strong CP,
+                baryon asymmetry, cosmological constant structure, dark-sector response, and conditional mathematical
+                programs such as Yang-Mills mass-gap reconstruction. Consciousness Complexity remains one important
+                empirical frontier. Numerical rows are handled through certificates and, when used as forward evidence,
+                through prediction registers fixed before validation. The larger proposal is a status-resolved account
+                of how a world of law, matter, life, and meaning can exist as the stable expression
+                of predictive awareness.
+            </p>
+
+            <div class="circle-container">
+                <div class="arrow left" onclick="shiftSlide(-1)">&#10094;</div>
+                <div class="circle-wrapper">
+                    <!-- Slider items will be dynamically inserted here -->
+                </div>
+                <div class="arrow right" onclick="shiftSlide(1)">&#10095;</div>
+            </div>
+        </article>
+    </main>
+    <div id="footer"></div>
+
+    <div class="slideshow-lightbox" id="slideDeckLightbox" role="dialog" aria-modal="true"
+        aria-labelledby="slideDeckLightboxTitle" hidden>
+        <button type="button" class="slide-deck-close" aria-label="Close slide deck">x</button>
+        <button type="button" class="slide-deck-nav slide-deck-prev" aria-label="Previous slide">&#10094;</button>
+        <div class="slide-deck-stage">
+            <div class="slide-deck-lightbox-title" id="slideDeckLightboxTitle">Slide Deck</div>
+            <img class="slide-deck-image" alt="Predictive Universe slide deck">
+            <span class="slide-deck-counter" aria-live="polite">1 / 30</span>
         </div>
-    </article>
-
-    <div class="footer">
-        <div class="footer-links">
-            <a href="../../index.html">Home</a> |
-            <a href="../../about.html">About</a> |
-            <a href="../../privacy.html">Privacy Policy</a> |
-            <a href="https://www.youtube.com/@CinematicStrawberry">YouTube</a>
-        </div>
-        <br>
-        <hr>
-
-        <p>© 2025 Cinematic Strawberry.</p>
-
-
+        <button type="button" class="slide-deck-nav slide-deck-next" aria-label="Next slide">&#10095;</button>
     </div>
-    <script src="slider.js?v=51"></script>
+    <div class="pu-video-lightbox slideshow-lightbox" id="puVideoLightbox" role="dialog" aria-modal="true"
+        aria-labelledby="puVideoTitle" data-audio-src="video/predictiveuniverse/audio/pu.mp3"
+        data-subtitles-src="video/predictiveuniverse/subs/Subtitle%201.srt?v=2"
+        data-cosmic-src="video/predictiveuniverse/banner-cosmic.js?v=112"
+        data-player-css="video/predictiveuniverse/player.min.css?v=57"
+        data-end-logo-src="../../images/logo-transparent.png" hidden>
+        <button type="button" class="pu-video-close slide-deck-close"
+            aria-label="Close Predictive Universe player">x</button>
+        <div class="pu-video-stage">
+            <div class="pu-video-frame">
+                <div class="pu-video-screen">
+                    <div class="pu-video-placeholder" id="puVideoTitle">The Predictive Universe</div>
+                    <div class="pu-video-caption" aria-live="polite"></div>
+                    <div class="pu-video-ended" hidden></div>
+                </div>
+                <div class="pu-video-controls">
+                    <button type="button" class="pu-video-control-button" data-pu-play aria-label="Play"
+                        title="Play"></button>
+                    <button type="button" class="pu-video-control-button" data-pu-replay aria-label="Replay"
+                        title="Replay"></button>
+                    <input type="range" class="pu-video-progress" data-pu-progress min="0" max="1000" value="0" step="1"
+                        aria-label="Video progress">
+                    <time class="pu-video-time" data-pu-time>0:00 / 0:00</time>
+                    <button type="button" class="pu-video-control-button pu-video-subtitles-button" data-pu-captions
+                        aria-label="Hide subtitles" aria-pressed="true" title="Subtitles"></button>
+
+                    <button type="button" class="pu-video-control-button" data-pu-fullscreen aria-label="Enter fullscreen"
+                        title="Fullscreen"></button>
+                    <button type="button" class="pu-video-control-button" data-pu-mute aria-label="Mute"
+                        title="Mute"></button>
+                    <input type="range" class="pu-video-volume" data-pu-volume min="0" max="1" step="0.01" value="0.8"
+                        aria-label="Volume">
+                </div>
+            </div>
+        </div>
+        <audio class="pu-video-audio" preload="none"></audio>
+    </div>
+
+
+
+
+    <script defer src="video/predictiveuniverse/player-loader.min.js?v=2"></script>
+    <script defer src="../../js/components.min.js?v=8"></script>
+    <script defer src="article-subscribe.min.js?v=13"></script>
+    <script defer src="slider.min.js?v=4"></script>
 
 </body>
 

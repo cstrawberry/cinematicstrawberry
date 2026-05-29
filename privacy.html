@@ -4,19 +4,24 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="format-detection" content="telephone=no">
+  <meta name="description"
+    content="Privacy Policy for Cinematic Strawberry, including information collection, newsletter subscriptions, third-party services, and contact details.">
   <title>Cinematic Strawberry</title>
-  <link href="css/style.css?v=1.1" rel="stylesheet" />
-  <link href="css/index-styles.css?v=1.1" rel="stylesheet" />
+  <link rel="preload" href="/fonts/Aboreto-Regular.ttf" as="font" type="font/ttf" crossorigin>
+  <link rel="preload" href="/fonts/ChakraPetch-Regular.ttf" as="font" type="font/ttf" crossorigin>
+  <link rel="preload" href="/fonts/Merriweather-Italic.ttf" as="font" type="font/ttf" crossorigin>
+  <link href="css/style.min.css?v=11" rel="stylesheet" />
+  <link href="css/index-styles.min.css?v=31" rel="stylesheet" />
   <link rel="icon" type="image/png" href="images/favicon.png">
-  <div id="fonts"></div>
 </head>
 
-<body>
+<body class="privacy-page">
   <div class="container">
     <!-- Header component will be loaded here -->
-    <header id="header"></header>
+    <div id="header"></div>
 
-    <div class="content">
+    <div class="content" role="main">
       <div class="content-container">
         <div class="text-content">
           <div class="about-content">
@@ -28,20 +33,26 @@
               tracking pixels, or third-party scripts.
             </p>
 
+            <p>
+              To improve your browsing experience, this site may store a small amount of functional data, such as the
+              page you came from and your reading position, locally in your browser. This data remains on your device,
+              is not transmitted to us or any third party, and is used only to help you navigate the site.
+            </p>
 
             <p>
               Our website is hosted on Name.com as a static page. <a href="https://name.com"
-                target="_blank">Name.com</a> may collect limited technical data such as IP
+                target="_blank" rel="noopener">Name.com</a> may collect limited technical data such as IP
               addresses, browser type, and referring pages. This information is standard for most web hosting.
-              Any user information we access through <a href="https://name.com" target="_blank">Name.com</a>
+              Any user information we access through <a href="https://name.com" target="_blank"
+                rel="noopener">Name.com</a>
               administration tools is used solely for the purpose of website administration, security monitoring, and
               improving our services. </p>
             <p>
               The limited technical data mentioned above is collected and managed by our hosting provider, <a
-                href="https://name.com" target="_blank">Name.com</a>.
+                href="https://name.com" target="_blank" rel="noopener">Name.com</a>.
               Visitors may have legal rights to access, erase, or object to the processing of this log data. Please
               follow the procedure in
-              <a href="https://www.name.com/privacy-policy" target="_blank">Name.com’s Privacy Policy</a> to exercise
+              <a href="https://www.name.com/privacy-policy" target="_blank" rel="noopener">Name.com’s Privacy Policy</a> to exercise
               any such rights.
             </p>
 
@@ -49,18 +60,40 @@
               Should you choose to contact us via email at contact@cinematicstrawberry.com, you will
               voluntarily provide us with your data (like your name and email address), which we use solely to respond
               to your inquiry. Your email is processed by our provider
-              <a href="https://titan.email/" target="_blank">Titan</a>, and as a result, your correspondence is
+              <a href="https://titan.email/" target="_blank" rel="noopener">Titan</a>, and as a result, your correspondence is
               processed and stored on their systems according to their
               <a href="https://support.titan.email/hc/en-us/articles/360038535773-Titan-Privacy-Policy"
-                target="_blank">Privacy Policy</a>.
-            <p>Once your inquiry is resolved, we will permanently delete the
-              correspondence from our email account. This action removes the email from our access, but please be aware
-              that our email provider, <a href="https://titan.email/" target="_blank">Titan</a>, manages its own data
+                target="_blank" rel="noopener">Privacy Policy</a>.
+            </p>
+            <p>We delete correspondence from our email account when it is no longer needed.
+              This action removes the email from our access, but please be aware
+              that our email provider, <a href="https://titan.email/" target="_blank" rel="noopener">Titan</a>, manages its own data
               retention on its servers in accordance with their
               <a href="https://support.titan.email/hc/en-us/articles/360038535773-Titan-Privacy-Policy"
-                target="_blank">Privacy Policy</a>, over which we have no control. Furthermore, this website is not
+                target="_blank" rel="noopener">Privacy Policy</a>, over which we have no control. Furthermore, this website is not
               directed at children, and we ask you to contact us if you believe a child has provided us with their data
               so we may remove it from our email account.
+            </p>
+
+            <h3>Email Newsletter</h3>
+            <p>
+              If you choose to subscribe to our newsletter, you voluntarily provide us with your email address so that
+              we can send you occasional updates. We use this address only to send those updates and for no other
+              purpose.
+            </p>
+            <p>
+              Our newsletter is operated by <a href="https://kit.com" target="_blank" rel="noopener">Kit</a>, a
+              newsletter service. When you subscribe, open, or click our emails, Kit may store and process your email
+              address along with standard technical and engagement data, such as your IP address, approximate location,
+              and email engagement, on its systems in accordance with its
+              <a href="https://kit.com/dpa" target="_blank" rel="noopener">Data Processing Addendum</a> and
+              <a href="https://kit.com/privacy" target="_blank" rel="noopener">Privacy Policy</a>. When you subscribe, you will receive
+              an email asking you to confirm your subscription before any updates are sent.
+            </p>
+            <p>
+              You can unsubscribe at any time using the link in every email. For newsletter data access or deletion
+              requests, follow
+              <a href="https://kit.com/privacy" target="_blank" rel="noopener">Kit’s Privacy Policy</a>.
             </p>
 
             <h3>Third-Party Links</h3>
@@ -82,7 +115,7 @@
               contact@cinematicstrawberry.com.
             </p>
 
-            <p>Last updated: July 17, 2025</p>
+            <p>Last updated: May 29, 2026</p>
 
           </div>
         </div>
@@ -93,7 +126,7 @@
     <div id="footer"></div>
   </div>
 
-  <script src="js/components.js"></script>
+  <script defer src="js/components.min.js?v=8"></script>
 </body>
 
 </html>

@@ -4,10 +4,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="format-detection" content="telephone=no">
     <title>The Art of Touch: A New Frontier in Sensory Experience</title>
     <meta name="description"
         content="Explore the emerging field of tactile art and its potential to revolutionize how we interact with media, create art, and experience the world around us.">
-    <link href="article-style.css" rel="stylesheet" />
+    <link href="article-style.min.css?v=39" rel="stylesheet" />
     <link rel="icon" type="image/png" href="../../images/favicon.png">
 
 </head>
@@ -19,19 +20,20 @@
                 <h1 class="logo-text">Cinematic Strawberry</h1>
             </a>
             <a href="../../index.html">
-                <img src="../../images/logo.jpg" alt="Logo" class="logo-image">
+                <img src="../../images/logo-transparent.png" alt="Logo" class="logo-image" width="64" height="64" decoding="async">
             </a>
         </div>
         <nav>
             <ul>
-                <li><a href="../../index.html">Look in The Eye</a></li>
+                <li><a href="../../index.html">Home</a></li>
                 <li><a href="../../00110000.html">Universe 00110000</a></li>
             </ul>
         </nav>
     </div>
     <div class="banner">
-        <img src="images/artoftouch.jpg" alt="The Art of Touch Banner Image" />
+        <img src="images/artoftouch.jpg" alt="The Art of Touch Banner Image" width="1792" height="1024" decoding="async" fetchpriority="high" srcset="images/artoftouch-480.jpg 480w, images/artoftouch-800.jpg 800w, images/artoftouch.jpg 1792w" sizes="(max-width: 832px) calc(100vw - 24px), 800px">
     </div>
+    <main>
     <article>
         <h1>The Art of Touch: A New Frontier in Sensory Experience</h1>
         <hr>
@@ -149,7 +151,7 @@
             complex and meaningful tactile experiences. They could be used in various applications, from enhancing music
             and film to providing non-verbal communication in virtual environments.</p>
 
-        <img src="images/artoftouch1.jpg" alt="Theory of Touch" />
+        <img src="images/artoftouch1.jpg" alt="Theory of Touch" width="1024" height="1792" decoding="async" loading="lazy">
         <p class="caption">Universe 00110000</p>
         <h2>Technological Foundations</h2>
         <p>The art of touch is made possible by advancements in haptic technology, particularly in the field of
@@ -208,17 +210,12 @@
         </div>
         <div class="arrow right" onclick="shiftSlide(1)">&#10095;</div>
     </div>
-    <div class="footer">
-        <div class="footer-links">
-            <a href="../../index.html">Home</a> |
-            <a href="../../about.html">About</a> |
-            <a href="../../privacy.html">Privacy Policy</a> |
-            <a href="https://www.youtube.com/@CinematicStrawberry">YouTube</a>
-        </div><br>
-        <hr>
-        <p>© 2025 Cinematic Strawberry.</p>
-    </div>
-    <script src="slider.js?v=19"></script>
+    </main>
+    <div id="footer"></div>
+
+    <script defer src="../../js/components.min.js?v=8"></script>
+    <script defer src="article-subscribe.min.js?v=13"></script>
+    <script defer src="slider.min.js?v=4"></script>
 </body>
 
 </html>

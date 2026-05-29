@@ -4,10 +4,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="format-detection" content="telephone=no">
     <title>Why Bother Doing Anything at All?</title>
     <meta name="description"
         content="Explore the existential question 'Why bother doing anything at all?' through radical self-exploration and aligning with authenticity for a life of significance.">
-    <link href="article-style.css" rel="stylesheet" />
+    <link href="article-style.min.css?v=39" rel="stylesheet" />
     <link rel="icon" type="image/png" href="../../images/favicon.png">
 
 </head>
@@ -19,19 +20,20 @@
                 <h1 class="logo-text">Cinematic Strawberry</h1>
             </a>
             <a href="../../index.html">
-                <img src="../../images/logo.jpg" alt="Logo" class="logo-image">
+                <img src="../../images/logo-transparent.png" alt="Logo" class="logo-image" width="64" height="64" decoding="async">
             </a>
         </div>
         <nav>
             <ul>
-                <li><a href="../../index.html">Look in The Eye</a></li>
+                <li><a href="../../index.html">Home</a></li>
                 <li><a href="../../00110000.html">Universe 00110000</a></li>
             </ul>
         </nav>
     </div>
     <div class="banner">
-        <img src="images/why_bother_banner.jpg" alt="Why Bother Banner Image" />
+        <img src="images/why_bother_banner.jpg" alt="Why Bother Banner Image" width="1792" height="1024" decoding="async" fetchpriority="high" srcset="images/why_bother_banner-480.jpg 480w, images/why_bother_banner-800.jpg 800w, images/why_bother_banner.jpg 1792w" sizes="(max-width: 832px) calc(100vw - 24px), 800px">
     </div>
+    <main>
     <article>
         <h1>Why Bother Doing Anything at All?</h1>
         <hr>
@@ -45,7 +47,7 @@
             our true selves. This process demands honesty and courage, as it involves confronting uncomfortable truths
             about our motivations, beliefs, and values. Through relentless self-interrogation, we can begin to unearth
             the authentic essence of who we are, beneath the facades we present to the world.</p>
-        <img src="images/self_exploration.jpg" alt="Radical Self-Exploration" />
+        <img src="images/self_exploration.jpg" alt="Radical Self-Exploration" width="1024" height="1792" decoding="async" loading="lazy">
         <p class="caption">Universe 00110000</p>
 
         <h2>Confronting the Core Drivers</h2>
@@ -58,10 +60,10 @@
         <h2>Aligning with Authenticity</h2>
         <p>As we delve deeper into our psyche and align our lives with our true motivations, we begin the process of
             realignment. This involves directing our energies towards goals, relationships, and paths that resonate with
-            our core values—the deepest "Why" behind our actions. This realignment is not a one-time event but a
+            our core values - the deepest "Why" behind our actions. This realignment is not a one-time event but a
             continuous process of adjustment and growth. It demands that we remain open to new insights about ourselves
             and willing to modify our path as our understanding of our true nature evolves.</p>
-        <img src="images/authenticity.jpg" alt="Aligning with Authenticity" />
+        <img src="images/authenticity.jpg" alt="Aligning with Authenticity" width="1024" height="1792" decoding="async" loading="lazy">
         <p class="caption">Universe 00110000</p>
         <h2>Crafting Lives of Significance</h2>
         <p>Ultimately, the question "Why bother doing anything at all?" is answered through the deeply personal journey
@@ -86,20 +88,12 @@
             <div class="arrow right" onclick="shiftSlide(1)">&#10095;</div>
         </div>
     </article>
-    <div class="footer">
-        <div class="footer-links">
-            <a href="../../index.html">Home</a> |
-            <a href="../../about.html">About</a> |
-            <a href="../../privacy.html">Privacy Policy</a> |
-            <a href="https://www.youtube.com/@CinematicStrawberry">YouTube</a>
-        </div><br>
-        <hr>
+    </main>
+    <div id="footer"></div>
 
-        <p>© 2025 Cinematic Strawberry.</p>
-
-
-    </div>
-    <script src="slider.js?v=6"></script>
+    <script defer src="../../js/components.min.js?v=8"></script>
+    <script defer src="article-subscribe.min.js?v=13"></script>
+    <script defer src="slider.min.js?v=4"></script>
 
 </body>
 

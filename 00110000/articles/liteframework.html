@@ -4,9 +4,10 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+    <meta name="format-detection" content="telephone=no">
     <title>LITE: Dynamic Self-Reference in Peano Arithmetic</title>
     <meta name="description" content="LITE: Dynamic Self-Reference in Peano Arithmetic" />
-    <link href="article-style.css" rel="stylesheet" />
+    <link href="article-style.min.css?v=39" rel="stylesheet" />
     <link rel="icon" type="image/png" href="../../images/favicon.png">
 
     <style>
@@ -76,20 +77,21 @@
                 <h1 class="logo-text">Cinematic Strawberry</h1>
             </a>
             <a href="../../index.html">
-                <img src="../../images/logo.jpg" alt="Logo" class="logo-image" />
+                <img src="../../images/logo-transparent.png" alt="Logo" class="logo-image" width="64" height="64" decoding="async">
             </a>
         </div>
         <nav>
             <ul>
-                <li><a href="../../index.html">Look In The Eye</a></li>
+                <li><a href="../../index.html">Home</a></li>
                 <li><a href="../../00110000.html">Universe 00110000</a></li>
             </ul>
         </nav>
     </div>
     <div class="banner">
-        <img src="images/lite_banner.jpg" alt="LITE Banner Image" />
+        <img src="images/lite_banner.png" alt="LITE Banner Image" width="1672" height="941" decoding="async" fetchpriority="high" srcset="images/lite_banner-480.jpg 480w, images/lite_banner-800.jpg 800w, images/lite_banner.jpg 1672w" sizes="(max-width: 832px) calc(100vw - 24px), 800px">
     </div>
 
+    <main>
     <article>
         <h1>LITE: Dynamic Self-Reference in Peano Arithmetic</h1>
         <hr />
@@ -98,17 +100,16 @@
         <h2>Abstract</h2>
         <p>
             The Look In The Eye (<strong>LITE</strong>) framework demonstrates how a
-            system within Peano Arithmetic (PA) can exhibit a dynamic, evolving
-            self-referential structure. By leveraging strong self-reference techniques
-            (via the Recursion Theorem) and bounded proof searches (formalized within
-            PA), LITE reveals a feedback mechanism in which an arithmetical function
-            <em>updates</em> its values upon discovering new proofs or refutations
-            about its own behavior. This iterative mechanism challenges the notion that
-            formal arithmetic is merely static, showing instead that PA can support
-            unfolding, adaptive processes guided by proof discoveries. LITE thus
-            broadens our perspective on definability, self-reference, and how
-            “mathematics can respond to itself” through a carefully orchestrated
-            interplay of function definitions and proof predicates.
+            fixed arithmetical construction within Peano Arithmetic (PA) can encode
+            bounded self-reference. By combining the Recursion Theorem with bounded
+            proof-code searches formalized in PA, LITE defines a function whose output
+            is selected by local checks for proofs or refutations concerning propositions
+            about its own Gödel code. The function is not redefined as proofs are
+            discovered by an external mathematician. Its rule is fixed; for each input
+            <span class="code">n</span>, the bounded search determines which branch
+            applies. LITE broadens our perspective on definability and self-reference by
+            showing how arithmetic can represent a structured feedback pattern through
+            ordinary function definitions and proof predicates.
         </p>
 
         <!-- =================== INTRO SECTION =================== -->
@@ -116,40 +117,33 @@
 
         <h3>1.1. The Traditional View: Formal Arithmetic as Static</h3>
         <p>
-            Historically, many areas of mathematics—such as dynamical systems, ergodic theory,
-            and chaos theory—have dealt extensively with evolving or changing phenomena.
-            However, <em>within</em> the framework of <strong>formal arithmetic</strong>
-            (like Peano Arithmetic), the standard approach has often been seen as “static”:
-            once definitions, axioms, and theorems are established, their logical status
-            does not spontaneously shift in response to newly discovered proofs
-            <em>about</em> those very definitions. In other words, arithmetic does not
-            typically include a built-in mechanism that causes the system itself to
-            “recompute” or “update” function values based on fresh derivations.
+            Historically, many areas of mathematics, such as dynamical systems, ergodic theory,
+            and chaos theory, have dealt extensively with evolving or changing phenomena.
+            Within <strong>formal arithmetic</strong>, however, definitions do not change
+            after they are given. Their values are determined by fixed rules, axioms, and
+            proof predicates, not by later human discovery.
         </p>
         <p>
             By focusing on <strong>dynamic self-reference</strong> specifically in
-            Peano Arithmetic, the <strong>LITE</strong> framework aims to show that we
-            can incorporate a kind of “feedback loop” directly into the definition
-            of an arithmetical function—without adding new axioms or stepping outside
-            classical PA. This approach neither denies nor contradicts the broader
-            history of mathematics involving evolving processes; rather, it highlights
-            how even a traditionally “static” formal theory can be made to adapt its
-            outputs when short proofs about its own behavior appear.
+            Peano Arithmetic, the <strong>LITE</strong> framework shows how a fixed
+            arithmetical rule can include a bounded feedback pattern. The function does not
+            acquire a new definition when proofs are found. Instead, its definition already
+            contains finite proof-code searches that select different branches at different
+            inputs.
         </p>
         <ul style="font-size: 18px;">
-            <li><strong>Static Tradition in PA:</strong> Traditional treatments of
-                formal arithmetic seldom integrate a mechanism to automatically change
-                function values in light of new proofs about those functions, keeping
-                definitions fixed once given.</li>
+            <li><strong>Fixed Definitions in PA:</strong> Formal arithmetic keeps definitions
+                fixed once given. LITE preserves this while encoding bounded checks inside
+                the definition itself.</li>
             <li><strong>Contrast with Other Fields:</strong> In dynamical systems,
-                geometry, or even certain parts of proof theory, “change” and iteration
-                are commonplace. This paper shows a parallel possibility inside
-                <em>Peano Arithmetic</em> itself.
+                geometry, or parts of proof theory, “change” and iteration are commonplace.
+                LITE shows a parallel pattern inside <em>Peano Arithmetic</em> without adding
+                new axioms.
             </li>
             <li><strong>The LITE Perspective:</strong> By constructing a function
-                that checks for short proofs of statements referencing its own code,
-                LITE bridges the gap between “static” arithmetical foundations and the
-                adaptive spirit found in other branches of mathematics.</li>
+                that checks for bounded proof codes of statements referencing its own code,
+                LITE bridges static arithmetical foundations and branch-selected
+                self-reference.</li>
         </ul>
 
         <h3>1.2. A Fresh Angle on Self-Reference</h3>
@@ -157,52 +151,58 @@
             Classical Gödelian self-reference focuses on the existence of certain
             sentences (“I am not provable in PA”) whose truth and provability
             statuses intertwine in profound ways. LITE extends this tradition by
-            allowing <em>infinitely many</em> self-referential statements—one for
-            each natural number input—and by making the function’s value at each step
-            sensitive to whether these statements (or their negations) are
-            provably derivable within specific bounded lengths:
+            using an <em>infinite family</em> of self-referential statements, one for
+            each natural number input. The value of the fixed function at each input
+            depends on whether bounded proof-code searches find support for the relevant
+            statement or its negation:
         </p>
         <ul style="font-size: 18px;">
             <li><strong>Iterative Aspect:</strong> At each input <span class="code">n</span>,
-                LITE inspects a statement <span class="code">ϕ(n)</span> referencing
-                the function itself and checks (within a fixed proof-length bound)
-                for a derivation of <span class="code">ϕ(n)</span> or its negation.</li>
-            <li><strong>Adaptive Definition:</strong> If either is found, the function
-                <span class="code">f(n)</span> “shifts” in a prescribed manner. If not,
-                it follows a default path.
+                LITE checks a statement <span class="code">ϕ<sub>β</sub>(n)</span>
+                that references the fixed point code <span class="code">β</span> of the
+                function itself.</li>
+            <li><strong>Branch Selection:</strong> If bounded support is found, the rule
+                selects one of the jump branches. If no bounded support is found, the rule
+                selects the default branch.
             </li>
-            <li><strong>Dynamic Self-Reference:</strong> Because <span class="code">f</span> can
-                change, new proofs that appear down the line may further alter its
-                trajectory, creating a fully <em>iterative</em> feedback loop.</li>
+            <li><strong>Dynamic Self-Reference:</strong> The sequence can display
+                adaptive-looking behavior because different inputs may satisfy different
+                bounded checks, even though the defining rule remains fixed.</li>
         </ul>
         <p>
-            In bridging the power of the Recursion Theorem with bounded searches for
-            proofs, LITE creates a genuinely adaptive structure. Instead of a single
-            diagonal that remains inert, LITE’s approach is to generate a family of
-            statements whose provability shapes the next stage of
-            <span class="code">f</span>’s definition.
+            By combining the Recursion Theorem with bounded proof-code searches, LITE
+            generates a family of statements whose bounded provability determines the
+            branch chosen by <span class="code">f</span> at each input.
         </p>
 
         <h3>1.3. What This Means for Arithmetic</h3>
         <p>
-            LITE reveals that arithmetic can “listen” to whether a statement about
-            itself is provable (or refutable) within specific short-proof bounds,
-            then incorporate that discovery into its own next step. This viewpoint
-            transforms our usual conception of arithmetic:
+            LITE shows that arithmetic can encode a function whose output depends on
+            bounded proof-code searches about formulas referring to its own code. The
+            function does not update itself. Self-reference is built into one fixed rule,
+            and each input activates one branch of that rule:
         </p>
         <ul style="font-size: 18px;">
-            <li><strong>From Static to Dynamic:</strong> The values of
-                <span class="code">f(n)</span> are not predetermined by a closed-form
-                or fixed recursion; instead, they can adapt in real time as proofs
-                emerge.
+            <li><strong>From Static to Dynamic:</strong> The definition remains fixed, but
+                the output sequence can vary according to which bounded proof-code checks
+                succeed at each input.
             </li>
             <li><strong>Embedding Feedback Loops:</strong> By referencing its own
-                code and bounding proof lengths, <span class="code">f</span> exemplifies
-                a system that self-monitors and self-updates, all within standard PA.</li>
+                code and bounding proof-code searches, <span class="code">f</span>
+                models a formal self-monitoring pattern inside standard PA.</li>
             <li><strong>Richer Self-Reference:</strong> Unlike single-shot sentences,
-                we now have an entire sequence of self-referential statements guiding
-                these internal changes.</li>
+                LITE uses an input-indexed sequence of self-referential statements to
+                determine branch behavior across the natural numbers.</li>
         </ul>
+        <p>
+            Within the Predictive Universe framework, LITE is a mathematical model of
+            bounded self-monitoring. It illustrates the logical pattern behind Dynamic
+            Self-Reference Operator behavior and Property R: a system encodes a description
+            of itself, runs bounded checks on propositions about that description, and routes
+            outputs through the result. LITE is not a physical model of consciousness or an
+            MPU. It is a clean arithmetical demonstration that the self-referential machinery
+            used by the framework can be implemented inside ordinary arithmetic.
+        </p>
         <p>
             The sections below lay out how LITE is formally constructed, the
             mathematical details that ensure its consistency, and why it broadens
@@ -218,12 +218,11 @@
             </p>
             <p>
                 <strong>LITE’s Perspective:</strong> Multiple, input-indexed
-                statements feed back into the value of a function <em>within</em>
-                arithmetic, creating an ongoing interplay between proof discovery
-                and numeric outputs.
+                statements enter the branch rule of a fixed function <em>within</em>
+                arithmetic, connecting bounded proof-code search with numeric outputs.
             </p>
         </div>
-        <img src="images/lite1.jpg" alt="Mathematical Foundation" />
+        <img src="images/lite1.jpg" alt="Mathematical Foundation" width="1024" height="1792" decoding="async" loading="lazy">
         <p class="caption">Universe 00110000</p>
         <!-- =================== PRELIMINARIES =================== -->
         <h2>2. Mathematical Foundation</h2>
@@ -267,18 +266,17 @@
         <p>
             Although potentially huge, <span class="code">g(n)</span> remains
             finite for each <span class="code">n</span>, so there is no paradox
-            in “looking for all proofs up to length <span class="code">g(n)</span>.”
-            If none exist, the search terminates without success; if a short proof
-            does exist, it is eventually identified. This bounding technique makes
+            in searching all proof codes <span class="code">p ≤ g(n)</span>.
+            If none exist, the search terminates without success; if a bounded proof
+            code exists, it is eventually identified. This bounding technique makes
             the entire process definable <em>inside</em> PA and ensures that
             checking these proofs does not require stepping outside the system.
         </p>
         <p>
             By coupling <span class="code">g(n)</span> with the function we
-            define, LITE effectively “asks” at each stage whether certain
-            statements can be proven (or refuted) under that growing size
-            limit. This local proof search is the engine of the dynamic update
-            process.
+            define, LITE determines at each input whether certain statements can be
+            proven or refuted under that proof-code bound. This local proof search is
+            the engine of the branch-selection process.
         </p>
 
         <h3>2.3. The Recursion Theorem</h3>
@@ -295,13 +293,12 @@
             ϕ<sub>β</sub>(n) = Ψ(β, n).
         </p>
         <p>
-            By interpreting <span class="code">β</span> as the “code of
-            <span class="code">f</span>,” we obtain a legitimate self-referential
-            definition: <span class="code">f</span> can talk about <span class="code">f</span>. In LITE, this theorem
-            underpins how
-            <span class="code">ϕ(n)</span> can explicitly mention
-            <span class="code">f(n)</span>, enabling the dynamic interplay between
-            proof discovery and numeric values.
+            By interpreting <span class="code">β</span> as the code of
+            <span class="code">f</span>, we obtain a legitimate self-referential
+            definition. In LITE, this theorem allows the formula
+            <span class="code">ϕ<sub>β</sub>(n)</span> to include the code of the very
+            function whose value is being computed. The resulting construction connects
+            bounded proof-code checks with numeric outputs.
         </p>
 
         <!-- =================== DEFINING LITE =================== -->
@@ -314,63 +311,56 @@
         </p>
         <pre style="font-size: 18px;">
 f(n) =
-  { n + H<sub>1</sub>(n), if ∃p ≤ g(n) Prf(p, ⌈ϕ(n)⌉);
-    n + H<sub>2</sub>(n), if ∃p ≤ g(n) Prf(p, ⌈¬ϕ(n)⌉);
-    n + 1,               otherwise. }
+  { n + H<sub>1</sub>(n), if Prf<sub>≤g(n)</sub>(⌈ϕ<sub>β</sub>(n)⌉);
+    n + H<sub>2</sub>(n), if ¬Prf<sub>≤g(n)</sub>(⌈ϕ<sub>β</sub>(n)⌉) ∧ Prf<sub>≤g(n)</sub>(⌈¬ϕ<sub>β</sub>(n)⌉);
+    n + 1, otherwise. }
     </pre>
         <p>
-            Here, <span class="code">ϕ(n)</span> is a statement <em>about</em>
-            <span class="code">f</span>, referencing its own Gödel code. The functions
+            Here, <span class="code">Prf<sub>≤g(n)</sub>(⌈ψ⌉)</span> abbreviates
+            <span class="code">∃p ≤ g(n) Prf(p, ⌈ψ⌉)</span>. The formula
+            <span class="code">ϕ<sub>β</sub>(n)</span> is a statement about the fixed
+            point with Gödel code <span class="code">β</span>. The second branch is
+            written with explicit priority: it applies only when the first bounded search
+            fails and the bounded search for the negation succeeds. The functions
             <span class="code">H<sub>1</sub>(n)</span> and
-            <span class="code">H<sub>2</sub>(n)</span> are chosen to ensure
-            a noticeable “jump” if a proof is found. If neither <span class="code">ϕ(n)</span> nor its negation is
-            proven within size
-            <span class="code">g(n)</span>, then
+            <span class="code">H<sub>2</sub>(n)</span> are chosen to produce noticeable
+            jumps when a bounded proof-code search succeeds. If neither branch succeeds,
             <span class="code">f(n) = n + 1</span> by default.
         </p>
         <p>
-            Because of the Recursion Theorem, there is no contradiction in
-            letting <span class="code">ϕ(n)</span> refer to “the value of
-            <span class="code">f(n)</span>,” even though
-            <span class="code">f</span> is simultaneously being defined by
-            this piecewise rule. This yields a consistent, total function
-            <span class="code">f</span> inside PA that “listens” for short proofs
-            about itself.
+            Because of the Recursion Theorem, there is no contradiction in letting
+            <span class="code">ϕ<sub>β</sub>(n)</span> refer to the fixed point code of
+            the same function whose value is being computed. This yields a total computable
+            function whose self-reference is handled by a fixed piecewise rule.
         </p>
 
         <h3>3.2. Shifting Values Based on Proof Discovery</h3>
         <p>
-            The novelty lies in how <span class="code">f(n)</span> is not
-            predetermined by a simple recursive or closed-form expression.
-            Instead, it reacts if a short proof of <span class="code">ϕ(n)</span>
-            or <span class="code">¬ϕ(n)</span> emerges within
-            <span class="code">g(n)</span>-bounded length. If it does, LITE
-            “steers” the function to <span class="code">n + H<sub>1</sub>(n)</span>
-            or <span class="code">n + H<sub>2</sub>(n)</span>. Otherwise,
-            it leaves <span class="code">f(n)</span> at <span class="code">n + 1</span>.
+            The novelty lies in how <span class="code">f(n)</span> is determined by
+            a fixed self-referential branch rule rather than by a simple closed-form
+            expression. For each input, the computation performs a finite proof-code search
+            for <span class="code">ϕ<sub>β</sub>(n)</span> and then, if needed, for
+            <span class="code">¬ϕ<sub>β</sub>(n)</span>. A successful bounded search selects
+            the corresponding jump branch. If no bounded support is found, the default value
+            <span class="code">n + 1</span> is returned.
         </p>
         <p>
             Because <span class="code">n + H<sub>1</sub>(n)</span> or
             <span class="code">n + H<sub>2</sub>(n)</span> can be relatively large
-            jumps, subsequent statements <span class="code">ϕ(n+1)</span>,
-            <span class="code">ϕ(n+2)</span>, etc., may become provable (or
-            refutable) in new ways. Over time, <span class="code">f</span> thus
-            evolves under the influence of the system’s ability to locate
-            relevant derivations, effectively “recording” the discovery
-            of short proofs in its numeric output.
+            jumps, the resulting sequence can show long stable stretches followed by sharp
+            changes. These changes are outputs of the original fixed rule, not later
+            redefinitions of <span class="code">f</span>.
         </p>
 
         <h3>3.3. Feedback Over the Natural Numbers</h3>
         <p>
-            By design, each <span class="code">n</span> extends the conversation:
-            “Is <span class="code">ϕ(n)</span> provable up to length
-            <span class="code">g(n)</span>? Is <span class="code">¬ϕ(n)</span> provable up to length
-            <span class="code">g(n)</span>?” This ongoing check seeds
-            an <em>iterative feedback loop</em> throughout the natural numbers.
-            No single instance “locks in” the entire behavior forever; instead,
-            each step can bring fresh shifts based on newly accessible
-            derivations. This iterative nature is the cornerstone of LITE’s
-            dynamic self-reference.
+            By design, each <span class="code">n</span> activates a local bounded
+            check: “Is <span class="code">ϕ<sub>β</sub>(n)</span> provable by some
+            code <span class="code">p ≤ g(n)</span>? If not, is
+            <span class="code">¬ϕ<sub>β</sub>(n)</span> provable by such a code?”
+            This input-indexed sequence of checks creates an <em>iterative feedback
+            pattern</em> throughout the natural numbers. The fixed definition stays the
+            same, while different inputs can activate different branches.
         </p>
 
         <!-- =================== PROPERTIES =================== -->
@@ -378,34 +368,36 @@ f(n) =
 
         <h3>4.1. Well-Defined and Total</h3>
         <ul style="font-size: 18px;">
-            <li><strong>Consistency:</strong> The Recursion Theorem ensures no
-                paradox arises from letting <span class="code">ϕ(n)</span> mention
-                “the code of <span class="code">f</span>.”</li>
-            <li><strong>Finite Search:</strong> Checking proofs ≤
-                <span class="code">g(n)</span> is always finite, so one of the
-                piecewise branches must apply.
+            <li><strong>Consistency:</strong> The Recursion Theorem supplies a fixed
+                point code <span class="code">β</span>, allowing
+                <span class="code">ϕ<sub>β</sub>(n)</span> to reference the same function
+                without an informal circular definition.</li>
+            <li><strong>Finite Search:</strong> Checking proof codes
+                <span class="code">p ≤ g(n)</span> is always finite. The priority order
+                in the piecewise rule assigns exactly one output branch.
             </li>
-            <li><strong>Totality:</strong> Because each branch yields a natural
-                number, <span class="code">f(n)</span> is a total function on ℕ.</li>
+            <li><strong>Totality:</strong> Assuming <span class="code">g</span>,
+                <span class="code">H<sub>1</sub></span>, and
+                <span class="code">H<sub>2</sub></span> are total computable functions,
+                every branch yields a natural number, so <span class="code">f(n)</span>
+                is total on ℕ.</li>
         </ul>
 
         <h3>4.2. Intrinsic Dynamism</h3>
         <p>
-            Classic recursive functions remain fixed after definition, but
-            <span class="code">f(n)</span> here can shift in response to the
-            discovery of short proofs. This “listening” for new derivations
-            brings an element of <em>adaptivity</em> not typically associated
-            with straightforward recursive definitions.
+            Classic recursive functions remain fixed after definition, and
+            <span class="code">f</span> remains fixed in the same sense. Its distinctive
+            feature is that the fixed definition contains bounded self-referential branch
+            checks. The output sequence can display adaptive-looking behavior without
+            changing the defining rule.
         </p>
 
         <h3>4.3. Rich Structure</h3>
         <p>
-            Each point <span class="code">n</span> can drastically affect
-            future points <span class="code">n+1</span>, <span class="code">n+2</span>,
-            etc., by changing the form or provability of statements involving
-            <span class="code">f</span>’s subsequent values. This can lead
-            to sequences that remain stable for many steps, then undergo large
-            jumps once a relevant proof or disproof appears.
+            Each point <span class="code">n</span> belongs to an indexed family of
+            self-referential checks. Depending on how the formulas are chosen, bounded
+            proof results at some inputs can produce long stable intervals followed by
+            large jumps in output values. The structure is generated by one fixed rule.
         </p>
 
         <!-- =================== SIGNIFICANCE =================== -->
@@ -415,8 +407,8 @@ f(n) =
         <p>
             Gödel’s incompleteness opened the door to self-reference in arithmetic.
             LITE pushes this further, showcasing how <em>an entire collection</em>
-            of self-referential statements—one per input—can collectively govern
-            an arithmetical function’s evolving values.
+            of self-referential statements, one per input, can collectively govern
+            the branch behavior of a fixed arithmetical function.
         </p>
 
         <h3>5.2. Bridging Proof Discovery and Function Values</h3>
@@ -431,31 +423,30 @@ f(n) =
 
         <h3>5.3. Deeper View of Arithmetic’s Expressive Power</h3>
         <p>
-            By embedding a “self-rewriting” protocol into a single function,
-            LITE underscores that arithmetic can exhibit forms of feedback
-            and adaptation once we leverage self-reference carefully. This
-            broadens conceptions of what “arithmetical definability” can
-            achieve.
+            By embedding a bounded self-reference protocol into a single function,
+            LITE shows that arithmetic can exhibit formal feedback patterns once we
+            leverage self-reference carefully. This broadens conceptions of what
+            “arithmetical definability” can achieve.
         </p>
-        <img src="images/lite2.jpg" alt="Mathematical Analysis" />
+        <img src="images/lite2.jpg" alt="Mathematical Analysis" width="1024" height="1792" decoding="async" loading="lazy">
         <p class="caption">Universe 00110000</p>
         <!-- =================== ANALYSIS =================== -->
         <h2>6. Mathematical Analysis</h2>
 
         <h3>6.1. Iterative Construction</h3>
         <ol style="font-size: 18px;">
-            <li><strong>For each n:</strong> Check for proofs of
-                <span class="code">ϕ(n)</span> or <span class="code">¬ϕ(n)</span> up to length <span
-                    class="code">g(n)</span>.
+            <li><strong>For each n:</strong> Check for proof codes of
+                <span class="code">ϕ<sub>β</sub>(n)</span> or
+                <span class="code">¬ϕ<sub>β</sub>(n)</span> with
+                <span class="code">p ≤ g(n)</span>.
             </li>
-            <li><strong>Branching:</strong> If one is found, pick
-                <span class="code">n + H<sub>1</sub>(n)</span> or
-                <span class="code">n + H<sub>2</sub>(n)</span>. Otherwise,
-                default to <span class="code">n + 1</span>.
+            <li><strong>Branching:</strong> If the first search succeeds, return
+                <span class="code">n + H<sub>1</sub>(n)</span>. If it fails and the
+                second search succeeds, return <span class="code">n + H<sub>2</sub>(n)</span>.
+                Otherwise, return <span class="code">n + 1</span>.
             </li>
-            <li><strong>Cascade:</strong> That output may alter the future
-                geometry of <span class="code">ϕ(n+1)</span> or beyond, letting
-                new proofs arise down the line.</li>
+            <li><strong>Sequence:</strong> Repeating this fixed rule across inputs
+                yields a self-referential output sequence over ℕ.</li>
         </ol>
 
         <h3>6.2. Potentially Complex Behavior</h3>
@@ -468,88 +459,79 @@ f(n) =
 
         <h3>6.3. Governed by Proof Bounds</h3>
         <p>
-            All stages remain anchored in finite proof searches up to
-            <span class="code">g(n)</span>. As <span class="code">n</span> grows, <span class="code">g(n)</span>
-            grows, allowing the system to glean new insights from previously
-            inaccessible derivations. This interplay of “growing bounding
-            function” and “iterative self-reference” is the essence of LITE’s
-            dynamic flavor.
+            All stages remain anchored in finite proof-code searches bounded by
+            <span class="code">g(n)</span>. As <span class="code">n</span> grows,
+            <span class="code">g(n)</span> grows, allowing the rule to test larger
+            finite regions of the proof-code space. This interplay of a growing
+            bounding function and input-indexed self-reference is the essence of
+            LITE’s dynamic flavor.
         </p>
 
         <h3>6.4. Concrete Example</h3>
         <div class="example-box">
             <p>
-                <strong>Illustrative Setup:</strong> To make LITE more tangible, let us
-                consider a simplified instance:
+                <strong>Illustrative Setup:</strong> To make LITE more tangible, consider
+                a simplified instance:
             </p>
             <ul style="font-size: 18px;">
                 <li><strong>Bounding Function:</strong> Define
-                    <span class="code">g(n) = 2^(n+1)</span>. This grows sufficiently
-                    fast to allow checking for a variety of proofs as <span class="code">n</span>
-                    increases, but remains finite for each individual <span class="code">n</span>.
+                    <span class="code">g(n) = 2^(n+1)</span>. This grows quickly while
+                    remaining finite for each individual <span class="code">n</span>.
                 </li>
                 <li><strong>Jump Functions:</strong> Let
                     <span class="code">H<sub>1</sub>(n) = 10</span> and
-                    <span class="code">H<sub>2</sub>(n) = 20</span>. Thus, whenever a proof
-                    of <span class="code">ϕ(n)</span> is found,
-                    <span class="code">f(n) = n + 10</span>. If a proof of
-                    <span class="code">¬ϕ(n)</span> is discovered,
+                    <span class="code">H<sub>2</sub>(n) = 20</span>. If the first bounded
+                    proof-code search succeeds, the output is
+                    <span class="code">f(n) = n + 10</span>. If the first search fails and
+                    the bounded search for the negation succeeds, the output is
                     <span class="code">f(n) = n + 20</span>. Otherwise, the default is
                     <span class="code">n + 1</span>.
                 </li>
-                <li><strong>Form of <span class="code">ϕ(n)</span>:</strong> For illustrative
-                    purposes, suppose
-                    <span class="code">ϕ(n)</span> asserts that
-                    <em>"<span class="code">f</span> eventually takes a value &ge; n + 10."</em>
-                    More precisely, <span class="code">ϕ(n)</span> says something like
-                    "There exists a coding <span class="code">p</span> for a proof
-                    &le; 2^(n+1) such that
-                    <span class="code">f(n)</span> = n + 10 or more."
-                    In practice, we would use Gödel numbering to encapsulate
-                    <em>this statement about <span class="code">f</span></em> directly in the
-                    arithmetic language.
+                <li><strong>Form of <span class="code">ϕ<sub>β</sub>(n)</span>:</strong>
+                    For illustration, let <span class="code">ϕ<sub>β</sub>(n)</span>
+                    be a Gödel-coded proposition about the fixed point with code
+                    <span class="code">β</span> at input <span class="code">n</span>, such
+                    as whether <span class="code">φ<sub>β</sub>(n)</span> has a specified
+                    property. The exact property is less important than the structure:
+                    the formula contains the code <span class="code">β</span>, and the
+                    value of <span class="code">f(n)</span> depends on bounded proof-code
+                    searches concerning that formula or its negation.
                 </li>
             </ul>
             <p>
-                <strong>Step-by-Step Evolution (Hypothetical):</strong>
+                <strong>Step-by-Step Branch Selection (Hypothetical):</strong>
             </p>
             <ol style="font-size: 18px;">
                 <li>
-                    <strong>n = 0:</strong> We check all proofs up to length
-                    <span class="code">g(0) = 2^(0+1) = 2</span>.
-                    Likely no short proof can establish or refute
-                    <span class="code">ϕ(0)</span> in just 2 steps, so
-                    <span class="code">f(0) = 0 + 1 = 1</span>.
+                    <strong>n = 0:</strong> Search proof codes
+                    <span class="code">p ≤ g(0) = 2</span>. If neither bounded search
+                    succeeds, then <span class="code">f(0) = 0 + 1 = 1</span>.
                 </li>
                 <li>
-                    <strong>n = 1:</strong> Now
-                    <span class="code">g(1) = 2^(1+1) = 4</span>, allowing a bit more space
-                    for proofs. Still, if no proof or disproof of
-                    <span class="code">ϕ(1)</span> is found within 4 steps, we get
-                    <span class="code">f(1) = 1 + 1 = 2</span>.
+                    <strong>n = 1:</strong> Search proof codes
+                    <span class="code">p ≤ g(1) = 4</span>. If neither bounded search
+                    succeeds, then <span class="code">f(1) = 1 + 1 = 2</span>.
                 </li>
                 <li>
-                    <strong>n = 2:</strong> <span class="code">g(2) = 8</span>. Suppose
-                    <span class="code">ϕ(2)</span> <em>is</em> provable in 8 steps, effectively
-                    establishing "f(2) ≥ 2 + 10." Then by definition,
-                    <span class="code">f(2) = 2 + 10 = 12</span>. This "jump" might
-                    influence the subsequent form of <span class="code">ϕ(3)</span>.
+                    <strong>n = 2:</strong> Search proof codes
+                    <span class="code">p ≤ g(2) = 8</span>. Suppose the bounded search for
+                    <span class="code">ϕ<sub>β</sub>(2)</span> succeeds. Then the first
+                    branch applies and <span class="code">f(2) = 2 + 10 = 12</span>.
                 </li>
                 <li>
                     <strong>n = 3, 4, ...</strong> As <span class="code">n</span> grows,
-                    <span class="code">g(n)</span> grows exponentially. If at any point
-                    <span class="code">¬ϕ(n)</span> is provable, then we'd define
-                    <span class="code">f(n) = n + 20</span>.
-                    If neither is provable, we default to <span class="code">n + 1</span>.
+                    <span class="code">g(n)</span> grows. If the first search fails and the
+                    bounded search for <span class="code">¬ϕ<sub>β</sub>(n)</span> succeeds,
+                    then <span class="code">f(n) = n + 20</span>. If neither succeeds,
+                    the default output is <span class="code">n + 1</span>.
                 </li>
             </ol>
             <p>
-                This toy version highlights how <strong>bounded proof searches</strong>
-                can yield a function that “listens” to whether certain statements about
-                its own values are provable and then adapts accordingly. In a full formal
-                treatment, <span class="code">ϕ(n)</span> would be precisely Gödel-encoded
-                to reference <span class="code">f</span>’s own definition, ensuring
-                self-reference by the <em>Recursion Theorem</em>.
+                This toy version highlights how a fixed arithmetical definition can use
+                bounded proof-code searches to select different outputs. In a full formal
+                treatment, <span class="code">ϕ<sub>β</sub>(n)</span> is precisely
+                Gödel-encoded to reference the fixed point <span class="code">β</span>
+                supplied by the Recursion Theorem.
             </p>
         </div>
 
@@ -569,35 +551,35 @@ f(n) =
         </p>
 
         <p>
-            In essence, this means our function <span class="code">f</span> can literally
-            “read” its own description and incorporate references to its own values
-            in the statement <span class="code">ϕ(n)</span>. Crucially, this is performed
-            within PA, yielding a self-consistent definition that does not
-            overstep the theory’s expressive capabilities.
+            In essence, this means the definition of <span class="code">f</span> can use
+            its own Gödel code and incorporate references to its own values in the
+            statement <span class="code">ϕ<sub>β</sub>(n)</span>. This is performed within
+            PA’s ordinary coding of syntax and proof predicates, yielding a self-consistent
+            definition that does not overstep the theory’s expressive capabilities.
         </p>
 
         <h3>7.2. The Proof Predicate</h3>
         <p>
             The definability of <span class="code">Prf(p, ⌈ψ⌉)</span> in PA
-            makes it possible for <span class="code">f(n)</span> to incorporate
-            checks of whether <span class="code">ψ</span> is proven by a code
-            <span class="code">p</span> ≤ <span class="code">g(n)</span>. This
-            tight coupling of code, proof, and bounding function ensures
-            the entire construction is an internal process in arithmetic.
+            makes it possible for <span class="code">f(n)</span> to check whether
+            <span class="code">ψ</span> has a proof code
+            <span class="code">p ≤ g(n)</span>. This tight coupling of code, proof,
+            and bounding function ensures the construction is represented internally
+            in arithmetic.
         </p>
 
         <h3>7.3. Harmony of Components</h3>
         <ul style="font-size: 18px;">
             <li><strong>Self-Reference:</strong> From the Recursion Theorem.</li>
             <li><strong>Bounded Search:</strong> From <span class="code">∃p ≤ g(n)</span> criteria.</li>
-            <li><strong>Adaptive Function:</strong> From the piecewise rule
-                that modifies <span class="code">f(n)</span> based on new proofs.</li>
+            <li><strong>Branch-Selected Function:</strong> From the piecewise rule
+                that assigns <span class="code">f(n)</span> based on bounded proof-code results.</li>
         </ul>
         <p>
-            Combined, these yield LITE’s characteristic feedback loop: each
-            numeric argument <span class="code">n</span> spurs an inspection
-            of short proofs about <span class="code">f(n)</span>, and the outcome
-            decides the numeric output.
+            Combined, these yield LITE’s characteristic feedback pattern: each
+            numeric argument <span class="code">n</span> triggers a bounded inspection
+            of proof codes about <span class="code">ϕ<sub>β</sub>(n)</span>, and the
+            result determines the numeric output.
         </p>
 
         <h3>7.4. Core Theorem and Complete Proof</h3>
@@ -605,9 +587,14 @@ f(n) =
             <p>
                 <strong>Theorem (Totality and Consistency):</strong>
                 <em>
-                    Within PA, the function <span class="code">f</span> defined by LITE is
-                    total, and no contradiction arises from letting
-                    <span class="code">ϕ(n)</span> reference <span class="code">f</span>.
+                    Assuming <span class="code">g</span>,
+                    <span class="code">H<sub>1</sub></span>, and
+                    <span class="code">H<sub>2</sub></span> are total computable functions,
+                    the LITE construction defines a total computable function. If these
+                    functions are chosen from PA-provably total functions, the bounded checks
+                    can be represented internally in PA. No contradiction arises from letting
+                    <span class="code">ϕ<sub>β</sub>(n)</span> reference the fixed point code
+                    <span class="code">β</span>.
                 </em>
             </p>
             <p>
@@ -624,10 +611,10 @@ f(n) =
                     the piecewise rule:
                     <pre style="font-size: 18px; overflow-x: auto; white-space: pre-wrap; word-break: break-word; max-width: 100%;">
         if (∃p ≤ g(n) such that Prf(p, ⌈"ϕ(n) under code α"⌉)) then output n + H₁(n)
-        else if (∃p ≤ g(n) such that Prf(p, ⌈¬"ϕ(n) under code α"⌉)) then output n + H₂(n)
+        else if (no such proof code for "ϕ(n) under code α" exists and ∃p ≤ g(n) such that Prf(p, ⌈¬"ϕ(n) under code α"⌉)) then output n + H₂(n)
         else output n + 1
                     </pre>
-                    where "ϕ(n) under code α" references the would-be value of φ<sub>α</sub>(n).
+                    where "ϕ(n) under code α" references the would-be value of φ<sub>α</sub>(n), and the second branch applies only after the first branch fails.
                     The existence of such a total computable operator Ψ follows from
                     standard methods of representing finite searches and proof predicates in
                     arithmetic.
@@ -661,13 +648,13 @@ f(n) =
                 <li>
                     <strong>Finite Proof Search Ensures a Well-Defined Output:</strong>
                     <br />
-                    For each n, verifying whether a proof of length ≤ g(n)
-                    exists is a finite (albeit possibly large) procedure. One of the
-                    following must hold:
+                    For each n, searching proof codes <span class="code">p ≤ g(n)</span>
+                    is a finite procedure. The priority order assigns one of the following
+                    outcomes:
                     <ul style="font-size: 18px;">
-                        <li>A proof of "ϕ(n)" is found in ≤ g(n) steps.</li>
-                        <li>A proof of "¬ϕ(n)" is found in ≤ g(n) steps.</li>
-                        <li>Neither is found.</li>
+                        <li>A proof code for "ϕ(n)" is found.</li>
+                        <li>No proof code for "ϕ(n)" is found, and a proof code for "¬ϕ(n)" is found.</li>
+                        <li>Neither bounded search succeeds.</li>
                     </ul>
                     This directly matches one of the branches in the piecewise definition
                     of f(n). Thus, f(n) is always assigned a specific natural number,
@@ -677,7 +664,10 @@ f(n) =
                     <strong>Absence of Contradiction:</strong>
                     <br />
                     A typical concern with self-reference is the possibility of creating
-                    a "Liar paradox" scenario. However, in this construction:
+                    a "<a href="liarparadox.html"
+                    style="text-decoration: none; border-bottom: 1px solid transparent; transition: border-bottom 0.3s;"
+                    onmouseover="this.style.borderBottomColor='black';"
+                    onmouseout="this.style.borderBottomColor='transparent';">Liar paradox</a>" scenario. However, in this construction:
                     <ul style="font-size: 18px;">
                         <li>Each statement "ϕ(n)" is <em>bounded</em> by the search limit
                             g(n). We do not assert unconditionally that "ϕ(n)" is provable
@@ -699,21 +689,21 @@ f(n) =
                     <br />
                     Putting these points together:
                     <ul style="font-size: 18px;">
-                        <li>The search for proofs up to size g(n) is finite for each n,
-                            so exactly one of the three branches in the piecewise definition applies
-                            unambiguously.</li>
+                        <li>The search over proof codes up to <span class="code">g(n)</span>
+                            is finite for each n, and the priority order makes the branch choice
+                            unambiguous.</li>
                         <li>The Recursion Theorem guarantees the self-referential code β
                             yields a well-defined f that can mention its own values via
                             φ<sub>β</sub>. No paradox emerges from this self-reference.</li>
-                        <li>Hence, f is total (it has a well-defined natural number output
-                            for every n) and does not engender contradiction in PA.</li>
+                        <li>Hence, f is total, with a well-defined natural number output
+                            for every n, and the construction does not engender contradiction in PA.</li>
                     </ul>
                     Therefore, f as defined by LITE is both total and consistent with PA,
                     completing the proof.
                 </li>
             </ol>
         </div>
-        <img src="images/lite3.jpg" alt="BROADER PERSPECTIVE" />
+        <img src="images/lite3.jpg" alt="BROADER PERSPECTIVE" width="1024" height="1792" decoding="async" loading="lazy">
         <p class="caption">Universe 00110000</p>
         <!-- =================== BROADER PERSPECTIVE =================== -->
         <h2>8. Broader Perspective</h2>
@@ -722,30 +712,27 @@ f(n) =
         <p>
             Traditional self-reference often hinges on a single statement (Gödel’s
             “I am not provable”). LITE extends this to a structured
-            <em>infinite family</em> \(\{\varphi(n)\}\), each referencing a
-            different input <span class="code">n</span>, forging a more
-            expansive notion of self-reference in arithmetic.
+            <em>infinite family</em> <span class="code">{ϕ<sub>β</sub>(n) : n ∈ ℕ}</span>,
+            each referencing a different input <span class="code">n</span> and the same
+            fixed point code <span class="code">β</span>.
         </p>
 
         <h3>8.2. Iterative Updates</h3>
         <ul style="font-size: 18px;">
-            <li><strong>Ongoing Shifts:</strong> The function <span class="code">f</span> can “evolve” if certain
-                statements become
-                provable or refutable. This is not a static phenomenon but a
-                repeated cycle of introspection.</li>
-            <li><strong>Potential Complexity:</strong> Because <span class="code">g(n)</span> grows, the system may
-                remain stable
-                for many inputs, then jump significantly, exemplifying
-                a dynamic continuum seldom explored in elementary arithmetic.</li>
+            <li><strong>Ongoing Branch Selection:</strong> The function
+                <span class="code">f</span> can produce different output patterns when
+                different bounded proof-code searches succeed or fail.</li>
+            <li><strong>Potential Complexity:</strong> Because <span class="code">g(n)</span>
+                grows, the output sequence may remain stable for many inputs, then jump
+                significantly when a bounded proof-code search succeeds.</li>
         </ul>
 
         <h3>8.3. New Interpretations of Self-Reference</h3>
         <p>
             LITE demonstrates that self-reference need not be limited to
-            self-negating or self-asserting statements. Instead, it becomes
-            a tool for building adaptive structures: a function that
-            “consults” the presence or absence of certain proofs about
-            itself and reacts accordingly.
+            self-negating or self-asserting statements. It can also be used to build
+            fixed arithmetical structures whose output branches depend on the presence
+            or absence of bounded proof codes about themselves.
         </p>
 
         <h3>8.4. Possible Generalizations</h3>
@@ -789,9 +776,9 @@ f(n) =
                 </tr>
                 <tr>
                     <td><strong>LITE</strong></td>
-                    <td>Infinite family ϕ(n); bounded proof checks at each step</td>
-                    <td>Dynamic, indefinite updates</td>
-                    <td>Self-referential function evolves with newly found proofs</td>
+                    <td>Infinite family ϕ<sub>β</sub>(n); bounded proof-code checks at each input</td>
+                    <td>Fixed rule with dynamic branch selection</td>
+                    <td>Self-referential function produces branch-selected outputs</td>
                 </tr>
             </tbody>
         </table>
@@ -800,37 +787,26 @@ f(n) =
         <h2>9. Conclusion</h2>
         <p>
             The LITE framework underscores a novel view of self-reference in which
-            an arithmetical function <span class="code">f(n)</span> can shift its
-            values based on whether short proofs concerning
-            <span class="code">ϕ(n)</span> or its negation appear within a bound
-            <span class="code">g(n)</span>. In contrast to single-shot Gödelian
-            statements, LITE orchestrates a <em>sequence</em> of evolving
-            self-referential checks, producing an unfolding chain of potential
-            updates across the natural numbers. Each time new derivations are found,
-            <span class="code">f</span> is redefined accordingly, weaving a feedback
-            loop into the very fabric of arithmetic.
+            an arithmetical function <span class="code">f(n)</span> selects its
+            values based on whether bounded proof-code searches concerning
+            <span class="code">ϕ<sub>β</sub>(n)</span> or its negation succeed within
+            a bound <span class="code">g(n)</span>. In contrast to single-shot Gödelian
+            statements, LITE organizes a sequence of self-referential checks across the
+            natural numbers. The function is fixed once defined; the output sequence records
+            which bounded branches succeed at each input.
         </p>
         <p>
-            By relying solely on standard tools—Gödel coding, the definable proof
+            By relying solely on standard tools, including Gödel coding, the definable proof
             predicate <span class="code">Prf(p, ⌈ψ⌉)</span>, a fast-growing bound
-            <span class="code">g(n)</span>, and the Recursion Theorem—this
-            construction remains entirely within classical PA. It refutes the
-            notion that arithmetic must always be a static discipline; instead,
-            LITE reveals that PA can exhibit “liveliness,” adapting to new proof
-            discoveries in an ongoing manner. The ramifications touch not just
-            on self-reference theory, but on how we conceive the possible
-            internal transformations a formal system can undergo. The boundary
-            between “the system that states truths” and “the system that adapts
-            with those truths” is shown to be far more flexible than typically
-            assumed.
+            <span class="code">g(n)</span>, and the Recursion Theorem, this construction
+            remains within classical PA. It shows that arithmetic can encode formal feedback
+            patterns without adding new axioms or redefining the function after the fact.
         </p>
         <p>
-            Ultimately, LITE pushes us to recognize that self-reference in
-            arithmetic need not be static or singular. With careful constraints
-            and bounding, we can build a function that truly “observes” its own
-            proofs and adjusts itself accordingly—marking a major step forward
-            in understanding the dynamic potentials that lie within
-            arithmetic itself.
+            LITE therefore gives a precise arithmetical model of bounded self-monitoring.
+            With careful constraints and finite proof-code bounds, a function can reference
+            its own code and route its output through local checks about itself while remaining
+            a standard fixed construction.
         </p>
         <div class="circle-container">
             <div class="arrow left" onclick="shiftSlide(-1)">&#10094;</div>
@@ -840,18 +816,12 @@ f(n) =
             <div class="arrow right" onclick="shiftSlide(1)">&#10095;</div>
         </div>
     </article>
-    <div class="footer">
-        <div class="footer-links">
-            <a href="../../index.html">Home</a> |
-            <a href="../../about.html">About</a> |
-            <a href="../../privacy.html">Privacy Policy</a> |
-            <a href="https://www.youtube.com/@CinematicStrawberry">YouTube</a>
-        </div>
-        <br>
-        <hr>
-        <p>© 2025 Cinematic Strawberry.</p>
-    </div>
-    <script src="slider.js?v=41"></script>
+    </main>
+    <div id="footer"></div>
+
+    <script defer src="../../js/components.min.js?v=8"></script>
+    <script defer src="article-subscribe.min.js?v=13"></script>
+    <script defer src="slider.min.js?v=4"></script>
 </body>
 
 </html>

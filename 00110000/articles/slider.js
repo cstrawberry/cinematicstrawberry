@@ -78,7 +78,83 @@ let circles;
 let totalWidth;
 let containerWidth;
 let maxScrollIndex;
-const visibleCircles = 1;
+let circleContainer;
+let scrollSyncFrame;
+let wheelAccumulator = 0;
+let wheelLock = false;
+
+function useNativeCarouselScroll() {
+    return window.matchMedia('(max-width: 768px)').matches;
+}
+
+function measureSlider() {
+    const circleWidth = circles[0].offsetWidth;
+    const computedStyle = window.getComputedStyle(circles[0]);
+    const marginRight = parseFloat(computedStyle.marginRight) || 20;
+    const containerStyle = window.getComputedStyle(circleContainer);
+    const horizontalPadding = (parseFloat(containerStyle.paddingLeft) || 0) + (parseFloat(containerStyle.paddingRight) || 0);
+
+    totalWidth = circleWidth + marginRight;
+    containerWidth = circleContainer.offsetWidth;
+
+    const visibleWidth = useNativeCarouselScroll()
+        ? circleWrapper.clientWidth
+        : Math.max(0, circleContainer.clientWidth - horizontalPadding);
+    const maxFullyVisibleCircles = Math.max(1, Math.floor(visibleWidth / totalWidth));
+    maxScrollIndex = Math.max(0, circles.length - maxFullyVisibleCircles);
+}
+
+function syncSlideIndexFromScroll() {
+    if (!useNativeCarouselScroll() || !totalWidth) {
+        return;
+    }
+
+    if (scrollSyncFrame) {
+        return;
+    }
+
+    scrollSyncFrame = window.requestAnimationFrame(() => {
+        scrollSyncFrame = null;
+        slideIndex = Math.max(0, Math.min(maxScrollIndex, Math.round(circleWrapper.scrollLeft / totalWidth)));
+    });
+}
+
+function handleCarouselWheel(event) {
+    if (!circleWrapper || !circles || circles.length === 0 || maxScrollIndex <= 0) {
+        return;
+    }
+
+    const delta = Math.abs(event.deltaX) > Math.abs(event.deltaY) ? event.deltaX : event.deltaY;
+
+    if (Math.abs(delta) < 1) {
+        return;
+    }
+
+    event.preventDefault();
+
+    if (useNativeCarouselScroll()) {
+        circleWrapper.scrollBy({
+            left: delta,
+            behavior: 'auto',
+        });
+        return;
+    }
+
+    wheelAccumulator += delta;
+
+    if (wheelLock || Math.abs(wheelAccumulator) < 45) {
+        return;
+    }
+
+    wheelLock = true;
+    shiftSlide(wheelAccumulator > 0 ? 1 : -1);
+    wheelAccumulator = 0;
+
+    window.setTimeout(() => {
+        wheelLock = false;
+        wheelAccumulator = 0;
+    }, 150);
+}
 
 document.addEventListener('DOMContentLoaded', function () {
     const currentPage = window.location.pathname.split("/").pop();
@@ -98,60 +174,50 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 
     circleWrapper = document.querySelector('.circle-wrapper');
+    circleContainer = document.querySelector('.circle-container');
     circles = document.querySelectorAll('.circle');
     
     // Only proceed if we have circles
     if (circles.length > 0) {
-        // Calculate circle width including margin
-        const circleWidth = circles[0].offsetWidth;
-        const computedStyle = window.getComputedStyle(circles[0]);
-        const marginRight = parseInt(computedStyle.marginRight) || 20; // Default to 20px if not set
-        totalWidth = circleWidth + marginRight;
-        
-        // Get container width
-        containerWidth = document.querySelector('.circle-container').offsetWidth;
-        
-        // Calculate max index that still shows content properly
-        // We find how many circles we can show in the container, then subtract from total
-        const visibleWidth = containerWidth - 40; // Account for padding
-        const maxFullyVisibleCircles = Math.floor(visibleWidth / totalWidth);
-        maxScrollIndex = circles.length - maxFullyVisibleCircles;
-        
-        // Make sure maxScrollIndex is never negative
-        maxScrollIndex = Math.max(0, maxScrollIndex);
-        
+        if (typeof slideIndex !== 'number') {
+            slideIndex = 0;
+        }
+
+        measureSlider();
         // Set initial position
         updateSlidePosition();
+
+        circleWrapper.addEventListener('scroll', syncSlideIndexFromScroll, { passive: true });
+        circleContainer.addEventListener('wheel', handleCarouselWheel, { passive: false });
         
         // Add resize listener to recalculate dimensions
         window.addEventListener('resize', function() {
-            // Recalculate dimensions
-            const circleWidth = circles[0].offsetWidth;
-            const computedStyle = window.getComputedStyle(circles[0]);
-            const marginRight = parseInt(computedStyle.marginRight) || 20;
-            totalWidth = circleWidth + marginRight;
-            
-            // Update container width
-            containerWidth = document.querySelector('.circle-container').offsetWidth;
-            
-            // Recalculate max index
-            const visibleWidth = containerWidth - 40;
-            const maxFullyVisibleCircles = Math.floor(visibleWidth / totalWidth);
-            maxScrollIndex = circles.length - maxFullyVisibleCircles;
-            maxScrollIndex = Math.max(0, maxScrollIndex);
-            
-            // Update position
+            measureSlider();
             updateSlidePosition();
         });
     }
 });
 
-function updateSlidePosition() {
+function updateSlidePosition(options = {}) {
     // Ensure slideIndex is valid
     if (slideIndex > maxScrollIndex) {
         slideIndex = maxScrollIndex;
     }
+
+    if (slideIndex < 0) {
+        slideIndex = 0;
+    }
+
+    if (useNativeCarouselScroll()) {
+        circleWrapper.style.transform = 'none';
+        circleWrapper.scrollTo({
+            left: slideIndex * totalWidth,
+            behavior: options.smooth ? 'smooth' : 'auto',
+        });
+        return;
+    }
     
+    circleWrapper.scrollLeft = 0;
     circleWrapper.style.transform = `translateX(-${slideIndex * totalWidth}px)`;
 }
 
@@ -165,16 +231,16 @@ function shiftSlide(direction) {
         slideIndex = maxScrollIndex;  // Loop to the max valid position
     }
     
-    updateSlidePosition();
+    updateSlidePosition({ smooth: true });
 }
 
 // Helper functions for direct navigation
 function jumpToStart() {
     slideIndex = 0;
-    updateSlidePosition();
+    updateSlidePosition({ smooth: true });
 }
 
 function jumpToEnd() {
     slideIndex = maxScrollIndex;
-    updateSlidePosition();
+    updateSlidePosition({ smooth: true });
 }

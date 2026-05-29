@@ -4,11 +4,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device=width, initial-scale=1.0">
+    <meta name="format-detection" content="telephone=no">
 
     <title>AI-Powered Predictive Compression: Leveraging AI Model Priors for Data Compression</title>
     <meta name="description"
         content="Introduces Predictive Compression, a novel approach leveraging AI model priors for efficient data compression via optimized predictive seeding. This framework selects critical data features based on their Predictive Potential for enabling reconstruction by compatible AI models.">
-    <link href="article-style.css" rel="stylesheet" />
+    <link href="article-style.min.css?v=39" rel="stylesheet" />
     <link rel="icon" type="image/png" href="../../images/favicon.png">
 
     <style>
@@ -85,19 +86,20 @@
                 <h1 class="logo-text">Cinematic Strawberry</h1>
             </a>
             <a href="../../index.html">
-                <img src="../../images/logo.jpg" alt="Logo" class="logo-image">
+                <img src="../../images/logo-transparent.png" alt="Logo" class="logo-image" width="64" height="64" decoding="async">
             </a>
         </div>
         <nav>
             <ul>
-                <li><a href="../../index.html">Look in The Eye</a></li>
+                <li><a href="../../index.html">Home</a></li>
                 <li><a href="../../00110000.html">Universe 00110000</a></li>
             </ul>
         </nav>
     </div>
     <div class="banner">
-        <img src="images/prediction_banner.jpg" alt="Predictive Compression Banner Image" />
+        <img src="images/prediction_banner.jpg" alt="Predictive Compression Banner Image" width="1536" height="1024" decoding="async" fetchpriority="high" srcset="images/prediction_banner-480.jpg 480w, images/prediction_banner-800.jpg 800w, images/prediction_banner.jpg 1536w" sizes="(max-width: 832px) calc(100vw - 24px), 800px">
     </div>
+    <main>
     <article>
         <h1>Predictive Compression: Leveraging AI Model Priors for Data Compression via Optimized Predictive Seeding
         </h1>
@@ -108,9 +110,9 @@
                 the predictive and generative capabilities of Artificial Intelligence (AI) models. Distinct from
                 traditional methods focused on statistical redundancy and neural compression techniques primarily
                 learning latent representations, Predictive Compression selects an optimized subset of source data
-                features—the "predictive seed" (S)—based on its estimated Predictive Potential (MP). MP is a heuristic
+                features - the "predictive seed" (S) - based on its estimated Predictive Potential (MP). MP is a heuristic
                 score, computed during compression, estimating the utility of seed elements for enabling a compatible AI
-                model (M) at the decoder to reconstruct the original data object (X) with high fidelity by utilizing its
+                model (M) at the decoder to reconstruct the original data object (X) accurately by utilizing its
                 learned prior knowledge (θ<sub>M</sub>).</p>
 
             <p>Successful reconstruction realizes a quantifiable Predictive Gain (ΔQ) relative to using the model's
@@ -217,7 +219,7 @@
             </p>
         </section>
 
-        <img src="images/prediction1.jpg" alt="Predictive Compression Illustration" />
+        <img src="images/prediction1.jpg" alt="Predictive Compression Illustration" width="1024" height="1357" decoding="async" loading="lazy">
         <p class="caption">Universe 00110000</p>
 
         <section id="prior-work">
@@ -464,7 +466,7 @@
             </p>
         </section>
 
-        <img src="images/prediction2.jpg" alt="Key Components of Predictive Compression" />
+        <img src="images/prediction2.jpg" alt="Key Components of Predictive Compression" width="1024" height="1536" decoding="async" loading="lazy">
         <p class="caption">Universe 00110000</p>
 
         <section id="key-components">
@@ -529,7 +531,7 @@
                 careful consideration. Simple summation f({MP(e)}<sub>e ∈ S</sub>) = ∑<sub>e ∈ S</sub> MP(e) assumes
                 independence, which
                 rarely holds. Element contributions often exhibit
-                <strong>submodularity</strong>—diminishing marginal returns. Formally, a set
+                <strong>submodularity</strong> - diminishing marginal returns. Formally, a set
                 function f is submodular if f(A ∪ {e}) - f(A) ≥ f(B
                 ∪ {e}) - f(B) for all A ⊆ B and e ∉ B.
                 This arises naturally if elements provide overlapping information
@@ -689,7 +691,7 @@
                 information-theoretic optimization goal.</p>
         </section>
 
-        <img src="images/prediction3.jpg" alt="Model Compatibility Illustration" />
+        <img src="images/prediction3.jpg" alt="Model Compatibility Illustration" width="1024" height="1536" decoding="async" loading="lazy">
         <p class="caption">Universe 00110000</p>
 
         <section id="model-compatibility">
@@ -767,8 +769,8 @@
             <h2>7. Compression Intelligence</h2>
             <p>Building on the preceding discussion of Predictive Compression's potential applications and research
                 directions, we propose that this framework also offers a fundamental lens through which to evaluate
-                model intelligence itself. The core capabilities measured by Predictive Compression—optimal feature
-                selection and subsequent high-fidelity reconstruction—represent fundamental cognitive processes that
+                model intelligence itself. The core capabilities measured by Predictive Compression - optimal feature
+                selection and subsequent high-fidelity reconstruction - represent fundamental cognitive processes that
                 transcend task-specific performance metrics.</p>
 
 
@@ -848,7 +850,7 @@
                 correlate strongly with advancements in general intelligence capabilities, making this framework not
                 just a compression technique but a valuable lens through which to measure progress in AI understanding.
             </p>
-            <img src="images/prediction4.jpg" alt="Compression Intelligence" />
+            <img src="images/prediction4.jpg" alt="Compression Intelligence" width="1024" height="1536" decoding="async" loading="lazy">
             <p class="caption">Universe 00110000</p>
         </section>
         <section id="discussion">
@@ -986,8 +988,8 @@
                 "Compression Intelligence Tasks" (CITs) as a novel benchmark for evaluating AI understanding based on
                 its ability to perform efficient predictive reconstruction from minimal seeds.</p>
 
-            <p>Realizing the potential benefits of Predictive Compression—namely, high compression ratios for complex
-                data and preservation of semantic fidelity—necessitates overcoming significant challenges. These include
+            <p>Realizing the potential benefits of Predictive Compression - namely, high compression ratios for complex
+                data and preservation of semantic fidelity - necessitates overcoming significant challenges. These include
                 developing robust and reliable MP estimators that accurately predict realized ΔQ, designing efficient
                 optimization algorithms for seed selection, ensuring practical model compatibility, managing
                 computational costs, mitigating risks of unfaithful reconstruction, and establishing stronger
@@ -1006,18 +1008,12 @@
         </div>
 
     </article>
-    <div class="footer">
-        <div class="footer-links">
-            <a href="../../index.html">Home</a> |
-            <a href="../../about.html">About</a> |
-            <a href="../../privacy.html">Privacy Policy</a> |
-            <a href="https://www.youtube.com/@CinematicStrawberry">YouTube</a>
-        </div>
-        <br>
-        <hr>
-        <p>© 2025 Cinematic Strawberry.</p>
-    </div>
-    <script src="slider.js?v=50"></script>
+    </main>
+    <div id="footer"></div>
+
+    <script defer src="../../js/components.min.js?v=8"></script>
+    <script defer src="article-subscribe.min.js?v=13"></script>
+    <script defer src="slider.min.js?v=4"></script>
 </body>
 
 </html>

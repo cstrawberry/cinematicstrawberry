@@ -4,10 +4,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="format-detection" content="telephone=no">
     <title>Qualitative Mathematics: A New Frontier in Mathematical Discovery</title>
     <meta name="description"
         content="Qualitative Mathematics offers a new theoretical framework for mathematical discovery by focusing on the intrinsic 'solvability quality' of problems.">
-    <link href="article-style.css" rel="stylesheet" />
+    <link href="article-style.min.css?v=39" rel="stylesheet" />
     <link rel="icon" type="image/png" href="../../images/favicon.png">
 </head>
 
@@ -18,19 +19,20 @@
                 <h1 class="logo-text">Cinematic Strawberry</h1>
             </a>
             <a href="../../index.html">
-                <img src="../../images/logo.jpg" alt="Logo" class="logo-image">
+                <img src="../../images/logo-transparent.png" alt="Logo" class="logo-image" width="64" height="64" decoding="async">
             </a>
         </div>
         <nav>
             <ul>
-                <li><a href="../../index.html">Look in The Eye</a></li>
+                <li><a href="../../index.html">Home</a></li>
                 <li><a href="../../00110000.html">Universe 00110000</a></li>
             </ul>
         </nav>
     </div>
     <div class="banner">
-        <img src="images/qmbanner.jpg" alt="Qualitative Mathematics Banner Image" />
+        <img src="images/qmbanner.jpg" alt="Qualitative Mathematics Banner Image" width="1792" height="1024" decoding="async" fetchpriority="high" srcset="images/qmbanner-480.jpg 480w, images/qmbanner-800.jpg 800w, images/qmbanner.jpg 1792w" sizes="(max-width: 832px) calc(100vw - 24px), 800px">
     </div>
+    <main>
     <article>
         <h1>Qualitative Mathematics: A New Frontier</h1>
         <hr>
@@ -40,7 +42,7 @@
         <h2>The Problem Selection Paradox</h2>
         <p>At the heart of QM lies a profound paradox: how do mathematicians consistently select fruitful, solvable
             problems from an infinite sea of possibilities akin to consistently finding a needle in a haystack? </p>
-        <img src="images/qm.jpg" alt="Qualitative Mathematics" />
+        <img src="images/qm.jpg" alt="Qualitative Mathematics" width="1024" height="1792" decoding="async" loading="lazy">
         <p class="caption">Universe 00110000</p>
 
         <h2>Resolving the Paradox</h2>
@@ -65,7 +67,7 @@
             position on an intuition spectrum (I<sub>s</sub>). The interaction between a mathematician's intuition and a
             problem's solvability signature is modeled by a perception function F<sub>p</sub>: P × I<sub>s</sub> → ℝ,
             where the output is a real number indicating the strength of the perceived solvability signature.</p>
-        <img src="images/qm2.jpg" alt="Intuition Spectrum" />
+        <img src="images/qm2.jpg" alt="Intuition Spectrum" width="1024" height="1792" decoding="async" loading="lazy">
         <p class="caption">Universe 00110000</p>
 
         <h2>Solvability Prediction Model</h2>
@@ -98,18 +100,12 @@
             <div class="arrow right" onclick="shiftSlide(1)">&#10095;</div>
         </div>
     </article>
-    <div class="footer">
-        <div class="footer-links">
-            <a href="../../index.html">Home</a> |
-            <a href="../../about.html">About</a> |
-            <a href="../../privacy.html">Privacy Policy</a> |
-            <a href="https://www.youtube.com/@CinematicStrawberry">YouTube</a>
-        </div>
-        <br>
-        <hr>
-        <p>© 2025 Cinematic Strawberry.</p>
-    </div>
-    <script src="slider.js?v=7"></script>
+    </main>
+    <div id="footer"></div>
+
+    <script defer src="../../js/components.min.js?v=8"></script>
+    <script defer src="article-subscribe.min.js?v=13"></script>
+    <script defer src="slider.min.js?v=4"></script>
 </body>
 
 </html>

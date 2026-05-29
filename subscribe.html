@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="format-detection" content="telephone=no">
+    <title>Subscribe | Cinematic Strawberry</title>
+    <link href="css/style.min.css?v=11" rel="stylesheet" />
+    <link href="css/index-styles.min.css?v=31" rel="stylesheet" />
+    <link rel="icon" type="image/png" href="images/favicon.png">
+    <style>
+        .content-container {
+            display: flex;
+            justify-content: center;
+        }
+
+        .text-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .subscribe-content {
+            text-align: left;
+            padding: 20px;
+        }
+
+        .subscribe-form {
+            display: grid;
+            grid-template-columns: minmax(220px, 320px) auto;
+            gap: 10px 12px;
+            align-items: center;
+            width: fit-content;
+            max-width: 100%;
+            margin-top: 20px;
+            padding: 14px;
+            border: 1px solid #d8d8d8;
+            border-radius: 18px;
+            background: #fff;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
+        }
+
+        .subscribe-form label {
+            grid-column: 1 / -1;
+            color: #333;
+            font-size: 14px;
+            letter-spacing: 0.04em;
+            text-transform: uppercase;
+        }
+
+        .subscribe-form input[type="email"] {
+            min-width: 0;
+            border: 1px solid #d8d8d8;
+            border-radius: 999px;
+            padding: 12px 16px;
+            background: #fafafa;
+            color: #111;
+            font-family: 'Chakra Petch', sans-serif;
+            font-size: 16px;
+            outline: none;
+        }
+
+        .subscribe-form input[type="email"]:focus {
+            border-color: #111;
+            background: #fff;
+        }
+
+        .subscribe-form input[type="submit"],
+        .subscribe-form button[type="submit"] {
+            min-width: 128px;
+            border: 1px solid #111;
+            border-radius: 999px;
+            padding: 12px 24px;
+            background: #111;
+            color: #fff;
+            font-family: 'Chakra Petch', sans-serif;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        .subscribe-form p {
+            grid-column: 1 / -1;
+            margin: 0;
+            font-size: 13px;
+            line-height: 1.35;
+            text-align: center;
+        }
+
+        .subscribe-form p a,
+        .subscribe-form p a:link,
+        .subscribe-form p a:visited,
+        .subscribe-form p a:active {
+            color: #777;
+            text-decoration: none;
+            text-underline-offset: 3px;
+        }
+
+        .subscribe-form p a:hover,
+        .subscribe-form p a:focus {
+            text-decoration: underline;
+        }
+
+        .subscribe-message {
+            grid-column: 1 / -1;
+            margin: 0;
+            font-size: 14px;
+            text-align: center;
+        }
+
+        @media screen and (max-width: 560px) {
+            .subscribe-form {
+                grid-template-columns: 1fr;
+                width: 100%;
+            }
+
+            .subscribe-form input[type="submit"],
+            .subscribe-form button[type="submit"] {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+
+<body class="subscribe-page">
+    <div class="container">
+        <div id="header"></div>
+
+        <div class="content" role="main">
+            <div class="content-container">
+                <div class="text-content">
+                    <div class="subscribe-content">
+                        <h2>Newsletter</h2>
+                        <form action="https://app.kit.com/forms/9453676/subscriptions"
+                            method="post" target="_self" class="subscribe-form"
+                            aria-label="Subscribe to Cinematic Strawberry updates">
+                            <input type="email" name="email_address" id="subscribe-email"
+                                placeholder="email@example.com" autocomplete="email" required>
+                            <button type="submit">Subscribe</button>
+                            <p>
+                                You can unsubscribe anytime. For more details, review our
+                                <a href="privacy.html">Privacy Policy</a>.
+                            </p>
+                            <p>
+                                <a href="https://kit.com/privacy" target="_blank"
+                                    rel="noopener">Powered by Kit</a>
+                            </p>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="footer"></div>
+    </div>
+
+    <script defer src="js/components.min.js?v=8"></script>
+</body>
+
+</html>

@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="format-detection" content="telephone=no">
+    <title>Thanks | Cinematic Strawberry</title>
+    <link href="css/style.min.css?v=11" rel="stylesheet" />
+    <link href="css/index-styles.min.css?v=31" rel="stylesheet" />
+    <link rel="icon" type="image/png" href="images/favicon.png">
+    <style>
+        .content-container {
+            display: flex;
+            justify-content: center;
+        }
+
+        .text-content {
+            max-width: 800px;
+            width: 100%;
+            margin: 0 auto;
+        }
+
+        .thanks-content {
+            text-align: center;
+            padding: 20px;
+        }
+
+        .thanks-panel {
+            display: grid;
+            gap: 16px;
+            justify-items: center;
+            width: min(100%, 420px);
+            max-width: 100%;
+            margin: 20px auto 0;
+            padding: 18px;
+            border: 1px solid #cfcfcf;
+            border-radius: 6px;
+            background: #fafafa;
+        }
+
+        .thanks-panel p {
+            width: 100%;
+            margin: 0;
+            color: #505050;
+            font-size: 16px;
+            line-height: 1.5;
+            text-align: center;
+        }
+
+        .thanks-back {
+            width: fit-content;
+            min-width: 128px;
+            border: 1px solid #777;
+            border-radius: 999px;
+            padding: 12px 24px;
+            background: #fff;
+            color: #111;
+            font-family: 'Chakra Petch', sans-serif;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background 0.2s ease, border-color 0.2s ease;
+        }
+
+        .thanks-back:hover,
+        .thanks-back:focus {
+            border-color: #111;
+            background: #f0f0f0;
+        }
+
+        @media screen and (max-width: 560px) {
+            .thanks-panel,
+            .thanks-back {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+
+<body class="thanks-page">
+    <div class="container">
+        <div id="header"></div>
+
+        <div class="content" role="main">
+            <div class="content-container">
+                <div class="text-content">
+                    <div class="thanks-content">
+                        <h2>Thank you</h2>
+                        <div class="thanks-panel">
+                            <p>A verification letter has been sent to your email.</p>
+                            <button type="button" class="thanks-back" id="thanksBack">Go Back</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="footer"></div>
+    </div>
+
+    <script>
+        (() => {
+            const returnKey = 'cinematicStrawberryNewsletterReturn';
+            const pendingRestoreKey = 'cinematicStrawberryPendingScrollRestore';
+            const fallbackUrl = '/index.html';
+            const maxReturnAge = 60 * 60 * 1000;
+            const button = document.getElementById('thanksBack');
+
+            const getReturnState = () => {
+                try {
+                    return JSON.parse(window.localStorage.getItem(returnKey) || 'null');
+                } catch (error) {
+                    return null;
+                }
+            };
+
+            const isUsableReturn = (state) => {
+                if (!state || !state.url) {
+                    return false;
+                }
+
+                let url;
+
+                try {
+                    url = new URL(state.url, window.location.origin);
+                } catch (error) {
+                    return false;
+                }
+
+                return (
+                    url.origin === window.location.origin &&
+                    url.pathname !== '/thanks.html' &&
+                    (!state.savedAt || Date.now() - state.savedAt < maxReturnAge)
+                );
+            };
+
+            const getDestination = () => {
+                const returnState = getReturnState();
+
+                if (isUsableReturn(returnState)) {
+                    return {
+                        kind: 'return',
+                        state: returnState,
+                        url: returnState.url,
+                    };
+                }
+
+                return {
+                    url: fallbackUrl,
+                };
+            };
+
+            const goBack = () => {
+                const destination = getDestination();
+
+                if (destination.state) {
+                    const returnUrl = new URL(destination.state.url, window.location.origin);
+
+                    if (returnUrl.pathname.startsWith('/00110000/articles/')) {
+                        try {
+                            window.localStorage.setItem(pendingRestoreKey, JSON.stringify(destination.state));
+                        } catch (error) {
+                            // The destination can still load without scroll restoration.
+                        }
+                    }
+                }
+
+                window.location.href = destination.url;
+            };
+
+            if (button) {
+                button.addEventListener('click', goBack);
+            }
+        })();
+    </script>
+<script>
+        try {
+            window.localStorage.setItem('cinematicStrawberryNewsletterSubscribed', 'true');
+            window.localStorage.removeItem('cinematicStrawberryArticleSubscribeHiddenV3');
+            window.localStorage.removeItem('cinematicStrawberryArticleSubscribeHiddenV3SiteExitPending');
+        } catch (error) {
+            // Ignore storage failures.
+        }
+    </script>
+    <script defer src="js/components.min.js?v=8"></script>
+</body>
+
+</html>

@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="format-detection" content="telephone=no">
+    <title>Confirmed | Cinematic Strawberry</title>
+    <link href="css/style.min.css?v=11" rel="stylesheet" />
+    <link href="css/index-styles.min.css?v=31" rel="stylesheet" />
+    <link rel="icon" type="image/png" href="images/favicon.png">
+    <style>
+        .content-container {
+            display: flex;
+            justify-content: center;
+        }
+
+        .text-content {
+            max-width: 800px;
+            width: 100%;
+            margin: 0 auto;
+        }
+
+        .confirmed-content {
+            text-align: center;
+            padding: 20px;
+        }
+
+        .confirmed-panel {
+            display: grid;
+            gap: 16px;
+            justify-items: center;
+            width: min(100%, 420px);
+            max-width: 100%;
+            margin: 20px auto 0;
+            padding: 18px;
+            border: 1px solid #cfcfcf;
+            border-radius: 6px;
+            background: #fafafa;
+        }
+
+        .confirmed-panel p {
+            width: 100%;
+            margin: 0;
+            color: #505050;
+            font-size: 16px;
+            line-height: 1.5;
+            text-align: center;
+        }
+
+        .confirmed-home {
+            width: fit-content;
+            min-width: 128px;
+            border: 1px solid #777;
+            border-radius: 999px;
+            padding: 12px 24px;
+            background: #fff;
+            color: #111;
+            font-family: 'Chakra Petch', sans-serif;
+            font-size: 16px;
+            text-decoration: none;
+            cursor: pointer;
+            transition: background 0.2s ease, border-color 0.2s ease;
+        }
+
+        .confirmed-home:hover,
+        .confirmed-home:focus {
+            border-color: #111;
+            background: #f0f0f0;
+        }
+
+        @media screen and (max-width: 560px) {
+            .confirmed-panel,
+            .confirmed-home {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+
+<body class="confirmed-page">
+    <div class="container">
+        <div id="header"></div>
+
+        <div class="content" role="main">
+            <div class="content-container">
+                <div class="text-content">
+                    <div class="confirmed-content">
+                        <h2>Success</h2>
+                        <div class="confirmed-panel">
+                            <p>You are subscribed to the newsletter.</p>
+                            <a class="confirmed-home" href="/index.html">Home</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="footer"></div>
+    </div>
+
+<script>
+        try {
+            window.localStorage.setItem('cinematicStrawberryNewsletterSubscribed', 'true');
+            window.localStorage.removeItem('cinematicStrawberryArticleSubscribeHiddenV3');
+            window.localStorage.removeItem('cinematicStrawberryArticleSubscribeHiddenV3SiteExitPending');
+        } catch (error) {
+            // Ignore storage failures.
+        }
+    </script>
+    <script defer src="js/components.min.js?v=8"></script>
+</body>
+
+</html>

@@ -1,37 +1,35 @@
 // js/components.js
 class ComponentLoader {
+    static getComponentBaseUrl() {
+      const script = Array.from(document.scripts).find((item) => {
+        return item.src && /\/js\/components(?:\.min)?\.js(?:$|\?)/.test(item.src);
+      });
+
+      return script ? new URL('./', script.src) : new URL('js/', document.baseURI);
+    }
+
     static async loadComponent(elementId, componentPath) {
+      const target = document.getElementById(elementId);
+      if (!target) return;
+
       try {
         const response = await fetch(componentPath);
         if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
         const content = await response.text();
-        document.getElementById(elementId).innerHTML = content;
-        
-        // Update active navigation link
-        if (elementId === 'header') {
-          const currentPage = window.location.pathname.split('/').pop();
-          const navLinks = document.querySelectorAll('nav ul li a');
-          navLinks.forEach(link => {
-            if (link.getAttribute('href') === currentPage) {
-              link.style.color = 'red';
-              link.style.fontWeight = 'bold';
-            } else {
-              link.style.color = 'black';
-              link.style.fontWeight = 'normal';
-            }
-          });
-        }
+        target.innerHTML = content;
       } catch (error) {
         console.error('Error loading component:', error);
       }
     }
   
     static async loadAllComponents() {
+      const componentBaseUrl = this.getComponentBaseUrl();
+
       await Promise.all([
-        this.loadComponent('header', '/components/header.html'),
-        this.loadComponent('footer', '/components/footer.html'),
-        this.loadComponent('fonts', '/components/fonts.html')
+        this.loadComponent('header', new URL('../components/header.html?v=1.3', componentBaseUrl).href),
+        this.loadComponent('footer', new URL('../components/footer.html?v=1.5', componentBaseUrl).href)
       ]);
+      document.dispatchEvent(new CustomEvent("site-components-loaded"));
     }
   }
   

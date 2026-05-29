@@ -4,11 +4,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="format-detection" content="telephone=no">
     <title>Hidden Narratives: Semantic Coherence as Digital Art through AI and Color
     </title>
     <meta name="description"
         content="This paper introduces a novel approach to visual art that embeds linguistic narratives within 3D digital sculptures through color encoding using AI and LLMs.">
-    <link href="article-style.css" rel="stylesheet" />
+    <link href="article-style.min.css?v=39" rel="stylesheet" />
     <link rel="icon" type="image/png" href="../../images/favicon.png">
 
 </head>
@@ -20,19 +21,20 @@
                 <h1 class="logo-text">Cinematic Strawberry</h1>
             </a>
             <a href="../../index.html">
-                <img src="../../images/logo.jpg" alt="Logo" class="logo-image">
+                <img src="../../images/logo-transparent.png" alt="Logo" class="logo-image" width="64" height="64" decoding="async">
             </a>
         </div>
         <nav>
             <ul>
-                <li><a href="../../index.html">Look In The Eye</a></li>
+                <li><a href="../../index.html">Home</a></li>
                 <li><a href="../../00110000.html">Universe 00110000</a></li>
             </ul>
         </nav>
     </div>
     <div class="banner">
-        <img src="images/hidden_narratives_banner.jpg" alt="Banner Image for Hidden Narratives" />
+        <img src="images/hidden_narratives_banner.jpg" alt="Banner Image for Hidden Narratives" width="1280" height="896" decoding="async" fetchpriority="high" srcset="images/hidden_narratives_banner-480.jpg 480w, images/hidden_narratives_banner-800.jpg 800w, images/hidden_narratives_banner.jpg 1280w" sizes="(max-width: 832px) calc(100vw - 24px), 800px">
     </div>
+    <main>
     <article>
         <h1>Hidden Narratives: Semantic Coherence as Digital Art through AI and Color
         </h1>
@@ -47,8 +49,8 @@
             establish a bidirectional relationship between language and visual expression in three-dimensional space.
             Central to our research is a hypothesis that semantically coherent narratives naturally produce more
             aesthetically pleasing visual patterns than semantically void text, suggesting an intrinsic connection
-            between linguistic meaning and visual harmony. We detail the complete methodology—from lexicon development
-            and LLM-based color mapping to the encoding and decoding processes—and discuss theoretical and practical
+            between linguistic meaning and visual harmony. We detail the complete methodology - from lexicon development
+            and LLM-based color mapping to the encoding and decoding processes - and discuss theoretical and practical
             validation approaches. This work contributes to emerging fields of computational art and interactive
             aesthetics, offering new paradigms for audience engagement and artistic expression in 3D digital
             environments while potentially revealing fundamental cognitive connections between linguistic coherence and
@@ -84,8 +86,8 @@
                 meaning and visual perception.</li>
             <li>Implications for interactive art experiences and audience engagement in 3D digital environments.</li>
         </ul>
-        <p>This hypothesis—that coherent meaning in language corresponds to visual harmony when encoded through
-            color—forms a central focus of our research. If supported, it would suggest that the relationship between
+        <p>This hypothesis - that coherent meaning in language corresponds to visual harmony when encoded through
+            color - forms a central focus of our research. If supported, it would suggest that the relationship between
             linguistic and visual processing is more deeply intertwined than previously understood, with significant
             implications for cognitive science, information visualization, and artistic practice.</p>
         <p>This work addresses a fundamental question at the intersection of visual art, linguistics, and cognitive
@@ -96,12 +98,12 @@
             validation approaches, discuss applications and implications, address limitations, and outline directions
             for future research in the realm of 3D digital sculpture. This paper presents a novel framework and research
             proposal, inviting further exploration and empirical validation.</p>
-        <img src="images/hidden_narratives2.jpg" alt="3D digital sculpture" />
+        <img src="images/hidden_narratives2.jpg" alt="3D digital sculpture" width="768" height="1408" decoding="async" loading="lazy">
         <p class="caption">Universe 00110000</p>
         <h2>2. Literature Review and Theoretical Framework</h2>
 
         <h3>2.1 Visual Coding Systems and Steganography</h3>
-        <p>Our approach builds upon and extends existing work in steganography—the practice of concealing information
+        <p>Our approach builds upon and extends existing work in steganography - the practice of concealing information
             within other non-secret data or a physical object. Traditional steganography focuses primarily on hiding
             binary data within digital media, with information security as the primary goal (Cox et al., 2008). Fridrich
             et al. (2001) established methods for embedding data in digital images using least significant bit (LSB)
@@ -126,7 +128,7 @@
             ΔE*<sub>ab</sub> between
             colors in Lab space corresponds more closely to perceived visual differences, making it ideal for our
             encoding system where discriminability between mapped words is crucial. However, while Lab is more
-            perceptually uniform than RGB or CMYK, it is not perfect—especially in saturated regions—so refined metrics
+            perceptually uniform than RGB or CMYK, it is not perfect - especially in saturated regions - so refined metrics
             like CIE94 or CIEDE2000 are sometimes used for greater accuracy.</p>
 
         <p>Building on this foundation, our work considers not just individual color assignments but the global
@@ -159,8 +161,8 @@
             by addressing the specific challenges of reconstructing narratives from unordered word sets.</p>
 
         <h3>2.4 Synesthesia and Cross-Modal Perception</h3>
-        <p>Synesthesia—a neurological phenomenon where stimulation in one sensory pathway leads to automatic experiences
-            in another—provides an important theoretical foundation for our work. Research on grapheme-color
+        <p>Synesthesia - a neurological phenomenon where stimulation in one sensory pathway leads to automatic experiences
+            in another - provides an important theoretical foundation for our work. Research on grapheme-color
             synesthesia, where letters or words trigger specific color perceptions, has demonstrated consistency in
             associations both within individuals over time and across synesthetes (Simner et al., 2005).</p>
         <p>Ramachandran and Hubbard (2001) proposed that synesthesia might reveal inherent structural similarities
@@ -172,8 +174,8 @@
             that we seek to formalize in our encoding system.</p>
 
         <h3>2.5 Cognitive Foundations of the Semantic-Visual Harmony Hypothesis</h3>
-        <p>Our central hypothesis—that semantically coherent narratives naturally produce more visually harmonious color
-            patterns than semantically void text—draws support from several cognitive and perceptual theories. This
+        <p>Our central hypothesis - that semantically coherent narratives naturally produce more visually harmonious color
+            patterns than semantically void text - draws support from several cognitive and perceptual theories. This
             aligns
             with frameworks such as the <a href="narrative.html"
                 style="text-decoration: none; border-bottom: 1px solid transparent; transition: border-bottom 0.3s;"
@@ -219,7 +221,7 @@
         <p>These theoretical foundations provide a cognitive basis for exploring the relationship between semantic
             coherence and visual harmony, positioning our hypothesis within established frameworks of human perception
             and cognition.</p>
-        <img src="images/hidden_narratives1.jpg" alt="Vocabulary Selection" />
+        <img src="images/hidden_narratives1.jpg" alt="Vocabulary Selection" width="768" height="1408" decoding="async" loading="lazy">
         <p class="caption">Universe 00110000</p>
         <h2>3. Proposed Methodology</h2>
 
@@ -241,10 +243,7 @@
 
         <h3>3.1.2 Word-Color Association through Large Language Models</h3>
         <p>Our approach leverages the implicit knowledge embedded within large language models (LLMs) to establish
-            word-color associations, a concept akin to developing a <a href="synesthetic.html"
-                style="text-decoration: none; border-bottom: 1px solid transparent; transition: border-bottom 0.3s;"
-                onmouseover="this.style.borderBottomColor='black';"
-                onmouseout="this.style.borderBottomColor='transparent';">computationally derived synesthetic map</a>
+            word-color associations, a concept akin to developing a computationally derived synesthetic map
             between
             language and color. Rather than developing complex mathematical models, we harness the cultural, linguistic,
             and
@@ -340,7 +339,7 @@
             <li>It produces human-readable narratives even from challenging word combinations.</li>
             <li>It can maintain stylistic elements like poetic structure or prose rhythm when appropriate.</li>
         </ul>
-        <img src="images/hidden_narratives5.jpg" alt="Semantic-Visual Harmony Testing Methodology" />
+        <img src="images/hidden_narratives5.jpg" alt="Semantic-Visual Harmony Testing Methodology" width="768" height="1408" decoding="async" loading="lazy">
         <p class="caption">Universe 00110000</p>
         <h3>3.4 Semantic-Visual Harmony Testing Methodology</h3>
         <p>A central aspect of our research involves testing the hypothesis that semantically coherent narratives
@@ -352,10 +351,7 @@
             analogous or complementary schemes); and cognitive principles such as high processing fluency and pattern
             recognizability. Our evaluation will therefore focus on measuring the degree to which these properties
             manifest in visual patterns derived from different text categories. This investigation into the
-            properties of coherent narratives aligns with theoretical frameworks like the <a href="narrative.html"
-                style="text-decoration: none; border-bottom: 1px solid transparent; transition: border-bottom 0.3s;"
-                onmouseover="this.style.borderBottomColor='black';"
-                onmouseout="this.style.borderBottomColor='transparent';">Principle of Narrative Realization</a>, which
+            properties of coherent narratives aligns with theoretical frameworks like the Principle of Narrative Realization, which
             suggests that such narratives are rare, highly structured entities. We have developed a comprehensive
             methodology to investigate this relationship between semantic coherence and visual harmony. </p>
 
@@ -404,7 +400,7 @@
             influence the relationship between semantic coherence and visual harmony.</p>
         <h3>3.4.4 Theoretical Rationale: Aesthetic Harmony as Predictive Efficiency</h3>
         <p>
-            The core hypothesis of this research—that semantic coherence translates into visual harmony—is grounded in a
+            The core hypothesis of this research - that semantic coherence translates into visual harmony - is grounded in a
             functional theory of aesthetics rooted in cognitive efficiency. We propose that patterns perceived as
             generally "aesthetically pleasing" are those that represent highly efficient strategies that tackle the <a
                 href="optimization.html"
@@ -429,7 +425,7 @@
             that the rare, highly structured patterns of coherent language (which are predictively useful
             linguistically) will manifest as visually harmonious forms (which are predictively useful perceptually).
         </p>
-        <img src="images/hidden_narratives4.jpg" alt="Interactive exhibitions" />
+        <img src="images/hidden_narratives4.jpg" alt="Interactive exhibitions" width="768" height="1408" decoding="async" loading="lazy">
         <p class="caption">Universe 00110000</p>
         <h2>4. Applications and Implications</h2>
 
@@ -486,11 +482,7 @@
         <h3>4.4.1 Cognitive Architecture</h3>
         <p>The correlation between semantic coherence and visual harmony would suggest fundamental connections between
             linguistic and visual processing systems in the brain. This finding would support theories that different
-            cognitive domains share underlying organizational principles, as explored in frameworks like the <a
-                href="narrative.html"
-                style="text-decoration: none; border-bottom: 1px solid transparent; transition: border-bottom 0.3s;"
-                onmouseover="this.style.borderBottomColor='black';"
-                onmouseout="this.style.borderBottomColor='transparent';">Principle of Narrative Realization</a> which
+            cognitive domains share underlying organizational principles, as explored in frameworks like the Principle of Narrative Realization which
             posits
             deep structural commonalities in coherent information. It would also challenge modular views of cognition
             that
@@ -582,21 +574,12 @@
             <div class="arrow right" onclick="shiftSlide(1)">❯</div>
         </div>
     </article>
+    </main>
+    <div id="footer"></div>
 
-    <div class="footer">
-        <div class="footer-links">
-            <a href="../../index.html">Home</a> |
-            <a href="../../about.html">About</a> |
-            <a href="../../privacy.html">Privacy Policy</a> |
-            <a href="https://www.youtube.com/@CinematicStrawberry">YouTube</a>
-        </div>
-        <br>
-        <hr>
-
-        <p>© 2025 Cinematic Strawberry.</p>
-
-    </div>
-    <script src="slider.js?v=58"></script>
+    <script defer src="../../js/components.min.js?v=8"></script>
+    <script defer src="article-subscribe.min.js?v=13"></script>
+    <script defer src="slider.min.js?v=4"></script>
 
 </body>
 

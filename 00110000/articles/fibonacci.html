@@ -4,10 +4,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="format-detection" content="telephone=no">
     <title>Fibonacci Strings: Integrating the Something–Nothing Spectrum</title>
     <meta name="description"
         content="An exploration of Fibonacci Strings, a framework that integrates the Fibonacci sequence with the Something-Nothing Spectrum to encode semantic meaning into binary data.">
-    <link href="article-style.css" rel="stylesheet" />
+    <link href="article-style.min.css?v=39" rel="stylesheet" />
     <link rel="icon" type="image/png" href="../../images/favicon.png">
 
 </head>
@@ -19,19 +20,20 @@
                 <h1 class="logo-text">Cinematic Strawberry</h1>
             </a>
             <a href="../../index.html">
-                <img src="../../images/logo.jpg" alt="Logo" class="logo-image">
+                <img src="../../images/logo-transparent.png" alt="Logo" class="logo-image" width="64" height="64" decoding="async">
             </a>
         </div>
         <nav>
             <ul>
-                <li><a href="../../index.html">Look In The Eye</a></li>
+                <li><a href="../../index.html">Home</a></li>
                 <li><a href="../../00110000.html">Universe 00110000</a></li>
             </ul>
         </nav>
     </div>
     <div class="banner">
-        <img src="images/fibonacci_strings_banner.jpg" alt="Banner Image for Fibonacci Strings" />
+        <img src="images/fibonacci_strings_banner.jpg" alt="Banner Image for Fibonacci Strings" width="1536" height="1024" decoding="async" fetchpriority="high" srcset="images/fibonacci_strings_banner-480.jpg 480w, images/fibonacci_strings_banner-800.jpg 800w, images/fibonacci_strings_banner.jpg 1536w" sizes="(max-width: 832px) calc(100vw - 24px), 800px">
     </div>
+    <main>
     <article>
         <h1>Fibonacci Strings: Integrating the Something–Nothing Spectrum</h1>
         <hr>
@@ -80,14 +82,14 @@
         <h3>2.3 The Rationale for Choosing the Fibonacci Sequence</h3>
         <p>While other mathematical series (e.g., prime numbers, geometric progressions) could generate binary sequences, the Fibonacci sequence is uniquely suited for this framework for several profound reasons:</p>
         <ul style="font-size: 20px;">
-            <li><strong>Inherent Connection to Growth:</strong>The Fibonacci sequence often emerges in plant growth patterns and other natural spirals, paralleling concept emergence—the way complexity arises from simple, foundational rules. Each Fibonacci String can be seen as a snapshot of this self-organising growth process.
+            <li><strong>Inherent Connection to Growth:</strong>The Fibonacci sequence often emerges in plant growth patterns and other natural spirals, paralleling concept emergence - the way complexity arises from simple, foundational rules. Each Fibonacci String can be seen as a snapshot of this self-organising growth process.
  </li>
             <li><strong>Recursive Simplicity:</strong> The rule <em>F</em><sub>n</sub> = <em>F</em><sub>n-1</sub> + <em>F</em><sub>n-2</sub> models how new states of being are built upon the sum of what came immediately before. This recursive structure perfectly mirrors how complex semantic ideas can be constructed from a sequence of simple "something" (1) and "nothing" (0) concepts.</li>
           <li><strong>The Golden Ratio (φ) as Aesthetic Composition:</strong> The golden ratio, often called the “divine proportion,” has been a cornerstone of artistic and architectural composition for centuries, believed to produce aesthetically pleasing and natural harmony. In this framework, choosing the Fibonacci sequence is a deliberate artistic act. It implies that the resulting strings are not just data, but <em>semantic compositions</em> intended to achieve a form of linguistic balance and beauty.</li>
           
         </ul>
         
-        <p class="caption"></p><img src="images/fibonacci_strings1.jpg" alt=" Constructing Fibonacci Strings" />
+        <img src="images/fibonacci_strings1.jpg" alt=" Constructing Fibonacci Strings" width="1024" height="1536" decoding="async" loading="lazy">
         <p class="caption">Universe 00110000</p>
         
         <h2>3. Constructing Fibonacci Strings</h2>
@@ -139,13 +141,13 @@
         </ul>
 
 
-        <p class="caption"></p><img src="images/fibonacci_strings2.jpg"
-            alt="Fibonacci Strings" />
+        <img src="images/fibonacci_strings2.jpg"
+            alt="Fibonacci Strings" width="1024" height="1536" decoding="async" loading="lazy">
         <p class="caption">Universe 00110000</p>
 
         <h2>4. Conclusion</h2>
         <p>Fibonacci Strings offer a captivating fusion of mathematical recursion and an ontological scale via the SNS. By mapping binary digits to “nothing” or “something” words, bits evolve from inert tokens into meaning-bearing elements. The choice of the Fibonacci sequence is not arbitrary; its inherent properties of natural growth, recursion, and its convergence toward the golden ratio provide a mathematical backbone that mirrors the very process of ontological creation from simple foundations.</p>
-        <p>This framework is made tangible through modern tools. Drawing on large language models for classification ensures scalable and relatively unbiased word assignments, while grammatical filters help maintain the linguistic coherence of the resulting strings. Ultimately, Fibonacci Strings propose a paradigm shift in how we conceive of information—turning pure data into poetry.</p>
+        <p>This framework is made tangible through modern tools. Drawing on large language models for classification ensures scalable and relatively unbiased word assignments, while grammatical filters help maintain the linguistic coherence of the resulting strings. Ultimately, Fibonacci Strings propose a paradigm shift in how we conceive of information - turning pure data into poetry.</p>
 
         <div class="circle-container">
             <div class="arrow left" onclick="shiftSlide(-1)">❮</div>
@@ -155,21 +157,12 @@
             <div class="arrow right" onclick="shiftSlide(1)">❯</div>
         </div>
     </article>
+    </main>
+    <div id="footer"></div>
 
-    <div class="footer">
-        <div class="footer-links">
-            <a href="../../index.html">Home</a> |
-            <a href="../../about.html">About</a> |
-            <a href="../../privacy.html">Privacy Policy</a> |
-            <a href="https://www.youtube.com/@CinematicStrawberry">YouTube</a>
-        </div>
-        <br>
-        <hr>
-
-        <p>© 2025 Cinematic Strawberry.</p>
-
-    </div>
-    <script src="slider.js?v=54"></script>
+    <script defer src="../../js/components.min.js?v=8"></script>
+    <script defer src="article-subscribe.min.js?v=13"></script>
+    <script defer src="slider.min.js?v=4"></script>
 
 </body>
 

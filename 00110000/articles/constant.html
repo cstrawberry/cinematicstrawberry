@@ -4,10 +4,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="format-detection" content="telephone=no">
     <title>The Fine-Structure Constant</title>
     <meta name="description"
-        content="A detailed explanation of the fine-structure constant, its historical mystery, and how the Predictive Universe framework derives its value from the first principles of logic, thermodynamics, and information.">
-    <link href="article-style.css" rel="stylesheet" />
+        content="A detailed explanation of the fine-structure constant, its historical mystery, and how the Predictive Universe framework proposes a residual-gated Thomson-limit branch calculation from logic, thermodynamics, and information geometry.">
+    <link href="article-style.min.css?v=39" rel="stylesheet" />
     <link rel="icon" type="image/png" href="../../images/favicon.png">
 
 </head>
@@ -19,37 +20,39 @@
                 <h1 class="logo-text">Cinematic Strawberry</h1>
             </a>
             <a href="../../index.html">
-                <img src="../../images/logo.jpg" alt="Logo" class="logo-image">
+                <img src="../../images/logo-transparent.png" alt="Logo" class="logo-image" width="64" height="64" decoding="async">
             </a>
         </div>
         <nav>
             <ul>
-                <li><a href="../../index.html">Look in The Eye</a></li>
+                <li><a href="../../index.html">Home</a></li>
                 <li><a href="../../00110000.html">Universe 00110000</a></li>
             </ul>
         </nav>
     </div>
     <div class="banner">
-        <img src="images/constant_banner.jpg" alt="Banner Image representing the fine-structure constant" />
+        <img src="images/constant_banner.jpg" alt="Banner Image representing the fine-structure constant" width="1280" height="896" decoding="async" fetchpriority="high" srcset="images/constant_banner-480.jpg 480w, images/constant_banner-800.jpg 800w, images/constant_banner.jpg 1280w" sizes="(max-width: 832px) calc(100vw - 24px), 800px">
     </div>
+    <main>
     <article>
         <h1>The Fine-Structure Constant</h1>
         <hr>
         <h2>Abstract</h2>
-        <p>The fine-structure constant, α, a dimensionless number approximately equal to 1/137 that dictates the strength
+        <p>The fine-structure constant, <em>&alpha;</em>, a dimensionless number approximately equal to 1/137 that dictates the strength
             of electromagnetism, has remained one of the most profound mysteries in physics since its discovery. The
             Standard Model requires its value as an experimental input, offering no explanation for its origin. This
-            article explores the history of this enigma and presents the Predictive Universe (PU) framework's solution: a
-            complete, parameter-free derivation of α from first principles. We show how the constant emerges not from
-            the dynamics of fields and charges, but from the fundamental logic and thermodynamics of self-reference. The
-            derivation begins with the <strong>Horizon Constant (K₀ = 3 bits)</strong>, the minimum complexity for a
-            system to model itself, and the irreducible thermodynamic cost of this process (<strong>ε = ln 2</strong>).
-            These two constants, when instantiated in the framework's ideal equilibrium state - the
-            <strong>PCE-Attractor</strong> - uniquely determine the information-theoretic properties of the underlying
-            predictive substrate. This, in turn, fixes the bare value of the electromagnetic coupling. The result is a
-            sharp, falsifiable prediction that connects the strength of light and matter to the very logic of a
-            self-knowing universe.
-        </p>
+            article explores the history of this enigma and presents the Predictive Universe (PU) framework's proposed
+            solution on the minimal PCE-Attractor branch: a no-fitted-continuous-parameter calculation of a closed-form
+            Thomson-limit core for <em>&alpha;</em>. The derivation begins with the <strong>Horizon Constant
+                (K<sub>0</sub> = 3 bits)</strong>, the minimum self-referential predictive horizon, and the irreducible
+            thermodynamic lower bound of this process (<strong>&epsilon; &ge; ln 2</strong>), saturated on the
+            PCE-Attractor branch. These inputs select an 8-state minimal MPU carrier, a 2-state active kernel, a
+            6-state inactive complement, and 24 flat QFI interface modes. Capacity saturation fixes the bare rate
+            coordinate <em>u<sup>*</sup> = 2<sup>1/8</sup> - 1</em>; the Predictive-Ward, interface, curvature, and
+            transport corrections then yield the Thomson-limit core
+            <em>&alpha;<sub>0</sub><sup>-1</sup> = 137.036092055...</em>. The comparison row remains residual-gated:
+            the certified value is <em>&alpha;<sub>cert</sub><sup>-1</sup> = &alpha;<sub>0</sub><sup>-1</sup> +
+                R<sub>&alpha;</sub></em>, with <em>R<sub>&alpha;</sub></em> fixed before empirical comparison rather than tuned after it.</p>
 
         <div
             style="background-color: #f7f7f7; border: 1px solid #e1e1e1; border-radius: 5px; padding: 15px; margin: 20px auto; text-align: center; max-width: 100%; width: 80%; display: flex; align-items: center; justify-content: center;">
@@ -63,167 +66,139 @@
         <h2>1. The Universe's Magic Number</h2>
         <p>In the grand architecture of the cosmos, there are certain numbers that appear to be the universe's fundamental
             settings - constants of nature that dictate the very fabric of reality. Among them, one stands out for its
-            purity and its mystery: the <strong>fine-structure constant</strong>, denoted by the Greek letter alpha (α).
-            It is, in essence, the cosmic dimmer switch for electromagnetism. It governs the strength of the interaction
-            between light and matter, determining everything from the stability of atoms and the fusion processes in
-            stars to the very possibility of chemistry and life.</p>
-        <p>Unlike other constants, α is dimensionless - it is a pure number, approximately <strong>1/137.036</strong>,
-            that is the same regardless of the system of units used. This purity has captivated physicists for over a
-            century. It combines three of nature's most fundamental constants - the elementary charge (e), the speed of
-            light (c), and Planck's constant (ħ) - into a single, elegant ratio. The fact that this specific value appears
-            to be so finely tuned for a universe like ours has led to endless speculation. If α were just a few percent
-            different, stars would not be able to create carbon, atoms might not be stable, and the universe as we know
-            it could not exist.</p>
+            purity and its mystery: the <strong>fine-structure constant</strong>, denoted by the Greek letter alpha
+            (<em>&alpha;</em>). It is, in essence, the cosmic dimmer switch for electromagnetism. It governs the strength
+            of the interaction between light and matter, determining everything from the stability of atoms and the
+            fusion processes in stars to the very possibility of chemistry and life.</p>
+        <p>Unlike many dimensional constants, <em>&alpha;</em> is a pure number, approximately
+            <strong>1/137.036</strong> at the Thomson limit, independent of the system of units used. This purity has
+            captivated physicists for over a century. It combines three of nature's most fundamental constants - the
+            elementary charge (<em>e</em>), the speed of light (<em>c</em>), and Planck's constant (<em>&#8463;</em>) -
+            into a single, elegant ratio. The fact that this specific value appears to be so finely tuned for a universe
+            like ours has led to endless speculation. If <em>&alpha;</em> were significantly different, the structure of
+            atoms, chemistry, and stellar processes would change profoundly.</p>
 
-        <p>Richard Feynman famously described it as a "magic number" that comes to us with no
-            understanding:
-            <blockquote style="font-size: 20px;">"A magic number that comes to us with no
-                understanding by man. You might say the 'hand of God' wrote that number, and 'we don't know how He
-                pushed his pencil.' We know what kind of a dance to do experimentally to measure this number very
-                accurately, but we don't know what kind of dance to do on the computer to make this number come out,
-                without putting it in secretly!"</blockquote>
-        </p>
+        <p>Richard Feynman famously described it as a number physics could measure but not derive:</p>
+        <blockquote style="font-size: 20px;">"A magic number that comes to us with no understanding."</blockquote>
         <p>This is the heart of the problem. In our most successful theory of particle physics, the <strong>Standard
-                Model</strong>, α is a free parameter. We must measure it in an experiment and plug it into our
-            equations by hand. The theory works perfectly once we do, but it offers no clue as to why the number has
-            the value it does. It is a fundamental piece of the cosmic code that remains completely undeciphered.</p>
+                Model</strong>, <em>&alpha;</em> is a free parameter. We must measure it in an experiment and plug it
+            into our equations by hand. The theory works perfectly once we do, but it offers no clue as to why the
+            number has the value it does. It is a fundamental piece of the cosmic code that remains undeciphered.</p>
 
-        <p class="caption"></p><img src="images/constant4.jpg"
-            alt="A conceptual image of the fine-structure constant" />
+        <img src="images/constant4.jpg"
+            alt="A conceptual image of the fine-structure constant" width="1024" height="1536" decoding="async" loading="lazy">
         <p class="caption">Universe 00110000</p>
 
-        <h2>2. A Short History of α</h2>
-        <p>The quest to explain α has a long and storied history, often veering into the territory of pure numerology.
-            The physicist Arthur Eddington, in the early 20th century, famously became convinced that α was exactly
-            1/136, and later, 1/137, deriving these values from esoteric considerations about the number of dimensions
-            and fundamental particles. While his attempts were ultimately dismissed, they highlight the deep-seated
-            desire among physicists to believe that such a fundamental number could not be random.</p>
-        <p>While Eddington's approach was sidelined, the fascination with α captivated the very architects of quantum
-            theory. Wolfgang Pauli, one of the most brilliant and critical minds in physics, was famously obsessed with
-            the number. He saw its explanation as a key to the next great breakthrough in physics.
+        <h2>2. A Short History of &alpha;</h2>
+        <p>The quest to explain <em>&alpha;</em> has a long and storied history, often veering into the territory of pure numerology.
+            The physicist Arthur Eddington, in the early 20th century, famously became convinced that <em>&alpha;</em>
+            was exactly 1/136, and later, 1/137, deriving these values from esoteric considerations about the number of
+            dimensions and fundamental particles. While his attempts were ultimately dismissed, they highlight the
+            deep-seated desire among physicists to believe that such a fundamental number could not be random.</p>
+        <p>While Eddington's approach was sidelined, the fascination with <em>&alpha;</em> captivated the very architects
+            of quantum theory. Wolfgang Pauli, one of the most brilliant and critical minds in physics, was famously
+            absorbed by the number. He saw its explanation as a key to the next great breakthrough in physics.</p>
         <p>Paul Dirac, whose relativistic equation for the electron is a cornerstone of modern physics, was equally
             preoccupied. He explored the idea that the fundamental constants might not be constant at all, but could
             evolve with the age of the universe. This deep unease from the founders of quantum theory underscores the
-            centrality of the problem: α was not a peripheral detail but a profound puzzle that pointed to a fundamental
-            gap in their understanding of the world.</p>
+            centrality of the problem: <em>&alpha;</em> was not a peripheral detail but a profound puzzle that pointed to
+            a fundamental gap in their understanding of the world.</p>
 
 
         <p>This deep theoretical puzzlement has largely given way to a more pragmatic acceptance in modern times. The
-            Standard Model simply absorbed α as one of its ~25 unexplained parameters. The most common "explanation"
+            Standard Model treats <em>&alpha;</em> as one of its free numerical inputs. The most common "explanation"
             offered today is a philosophical one: the <strong>anthropic principle</strong>. This principle argues that
-            we observe the value of α to be ~1/137 because if it were significantly different, we wouldn't be here to
-            observe it. A universe with a different α would be a sterile one, incapable of producing conscious
-            observers.</p>
+            we observe the value of <em>&alpha;</em> to be near 1/137 because if it were significantly different, we
+            would not be here to observe it. A universe with a substantially different electromagnetic coupling could be
+            sterile, incapable of producing the stable complexity needed by observers.</p>
         <p>While logically sound, the anthropic principle is deeply unsatisfying to many scientists. It explains the
             <em>consistency</em> of our existence with the laws of physics, but it does not explain the <em>origin</em>
             of those laws or their parameters. It is an admission that we may never find a deeper reason, resigning us
             to the possibility that our universe is just one of a near-infinite number of universes in a "multiverse,"
             each with random settings, and we simply happen to live in one where the dials were set correctly for life.
-            The quest for a true theory of everything, however, holds out for a more profound answer - a theory where the
-            value of α is not an accident of our particular universe, but a necessary and calculable consequence of the
-            fundamental laws of reality.</p>
+            A deeper theory would try to show why the measured value belongs to a constrained branch rather than treating it as a free input.</p>
+
+
 
         <h2>3. The Predictive Universe Solution: A Constant from Logic and Thermodynamics</h2>
         <p><a href="predictiveuniverse.html"
                     style="text-decoration: none; border-bottom: 1px solid transparent; transition: border-bottom 0.3s;"
                     onmouseover="this.style.borderBottomColor='black';"
-                    onmouseout="this.style.borderBottomColor='transparent';">The Predictive Universe (PU)</a> framework offers a radical alternative to this impasse. It takes a novel approach, starting not with matter and energy, but with the one thing we know with certainty: the existence of a predictive, information-processing awareness. It asks: what must the laws of a universe be like if they are to emerge from the operational logic of such a system? The framework proposes that the value of α is not a fundamental setting of a pre-existing physical world, but an emergent and necessary
-            consequence of a universe that is, at its core, an information-processing system engaged in self-prediction.
-            The framework claims that α is fixed by the absolute, minimal requirements for a system to be able to model
-            itself and its environment in a logically and thermodynamically consistent way.</p>
+                    onmouseout="this.style.borderBottomColor='transparent';">The Predictive Universe (PU)</a> framework offers a branch-based alternative to this impasse. It starts with the operational logic of finite prediction under thermodynamic constraint. It asks what the laws of a universe must be like if they emerge from self-referential predictive systems. On the minimal PCE-Attractor branch, the framework proposes that the Thomson-limit core of <em>&alpha;</em> is fixed by the requirements for a finite system to model itself and its environment in a logically and thermodynamically consistent way.</p>
         <p>Instead of starting with fields, particles, or strings, the PU framework begins with the operational logic of
             prediction itself. It posits that reality is constituted by a network of Minimal Predictive Units
-                    (MPUs), the most basic entities capable of a self-referential predictive cycle. The
-            entire structure of physics, including its fundamental constants, is derived from the optimization
-            imperatives governing this network, chiefly the Principle of Compression Efficiency
-                    (PCE). In this view, the fine-structure constant is not a parameter of electromagnetism;
-            it is a parameter of optimal information processing in a self-predicting reality.</p>
-        <p class="caption"></p><img src="images/constant2.jpg"
-            alt="A Journey from Self-Reference to Light." />
+            (MPUs), the most basic entities capable of a self-referential predictive cycle. The structure of physics,
+            including its fundamental constants, is constrained by the optimization imperatives governing this network,
+            chiefly the Principle of Compression Efficiency (PCE). In this view, the electromagnetic coupling is not an
+            arbitrary dial; it is determined by the optimal information geometry of a self-predictive substrate, then
+            mapped into physical electromagnetism through the Predictive-Ward and interface-normalization chain.</p>
+        <img src="images/constant2.jpg"
+            alt="A Journey from Self-Reference to Light." width="1536" height="2816" decoding="async" loading="lazy">
         <p class="caption">Universe 00110000</p>
         <h2>4. The Derivation: A Journey from Self-Reference to Light</h2>
-        <p>The PU framework's derivation of α is a multi-step deductive chain that connects the abstract logic of
-            self-reference to the concrete physics of electromagnetism. It is a parameter-free calculation, meaning its
-            inputs are not measured experimental values but are themselves constants derived from the framework's own
-            internal logic.</p>
+        <p>The PU framework's derivation of <em>&alpha;</em> is a multi-step deductive chain that connects the abstract logic of
+            self-reference to the concrete physics of electromagnetism. No continuous parameter is fitted in the core
+            chain. Its inputs are structural integers, branch conditions, and geometric factors fixed within the
+            framework before comparison with experiment.</p>
 
         <ul style="font-size: 20px;">
-            <li><strong>Step 1: The Horizon Constant (K₀ = 3 bits).</strong> The journey begins with the
+            <li><strong>Step 1: The Horizon Constant (K<sub>0</sub> = 3 bits).</strong> The journey begins with the
                 <a href="self-referential.html"
                     style="text-decoration: none; border-bottom: 1px solid transparent; transition: border-bottom 0.3s;"
                     onmouseover="this.style.borderBottomColor='black';"
                     onmouseout="this.style.borderBottomColor='transparent';">Self-Referential Paradox of Accurate Prediction (SPAP)</a>, a Gödel-like proof showing that
-                no system can perfectly predict its own future state. The framework proves that the absolute minimum
-                information capacity required to robustly encode the logic of this paradox is exactly 3 bits,
-                corresponding to 2³ = 8 distinguishable internal states. This establishes the <a href="horizon.html"
+                no system can perfectly predict its own future state. The framework proves that the minimum robust
+                self-referential predictive horizon is exactly 3 bits, corresponding to 2<sup>3</sup> = 8 distinguishable
+                internal states. This establishes the <a href="horizon.html"
                     style="text-decoration: none; border-bottom: 1px solid transparent; transition: border-bottom 0.3s;"
                     onmouseover="this.style.borderBottomColor='black';"
                     onmouseout="this.style.borderBottomColor='transparent';">Horizon Constant
-                    (K₀ = 3 bits)</a>, as a fundamental constant of logic. This implies the MPU's internal Hilbert
-                space must have a dimension of at least 8.</li>
-            <li><strong>Step 2: The Thermodynamic Cost of Logic (ε = ln 2).</strong> The predictive cycle that
+                    (K<sub>0</sub> = 3 bits)</a>, as a fundamental logical invariant. This implies the MPU's internal
+                Hilbert space must have dimension at least 8; on the minimal PCE branch, <em>d<sub>0</sub> = 8</em>.</li>
+            <li><strong>Step 2: The Thermodynamic Cost of Logic (&epsilon; &ge; ln 2).</strong> The predictive cycle that
                 instantiates this logic is not cost-free. To avoid paradox, the cycle must contain a logically
-                irreversible step - an erasure of information. By Landauer's principle, the erasure of one bit of
-                information has a minimum, unavoidable thermodynamic cost (entropy production) of <strong>ε = ln
-                    2</strong> nats. This is the irreducible "heat of thought" for a minimal self-referential system.
-            </li>
+                irreversible step - an erasure of information. By Landauer's principle, erasing one bit has a minimum
+                entropy-production cost of <strong>&epsilon; = ln 2</strong> nats. The PCE-Attractor branch saturates
+                this lower bound, making it the irreducible cost scale of the minimal self-referential cycle.</li>
             <li><strong>Step 3: The Minimal Machine (The Landauer Pointer).</strong> The Principle of Compression
-                Efficiency dictates that this fundamental `ε`-cost must be instantiated in the most resource-efficient
-                way possible. The framework shows that this leads to a specific internal structure for the MPU: the
-                8-dimensional state space is partitioned into a 2-dimensional "active" subspace (the minimal system
-                that can represent a one-bit erasure) and a 6-dimensional "inactive" complement. This 2-state active
-                subspace is called the "Landauer Pointer."</li>
+                Efficiency dictates that this fundamental <em>&epsilon;</em>-cost must be instantiated in the most
+                resource-efficient way possible. On the minimal branch, the 8-dimensional state space is partitioned
+                into a 2-dimensional active subspace and a 6-dimensional inactive complement. This 2-state active
+                subspace is the Landauer Pointer, the minimal active kernel carrying the irreversible one-bit operation.</li>
             <li><strong>Step 4: The System's Sensitivity Spectrum.</strong> The next step is to quantify how this
-                minimal predictive machine responds to a small perturbation, which will eventually be identified with
-                the electromagnetic field. The sensitivity of a quantum system is described by its Quantum Fisher
-                Information (QFI). The framework calculates the QFI spectrum for the MPU in its baseline state. The
-                unique structure of the 2-state pointer interacting with its 6-state complement generates a specific
-                sensitivity spectrum: it has exactly <strong>M = 24</strong> independent information-carrying modes, and
-                each mode has an equal, normalized sensitivity of <strong>λ = 1</strong>.</li>
+                minimal predictive machine responds to small operational perturbations. The sensitivity of a quantum
+                system is described by its Quantum Fisher Information (QFI). The framework calculates the QFI spectrum
+                for the MPU at the PCE-Attractor. The 2-state active kernel interacting with the 6-state complement
+                generates exactly <strong>M = 24</strong> independent interface modes, and each mode has equal normalized
+                sensitivity <strong>&lambda; = 1</strong>.</li>
             <li><strong>Step 5: The Optimal Coupling (The PCE-Attractor).</strong> The system, driven by PCE, seeks an
                 ideal equilibrium state of maximal efficiency and symmetry, known as the <strong>PCE-Attractor</strong>.
-                Think of the PCE-Attractor as the universe's "factory default setting" - the most stable, robust, and resource-efficient state the MPU network can settle into. The framework argues that in this state of perfect optimization, the system's properties become uniquely fixed. It operates at its absolute information capacity limit, a state justified by the framework's <strong>Operational Alphabet-Capacity Theorem</strong>. This theorem shows that the most efficient way for an MPU to leverage its full potential is to access all of its `d₀ = 8` internal states, setting the ultimate information ceiling at `ln 8` nats per interaction. This imposes a powerful constraint that links the strength of the coupling (`u = gₑ²`) to the MPU's alphabet size (`d₀ = 8`) and
-                its number of sensitivity modes (`M = 24`). The constraint takes the form of a simple, parameter-free
-                equation.</li>
+                Think of the PCE-Attractor as the universe's "factory default setting" - the most stable, robust, and resource-efficient state the MPU network can settle into. On this branch, the operational alphabet capacity saturates: the 24 flat QFI modes collectively reach the <em>ln 8</em> information ceiling of the minimal 8-state MPU carrier. This imposes a powerful constraint that links the bare rate coordinate <em>u</em> to the MPU's alphabet size <em>d<sub>0</sub> = 8</em> and its number of interface modes <em>M = 24</em>. The constraint takes the form of a simple, parameter-free equation.</li>
         </ul>
 
-        <p style="text-align: center; font-size: 1.2em;"><em>24 ln(1 + u) = ln 8</em></p>
-        <p>Solving this equation for `u` gives a unique, non-zero value for the bare squared coupling strength.
-            Finally, converting this to the fine-structure constant using the standard relation `α = u / (4π)` yields
-            the result.</p>
-        <p style="text-align: center; font-size: 1.2em;"><em>1 / α ≈ 138.843</em></p>
-        <p>This direct conversion is justified by a deep consistency principle within the framework, the <strong>Predictive Ward Identity</strong>, which proves that in the state of perfect efficiency (the PCE-Attractor), the normalization factor between the informational coupling and the physical coupling is exactly one. The universe, in its optimal state, uses the simplest possible dictionary to translate its internal logic into physical law.</p>
+        <p style="text-align: center; font-size: 1.2em;"><em>24 ln(1 + u<sup>*</sup>) = ln 8</em></p>
+        <p>Solving this equation gives a unique non-zero bare rate coordinate:</p>
+        <p style="text-align: center; font-size: 1.2em;"><em>u<sup>*</sup> = 2<sup>1/8</sup> - 1</em></p>
+        <p>The bulk Predictive-Ward normalization gives the leading inverse-coupling term <em>4&pi;/u<sup>*</sup> &asymp; 138.843</em>. The physical Thomson-limit core then includes the discrete-to-continuous interface correction and the Grassmannian curvature/transport correction:</p>
+        <p style="text-align: center; font-size: 1.2em;"><em>&alpha;<sub>0</sub><sup>-1</sup> = 4&pi;/u<sup>*</sup> - &pi;/&radic;K<sub>0</sub> + (&pi;u<sup>*</sup>/(24&radic;K<sub>0</sub>)) sinc(u<sup>*</sup>)</em></p>
+        <p style="text-align: center; font-size: 1.2em;"><em>&alpha;<sub>0</sub><sup>-1</sup> &asymp; 137.036092055</em></p>
+        <p>This conversion is justified by the Predictive-Ward branch, which fixes the bulk normalization in QFI-natural units, together with the interface, curvature, and <em>SU(2)</em> transport factors. The residual-complete comparison row is <em>&alpha;<sub>cert</sub><sup>-1</sup> = &alpha;<sub>0</sub><sup>-1</sup> + R<sub>&alpha;</sub></em>, where the residual entry must be fixed before comparison and cannot be used as an adjustable fit.</p>
 
-        <p class="caption"></p><img src="images/constant1.jpg"
-            alt="The fine-structure constant." />
+        <img src="images/constant1.jpg"
+            alt="The fine-structure constant." width="1536" height="2816" decoding="async" loading="lazy">
         <p class="caption">Universe 00110000</p>
 
-        <h2>5. The Probability of Deriving a Fundamental Constant</h2>
-        <p>What is the probability of deriving a fundamental constant of nature to within ~1% of its known high-energy
-            value by sheer luck, starting from a completely unrelated set of first principles? It is, for all practical
-            purposes, zero. The success of this calculation is therefore not a coincidence; it is profound evidence for
-            the internal consistency and potential correctness of the entire deductive chain and the foundational
-            axioms of the Predictive Universe.</p>
-        <p>It is crucial to be precise about what this number represents. The calculated value of `1/α ≈ 138.843` is not
-            the low-energy value of ~137.036 that we measure in tabletop experiments. It is the bare, high-scale
-                boundary condition for the electromagnetic coupling, defined at the fundamental operational scale of
-            the MPU network. In standard Quantum Field Theory, coupling constants "run" with energy - their effective
-            strength changes depending on the energy of the interaction. To connect the PU framework's bare value to the
-            measured low-energy value, one must perform a standard calculation to account for the effects of this
-            running and other quantum corrections. This calculation shows that a bare value of ~138.843 at a high scale
-            is entirely consistent with the observed value of ~137.036 at low energies. The PU framework does not just
-            produce a number; it provides the correct high-energy input for the Standard Model's own machinery.</p>
-        <p>Furthermore, the power of the PCE-Attractor concept extends beyond the fine-structure constant. The same state of perfect efficiency that fixes the value of `α` also makes a second, independent prediction: it uniquely determines the ratio of the universe's fundamental 'benefit-conversion' factor to its 'cost-of-complexity' coefficient. This provides another sharp, falsifiable prediction, demonstrating that the framework's core parameters are not independent but are locked together by the same principle of optimal design.</p>
-        <p>The importance of this result cannot be overstated. It transforms the fine-structure constant from 
-            "magic number" into a calculable consequence of a self-consistent, self-predicting reality. It is a powerful
-            demonstration that the constants of nature may not be arbitrary dials set at the beginning of time, but are
-            instead the unique, stable parameters that emerge from the universe's own operational logic.</p>
- <p class="caption"></p><img src="images/constant3.jpg"
-            alt="Magic number" />
+        <h2>5. The Status of the Prediction</h2>
+        <p>The PU calculation is a strong internal consistency test because the value is not obtained by fitting a continuous coupling parameter. The same chain that fixes <em>K<sub>0</sub> = 3</em>, <em>d<sub>0</sub> = 8</em>, the active split <em>2 + 6</em>, and the flat QFI mode count <em>M = 24</em> also fixes the capacity-saturated rate coordinate <em>u<sup>*</sup> = 2<sup>1/8</sup> - 1</em>. The numerical output is therefore determined by the branch package rather than adjusted to match the measured fine-structure constant.</p>
+        <p>It is crucial to be precise about what this number represents. The value <em>4&pi;/u<sup>*</sup> &asymp; 138.843</em> is the bulk Ward term, not the final observed low-energy value. The first interface correction subtracts <em>&pi;/&radic;3</em>, giving <em>&alpha;<sup>-1</sup> &asymp; 137.029</em>. The Grassmannian curvature and exact <em>SU(2)</em> transport refinement then give the closed-form Thomson-limit core <em>&alpha;<sub>0</sub><sup>-1</sup> = 137.036092055...</em>. The measured Thomson-limit value is close to this core, but the framework's theorem-level comparison row is completed only when the residual term <em>R<sub>&alpha;</sub></em> is independently fixed before comparison.</p>
+        <p>Standard QED and electroweak running then describe how the Thomson-limit value changes with energy scale. PU supplies the proposed Thomson boundary condition; ordinary effective-field-theory running supplies the scale-dependent coupling above particle thresholds. These are two distinct stages: substrate-to-continuum normalization first, then continuum quantum-field running.</p>
+        <p>The same <em>M = 24</em> backbone also has an independent geometric consequence. Through mode-channel matching, the 24 internal QFI interface modes correspond to the kissing-number channel count <em>K(D)</em>, and the unique positive integer solution <em>K(D) = 24</em> selects <em>D = 4</em>. In this way, the alpha calculation and the dimensional selection share the same minimal PCE-Attractor structure.</p>
+        <p>The importance of this result is that it transforms the fine-structure constant from a free numerical input into a branch-level calculable consequence of a self-consistent predictive substrate. The constants of nature appear as stable parameters selected by operational logic, thermodynamic cost, and information geometry.</p>
+ <img src="images/constant3.jpg"
+            alt="Magic number" width="1536" height="2816" decoding="async" loading="lazy">
         <h2>6. Conclusion</h2>
-        <p>The mystery of the fine-structure constant has long stood as a symbol of the limits of our understanding, a hint that a deeper layer of reality awaits our discovery. The Predictive Universe framework proposes that this fundamental stratum is woven from information, logic, and prediction. From this perspective, the strength of the force that holds atoms together and carries light across the cosmos emerges as a direct consequence of the logic required for a minimal entity to think about itself.
-        </p>
-        <p>The derivation of α from first principles is a testament to the framework's potential. It reveals a universe that is a coherent, self-regulating system, whose physical properties are the necessary outcome of its own informational dynamics. The constants of nature are therefore the stable parameters of a universe tuned by the very act of prediction. The magic number is, perhaps, the number of a self-knowing cosmos.</p>
+        <p>The mystery of the fine-structure constant has long stood as a symbol of the limits of our understanding, a hint that a deeper layer of reality awaits our discovery. The Predictive Universe framework proposes that this fundamental stratum is woven from information, logic, and prediction. From this perspective, the strength of the force that holds atoms together and carries light across the cosmos emerges from the operational requirements of self-referential prediction.</p>
+        <p>The branch-level derivation of <em>&alpha;</em> shows how a physical constant can be traced to a finite chain of logical, thermodynamic, and geometric constraints. On the minimal PCE-Attractor branch, the same structure that produces the 24 QFI interface modes also fixes the capacity-saturated coupling coordinate and selects four-dimensional spacetime through mode-channel matching. The constants of nature are therefore presented as stable parameters of a universe organized by predictive efficiency, with final empirical status determined by the certified residual and comparison gates of the framework.</p>
 
        
         <div class="circle-container">
@@ -234,20 +209,12 @@
             <div class="arrow right" onclick="shiftSlide(1)">❯</div>
         </div>
     </article>
+    </main>
+    <div id="footer"></div>
 
-    <div class="footer">
-        <div class="footer-links">
-            <a href="../../index.html">Home</a> |
-            <a href="../../about.html">About</a> |
-            <a href="../../privacy.html">Privacy Policy</a> |
-            <a href="https://www.youtube.com/@CinematicStrawberry">YouTube</a>
-        </div>
-        <br>
-        <hr>
-
-        <p>© 2025 Cinematic Strawberry.</p>
-    </div>
-    <script src="slider.js?v=68"></script>
+    <script defer src="../../js/components.min.js?v=8"></script>
+    <script defer src="article-subscribe.min.js?v=13"></script>
+    <script defer src="slider.min.js?v=4"></script>
 
 </body>
 

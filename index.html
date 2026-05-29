@@ -3,28 +3,50 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="description" content="Cinematic Strawberry opens new worlds through transformative ideas, creative narratives, and digital experiences that entertain, educate, and inspire.">
     <title>Cinematic Strawberry</title>
-    <link href="css/style.css?v=1.1" rel="stylesheet" />
-    <link href="css/index-styles.css?v=1.1" rel="stylesheet" />
+    <style>
+        html {
+            background: #fafafa;
+        }
+
+        body.home-page.is-home-booting a,
+        body.home-page.is-home-booting a:link,
+        body.home-page.is-home-booting a:visited,
+        body.home-page.is-home-booting a:hover,
+        body.home-page.is-home-booting a:focus,
+        body.home-page.is-home-booting a:active {
+            color: #000;
+            text-decoration: none;
+            outline: none;
+            background: transparent;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        body.home-page img {
+            border: 0;
+        }
+
+        body.home-page.is-home-booting .home-particles {
+            opacity: 0;
+        }
+    </style>
+    <link href="css/style.min.css?v=11" rel="stylesheet" />
+    <link href="css/index-styles.min.css?v=32" rel="stylesheet" />
     <link rel="icon" type="image/png" href="images/favicon.png">
-    <div id="fonts"></div>
 </head>
-<body>
+<body class="home-page is-home-booting">
     <div class="container">
+        <canvas class="home-particles" id="homeParticles" aria-hidden="true"></canvas>
         <!-- Header component will be loaded here -->
         <div id="header"></div>
         
-        <div class="content">
+        <div class="content" role="main">
             <div class="content-container">
-                <div class="text-content">
-                    <h2>LITE</h2>
-                    <p>Welcome to an exploration of the <strong>LITE (Look In The Eye)</strong> framework, a groundbreaking approach built upon Self-Referential Dynamic Arithmetic Systems.</p>
-                    <p>By merging self-reference, bounded proof searches, and the Recursion Theorem into a dynamic system with an internal feedback loop, LITE shows how arithmetic statements can adapt based on their own provability, revealing an inherent dynamism rather than relying on external frameworks—thus transforming our understanding of mathematics at its core.</p>
-                    <p><a href="lite.html" class="clickable-text">Let there be LITE</a></p>
-                </div>
                 <div class="icon-container">
-                    <a href="lite.html">
-                        <img src="images/icon.jpg" alt="Icon" width="370" height="360">
+                    <a href="00110000/articles/predictiveuniverse.html" aria-label="Explore The Predictive Universe">
+                            <img src="images/icon-transparent.png" alt="Cinematic Strawberry" width="180" height="180" decoding="async" fetchpriority="high">
                     </a>
                 </div>
             </div>
@@ -34,6 +56,41 @@
         <div id="footer"></div>
     </div>
     
-    <script src="js/components.js"></script>
+    <script>
+        (() => {
+            const body = document.body;
+            let particlesReady = false;
+            let componentsReady = false;
+            let revealed = false;
+
+            const revealHome = () => {
+                if (revealed || !particlesReady || !componentsReady) {
+                    return;
+                }
+
+                revealed = true;
+                body.classList.remove("is-home-booting");
+                body.classList.add("is-home-ready");
+            };
+
+            document.addEventListener("home-particles-ready", () => {
+                particlesReady = true;
+                revealHome();
+            }, { once: true });
+
+            document.addEventListener("site-components-loaded", () => {
+                componentsReady = true;
+                revealHome();
+            }, { once: true });
+
+            window.setTimeout(() => {
+                particlesReady = true;
+                componentsReady = true;
+                revealHome();
+            }, 1400);
+        })();
+    </script>
+    <script defer src="js/components.min.js?v=8"></script>
+    <script defer src="js/home-particles.min.js?v=8"></script>
 </body>
 </html>

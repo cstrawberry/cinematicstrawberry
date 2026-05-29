@@ -4,10 +4,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="format-detection" content="telephone=no">
     <title>Smart Perception Management: Navigating the Cognitive Landscape of the Digital Age</title>
     <meta name="description"
         content="Exploring Smart Perception Management, an approach integrating cognitive science and advanced technologies for enhancing well-being in the digital age.">
-    <link href="article-style.css" rel="stylesheet" />
+    <link href="article-style.min.css?v=39" rel="stylesheet" />
     <link rel="icon" type="image/png" href="../../images/favicon.png">
 </head>
 
@@ -18,19 +19,20 @@
                 <h1 class="logo-text">Cinematic Strawberry</h1>
             </a>
             <a href="../../index.html">
-                <img src="../../images/logo.jpg" alt="Logo" class="logo-image">
+                <img src="../../images/logo-transparent.png" alt="Logo" class="logo-image" width="64" height="64" decoding="async">
             </a>
         </div>
         <nav>
             <ul>
-                <li><a href="../../index.html">Look in The Eye</a></li>
+                <li><a href="../../index.html">Home</a></li>
                 <li><a href="../../00110000.html">Universe 00110000</a></li>
             </ul>
         </nav>
     </div>
     <div class="banner">
-        <img src="images/spm_banner.jpg" alt="Smart Perception Management Banner" />
+        <img src="images/spm_banner.jpg" alt="Smart Perception Management Banner" width="1792" height="1024" decoding="async" fetchpriority="high" srcset="images/spm_banner-480.jpg 480w, images/spm_banner-800.jpg 800w, images/spm_banner.jpg 1792w" sizes="(max-width: 832px) calc(100vw - 24px), 800px">
     </div>
+    <main>
     <article>
         <h1>Smart Perception Management: Navigating the Cognitive Landscape of the Digital Age</h1>
         <hr>
@@ -44,7 +46,7 @@
 
         <h3>1.2 Thesis Statement</h3>
         <p>This paper posits that <strong>Smart Perception Management (SPM)</strong>, through its integration of advanced technologies and cognitive science principles, offers a robust framework to empower individuals in managing their cognitive environments. By addressing information overload, AI-powered misinformation, and targeted manipulation, SPM enhances cognitive resilience and promotes well-being in the digital age.</p>
-        <img src="images/perception1.jpg" alt="Smart Perception Management" />
+        <img src="images/perception1.jpg" alt="Smart Perception Management" width="1024" height="1792" decoding="async" loading="lazy">
         <p class="caption">Universe 00110000</p>
         <h2>2. Background and Foundations</h2>
         <h3>2.1 Information Overload and Cognitive Fatigue</h3>
@@ -73,7 +75,7 @@
         <p>Minimize the stress and discomfort caused by urban noise and visual clutter through advanced filtering technologies. SPM enhances navigation by highlighting relevant information and providing real-time cultural context in diverse environments.</p>
 
 
-        <img src="images/perception2.jpg" alt="Augmented Reality Solutions" />
+        <img src="images/perception2.jpg" alt="Augmented Reality Solutions" width="1024" height="1792" decoding="async" loading="lazy">
         <p class="caption">Universe 00110000</p>
         <h2>6. Challenges and Ethical Considerations</h2>
         <h3>6.1 Balancing Protection and Autonomy</h3>
@@ -92,18 +94,12 @@
             <div class="arrow right" onclick="shiftSlide(1)">&#10095;</div>
         </div>
     </article>
-    <div class="footer">
-        <div class="footer-links">
-            <a href="../../index.html">Home</a> |
-            <a href="../../about.html">About</a> |
-            <a href="../../privacy.html">Privacy Policy</a> |
-            <a href="https://www.youtube.com/@CinematicStrawberry">YouTube</a>
-        </div>
-        <br>
-        <hr>
-        <p>© 2025 Cinematic Strawberry.</p>
-    </div>
-    <script src="slider.js?v=34"></script>
+    </main>
+    <div id="footer"></div>
+
+    <script defer src="../../js/components.min.js?v=8"></script>
+    <script defer src="article-subscribe.min.js?v=13"></script>
+    <script defer src="slider.min.js?v=4"></script>
 </body>
 
 </html>
