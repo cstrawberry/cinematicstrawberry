@@ -23,7 +23,10 @@
     transition: opacity 0.42s ease;
 }
 
-.home-page.is-home-booting .home-particles {
+.home-page.is-home-booting .home-particles,
+.home-page.is-home-booting #header,
+.home-page.is-home-booting .content,
+.home-page.is-home-booting #footer {
     opacity: 0;
 }
 
@@ -138,6 +141,17 @@
         gap: 32px;
     }
 
+    .privacy-page .content-container {
+        padding: 18px 24px 28px;
+        max-width: 100%;
+    }
+
+    .privacy-page .text-content,
+    .privacy-page .about-content {
+        width: 100%;
+        max-width: 100%;
+    }
+
     .text-content {
         text-align: center;
     }
@@ -150,6 +164,15 @@
 @media screen and (max-width: 480px) {
     .content-container {
         padding: 10px 0 16px;
+    }
+
+    .privacy-page .content-container {
+        padding: 14px 22px 26px;
+    }
+
+    .privacy-page .about-content p {
+        font-size: 16px;
+        line-height: 1.62;
     }
 
 }

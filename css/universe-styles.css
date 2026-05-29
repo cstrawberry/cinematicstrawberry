@@ -7,13 +7,15 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
+    width: 100%;
+    max-width: 100%;
     margin-top: clamp(24px, 4vw, 48px);
     gap: clamp(14px, 2vw, 26px);
     padding-bottom: clamp(28px, 4vw, 48px);
 }
 
 .circle {
-    width: clamp(140px, 16vw, 200px);
+    width: clamp(148px, 16.5vw, 210px);
     height: auto;
     aspect-ratio: 1;
     border-radius: 50%;
@@ -34,7 +36,10 @@
     flex-direction: column;
     text-align: center;
     word-wrap: break-word;
-    overflow-wrap: anywhere;
+    overflow-wrap: normal;
+    word-break: normal;
+    hyphens: none;
+    text-wrap: balance;
     line-height: 1.16;
     white-space: normal;
     overflow: hidden;
@@ -62,21 +67,22 @@
     }
 
     .circle {
-        width: clamp(136px, 28vw, 160px);
+        width: clamp(144px, 30vw, 172px);
         margin-bottom: 20px;
     }
 }
 
 @media screen and (max-width: 480px) {
     .circle-container {
-        gap: 14px;
+        gap: 10px;
     }
 
     .circle {
-        width: min(42vw, 160px);
+        width: min(42vw, 164px);
     }
     
     .circle a {
         font-size: 15px;
     }
+
 }

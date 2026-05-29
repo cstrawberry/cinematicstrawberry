@@ -121,7 +121,7 @@
             '<label for="article-kit-email" class="article-subscribe-label">Newsletter</label>',
             '<input type="email" name="email_address" id="article-kit-email" class="article-subscribe-input" placeholder="Email address" autocomplete="email" required>',
             '<input type="submit" value="Subscribe" class="article-subscribe-button">',
-            '<p class="article-subscribe-privacy">You can unsubscribe anytime. For more details, review our <a href="/privacy.html">Privacy Policy</a>.</p>',
+            '<p class="article-subscribe-privacy">You can unsubscribe anytime. Please review our <a href="/privacy.html">Privacy Policy</a>.</p>',
             '<p class="article-subscribe-privacy"><a href="https://kit.com/privacy" target="_blank" rel="noopener">Powered by Kit</a></p>',
             '</form>',
         ].join('');
