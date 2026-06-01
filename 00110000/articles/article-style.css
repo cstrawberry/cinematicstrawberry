@@ -293,6 +293,7 @@ nav ul li:last-child a:active {
     position: absolute;
     top: 6px;
     right: 8px;
+    z-index: 2;
     width: 20px;
     height: 20px;
     border: none;
@@ -1177,7 +1178,13 @@ hr {
     }
 
     .article-subscribe-close {
+        top: 2px;
+        right: 6px;
+        width: 28px;
+        height: 28px;
         color: #f4f4f4;
+        font-size: 16px;
+        line-height: 28px;
     }
 
     .article-subscribe-label {
@@ -1319,6 +1326,11 @@ hr {
         left: 10px;
         max-width: calc(100vw - 20px);
         padding: 10px 12px;
+    }
+
+    .article-subscribe-close {
+        top: 0;
+        right: 6px;
     }
 
     .article-subscribe-form {

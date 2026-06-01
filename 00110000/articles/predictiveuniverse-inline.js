@@ -284,7 +284,7 @@
                                 const cv = host.querySelector('canvas'), ctx = cv.getContext('2d');
                                 const DPR = Math.min(window.devicePixelRatio || 1, 2);
                                 let W = 0, H = 0;
-                                const resize = () => { const r = host.getBoundingClientRect(); cv.width = r.width * DPR; cv.height = r.height * DPR; W = cv.width; H = cv.height; };
+                                const resize = () => { const r = host.getBoundingClientRect(); cv.width = Math.max(1, Math.round(r.width * DPR)); cv.height = Math.max(1, Math.round(r.height * DPR)); W = cv.width; H = cv.height; };
                                 resize(); new ResizeObserver(resize).observe(host);
                                 const T0 = performance.now();
                                 const LOOP = 22.0;
@@ -296,19 +296,26 @@
                                     // global fade out near loop end
                                     const G = T > 19.5 ? 1 - ease(Math.min(1, (T - 19.5) / 2)) : 1;
                                     ctx.fillStyle = '#fafaf7'; ctx.fillRect(0, 0, W, H);
+                                    const cssW = W / DPR;
+                                    const compact = cssW <= 520;
+                                    const phone = cssW <= 420;
+                                    const u = DPR * (phone ? 0.86 : compact ? 0.92 : 1);
                                     const cx = W / 2;
-                                    const topY = H * 0.20;
-                                    const splitY = H * 0.46;
+                                    const topY = H * (phone ? 0.19 : 0.20);
+                                    const splitY = H * (phone ? 0.43 : 0.46);
+                                    const generationY = Math.min(H * 0.85, H - (phone ? 70 : 76) * u);
+                                    const gaugeOffset = W * (compact ? 0.26 : 0.22);
+                                    const joinOffset = W * (compact ? 0.13 : 0.11);
                                     const ink = '26,26,26', mut = '107,99,87';
                                     ctx.textAlign = 'center';
                                     // === d0=8 label ===
                                     const lblA = fadeIn(T, 0, 0.6) * G;
                                     ctx.fillStyle = `rgba(${mut},${lblA * 0.95})`;
-                                    ctx.font = `italic ${13 * DPR}px Georgia, serif`;
-                                    ctx.fillText('d₀ = 8 · minimal carrier', cx, topY - 26 * DPR);
+                                    ctx.font = `italic ${13 * u}px Georgia, serif`;
+                                    ctx.fillText('d₀ = 8 · minimal carrier', cx, topY - 26 * u);
                                     // === 8 dots ===
-                                    const dotR = 5 * DPR;
-                                    const space = Math.min(W * 0.058, 48 * DPR);
+                                    const dotR = 5 * u;
+                                    const space = Math.min(W * (phone ? 0.052 : 0.058), 48 * u);
                                     const baseX = cx - space * 3.5;
                                     for (let i = 0; i < 8; i++) {
                                         const a = fadeIn(T, i * 0.10, 0.35) * G;
@@ -316,17 +323,17 @@
                                         // active rank: indices 0,1 peel up & left at T>2.5
                                         if (i < 2 && T > 2.5) {
                                             const p = ease(Math.min(1, (T - 2.5) / 1.2));
-                                            py = lerp(topY, topY - 32 * DPR, p);
-                                            px = lerp(baseX + i * space, cx - W * 0.34 + i * 22 * DPR, p);
+                                            py = lerp(topY, topY - 32 * u, p);
+                                            px = lerp(baseX + i * space, cx - W * (compact ? 0.31 : 0.34) + i * 22 * u, p);
                                         }
                                         // inactive sector: split into 3+2+1 at T>4.5
                                         if (i >= 2 && T > 4.5) {
                                             const p = ease(Math.min(1, (T - 4.5) / 1.6));
                                             let groupCx, idx, total;
-                                            if (i <= 4) { groupCx = cx - W * 0.22; idx = i - 2; total = 3; }
+                                            if (i <= 4) { groupCx = cx - gaugeOffset; idx = i - 2; total = 3; }
                                             else if (i <= 6) { groupCx = cx; idx = i - 5; total = 2; }
-                                            else { groupCx = cx + W * 0.22; idx = 0; total = 1; }
-                                            const tx = groupCx + (idx - (total - 1) / 2) * 22 * DPR;
+                                            else { groupCx = cx + gaugeOffset; idx = 0; total = 1; }
+                                            const tx = groupCx + (idx - (total - 1) / 2) * 22 * u;
                                             px = lerp(baseX + i * space, tx, p);
                                             py = lerp(topY, splitY, p);
                                         }
@@ -337,76 +344,76 @@
                                     if (T > 3.2) {
                                         const a = fadeIn(T, 3.2, 0.7) * G;
                                         ctx.fillStyle = `rgba(${mut},${a * 0.85})`;
-                                        ctx.font = `italic ${11 * DPR}px Georgia, serif`;
+                                        ctx.font = `italic ${11 * u}px Georgia, serif`;
                                         ctx.textAlign = 'left';
-                                        ctx.fillText('active a = 2', cx - W * 0.34 - 6 * DPR, topY - 50 * DPR);
+                                        ctx.fillText('active a = 2', cx - W * (compact ? 0.31 : 0.34) - 6 * u, topY - 50 * u);
                                     }
                                     // === 6 = 3 + 2 + 1 equation ===
                                     if (T > 5.0) {
                                         const a = fadeIn(T, 5.0, 0.6) * G;
                                         ctx.textAlign = 'center';
                                         ctx.fillStyle = `rgba(${mut},${a * 0.85})`;
-                                        ctx.font = `italic ${12 * DPR}px Georgia, serif`;
-                                        ctx.fillText('inactive sector b = 6 = 3 + 2 + 1', cx, splitY - 30 * DPR);
+                                        ctx.font = `italic ${12 * u}px Georgia, serif`;
+                                        ctx.fillText('inactive sector b = 6 = 3 + 2 + 1', cx, splitY - 30 * u);
                                     }
                                     // === group labels: su(3), su(2), u(1) ===
                                     if (T > 6.0) {
                                         const a = fadeIn(T, 6.0, 0.8) * G;
-                                        const labelY = splitY + 30 * DPR;
+                                        const labelY = splitY + 30 * u;
                                         ctx.fillStyle = `rgba(${ink},${a})`;
-                                        ctx.font = `italic ${15 * DPR}px Georgia, serif`;
+                                        ctx.font = `italic ${15 * u}px Georgia, serif`;
                                         ctx.textAlign = 'center';
-                                        ctx.fillText('su(3)', cx - W * 0.22, labelY);
-                                        ctx.fillText('⊕', cx - W * 0.11, labelY);
+                                        ctx.fillText('su(3)', cx - gaugeOffset, labelY);
+                                        ctx.fillText('⊕', cx - joinOffset, labelY);
                                         ctx.fillText('su(2)', cx, labelY);
-                                        ctx.fillText('⊕', cx + W * 0.11, labelY);
-                                        ctx.fillText('u(1)', cx + W * 0.22, labelY);
+                                        ctx.fillText('⊕', cx + joinOffset, labelY);
+                                        ctx.fillText('u(1)', cx + gaugeOffset, labelY);
                                         // branch labels
                                         ctx.fillStyle = `rgba(${mut},${a * 0.85})`;
-                                        ctx.font = `italic ${10.5 * DPR}px Georgia, serif`;
-                                        ctx.fillText('gluon sector', cx - W * 0.22, labelY + 18 * DPR);
-                                        ctx.fillText('weak isospin connection', cx, labelY + 18 * DPR);
-                                        ctx.fillText('hypercharge connection', cx + W * 0.22, labelY + 18 * DPR);
+                                        ctx.font = `italic ${10.5 * u}px Georgia, serif`;
+                                        ctx.fillText(compact ? 'gluon' : 'gluon sector', cx - gaugeOffset, labelY + 18 * u);
+                                        ctx.fillText(compact ? 'weak' : 'weak isospin connection', cx, labelY + 18 * u);
+                                        ctx.fillText(compact ? 'hypercharge' : 'hypercharge connection', cx + gaugeOffset, labelY + 18 * u);
                                     }
                                     // === electroweak mixing readout ===
                                     if (T > 8.0) {
                                         const a = fadeIn(T, 8.0, 0.8) * G;
-                                        const bY = splitY + 72 * DPR;
+                                        const bY = generationY - (phone ? 58 : 62) * u;
                                         ctx.fillStyle = `rgba(${ink},${a * 0.85})`;
-                                        ctx.font = `${12.5 * DPR}px Georgia, serif`;
+                                        ctx.font = `${12.5 * u}px Georgia, serif`;
                                         ctx.textAlign = 'center';
                                         ctx.fillText('after electroweak mixing: γ, Z⁰, W±', cx, bY);
                                     }
                                     // === three generations panel ===
                                     if (T > 11.0) {
                                         const a = fadeIn(T, 11.0, 0.8) * G;
-                                        const gY = H * 0.85;
+                                        const gY = generationY;
                                         // separator hairline
                                         ctx.strokeStyle = `rgba(${mut},${a * 0.30})`;
-                                        ctx.lineWidth = DPR;
+                                        ctx.lineWidth = u;
                                         ctx.beginPath();
-                                        ctx.moveTo(W * 0.10, gY - 26 * DPR);
-                                        ctx.lineTo(W * 0.90, gY - 26 * DPR);
+                                        ctx.moveTo(W * 0.08, gY - 26 * u);
+                                        ctx.lineTo(W * 0.92, gY - 26 * u);
                                         ctx.stroke();
                                         ctx.fillStyle = `rgba(${mut},${a * 0.85})`;
-                                        ctx.font = `italic ${11 * DPR}px Georgia, serif`;
+                                        ctx.font = `italic ${11 * u}px Georgia, serif`;
                                         ctx.textAlign = 'center';
-                                        ctx.fillText('three generations · N_g = 3 branch', cx, gY - 12 * DPR);
+                                        ctx.fillText('three generations · N_g = 3 branch', cx, gY - 12 * u);
                                         const gens = [
                                             { label: 'I', q: 'u d', l: 'νₑ e⁻' },
                                             { label: 'II', q: 'c s', l: 'νμ μ⁻' },
                                             { label: 'III', q: 't b', l: 'ντ τ⁻' }
                                         ];
                                         gens.forEach((g, i) => {
-                                            const x = cx + (i - 1) * W * 0.20;
+                                            const x = cx + (i - 1) * (compact ? Math.min(W * 0.24, 86 * u) : W * 0.20);
                                             const colA = fadeIn(T, 11.4 + i * 0.35, 0.55) * G;
                                             ctx.fillStyle = `rgba(${mut},${colA * 0.7})`;
-                                            ctx.font = `italic ${10 * DPR}px Georgia, serif`;
-                                            ctx.fillText(g.label, x, gY + 12 * DPR);
+                                            ctx.font = `italic ${10 * u}px Georgia, serif`;
+                                            ctx.fillText(g.label, x, gY + 12 * u);
                                             ctx.fillStyle = `rgba(${ink},${colA * 0.95})`;
-                                            ctx.font = `${15 * DPR}px Georgia, serif`;
-                                            ctx.fillText(g.q, x, gY + 32 * DPR);
-                                            ctx.fillText(g.l, x, gY + 52 * DPR);
+                                            ctx.font = `${15 * u}px Georgia, serif`;
+                                            ctx.fillText(g.q, x, gY + 32 * u);
+                                            ctx.fillText(g.l, x, gY + 52 * u);
                                         });
                                     }
                                     requestAnimationFrame(frame);
