@@ -30,9 +30,16 @@
     const subtitlesSrc = lightbox.dataset.subtitlesSrc;
     const cosmicSrc = lightbox.dataset.cosmicSrc;
     const playerCssHref = lightbox.dataset.playerCss;
+    const mediaLabel = lightbox.dataset.mediaLabel || 'Predictive Universe';
     const endLogoSrc = lightbox.dataset.endLogoSrc || '../../images/logo-transparent.png';
-    const endFadeStart = 517;
-    const visualDuration = 525;
+    const readOptionalSeconds = (value, fallback) => {
+        const parsed = Number(value);
+
+        return Number.isFinite(parsed) && parsed >= 0 ? parsed : fallback;
+    };
+    const visualDuration = readOptionalSeconds(lightbox.dataset.visualDuration, 525);
+    const endFadeStart = readOptionalSeconds(lightbox.dataset.endFadeStart, 517);
+    const subtitleTimeOffset = readOptionalSeconds(lightbox.dataset.subtitleTimeOffset, NaN);
     let playerCssRequested = false;
     let cues = [];
     let subtitlePromise;
@@ -193,10 +200,12 @@
     const updateEndFade = function (time) {
         ensureEndFadeLayer();
 
-        const fadeProgress = Math.max(0, Math.min(1, (time - endFadeStart) / (visualDuration - endFadeStart)));
+        const fadeWindow = visualDuration > endFadeStart ? visualDuration - endFadeStart : 1;
+        const fadeProgress = visualDuration > endFadeStart ? Math.max(0, Math.min(1, (time - endFadeStart) / fadeWindow)) : 0;
         const smoothBlackProgress = fadeProgress * fadeProgress * (3 - (2 * fadeProgress));
         const logoFadeStart = endFadeStart + 1;
-        const logoProgress = Math.max(0, Math.min(1, (time - logoFadeStart) / (visualDuration - logoFadeStart)));
+        const logoWindow = visualDuration > logoFadeStart ? visualDuration - logoFadeStart : 1;
+        const logoProgress = visualDuration > logoFadeStart ? Math.max(0, Math.min(1, (time - logoFadeStart) / logoWindow)) : 0;
         const smoothLogoProgress = logoProgress * logoProgress * (3 - (2 * logoProgress));
         const visualOpacity = 1 - smoothBlackProgress;
         audio.dataset.puVisualTime = String(time);
@@ -279,7 +288,7 @@
 
         const currentTime = audio.currentTime || 0;
 
-        if (Math.max(currentTime, endFadeStart - 0.25) !== currentTime) {
+        if (visualDuration <= endFadeStart || Math.max(currentTime, endFadeStart - 0.25) !== currentTime) {
             return;
         }
 
@@ -318,7 +327,7 @@
         screen.classList.add('pu-video-inline-screen');
         screen.setAttribute('role', 'button');
         screen.setAttribute('tabindex', '0');
-        screen.setAttribute('aria-label', 'Play or pause Predictive Universe audio');
+        screen.setAttribute('aria-label', 'Play or pause ' + mediaLabel + ' audio');
 
         if (sourceImage && screen.querySelector('.pu-video-banner-visual') === null) {
             const fallbackVisualSrc = getBestBannerSource(sourceImage);
@@ -449,7 +458,7 @@
             return [];
         }
 
-        const offset = parsed[0].start;
+        const offset = Number.isFinite(subtitleTimeOffset) ? subtitleTimeOffset : parsed[0].start;
 
         return parsed.map((cue) => ({
             start: Math.max(0, cue.start - offset),
@@ -792,6 +801,10 @@
     };
 
     const startVisualExtension = (startTime = endFadeStart) => {
+        if (visualDuration <= endFadeStart) {
+            return;
+        }
+
         cancelVisualExtensionFrame();
         cancelEndFadeFrame();
         visualExtensionTime = Math.max(endFadeStart, Math.min(startTime, visualDuration));

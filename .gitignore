@@ -1,0 +1,44 @@
+# Local editor and agent state
+.vscode/
+.agents/
+.codex/
+*.code-workspace
+
+# OS/editor noise
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+*~
+
+# Dependencies/build output
+node_modules/
+dist/
+build/
+.cache/
+
+
+
+# Article images: publish only the -800 export from now on.
+00110000/articles/images/**/*.jpg
+00110000/articles/images/**/*.jpeg
+00110000/articles/images/**/*.png
+00110000/articles/images/**/*.webp
+00110000/articles/images/**/*.gif
+!00110000/articles/images/**/*-800.jpg
+!00110000/articles/images/**/*-800.jpeg
+!00110000/articles/images/**/*-800.png
+!00110000/articles/images/**/*-800.webp
+!00110000/articles/images/**/*-800.gif
+
+# Slideshow publishes desktop exports only.
+00110000/articles/images/slideshow/**/*.jpg
+00110000/articles/images/slideshow/**/*.jpeg
+00110000/articles/images/slideshow/**/*.png
+00110000/articles/images/slideshow/**/*.webp
+00110000/articles/images/slideshow/**/*.gif
+!00110000/articles/images/slideshow/**/*-desktop.jpg
+!00110000/articles/images/slideshow/**/*-desktop.jpeg
+!00110000/articles/images/slideshow/**/*-desktop.png
+!00110000/articles/images/slideshow/**/*-desktop.webp
+!00110000/articles/images/slideshow/**/*-desktop.gif
