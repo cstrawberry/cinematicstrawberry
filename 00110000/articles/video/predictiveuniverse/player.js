@@ -32,6 +32,7 @@
     const playerCssHref = lightbox.dataset.playerCss;
     const mediaLabel = lightbox.dataset.mediaLabel || 'Predictive Universe';
     const endLogoSrc = lightbox.dataset.endLogoSrc || '../../images/logo-transparent.png';
+    const previewUntilPlay = lightbox.dataset.previewUntilPlay === 'true';
     const readOptionalSeconds = (value, fallback) => {
         const parsed = Number(value);
 
@@ -320,6 +321,7 @@
         }
 
         const sourceImage = trigger.querySelector('img');
+        const previewCanvas = previewUntilPlay ? trigger.querySelector('.reasonable-preview-canvas') : null;
         const playIndicator = trigger.querySelector('.pu-video-play-indicator');
 
         banner.classList.add('pu-video-inline-player');
@@ -363,6 +365,12 @@
             }
         }
 
+        if (previewCanvas && screen.querySelector('.pu-video-inline-preview-canvas') === null) {
+            previewCanvas.classList.add('pu-video-inline-preview-canvas');
+            screen.classList.add('has-reasonable-preview');
+            screen.prepend(previewCanvas);
+        }
+
         if (playIndicator) {
             playIndicator.classList.add('pu-video-inline-start');
             screen.appendChild(playIndicator);
@@ -381,16 +389,24 @@
     };
 
     trigger.addEventListener('pointerenter', () => {
-        setupInlineBannerPlayer();
+        if (!previewUntilPlay) {
+            setupInlineBannerPlayer();
+        }
         ensureAudioReady();
         loadPlayerCss();
-        preloadDesktopFullscreenVisual();
+        if (!previewUntilPlay) {
+            preloadDesktopFullscreenVisual();
+        }
     }, { once: true, passive: true });
     trigger.addEventListener('focus', () => {
-        setupInlineBannerPlayer();
+        if (!previewUntilPlay) {
+            setupInlineBannerPlayer();
+        }
         ensureAudioReady();
         loadPlayerCss();
-        preloadDesktopFullscreenVisual();
+        if (!previewUntilPlay) {
+            preloadDesktopFullscreenVisual();
+        }
     }, { once: true });
 
     const parseTime = (value) => {

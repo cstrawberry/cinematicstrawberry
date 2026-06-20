@@ -1,0 +1,139 @@
+1
+01:00:03,733 --> 01:00:06,802
+<b>Eugene Wigner, a Nobel Prize winning physicist,</b>
+
+2
+01:00:07,469 --> 01:00:10,073
+<b>asked why mathematics describes the physical</b>
+
+3
+01:00:10,139 --> 01:00:13,443
+<b>world with such surprising success. He called</b>
+
+4
+01:00:13,509 --> 01:00:17,246
+<b>this the unreasonable effectiveness of mathematics.</b>
+
+5
+01:00:18,147 --> 01:00:21,084
+<b>In the predictive universe framework, the answer</b>
+
+6
+01:00:21,150 --> 01:00:24,754
+<b>begins with prediction itself. A knowable world</b>
+
+7
+01:00:24,821 --> 01:00:27,290
+<b>must offer patterns stable enough for finite</b>
+
+8
+01:00:27,357 --> 01:00:31,461
+<b>systems to learn and use. To predict, a system</b>
+
+9
+01:00:31,527 --> 01:00:34,831
+<b>has to separate possibilities, compare expectation</b>
+
+10
+01:00:34,897 --> 01:00:38,401
+<b>with result, keep what works, correct what fails,</b>
+
+11
+01:00:39,068 --> 01:00:42,071
+<b>and carry useful patterns forward. That</b>
+
+12
+01:00:42,138 --> 01:00:44,907
+<b>same loop gives formal thought its basic shape,</b>
+
+13
+01:00:45,675 --> 01:00:48,311
+<b>clear distinctions, consistency, testing and</b>
+
+14
+01:00:48,378 --> 01:00:51,714
+<b>proof. Mathematics takes these moves to their</b>
+
+15
+01:00:51,781 --> 01:00:55,251
+<b>cleanest form. This also explains the appeal of</b>
+
+16
+01:00:55,318 --> 01:00:58,521
+<b>elegant mathematics. The strongest structures let</b>
+
+17
+01:00:58,588 --> 01:01:00,957
+<b>many relations fit together in a compact,</b>
+
+18
+01:01:01,024 --> 01:01:04,394
+<b>reliable way. They hold order in a small form.</b>
+
+19
+01:01:05,428 --> 01:01:07,730
+<b>Physics adds a harder test. Can the</b>
+
+20
+01:01:07,797 --> 01:01:10,233
+<b>structure make a measurable difference for a real,</b>
+
+21
+01:01:10,299 --> 01:01:13,603
+<b>finite predictor? Can it guide interaction,</b>
+
+22
+01:01:14,203 --> 01:01:18,174
+<b>leave records, survive checks, and be maintained at</b>
+
+23
+01:01:18,241 --> 01:01:22,478
+<b>finite cost? If not, it may remain valid</b>
+
+24
+01:01:22,545 --> 01:01:26,049
+<b>mathematics, but in the predictive universe framework,</b>
+
+25
+01:01:26,516 --> 01:01:30,920
+<b>it is physically idle. Mathematics works so well</b>
+
+26
+01:01:30,987 --> 01:01:34,123
+<b>in physics because the same conditions that make</b>
+
+27
+01:01:34,190 --> 01:01:37,460
+<b>prediction possible also shape the forms physical</b>
+
+28
+01:01:37,527 --> 01:01:41,497
+<b>law can take. Mathematics maps the possible shapes</b>
+
+29
+01:01:41,564 --> 01:01:44,867
+<b>of stable order. Physics keeps the shapes that</b>
+
+30
+01:01:44,934 --> 01:01:48,704
+<b>can be realised, tested, and preserved in a resource</b>
+
+31
+01:01:48,805 --> 01:01:52,642
+<b>constrained world. The mystery reduces to one</b>
+
+32
+01:01:52,709 --> 01:01:56,112
+<b>deeper point. A knowable world must have stable</b>
+
+33
+01:01:56,179 --> 01:02:00,183
+<b>predictive structure. Mathematics is the abstract</b>
+
+34
+01:02:00,249 --> 01:02:04,187
+<b>grammar of that structure. Physics is its finite,</b>
+
+35
+01:02:04,754 --> 01:02:06,055
+<b>testable realisation.</b>
