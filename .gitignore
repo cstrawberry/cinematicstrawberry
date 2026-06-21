@@ -42,3 +42,18 @@ build/
 !00110000/articles/images/slideshow/**/*-desktop.png
 !00110000/articles/images/slideshow/**/*-desktop.webp
 !00110000/articles/images/slideshow/**/*-desktop.gif
+
+# Do not track new image files by default.
+*.avif
+*.bmp
+*.gif
+*.heic
+*.heif
+*.ico
+*.jpeg
+*.jpg
+*.png
+*.svg
+*.tif
+*.tiff
+*.webp
