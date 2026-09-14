@@ -5,10 +5,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="format-detection" content="telephone=no">
-    <title>The Horizon Constant <code>K₀</code>: Limits of Knowledge</title>
+    <title>The Horizon Constant K₀: Limits of Knowledge</title>
     <meta name="description"
         content="Explore the universal theoretical framework establishing the logical necessity and minimal requirements for self-referential prediction.">
-    <link href="article-style.min.css?v=45" rel="stylesheet" />
+    <link href="article-style.min.css?v=47" rel="stylesheet" />
     <link rel="icon" type="image/png" href="../../images/favicon.png">
     <style>
         /* Additional styles for math blocks */
@@ -58,548 +58,400 @@
         <hr>
         <section id="abstract">
             <h2>Abstract</h2>
-            <p>We present a framework for the minimum structure required by non-trivial self-referential prediction. The Horizon Constant (<code>K<sub>0</sub></code>) marks the minimum Predictive Physical Complexity needed for a system to distinguish its states, generate predictions, and verify outcomes in a finite operational loop. In the minimal binary case, <code>K<sub>0</sub> = 3</code> bits, so the minimal state alphabet satisfies <code>d<sub>0</sub> ≥ 2<sup>K<sub>0</sub></sup> = 8</code>, with the minimal branch taking <code>d<sub>0</sub> = 8</code>. This threshold is a lower bound for SPAP-encodable self-reference, not a complete account of consciousness or cognition. The <a href="self-referential.html"
+            <p>A system that predicts itself has to hold three things at once: what it is doing now, what it
+                predicted it would be doing, and which half of the cycle it is in. The Horizon Constant
+                <code>K<sub>0</sub></code> counts them. On the realization class where the stepping before the
+                cycle-closing reset is injective, where a phase response separates the predict step from the update
+                step, where the current state and the stored prediction stay readable across that boundary, and
+                where all eight combinations of the three responses actually occur, the loop needs at least eight
+                distinguishable visited configurations. Its log-capacity is therefore at least three bits, a
+                construction attains the bound, and within that class
+                <code>N<sub>vis</sub><sup>min</sup> = 8</code> and
+                <code>K<sub>0</sub> = log<sub>2</sub> 8 = 3</code>. Carrying those eight contexts as mutually
+                distinguishable alternatives in a complex Hilbert space forces dimension
+                <code>d<sub>0</sub> ≥ 8</code>.</p>
+            <p>The same three-bit register is enough to beat chance on environments whose next state repeats the
+                current one more often than half the time, so the threshold is where self-referential prediction
+                becomes both expressible and useful. It is a lower bound on a stated class, and not an absolute
+                complexity floor for every predictor, a measure of memory span, or a criterion for consciousness.
+                Above the threshold the <a href="self-referential.html"
                     style="text-decoration: none; border-bottom: 1px solid transparent; transition: border-bottom 0.3s;"
                     onmouseover="this.style.borderBottomColor='black';"
-                    onmouseout="this.style.borderBottomColor='transparent';">Self-Referential Paradox of Accurate Prediction (SPAP)</a> then identifies the limit faced by such systems: guaranteed perfect self-prediction is unavailable, while bounded, approximate, and useful self-modeling remains possible.</p>
+                    onmouseout="this.style.borderBottomColor='transparent';">Self-Referential Paradox of Accurate
+                    Prediction</a> applies: a system with this structure can model and improve itself, and no
+                predictor in its class is exact on every system the class can build.</p>
         </section>
+
+        <section id="plain-terms">
+            <h2>The Horizon Constant in Plain Terms</h2>
+            <p>Imagine keeping a weather diary. Each evening you write tomorrow's forecast on a card and seal it.
+                Each morning you look at the sky, open the card, and compare. Three separate facts have to be
+                available to you at the moment of comparison: what the sky is doing, what the card says, and
+                whether today is a sealing day or an opening day. Lose the sky and there is nothing to check. Lose
+                the card and there is nothing to check against. Lose the phase marker and you cannot tell whether
+                you are supposed to be writing or reading, so you overwrite the forecast with the observation and
+                the comparison never happens.</p>
+            <p>Three yes-or-no facts have eight combinations, and a system that has to reach all eight needs at
+                least eight distinguishable internal configurations. Counting those in bits gives three. That is
+                the Horizon Constant: the smallest register in which a system can hold a prediction about itself,
+                keep the prediction while the world moves, and check it afterward. Below three bits there is no
+                room for the loop, and what is left is a device that reacts but never grades itself.</p>
+            <p>Two things follow, and they pull in opposite directions. The threshold is enough. A three-bit
+                register can already beat guessing in any world where tomorrow tends to look like today, which is
+                the simplest kind of regularity a forecaster can exploit. The threshold is also where the trouble
+                starts. Once a system can hold a prediction about itself, it can be built to act against that
+                prediction, and no single predictor gets every such system right. Adding bits buys accuracy and
+                never buys immunity.</p>
+            <p>One caution. Three bits is a floor for one job under stated conditions, and not a measure of how
+                much a mind holds, how complex an organism is, or where awareness begins. It says where the
+                self-referential loop first fits.</p>
+        </section>
+
         <section id="introduction">
             <h2>1. Introduction</h2>
-            <h2>1.1 Foundation in Logic</h2>
-            <p>The Horizon Constant <code>K<sub>0</sub></code> arises from the minimum operational requirements of self-referential prediction. A system must represent distinguishable internal states, generate a prediction, and compare that prediction with an outcome. These requirements define a lower bound on systems capable of non-trivial self-reference.</p>
+            <p>Prediction that turns back on the predictor is where the interesting limits live. A thermostat
+                predicts nothing about itself; it compares a reading with a setting. A system that stores a
+                forecast about its own next state, then meets that state and grades the forecast, has done
+                something structurally different: it has put a description of itself inside itself. The
+                smallest question about that arrangement is how much room it takes.</p>
+            <p>The answer is a counting argument. Fix what the loop has to do, ask which responses must be readable
+                at the same instant, and count the configurations. The count comes to eight, and the log-capacity
+                to three bits. That number is the Horizon Constant <code>K<sub>0</sub></code>.</p>
+            <p>The counting depends on conditions, and the conditions are stated rather than assumed away. A
+                different realization class, with a different account of what verification requires, can yield a
+                different count. What the argument establishes is a lower bound on the class it names, together
+                with a construction that meets the bound.</p>
+            <p>The rest of the article sets up the loop (Section 2), states the conditions and proves the bound
+                (Section 3), records what the bound does not say (Section 4), carries the eight contexts into a
+                Hilbert space (Section 5), and turns to what happens above the threshold (Sections 6 and 7).</p>
+        </section>
 
-            <p>Our analysis treats <code>K<sub>0</sub></code> as a finite operational threshold. It is implementation-independent at the level of these required functions, while any physical realization still obeys the resource and thermodynamic constraints of its substrate.</p>
-            <h2>1.2 Universal Applicability</h2>
-            <p>The framework applies to physical, computational, and formal systems when they instantiate the same operational requirements: state distinction, prediction, and verification. <code>K<sub>0</sub></code> therefore identifies a shared lower bound across implementations, while each implementation may require additional resources, memory, dynamics, or noise control to function as an adaptive predictive system.
-                <br><br>As an epistemological tool, <code>K<sub>0</sub></code> marks the point where non-trivial self-reference becomes expressible and where SPAP constraints become relevant. It provides a consistent basis for analyzing limits of self-prediction without treating every system above the threshold as conscious or complete.</p>
-        
+        <section id="the-loop">
+            <h2>2. What the Loop Has to Hold</h2>
+            <p>The cycle under analysis has three phases: the system forms an internal prediction, the world
+                supplies an outcome, and the system updates. Feedback control has described error-correcting loops
+                in these terms since Rosenblueth, Wiener, and Bigelow (1943), and the same three-phase shape
+                organizes predictive accounts of the brain, where descending predictions are compared against
+                ascending signals and the mismatch drives revision (Rao and Ballard 1999; Friston 2010; Clark
+                2013). What makes the case self-referential is the target: the prediction is about the system's own
+                next state.</p>
+            <p>Write <code>φ</code> for the binary response that reads the nominated component of the current
+                state, and <code>p<sub>stored</sub></code> for the response that reads the prediction the system
+                has committed to about that component. Verification is the operation that compares them. Three
+                operational conditions constrain any realization of this sub-dynamics, and the argument below uses
+                them as stated hypotheses.</p>
+            <div class="definition">
+                <h3>Condition (O1): injective stepping</h3>
+                <p>Before the cycle-closing reset, the transition restricted to the visited configurations of the
+                    reversible subsystem is injective. Two visited configurations that the verification response
+                    tells apart are not merged before the comparison.</p>
+            </div>
+            <div class="definition">
+                <h3>Condition (O2): explicit two-phase control</h3>
+                <p>A binary response <code>c<sub>phase</sub></code> distinguishes the prepare-and-store phase from
+                    the reflex-and-update phase.</p>
+            </div>
+            <div class="definition">
+                <h3>Condition (O3): non-destructive retention</h3>
+                <p>The current-state response <code>φ</code> and the stored prediction
+                    <code>p<sub>stored</sub></code> remain simultaneously readable across the phase boundary and at
+                    the moment of comparison.</p>
+            </div>
+            <p>Each condition earns its place operationally. Suppose a realization overwrites
+                <code>p<sub>stored</sub></code> before the comparison while still claiming to verify. At the
+                comparison instant there is no stored value to compare against, so the verification phase is not
+                instantiated, which is (O3). Suppose there is no phase response. The same pair
+                <code>(φ, p<sub>stored</sub>)</code> has to take part in two operationally distinct steps: writing
+                <code>p<sub>stored</sub></code> from the model output, and updating <code>φ</code> against
+                <code>p<sub>stored</sub></code>. A single autonomous transition law assigns one successor to each
+                configuration, so it cannot perform both steps from configurations that agree on
+                <code>(φ, p<sub>stored</sub>)</code>; the phase has to be part of the state, which is (O2).
+                Suppose stepping merges two visited configurations that the verification response distinguishes.
+                The distinction the comparison needs is destroyed before the comparison happens, which is (O1).</p>
+            <p>One more condition fixes what "visited" means. The joint response map
+                <code>(φ, p<sub>stored</sub>, c<sub>phase</sub>)</code> from visited configurations to
+                <code>{0,1}<sup>3</sup></code> is required to be surjective: every combination of the three
+                responses actually occurs in the run. Call this the full-coverage condition (FC). Without it a
+                realization could dodge the count by never entering, say, the state where a stored prediction of 1
+                meets a current value of 0, which is exactly the case verification exists to handle.</p>
         </section>
-        <section id="meta-logical-foundations">
-            <h2>2. Meta-Logical Foundations</h2>
-            <h2>2.1 The Logic of Self-Reference</h2>
-            <p>We begin by examining the logical requirements for self-reference, independent of any specific
-                implementation.</p>
-            <h3>2.1.1 Logical Prerequisites for Self-Reference</h3>
+
+        <section id="the-bound">
+            <h2>3. The Bound</h2>
+            <div class="definition">
+                <h3>Definition 1 (Horizon Constant)</h3>
+                <p>Let <code>S<sub>vis</sub></code> be the set of configurations visited by a realization of the
+                    self-referential prediction sub-dynamics satisfying (O1) through (O3) and (FC). The Horizon
+                    Constant is the least visited-context log-capacity over that class:
+                    <code>K<sub>0</sub> = min log<sub>2</sub>|S<sub>vis</sub>|</code>.</p>
+            </div>
             <div class="theorem">
-                <h3>Theorem 1 (Necessity of State Distinction):</h3>
-                <p>Any system capable of self-reference must be able to distinguish between its own states.</p>
+                <h3>Theorem 1 (Three bits)</h3>
+                <p>On the realization class of Definition 1,
+                    <code>|S<sub>vis</sub>| ≥ 8</code> and <code>log<sub>2</sub>|S<sub>vis</sub>| ≥ 3</code>. A
+                    realization attains the bound, so within that class
+                    <code>N<sub>vis</sub><sup>min</sup> = 2<sup>3</sup> = 8</code> and
+                    <code>K<sub>0</sub> = log<sub>2</sub> N<sub>vis</sub><sup>min</sup> = 3</code>.</p>
             </div>
             <div class="proof">
-                <h3>Proof of Theorem 1</h3>
-                <ol style="font-size: 20px;">
-                    <li>Assumption: Suppose a system <code>S</code> can perform self-reference without the
-                        ability to distinguish between its states.</li>
-                    <li>Requirement for Self-Reference: For <code>S</code> to reference itself, it must:
-                        <ul style="font-size: 20px;">
-                            <li>Identify what constitutes "self."</li>
-                            <li>Differentiate between its various internal states.</li>
-                        </ul>
-                    </li>
-                    <li>Contradiction: Without state distinction:
-                        <ul style="font-size: 20px;">
-                            <li><code>S</code> cannot identify or differentiate its own states.</li>
-                            <li>Self-reference becomes undefined or ambiguous.</li>
-                        </ul>
-                    </li>
-                    <li>Conclusion: State distinction (<code>bₘ</code>) is logically necessary for self-reference.
-                    </li>
-                </ol>
+                <h3>Proof</h3>
+                <p>By (O3) the responses <code>φ</code> and <code>p<sub>stored</sub></code> are simultaneously
+                    readable at the comparison, and by (O2) the response <code>c<sub>phase</sub></code> is
+                    readable alongside them, so the joint map
+                    <code>r: S<sub>vis</sub> → {0,1}<sup>3</sup></code>,
+                    <code>r(s) = (φ(s), p<sub>stored</sub>(s), c<sub>phase</sub>(s))</code>, is well defined on
+                    visited configurations. By (FC) it is surjective. A surjection onto a set of eight elements
+                    requires a domain of at least eight elements, so <code>|S<sub>vis</sub>| ≥ 8</code> and
+                    <code>log<sub>2</sub>|S<sub>vis</sub>| ≥ 3</code>.</p>
+                <p>For attainment, take the state space to be <code>{0,1}<sup>3</sup></code> itself, with
+                    <code>r</code> the identity. In the prepare phase the system writes its model output into
+                    <code>p<sub>stored</sub></code> and sets <code>c<sub>phase</sub></code> to the update value; in
+                    the update phase it compares <code>φ</code> with <code>p<sub>stored</sub></code>, writes the
+                    result of the nominated rule into <code>φ</code>, and returns
+                    <code>c<sub>phase</sub></code> to the prepare value. Stepping is injective on visited
+                    configurations before the closing reset, both readings survive the phase boundary, and driving
+                    the model output through both values while the current component takes both values reaches all
+                    eight triples. The realization satisfies (O1) through (O3) and (FC) with exactly eight visited
+                    configurations. ∎</p>
             </div>
-            <h2>2.2 The Logic of Prediction</h2>
-            <div class="theorem">
-                <h3>Theorem 2 (Necessity of Predictive Capability):</h3>
-                <p>Any system capable of prediction must possess an internal mechanism to model future states.</p>
-            </div>
-            <div class="proof">
-                <h3>Proof of Theorem 2</h3>
-                <ol style="font-size: 20px;">
-                    <li>Assumption: Suppose a system <code>P</code> can make predictions without an internal
-                        predictive mechanism.</li>
-                    <li>Requirement for Prediction: For <code>P</code> to predict future states, it must:
-                        <ul style="font-size: 20px;">
-                            <li>Represent possible future states internally.</li>
-                            <li>Map current states to potential future states.</li>
-                        </ul>
-                    </li>
-                    <li>Contradiction: Without a predictive mechanism:
-                        <ul style="font-size: 20px;">
-                            <li><code>P</code> cannot represent or evaluate future possibilities.</li>
-                            <li>Prediction becomes logically impossible.</li>
-                        </ul>
-                    </li>
-                    <li>Conclusion: Prediction capability (<code>bₚ</code>) is logically necessary for prediction.
-                    </li>
-                </ol>
-            </div>
-            <h2>2.3 The Logic of Verification</h2>
-            <div class="theorem">
-                <h3>Theorem 3 (Necessity of Verification):</h3>
-                <p>Any system that uses predictions to assess or improve accuracy must be capable of verifying outcomes.</p>
-            </div>
-            <div class="proof">
-                <h3>Proof of Theorem 3</h3>
-                <ol style="font-size: 20px;">
-                    <li>Assumption: Suppose a system <code>V</code> makes predictions without the ability to
-                        verify them.</li>
-                    <li>Requirement for Meaningful Prediction: For predictions to be meaningful, <code>V</code>
-                        must:
-                        <ul style="font-size: 20px;">
-                            <li>Compare predicted outcomes with actual outcomes.</li>
-                            <li>Assess the accuracy of its predictions.</li>
-                        </ul>
-                    </li>
-                    <li>Contradiction: Without verification:
-                        <ul style="font-size: 20px;">
-                            <li><code>V</code> cannot determine the correctness of its predictions.</li>
-                            <li>The concept of predictive accuracy becomes meaningless.</li>
-                        </ul>
-                    </li>
-                    <li>Conclusion: Verification ability (<code>bᵥ</code>) is logically necessary for meaningful
-                        prediction.</li>
-                </ol>
-            </div>
+            <p>The bound is stable under relabeling. Renaming states, renaming internal variables, or reordering
+                micro-operations leaves it in place, because (FC) keeps the joint response map surjective onto the
+                eight elements of <code>{0,1}<sup>3</sup></code> however the realization is written down. What
+                changes the bound is changing the conditions, which is why they are stated rather than assumed.</p>
+            <p>Counting distinguishable configurations in bits is Shannon's (1948) measure applied to a state set
+                instead of a message set, and the step from three required binary responses to eight
+                configurations is the same step as from three bits to their eight code words. The argument is a
+                requisite-variety argument in Ashby's (1956) sense: the internal variety of the loop has to match
+                the variety of the situations it must tell apart, and Conant and Ashby (1970) put the general form
+                of that requirement as the statement that a regulator of a system has to model it.</p>
         </section>
-        <img src="images/horizon1.jpg" alt="The Universal Necessity of <code width="1024" height="1792" decoding="async" loading="lazy">K₀</code>" />
+
+        <img src="images/horizon1.jpg" alt="The Universal Necessity of K₀" width="1024" height="1792" decoding="async" loading="lazy">
         <p class="caption">Universe 00110000</p>
-        <section id="universal-necessity-k0">
-            <h2>3. The Universal Necessity of <code>K₀</code></h2>
-            <h2>3.1 Formal Definition of <code>K₀</code></h2>
-            <div class="definition">
-                <h3>Definition 1 (The Horizon Constant):</h3>
-                <p>The Horizon Constant <code>K<sub>0</sub></code> is the minimum Predictive Physical Complexity required to encode the operational structure of non-trivial self-referential prediction. In the minimal binary case:</p>
-            </div>
-            <pre class="code-block"><code>K<sub>0</sub></code> = 3 bits, so <code>d<sub>0</sub></code> ≥ 2<sup><code>K<sub>0</sub></code></sup> = 8</pre>
-            <p>The three required capabilities are:</p>
+        <section id="scope">
+            <h2>4. What the Bound Does Not Say</h2>
+            <p>Four readings are excluded, and stating them is part of the result.</p>
             <ul style="font-size: 20px;">
-                <li><code>b<sub>m</sub></code>: State distinction capability.</li>
-                <li><code>b<sub>p</sub></code>: Prediction capability.</li>
-                <li><code>b<sub>v</sub></code>: Verification ability.</li>
+                <li>It is not an absolute complexity floor for every predictor. The count holds on the realization
+                    class of Definition 1. A system that verifies differently, or that does not verify at all, is
+                    outside the class and is not covered by the bound.</li>
+                <li>It is not a memory span. Miller's (1956) figure of about seven items concerns how much a
+                    person holds in immediate memory, which is a claim about capacity in a particular animal, and
+                    the two numbers answer different questions.</li>
+                <li>It is not a criterion for consciousness. Section 7 returns to this. The bound describes the
+                    smallest self-referential predictive loop and says nothing about experience.</li>
+                <li>It is not a thermodynamic quantity. Three bits is a count of distinguishable configurations.
+                    Erasing a bit has a physical cost, and Landauer (1961) fixed the floor for that cost at
+                    <code>k<sub>B</sub>T ln 2</code>, but a count of configurations and a heat are different
+                    quantities and one does not substitute for the other.</li>
             </ul>
-            <p>It is important to note that <code>K₀</code> defines a lower bound, an absolute minimum,
-                not an upper limit. The state <code>S(t)</code> of any self-referential system at time <code>t</code>
-                can be represented as:</p>
-            <pre class="code-block">S(t) = (x(t), M(S(t)))</pre>
-            <p>where <code>x(t)</code> represents all aspects of the system's state other than its self-model, and
-                <code>M</code> is the modeling/prediction function. This leads to a recursive definition:
-            </p>
-            <pre class="code-block">
-S(t) = (x(t), M((x(t), M((x(t), M(...))))))
-            </pre>
-            <p>This recursion illustrates why complexity must grow beyond <code>K₀</code> as systems attempt to improve
-                their predictive accuracy.</p>
-       
-
-            <h2>3.2 Universal Necessity Theorem</h2>
-            <div class="theorem">
-                <h3>Theorem 4 (Universal Necessity of <code>K₀</code>):</h3>
-                <p>Any system capable of self-referential prediction must possess at least the components of
-                    <code>K₀</code>.
-                </p>
-            </div>
-            <div class="proof">
-                <h3>Proof of Theorem 4</h3>
-                <ol style="font-size: 20px;">
-                    <li>Given: A system <code>S</code> capable of self-referential prediction.</li>
-                    <li>By Theorem 1: <code>S</code> requires state distinction (<code>bₘ</code>).</li>
-                    <li>By Theorem 2: <code>S</code> requires prediction capability (<code>bₚ</code>).</li>
-                    <li>By Theorem 3: <code>S</code> requires verification ability (<code>bᵥ</code>).</li>
-                    <li>Conclusion: <code>S</code> must possess all components of <code>K₀</code>.</li>
-                </ol>
-            </div>
-
-            
-            <h2>3.3 Implementation Independence</h2>
-            <div class="theorem">
-                <h3>Theorem 5 (Implementation Independence):</h3>
-                <p>The necessity of <code>K₀</code> is independent of any specific implementation details.</p>
-            </div>
-            <div class="proof">
-                <h3>Proof of Theorem 5</h3>
-                <ol style="font-size: 20px;">
-                    <li>Consider: Any possible implementation <code>I</code> of a self-referential predictive system.
-                    </li>
-                    <li>Requirements from Logic:
-                        <ul style="font-size: 20px;">
-                            <li>Must distinguish between states (<code>bₘ</code>).</li>
-                            <li>Must possess predictive capabilities (<code>bₚ</code>).</li>
-                            <li>Must verify predictions (<code>bᵥ</code>).</li>
-                        </ul>
-                    </li>
-                    <li>Independence: These requirements arise from logical necessity, not from
-                        physical laws or computational architectures.</li>
-                    <li>Conclusion: <code>K₀</code> is universally necessary, regardless of implementation.
-                    </li>
-                </ol>
-            </div>
-            <h2>3.4 The Horizon Constant as a Foundational Framework</h2>
-            <div class="theorem">
-                <h3>Theorem 6 (Foundational Framework):</h3>
-                <p>The Horizon Constant <code>K<sub>0</sub> = 3</code> bits represents both:</p>
-            </div>
-            <ol style="font-size: 20px;">
-                <li>The minimal set of components required as a foundational framework for any self-referential
-                    predictive system.</li>
-                <li>The point at which logical uncertainty emerges, even in deterministic systems.</li>
-            </ol>
-            <div class="proof">
-                <h3>Proof of Theorem 6</h3>
-                <ol style="font-size: 20px;">
-                    <li>Minimality:
-                        <ul style="font-size: 20px;">
-                            <li>Systems with fewer than the components of <code>K₀</code> cannot perform
-                                self-referential
-                                prediction, as previously established.</li>
-                        </ul>
-                    </li>
-                    <li>Emergence of Uncertainty:
-                        <ul style="font-size: 20px;">
-                            <li>The recursive nature of self-reference leads to an infinite regress.</li>
-                            <li>This infinite regress introduces inherent logical uncertainty in prediction.</li>
-                        </ul>
-                    </li>
-                    <li>Conclusion: <code>K₀</code> is both minimal and foundational for self-referential
-                        prediction.</li>
-                </ol>
-            </div>
         </section>
+
+        <section id="sufficiency">
+            <h2>5. Three Bits Are Also Enough</h2>
+            <p>A lower bound alone would leave the threshold empty, so the second half of the result runs the other
+                way: the same register already predicts better than chance on a natural class of environments.</p>
+            <p>Let <code>(X<sub>t</sub>)</code> be a binary process, and let its one-step persistence be the
+                probability that the next value repeats the current one,
+                <code>s<sub>t</sub> = Pr[X<sub>t+1</sub> = X<sub>t</sub> | history]</code>. For
+                <code>0 &lt; γ ≤ 1/2</code>, let <code>E<sub>basic</sub>(γ)</code> be the class of stationary
+                ergodic binary processes whose long-run average persistence is at least
+                <code>1/2 + γ</code>.</p>
+            <div class="theorem">
+                <h3>Theorem 2 (Super-chance mode)</h3>
+                <p>On every process in <code>E<sub>basic</sub>(γ)</code>, the three-bit realization of Theorem 1
+                    running the rule "predict that the next value equals the current one" achieves long-run
+                    accuracy at least <code>1/2 + γ</code>, which exceeds the accuracy <code>1/2</code> of the
+                    matched random baseline by <code>γ</code>.</p>
+            </div>
+            <div class="proof">
+                <h3>Proof</h3>
+                <p>The rule writes the current value of <code>φ</code> into <code>p<sub>stored</sub></code> during
+                    the prepare phase, which the register of Theorem 1 supports. At the comparison the prediction
+                    is correct exactly when <code>X<sub>t+1</sub> = X<sub>t</sub></code>, an event of conditional
+                    probability <code>s<sub>t</sub></code>. Averaging over the run and using the definition of
+                    <code>E<sub>basic</sub>(γ)</code>, the long-run frequency of correct predictions is at least
+                    <code>1/2 + γ</code>. The matched baseline that ignores the history is correct with
+                    probability <code>1/2</code>. ∎</p>
+            </div>
+            <p>So the threshold is not merely where the loop fits; it is where prediction starts paying. Persistence
+                is the weakest regularity worth exploiting, and the smallest self-referential register already
+                exploits it.</p>
+        </section>
+
+        <section id="hilbert">
+            <h2>6. From Eight Contexts to Dimension Eight</h2>
+            <p>The eight visited contexts are what the loop must tell apart. If they are carried by a complex
+                Hilbert space and the realization is required to distinguish them perfectly, each context must be
+                represented by a state that no measurement confuses with the others. Perfectly distinguishable
+                states are mutually orthogonal, and a space of dimension <code>d</code> holds at most
+                <code>d</code> mutually orthogonal states (Nielsen and Chuang 2010). Eight contexts therefore
+                require</p>
+            <p style="text-align: center;"><code>log<sub>2</sub> d<sub>0</sub> ≥ 3</code>, so
+                <code>d<sub>0</sub> ≥ 8</code></p>
+            <p>and the minimal branch of the framework takes <code>d<sub>0</sub> = 8</code>, which needs a separate
+                argument that no smaller carrier saturates the comparator. What the counting supplies on its own is
+                the inequality. Anything that fixes the value exactly is a further step, and the wider
+                <a href="predictiveuniverse.html"
+                    style="text-decoration: none; border-bottom: 1px solid transparent; transition: border-bottom 0.3s;"
+                    onmouseover="this.style.borderBottomColor='black';"
+                    onmouseout="this.style.borderBottomColor='transparent';">Predictive Universe</a> framework
+                treats it as one.</p>
+        </section>
+
         <section id="spap">
-            <h2>4. The Self-Referential Paradox of Accurate Prediction (SPAP)</h2>
-            <h2>4.1 Formal Definition of SPAP</h2>
-            <div class="definition">
-                <h3>Definition 2 (SPAP):</h3>
-                <p>The Self-Referential Paradox of Accurate Prediction (SPAP) states that a non-trivial self-referential predictive system cannot guarantee a complete and perfectly accurate prediction of its own future state.</p>
-            </div>
-            <h2>4.2 Universal SPAP Theorem</h2>
+            <h2>7. Above the Threshold</h2>
+            <p>A register that can hold a prediction about itself can also be turned against it. Let the nominated
+                rule be the one that reads the stored prediction and writes its opposite:
+                <code>φ<sub>t+1</sub> = NOT(p<sub>stored</sub>)</code>. Nothing in the construction of Theorem 1
+                forbids this; the rule is one of the assignments the three-bit register supports.</p>
             <div class="theorem">
-                <h3>Theorem 7 (Universal SPAP):</h3>
-                <p>No non-trivial self-referential predictive system can guarantee complete and perfectly accurate self-prediction.</p>
+                <h3>Theorem 3 (No exact predictor on the class)</h3>
+                <p>Let <code>M</code> be a class of coded predictors that can represent its own members, simulate
+                    them, evaluate a decidable binary predicate on the result, negate it, and compose finite
+                    programs, and suppose the class is closed under the construction that builds, from a predictor
+                    <code>P</code>, the system that runs the opposite of <code>P</code>'s forecast about it. Then no
+                    <code>P<sub>f</sub> ∈ M</code> forecasts the nominated component of every system in
+                    <code>M</code> correctly.</p>
             </div>
             <div class="proof">
-                <h3>Proof of Theorem 7</h3>
-                <ol style="font-size: 20px;">
-                    <li>Assumption: Suppose a system <code>S</code> can perfectly predict its own future
-                        states.</li>
-                    <li>Self-Reference Requirement: The prediction <code>P</code> must include a model of
-                        <code>S</code>, which includes <code>P</code> itself.
-                    </li>
-                    <li>Infinite Regress: This leads to an infinite nesting of predictions:
-                        <pre class="code-block">P = (x(t), M(S(t))) = (x(t), M((x(t), M((x(t), M(S(t))) ))) )</pre>
-                    </li>
-                    <li>Logical Impossibility: The infinite regress cannot be resolved.
-                    </li>
-                    <li>Conclusion: Perfect self-prediction is logically impossible.</li>
-                </ol>
+                <h3>Proof</h3>
+                <p>Suppose such a <code>P<sub>f</sub></code> exists. By closure, the class contains the system
+                    <code>S<sub>diag</sub></code> that obtains <code>P<sub>f</sub></code>'s forecast
+                    <code>φ̂</code> for its own next component and sets that component to
+                    <code>φ<sub>t+1</sub> = NOT(φ̂)</code>. Correctness on <code>S<sub>diag</sub></code> requires
+                    <code>φ̂ = φ<sub>t+1</sub></code>, hence <code>φ̂ = NOT(φ̂)</code>, which no element of
+                    <code>{0,1}</code> satisfies. ∎</p>
             </div>
+            <p>This is the Self-Referential Paradox of Accurate Prediction, and its shape is the diagonal argument
+                that Cantor used for cardinality, Gödel (1931) for provability, and Turing (1936) for halting. The
+                probabilistic version closes the obvious escape. Let the predictor output a probability
+                <code>p</code> that the component will be 1, let the predicate <code>p &gt; 1/2</code> be decidable
+                inside the class, and let the class contain the system whose one-step law is 0 when
+                <code>p &gt; 1/2</code> and 1 otherwise. Then no predictor in the class is exact on every system it
+                can build, and hedging the forecast does not help.</p>
+            <p>Two readings have to be kept apart, and the difference matters for what the threshold means.</p>
+            <ul style="font-size: 20px;">
+                <li>The theorem excludes one predictor that is exact on every system in the class. It does not say
+                    that every system is unpredictable. Restricted systems and restricted tasks can be predicted
+                    perfectly, and a system that does not receive its own forecast is untouched by the
+                    argument.</li>
+                <li>The obstruction is logical and class-relative. It is not a claim that individual events are
+                    random, and nothing here derives randomness from self-reference. Where randomness enters a
+                    physical theory, it enters through separate assumptions about the dynamics.</li>
+            </ul>
+            <p>Popper (1950) and MacKay (1960) reached the same barrier from the side of free choice and physical
+                determinism: a predictor cannot supply a prediction to an agent who can then falsify it, and the
+                obstruction survives whether the underlying dynamics are deterministic or not. What Theorem 3 adds
+                to those arguments is the register: the barrier appears exactly where the loop first fits, at three
+                bits, and not somewhere higher up.</p>
+            <p>There is also a structural way to see why the loop cannot be completed by unfolding it. Suppose a
+                state description is required to contain, as a literal proper part, the value of its own
+                prediction about itself. Finite descriptions come with a size measure that strictly decreases when
+                one description is a proper part of another, so no description can be a proper part of itself, and
+                the demand cannot be met. Holding a code, an index, or a pointer to the prediction is a different
+                and perfectly available arrangement, which is what the register of Theorem 1 does. The regress
+                appears only when literal containment is demanded.</p>
+        </section>
 
-        </section>
-        <svg viewBox="0 0 800 500">
-            <!-- Background -->
-            <rect x="0" y="0" width="800" height="500" fill="#f8f9fa"/>
-            
-            <!-- Title -->
-            <text x="400" y="55" text-anchor="middle" font-size="24" font-weight="bold">System Complexity and Predictive Capability</text>
-            
-            <!-- Axes -->
-            <line x1="100" y1="400" x2="700" y2="400" stroke="#333" stroke-width="2"/>
-            <line x1="100" y1="400" x2="100" y2="100" stroke="#333" stroke-width="2"/>
-            
-            <!-- Axis Labels -->
-            <text x="400" y="450" text-anchor="middle" font-size="16">System Complexity (bits)</text>
-            <text x="60" y="250" text-anchor="middle" font-size="16" transform="rotate(-90, 60, 250)">Predictive Capability</text>
-            
-            <!-- Bit markers on x-axis -->
-            <line x1="250" y1="400" x2="250" y2="405" stroke="#333" stroke-width="2"/>
-            <line x1="350" y1="400" x2="350" y2="405" stroke="#333" stroke-width="2"/>
-            <line x1="450" y1="400" x2="450" y2="405" stroke="#333" stroke-width="2"/>
-            <line x1="550" y1="400" x2="550" y2="405" stroke="#333" stroke-width="2"/>
-            <text x="250" y="425" text-anchor="middle" font-size="12">3</text>
-            <text x="350" y="425" text-anchor="middle" font-size="12">4</text>
-            <text x="450" y="425" text-anchor="middle" font-size="12">5</text>
-            <text x="550" y="425" text-anchor="middle" font-size="12">6</text>
-            
-            <!-- <code>K₀</code> Threshold -->
-            <line x1="250" y1="100" x2="250" y2="400" stroke="#1976d2" stroke-width="2" stroke-dasharray="5,5"/>
-            <text x="250" y="90" text-anchor="middle" font-size="14" fill="#1976d2">K₀ Threshold</text>
-            
-            <!-- Sub-<code>K₀</code> Region -->
-            <path d="M100 395 L250 395" stroke="#d32f2f" stroke-width="3"/>
-            <text x="175" y="380" text-anchor="middle" font-size="12" fill="#d32f2f">No non-trivial prediction</text>
-            
-            <!-- Stepped Growth Curve -->
-            <path d="M250 395 L300 350 L350 320 L400 300 L450 285 L500 275 L550 268 L600 264 L650 262 L700 261" 
-                  fill="none" stroke="#2e7d32" stroke-width="3"/>
-            
-          
-            <!-- Complexity Regions -->
-            <text x="325" y="330" text-anchor="middle" font-size="12">B₃</text>
-            <text x="425" y="290" text-anchor="middle" font-size="12">B₄</text>
-            <text x="525" y="280" text-anchor="middle" font-size="12">B₅+</text>
-            
-            <!-- Legend (moved to right side) -->
- 
-            <line x1="620" y1="175" x2="640" y2="175" stroke="#1976d2" stroke-width="2" stroke-dasharray="5,5"/>
-            <text x="650" y="180" font-size="12">K₀Threshold</text>
-            <line x1="620" y1="195" x2="640" y2="195" stroke="#2e7d32" stroke-width="3"/>
-            <text x="650" y="200" font-size="12">Predictive Power</text>
-            <line x1="620" y1="215" x2="640" y2="215" stroke="#d32f2f" stroke-width="3"/>
-            <text x="650" y="220" font-size="12">Sub-K₀ Systems</text>
-            
-            <!-- Annotations -->
-            <text x="400" y="150" text-anchor="middle" font-size="14">Diminishing Returns</text>
-            <path d="M400 160 L400 250" stroke="#666" stroke-width="1" stroke-dasharray="3,3"/>
-        </svg>
-        <section id="bit-systems">
-            <h2>5. Analysis of Bit Systems and Emergence of SPAP</h2>
-            <h2>5.1 One-Bit Systems (B₁)</h2>
-            <h3>5.1.1 Configuration</h3>
-            <ul style="font-size: 20px;">
-                <li>States: {0, 1}</li>
-                <li>Total Possible Systems: 2² = 4</li>
-            </ul>
-            <h3>5.1.2 Possible Behaviors</h3>
-            <ol style="font-size: 20px;">
-                <li>Constant output: Always 0.</li>
-                <li>Constant output: Always 1.</li>
-                <li>Oscillation: Toggles between 0 and 1.</li>
-                <li>Identity: Maintains current state.</li>
-            </ol>
-            <h3>5.1.3 Analysis</h3>
-            <ul style="font-size: 20px;">
-                <li>No Self-Reference: Insufficient complexity for self-reference.</li>
-                <li>No Prediction or Verification: Cannot implement <code>bₚ</code> or <code>bᵥ</code>.</li>
-                <li>Conclusion: Trivial systems incapable of self-referential prediction.</li>
-            </ul>
-            <h2>5.2 Two-Bit Systems (B₂)</h2>
-            <h3>5.2.1 Configuration</h3>
-            <ul style="font-size: 20px;">
-                <li>States: {00, 01, 10, 11}</li>
-                <li>Total Possible Systems: 2⁴ = 16</li>
-            </ul>
-            <h3>5.2.2 Possible Behaviors</h3>
-            <p>Simple counters, shift registers, basic logic gates.</p>
-            <h3>5.2.3 Analysis</h3>
-            <ul style="font-size: 20px;">
-                <li>Limited Self-Reference: Still insufficient to implement all components of <code>K₀</code>.</li>
-                <li>No Verification Mechanism: Cannot simultaneously model, predict, and verify.</li>
-                <li>Conclusion: Still trivial with respect to self-referential prediction.</li>
-            </ul>
-            <h2>5.3 Three-Bit Systems (B₃)</h2>
-            <h3>5.3.1 Configuration</h3>
-            <ul style="font-size: 20px;">
-                <li>States: {000, 001, ..., 111}</li>
-                <li>Minimum Required Bits for <code>K<sub>0</sub></code>: <code>b<sub>m</sub> + b<sub>p</sub> + b<sub>v</sub> = 3</code>, yielding at least <code>d<sub>0</sub> = 8</code> distinguishable configurations.</li>
-            </ul>
-            <h3>5.3.2 Critical Properties</h3>
-            <ol style="font-size: 20px;">
-                <li>State Distinction (bₘ): Ability to distinguish between different internal states.</li>
-                <li>Prediction Capability (bₚ): Ability to represent and process predictive models.</li>
-                <li>Verification Ability (bᵥ): Ability to compare predictions with actual outcomes.</li>
-            </ol>
-            <h3>5.3.3 Emergence of SPAP</h3>
-            <ul style="font-size: 20px;">
-                <li>With only three bits, the system cannot perfectly model its own prediction process due to
-                    insufficient complexity.</li>
-                <li>The infinite regress introduced by self-reference cannot be resolved.</li>
-            </ul>
-            <h2>5.4 Four-Bit Systems (B₄)</h2>
-            <h3>5.4.1 Configuration</h3>
-            <ul style="font-size: 20px;">
-                <li>States: {0000, 0001, ..., 1111}</li>
-                <li>Available Bits: 4</li>
-                <li>Required Bits: <code>K₀</code> + 1 extra bit</li>
-            </ul>
-            <h3>5.4.2 Analysis</h3>
-            <ul style="font-size: 20px;">
-                <li>Additional Complexity: The extra bit allows for more sophisticated models but does not
-                    eliminate SPAP.</li>
-                <li>Persistence of SPAP: The infinite regress problem remains due to the logical
-                    structure of self-reference.</li>
-            </ul>
-            <h2>5.5 Proof of <code>K₀</code> Minimality</h2>
-            <div class="theorem">
-                <h3>Theorem 8 (Minimal Requirement):</h3>
-                <p>Three bits (B₃) is the minimal requirement for non-trivial self-referential prediction.</p>
-            </div>
-            <div class="proof">
-                <h3>Proof of Lemma 8</h3>
-                <ol style="font-size: 20px;">
-                    <li>Insufficiency of B₁ and B₂:
-                        <ul style="font-size: 20px;">
-                            <li>Cannot implement all components of <code>K₀</code> simultaneously.</li>
-                        </ul>
-                    </li>
-                    <li>Sufficiency of B₃:
-                        <ul style="font-size: 20px;">
-                            <li>Can represent state distinction, prediction, and verification.</li>
-                        </ul>
-                    </li>
-                    <li>Conclusion: <code>B₃</code> is the minimal system where SPAP emerges.</li>
-                </ol>
-            </div>
-            <h2>5.6 Distinction Between Trivial and Non-Trivial Systems</h2>
-            <ul style="font-size: 20px;">
-                <li>Trivial Systems (B₁, B₂):
-                    <ul style="font-size: 20px;">
-                        <li>Lack the necessary components for self-referential prediction.</li>
-                        <li>Not subject to SPAP.</li>
-                    </ul>
-                </li>
-                <li>Non-Trivial Systems (B₃ and above):
-                    <ul style="font-size: 20px;">
-                        <li>Possess <code>K₀</code>.</li>
-                        <li>Subject to SPAP due to self-reference limitations.</li>
-                    </ul>
-                </li>
-            </ul>
-            <h2>5.7 Conclusion</h2>
-            <p>This analysis demonstrates that:</p>
-            <ul style="font-size: 20px;">
-                <li><code>K<sub>0</sub> = 3</code> bits is the minimal operational requirement for SPAP-encodable non-trivial self-referential prediction, with <code>d<sub>0</sub> ≥ 8</code>.</li>
-                <li>SPAP naturally emerges at this boundary.</li>
-                <li>Additional complexity cannot eliminate SPAP but can improve predictive accuracy within limits.
-                </li>
-            </ul>
-        </section>
         <img src="images/horizon2.jpg" alt="The Knowledge-Prediction Nexus" width="1024" height="1792" decoding="async" loading="lazy">
         <p class="caption">Universe 00110000</p>
-        <section id="epistemological-implications">
-            <h2>6. Epistemological Implications</h2>
-            <h2>6.1 The Knowledge-Prediction Nexus</h2>
-            <div class="theorem">
-                <p>For any system <code>S</code>, knowledge is operationally realized as predictive capacity.</p>
-            </div>
-            <div class="proof">
-                <h3>Proof of Theorem 9</h3>
-                <ol style="font-size: 20px;">
-                    <li>If <code>S</code> contains usable knowledge, that knowledge supports anticipation, classification, or action under uncertainty.</li>
-                    <li>If <code>S</code> makes reliable predictions, it contains an internal structure that functions as knowledge for that predictive task.</li>
-                    <li>Conclusion: knowledge and prediction are linked operationally, while knowledge can still differ in scope, reliability, and context.</li>
-                </ol>
-            </div>
-        
-        
-            <h2>6.2 Fundamental Knowledge Limits</h2>
-            <p><code>K<sub>0</sub></code> establishes operational epistemological boundaries:</p>
+        <section id="knowledge">
+            <h2>8. Knowledge at the Threshold</h2>
+            <p>Within this framework, knowledge is the realized capacity for effective prediction: a structure
+                counts as knowledge for a system and a task when the system can use it to anticipate better than
+                the matched baseline. Theorem 2 makes the threshold the smallest place that capacity can live for
+                a self-referential task, and Theorem 3 fixes what it can never reach.</p>
+            <p>Three consequences follow, each scoped to the class the theorems name.</p>
             <ul style="font-size: 20px;">
-                <li>No non-trivial self-referential system can guarantee complete self-knowledge.</li>
-                <li>Perfect self-prediction is blocked by SPAP.</li>
-                <li>Self-referential predictive knowledge requires at least the <code>K<sub>0</sub></code> operational structure.</li>
+                <li>Self-referential predictive knowledge needs at least the three-bit structure. Below it the
+                    comparison that turns a forecast into knowledge cannot be carried out.</li>
+                <li>No system in the class holds a predictor exact on every system the class can build, including
+                    the systems built from itself. Complete self-knowledge of the predictive kind is unavailable
+                    from inside.</li>
+                <li>The limits apply to knowledge about the limits. A system reasoning about its own horizon is
+                    still a system inside the class, and the same argument applies to it.</li>
             </ul>
-            <p>This establishes <code>K<sub>0</sub></code> as a lower bound for self-referential predictive knowledge, not as the whole structure of knowledge itself.</p>
-            <h2>6.3 Meta-Knowledge Paradox</h2>
-            <div class="theorem">
-                <p>The limitations imposed by <code>K₀</code> apply to knowledge about <code>K₀</code> itself.</p>
-            </div>
-            <div class="proof">
-                <h3>Proof of Lemma 10</h3>
-                <ol style="font-size: 20px;">
-                    <li>Self-Reference of <code>K₀</code>: Any system attempting to fully understand itself must model its own modeling process.</li>
-                    <li>Infinite Regress: Leads to the same infinite regress problem.</li>
-                </ol>
-            </div>
+            <p>None of this makes inquiry futile, and the reason is Theorem 2. The gap between what a finite system
+                can verify and what it would need in order to close its own account is what keeps prediction
+                improvable: there is always more accuracy to buy with more structure, and never a final purchase
+                that ends the process.</p>
         </section>
+
         <section id="consciousness">
-            <h2>7. Consciousness and Self-Awareness</h2>
-            <h2>7.1 Consciousness Requirements</h2>
-            <div class="theorem">
-                <p>Any conscious system must possess at least the components of <code>K₀</code>.</p>
-            </div>
-            <div class="proof">
-                <h3>Proof of Theorem 11</h3>
-                <ol style="font-size: 20px;">
-                    <li>Self-Awareness Necessity: Consciousness entails awareness of one's own states.
-                    </li>
-                    <li>Components Required:
-                        <ul style="font-size: 20px;">
-                            <li>State Distinction (bₘ): To recognize oneself as distinct.</li>
-                            <li>Prediction Capability (bₚ): To anticipate and plan.</li>
-                            <li>Verification Ability (bᵥ): To reflect and learn from experiences.</li>
-                        </ul>
-                    </li>
-                    <li>Consciousness requires <code>K₀</code> as a foundational framework.</li>
-                </ol>
-            </div>
-            <p><code>K<sub>0</sub></code> is necessary for the minimal self-referential predictive structure used in this model of consciousness. It is not sufficient by itself for full consciousness, which also requires adaptive operation, memory, integration, and sustained predictive performance within viable bounds.</p>
-
-
+            <h2>9. Consciousness: What the Threshold Does and Does Not Settle</h2>
+            <p>Any system that models its own states, anticipates them, and checks the anticipation instantiates
+                the loop of Section 2, so on the stated conditions it carries at least the three-bit structure.
+                That is a necessary condition on a described capacity, and it is the whole of what the counting
+                gives.</p>
+            <p>It is not sufficient for anything usually meant by consciousness. Sustained operation needs memory
+                beyond one cycle, an environment with regularities worth learning, integration across many such
+                loops, and performance held inside a viable band. Measures built for the question, such as the
+                integrated-information proposal of Tononi (2004), ask about the organization of a whole system and
+                not about the smallest loop inside it. The threshold marks where self-modeling becomes
+                expressible. Whether anything is felt there is a separate question, and the counting argument does
+                not touch it.</p>
         </section>
-        <section id="philosophical-implications">
-            <h2>8. Philosophical Implications</h2>
-            <h2>8.1 Nature of Reality</h2>
-            <p>The existence of <code>K₀</code> suggests fundamental properties of reality:</p>
-            <ul style="font-size: 20px;">
-                <li>Self-Reference Limitation: Reality inherently limits perfect self-knowledge.
-                </li>
-                <li>Primacy of Logic: These limitations are logically prior to physical laws.</li>
-                <li>Necessity of Complexity: Complexity is essential for meaningful interactions with
-                    reality.</li>
-            </ul>
-            <h2>8.2 Knowledge</h2>
-            <p><code>K₀</code> implies that knowledge systems must:</p>
-            <ul style="font-size: 20px;">
-                <li>Begin with minimal complexity.</li>
-                <li>Increase in complexity over time to enhance understanding.</li>
-                <li>Accept inherent limitations in self-knowledge.</li>
-            </ul>
-        </section>
-
-
-
-        <h2>9. Future Directions</h2>
-
-        <p>A central question for future research is how the complexity of a self-referential system relates to its
-            predictive power. </p>
-        <p>Where predictive power depends on the foundational complexity (<code>K₀</code>) and additional acquired complexity. However, the Self-Referential Paradox of Accurate Prediction (SPAP) suggests inherent limitations on
-            predictive accuracy. A key area of investigation is understanding the precise
-            nature of these limitations and how they interact with increasing complexity.</p>
-
-        <p>Further research will explore:</p>
-        <ul style="font-size: 20px;">
-            
-            <li><b>The Complexity-Accuracy Trade-off:</b> How does increasing complexity (ΔC) impact predictive accuracy within SPAP constraints? Focus on identifying diminishing returns where additional complexity yields minimal gains due to computational costs.</li>             
-            <li><b>Predictive Accuracy:</b> What are the fundamental bounds on predictive accuracy, even with unbounded complexity? Study how internal dynamics, information decay, and environmental factors influence these limits.</li>             
-            <li><b>Information Organization:</b> How can information be  <a href="compression.html"
-                style="text-decoration: none; border-bottom: 1px solid transparent; transition: border-bottom 0.3s;"
-                onmouseover="this.style.borderBottomColor='black';"
-                onmouseout="this.style.borderBottomColor='transparent';">efficiently organized</a> in self-referential systems to reduce computational costs as complexity grows? Explore optimization frameworks within self-reference constraints.</li>         
-            </ul>
-        </ul>
-        </section>
-
 
         <section id="conclusion">
             <h2>10. Conclusion</h2>
-            <h2>10.1 Summary of Key Results</h2>
-            <p>This work establishes:</p>
-            <ul style="font-size: 20px;">
-                <li>Horizon Constant <code>K<sub>0</sub></code>: A minimal operational threshold of 3 bits for SPAP-encodable non-trivial self-referential prediction.</li>
-                <li>Consciousness Requirements: Identifies <code>K<sub>0</sub></code> as necessary for the minimal self-referential predictive structure used in this model.</li>
-                <li>Knowledge Limits: Highlights structural boundaries on complete self-knowledge and guaranteed perfect self-prediction.</li>
-            </ul>
-            <h2>10.2 Broader Impact</h2>
-            <p>The implications of this work extend across multiple disciplines:</p>
-            <ul style="font-size: 20px;">
-                <li>Philosophy of Mind: Provides a logical basis for understanding consciousness.</li>
-                <li>Artificial Intelligence: Informs the design and limitations of self-aware AI.
-                </li>
-                <li>Cognitive Science: Offers insights into the minimal requirements for cognition.
-                </li>
-                <li>Information Theory: Enhances understanding of the relationship between complexity
-                    and information processing.</li>
-                <li>Physics and Cosmology: Suggests that logical constraints underpin physical laws.
-                </li>
-            </ul>
-        </section>
-
-
-        <h2>Final Remarks</h2>
-        <p>
-            The Horizon Constant <code>K<sub>0</sub></code> identifies the minimum operational structure for SPAP-encodable self-referential prediction. It fixes the minimal binary threshold at <code>K<sub>0</sub> = 3</code> bits and the corresponding minimal state alphabet at <code>d<sub>0</sub> ≥ 8</code>. SPAP then sets the upper limit: systems with this structure can model and improve themselves, but they cannot guarantee a complete and perfectly accurate prediction of their own future state.
-            <br><br>
-            <code>K<sub>0</sub></code> therefore connects logic, prediction, and self-reference as a lower-bound principle. It supports later analysis of consciousness and <a href="instantiation.html"
+            <p>The result is one number and its conditions. On the realization class where stepping before the
+                closing reset is injective, a phase response separates the two halves of the cycle, the current
+                state and the stored prediction remain readable across the boundary, and all eight response
+                combinations occur, a self-referential predictive loop needs at least eight visited configurations
+                and three bits of log-capacity, and a construction attains both. Carrying those eight contexts as
+                perfectly distinguishable alternatives in a complex Hilbert space forces dimension at least
+                eight.</p>
+            <p>The threshold works in both directions. It is enough for a register to beat chance wherever the
+                world repeats itself more often than not, and it is already enough for the diagonal construction
+                that denies any predictor exactness across its own class. Everything above the threshold buys
+                accuracy on particular tasks and leaves the barrier where it is.</p>
+            <p><code>K<sub>0</sub></code> is a lower bound on a stated class. It supports later analysis of
+                <a href="consciousness.html"
                     style="text-decoration: none; border-bottom: 1px solid transparent; transition: border-bottom 0.3s;"
                     onmouseover="this.style.borderBottomColor='black';"
-                    onmouseout="this.style.borderBottomColor='transparent';">physical instantiation</a> without making <code>K<sub>0</sub></code> alone sufficient for either full cognition or complete physical law.</p>
+                    onmouseout="this.style.borderBottomColor='transparent';">consciousness</a> and
+                <a href="instantiation.html"
+                    style="text-decoration: none; border-bottom: 1px solid transparent; transition: border-bottom 0.3s;"
+                    onmouseover="this.style.borderBottomColor='black';"
+                    onmouseout="this.style.borderBottomColor='transparent';">physical instantiation</a> without
+                being sufficient for either.</p>
+        </section>
+
+        <section id="references">
+            <h3>References</h3>
+            <ul style="font-size: 18px;">
+                <li>Ashby, W. Ross. <em>An Introduction to Cybernetics</em>. Chapman &amp; Hall, 1956.</li>
+                <li>Clark, Andy. "Whatever Next? Predictive Brains, Situated Agents, and the Future of Cognitive
+                    Science." <em>Behavioral and Brain Sciences</em> 36, no. 3, 2013, 181–204.</li>
+                <li>Conant, Roger C., and W. Ross Ashby. "Every Good Regulator of a System Must Be a Model of That
+                    System." <em>International Journal of Systems Science</em> 1, no. 2, 1970, 89–97.</li>
+                <li>Friston, Karl. "The Free-Energy Principle: A Unified Brain Theory?" <em>Nature Reviews
+                        Neuroscience</em> 11, no. 2, 2010, 127–138.</li>
+                <li>Gödel, Kurt. "Über formal unentscheidbare Sätze der Principia Mathematica und verwandter
+                    Systeme I." <em>Monatshefte für Mathematik und Physik</em> 38, 1931, 173–198.</li>
+                <li>Landauer, Rolf. "Irreversibility and Heat Generation in the Computing Process." <em>IBM Journal
+                        of Research and Development</em> 5, no. 3, 1961, 183–191.</li>
+                <li>MacKay, D. M. "On the Logical Indeterminacy of a Free Choice." <em>Mind</em> 69, no. 273, 1960,
+                    31–40.</li>
+                <li>Miller, George A. "The Magical Number Seven, Plus or Minus Two: Some Limits on Our Capacity for
+                    Processing Information." <em>Psychological Review</em> 63, no. 2, 1956, 81–97.</li>
+                <li>Nielsen, Michael A., and Isaac L. Chuang. <em>Quantum Computation and Quantum
+                        Information</em>. 10th anniversary ed., Cambridge University Press, 2010.</li>
+                <li>Popper, Karl R. "Indeterminism in Quantum Physics and in Classical Physics." <em>The British
+                        Journal for the Philosophy of Science</em> 1, no. 2, 1950, 117–133, and no. 3, 173–195.</li>
+                <li>Rao, Rajesh P. N., and Dana H. Ballard. "Predictive Coding in the Visual Cortex: A Functional
+                    Interpretation of Some Extra-Classical Receptive-Field Effects." <em>Nature Neuroscience</em>
+                    2, no. 1, 1999, 79–87.</li>
+                <li>Rosenblueth, Arturo, Norbert Wiener, and Julian Bigelow. "Behavior, Purpose and Teleology."
+                    <em>Philosophy of Science</em> 10, no. 1, 1943, 18–24.</li>
+                <li>Shannon, C. E. "A Mathematical Theory of Communication." <em>Bell System Technical
+                        Journal</em> 27, 1948, 379–423 and 623–656.</li>
+                <li>Tononi, Giulio. "An Information Integration Theory of Consciousness." <em>BMC
+                        Neuroscience</em> 5, 2004, 42.</li>
+                <li>Turing, A. M. "On Computable Numbers, with an Application to the Entscheidungsproblem."
+                    <em>Proceedings of the London Mathematical Society</em> s2-42, no. 1, 1936, 230–265.</li>
+            </ul>
         </section>
         <div class="circle-container">
             <div class="arrow left" onclick="shiftSlide(-1)">&#10094;</div>
@@ -610,10 +462,9 @@ S(t) = (x(t), M((x(t), M((x(t), M(...))))))
         </div>
     </article>
     </main>
-    <div id="footer"></div>
+    <div id="footer"><footer class="footer"><p><span class="footer-ai-note">Created through human and AI collaboration.</span></p></footer></div>
 
-    <script defer src="../../js/components.min.js?v=8"></script>
-    <script defer src="article-subscribe.min.js?v=16"></script>
+    <script defer src="../../js/components.min.js?v=10"></script>
     <script defer src="slider.min.js?v=5"></script>
 </body>
 

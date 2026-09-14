@@ -8,7 +8,7 @@
     <title>Cognitive Thermodynamics: Decision Propagation in Space-Based AI Networks</title>
     <meta name="description"
         content="A framework mapping thermodynamic irreversibility to decision propagation in space-based AI systems.">
-    <link href="article-style.min.css?v=45" rel="stylesheet" />
+    <link href="article-style.min.css?v=47" rel="stylesheet" />
     <link rel="icon" type="image/png" href="../../images/favicon.png">
 </head>
 
@@ -41,11 +41,27 @@
         <p>This paper introduces <strong>Cognitive Thermodynamics</strong> as a conceptual framework for understanding and designing
             distributed AI systems within space networks. The framework draws a robust analogy with thermodynamic systems. Just as heat flows irreversibly through space while conserving energy, intelligence - manifested as decision signals - flows through spacetime networks. These signals propagate unidirectionally, while preserving their essential meaning. This temporal irreversibility and meaning preservation provide fundamental principles for designing robust space-based AI systems.</p>
 
+        <h2>The Framework in Plain Terms</h2>
+        <p>Send a letter to Mars and you wait between four and twenty-four minutes for it to arrive,
+            depending on where the two planets are. You cannot recall it, you cannot ask a clarifying
+            question and get an answer inside an hour, and by the time the rover reads your instruction
+            the situation it describes has moved on. Every design decision in a deep-space network falls
+            out of that one fact.</p>
+        <p>Cognitive Thermodynamics borrows the vocabulary of heat to describe what follows. Decisions
+            form where computing power is concentrated and flow outward to where there is little of it,
+            they only travel forward, and they get simplified on the way. The analogy is a naming scheme
+            for a real structure rather than a claim that decisions obey the laws of thermodynamics.</p>
+        <p>Two of the physical facts behind the vocabulary are literal rather than figurative. Erasing a bit
+            costs at least kT ln 2 of energy, a bound Landauer (1961) derived and B&eacute;rut et al. (2012)
+            confirmed experimentally, while computation that erases nothing carries no such floor (Bennett
+            1982). And meaning survives a lossy transformation when the transformation is built so that it
+            does, on terms Shannon (1948) fixed. Both turn into engineering requirements later in the paper.</p>
+
         <h2>1. Introduction</h2>
         <p>Space-based AI systems operate in environments characterized by vast distances and the inherent limitations of light-speed communication. These constraints present unique challenges, particularly in how decisions are made and propagated across the network.</p>
 
         <h2>1.1. Rationale for Cognitive Thermodynamics</h2>
-        <p>The concept of Cognitive Thermodynamics uses thermodynamic systems as an analogical framework for understanding and designing decision propagation in space-based AI networks. The intention is not to establish a one-to-one correspondence but to use thermodynamic principles as a conceptual tool to inform design decisions in environments where the propagation of effects is irreversible - there is no room for error once a signal begins its journey across vast distances.</p>
+        <p>The concept of Cognitive Thermodynamics uses thermodynamic systems as an analogical framework for understanding and designing decision propagation in space-based AI networks. It offers a conceptual tool rather than a one-to-one correspondence, aimed at environments where the propagation of effects is irreversible and there is no room for error once a signal begins its journey. The irreversibility here has a formal counterpart that the analogy can lean on. Lamport (1978) showed that a distributed system without a shared clock still admits a partial order, defined by which events could have influenced which others, and that this partial order is all the causal structure the system has. A light-limited network is that argument made physical: the light cone is the happened-before relation, and no protocol can widen it.</p>
 
         <h2>1.2. Core Principles of Cognitive Thermodynamics</h2>
                         <ul style="font-size: 20px;">
@@ -79,16 +95,16 @@
         <h2>2.1  Physical Parallels</h2>
 
         
-        <p>A crucial physical parallel exists in how signals transform during propagation. Just as heat flow is shaped by the properties of the conducting medium, decision signals undergo real-time compression and adaptation based on local space conditions. This transformation isn't merely a network optimization - it's a fundamental consequence of propagating through space with varying radiation levels, gravitational effects, and resource constraints. As a result, even when a decision is broadcast to multiple nodes, each receiving node experiences a uniquely transformed signal shaped by the specific conditions along its propagation path. This physical reality reinforces the thermodynamic analogy, as the signal's evolution mirrors how heat flow adapts to material properties while preserving total energy. Each new decision creates a distinct causal event.</p>
+        <p>A crucial physical parallel exists in how signals transform during propagation. Just as heat flow is shaped by the properties of the conducting medium, decision signals undergo real-time compression and adaptation based on local space conditions. This transformation isn't merely a network optimization - it's a fundamental consequence of propagating through space with varying radiation levels, gravitational effects, and resource constraints. As a result, even when a decision is broadcast to multiple nodes, each receiving node experiences a uniquely transformed signal shaped by the specific conditions along its propagation path. This physical reality reinforces the thermodynamic analogy, as the signal's evolution mirrors how heat flow adapts to material properties. The parallel breaks at conservation, and the break is the useful part: heat flow preserves total energy without anyone arranging it, while a compressed decision signal preserves only what the encoding was built to preserve. Shannon (1948) set the exchange rate, showing that a channel of given capacity admits a minimum description length for a given fidelity, and that the fidelity criterion has to be chosen in advance. Each new decision creates a distinct causal event.</p>
 
         <h2>2.2 Conservation of Meaning</h2>
-        <p>Just as thermodynamics conserves energy while its form changes, our framework conserves meaning:</p>
+        <p>Energy conservation holds without intervention. The preservation of meaning does not, and calling it conservation obscures the work involved. What the framework requires is an actively maintained invariant, in which every permitted transformation is required to leave a stated property of the decision intact, and every node that transforms a signal can certify that it did:</p>
                         <ul style="font-size: 20px;">
 
-            <li>Essential decision intent must be preserved across transformations.</li>
-            <li>The form may change through processes like compression or adaptation.</li>
-            <li>Success is measured by the preservation of intended actions.</li>
-            <li>Verification of meaning preservation becomes a key system requirement.</li>
+            <li>The intent of a decision, stated as a property that can be checked rather than as a description, must survive every transformation applied to it.</li>
+            <li>The form may change through compression or adaptation. What may be discarded has to be declared with the message, since a downstream node cannot infer which losses were acceptable.</li>
+            <li>Success is measured by the action taken at the edge, compared against the action the core intended.</li>
+            <li>Verification travels with the signal. A node that cannot verify the invariant is required to act on the last decision it did verify, because the round trip needed to ask is the delay the architecture exists to avoid.</li>
         </ul>
 
         <h2>3. Computational Heat Flow Dynamics</h2>
@@ -254,8 +270,40 @@
 
     
         <h2>7. Conclusion</h2>
-        <p>The thermodynamic approach to decision propagation offers a powerful framework for understanding and managing distributed AI systems in space. This framework is particularly valuable as space networks become more complex and autonomous decision-making grows increasingly critical.</p>
-        <p>As we continue to explore and expand into space, understanding how decisions propagate through networks will be essential for creating robust, efficient, and effective autonomous systems.</p>
+        <p>The thermodynamic reading names a real structure: computation concentrated in a few places,
+            influence flowing outward down a gradient, and a direction of travel fixed by physics. Lamport
+            (1978) supplies the formal version of that direction, showing that a distributed system with no
+            shared clock still carries a partial order defined by which events could have influenced which.
+            In a light-limited network the light cone is that order, and no protocol widens it.</p>
+        <p>Two engineering commitments follow. Preservation of meaning is an invariant the system maintains,
+            declared with each message and certified by every node that transforms it, with Shannon (1948)
+            fixing the exchange rate between rate and fidelity. Power at the edge is bounded by erasure
+            rather than by computation, since erasing a bit costs at least kT ln 2 (Landauer 1961;
+            B&eacute;rut et al. 2012) while computation that erases nothing carries no such floor (Bennett
+            1982).</p>
+        <p>The decision that shapes a working system is the one Gilbert and Lynch (2002) proved unavoidable:
+            a network that can partition cannot be both consistent and available. A deep-space network is
+            partitioned by default, so each class of decision is assigned in advance either to act on stale
+            information or to wait. Fixing that assignment class by class is the architecture.</p>
+    
+        <h3>References</h3>
+        <ul style="font-size: 18px;">
+            <li>Bennett, Charles H. "The Thermodynamics of Computation: A Review."
+                <em>International Journal of Theoretical Physics</em> 21, no. 12, 1982,
+                905&ndash;940.</li>
+            <li>B&eacute;rut, Antoine, Artak Arakelyan, Artyom Petrosyan, Sergio Ciliberto, Raoul
+                Dillenschneider, and Eric Lutz. "Experimental Verification of Landauer's Principle Linking
+                Information and Thermodynamics." <em>Nature</em> 483, no. 7388, 2012,
+                187&ndash;189.</li>
+            <li>Lamport, Leslie. "Time, Clocks, and the Ordering of Events in a Distributed System."
+                <em>Communications of the ACM</em> 21, no. 7, 1978, 558&ndash;565.</li>
+            <li>Landauer, Rolf. "Irreversibility and Heat Generation in the Computing Process."
+                <em>IBM Journal of Research and Development</em> 5, no. 3, 1961, 183&ndash;191.</li>
+            <li>Shannon, Claude E. "A Mathematical Theory of Communication." <em>Bell System Technical
+                    Journal</em> 27, no. 3, 1948, 379&ndash;423, and 27, no. 4, 1948,
+                623&ndash;656.</li>
+        </ul>
+
         <div class="circle-container">
             <div class="arrow left" onclick="shiftSlide(-1)">&#10094;</div>
             <div class="circle-wrapper">
@@ -265,10 +313,9 @@
         </div>
     </article>
     </main>
-    <div id="footer"></div>
+    <div id="footer"><footer class="footer"><p><span class="footer-ai-note">Created through human and AI collaboration.</span></p></footer></div>
 
-    <script defer src="../../js/components.min.js?v=8"></script>
-    <script defer src="article-subscribe.min.js?v=16"></script>
+    <script defer src="../../js/components.min.js?v=10"></script>
     <script defer src="slider.min.js?v=5"></script>
 
 </body>

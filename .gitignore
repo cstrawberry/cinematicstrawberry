@@ -2,6 +2,7 @@
 .vscode/
 .agents/
 .codex/
+.claude/
 *.code-workspace
 
 # OS/editor noise

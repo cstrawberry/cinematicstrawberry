@@ -9,7 +9,7 @@
     <title>Reflexive Undecidability: Computational Limits from Dynamic Interaction</title>
     <meta name="description"
         content="Introduces Reflexive Undecidability, a computational limit arising from the principle of Reflexivity where outcome-dependent interactions dynamically alter system states. Formalized using Reflexive Computational Systems (RCS).">
-    <link href="article-style.min.css?v=45" rel="stylesheet" />
+    <link href="article-style.min.css?v=47" rel="stylesheet" />
     <link rel="icon" type="image/png" href="../../images/favicon.png">
 
     <style>
@@ -102,1571 +102,611 @@
     <main>
     <article>
         <h1>Reflexive Undecidability: Computational Limits from Dynamic Interaction</h1>
-
         <section id="abstract">
             <h2>Abstract</h2>
-            <p>This paper introduces <strong>Reflexive Undecidability</strong>, a distinct form of computational
-                undecidability. We argue that this undecidability arises fundamentally from the principle of
-                reflexivity: a dynamic characterizing systems where interaction is an integral component that alters the
-                system's state in an outcome-dependent manner. This reflexive structure, formalized using Reflexive
-                Computational Systems (RCS), offers a framework for analyzing certain classes of limitations observed
-                across diverse domains, including aspects of physical measurement, computational processes involving
-                interaction, and specific economic modeling challenges.</p>
-
-            <p>We define RCS in both deterministic and non-deterministic variants. In a deterministic RCS (D-RCS), an
-                interaction yields a unique outcome, triggering a unique state transformation directly dependent on that
-                outcome. In a non-deterministic RCS (ND-RCS), interactions yield probability distributions over
-                outcomes, and each specific outcome triggers a corresponding probability distribution over subsequent
-                states, preserving the essential outcome-dependent dynamic under uncertainty.</p>
-
-            <p>We argue this reflexive cycle imposes fundamental limits on prediction, control, and reversibility,
-                potentially precluding the acquisition of stable information about prior states or convergence towards
-                solutions defined relative to an initial state. Crucially, using a diagonalization argument within an
-                interactive computational model (Persistent Interactive Turing Machines interacting with RCSs), we
-                demonstrate that this reflexive structure indeed leads to the proposed Reflexive Undecidability in both
-                deterministic and non-deterministic settings. This undecidability arises specifically from the dynamic,
-                interaction-driven evolution of the system state, differentiating it from classical undecidability
-                results rooted in static self-reference on fixed inputs. The RCS framework thus offers a precise
-                perspective on inherent limits imposed by embedded, outcome-dependent interaction.</p>
-
+            <p>Classical undecidability comes from self-reference applied to a fixed input. A program is handed a
+                description, and the description does not change while the program runs. Many real limits have a
+                different shape: the act of finding out alters what is being found out. Measuring a quantum system
+                changes its state. Evaluating an economic plan consumes the resources the plan allocates. Driving
+                down a road changes the traffic on the roads next to it.</p>
+            <p>Reflexive Computational Systems formalize that shape. A system is a state space together with an
+                interaction function that returns an outcome and a transformation function that consumes the
+                outcome and returns the next state. The transformation reads the outcome as well as the interaction, and that dependence is what makes the structure reflexive. Deterministic and
+                non-deterministic variants are given, and three consequences are proved: prior states can be
+                unrecoverable, information obtained by interaction describes the state the interaction produced,
+                and no prediction is stable when the system is built to falsify it.</p>
+            <p>Two undecidability results follow, and they are different results. Fixing a property in advance and
+                reducing the halting problem to it shows that no interactive machine decides termination across a
+                family of these systems, with the bound surviving bounded-error randomization. Letting the property
+                depend on the predictor's own forecast shows something else: in a counter-predictive system, no
+                interactive machine can finish with a recorded verification that matches the state it has produced.
+                The first result is undecidability in the classical sense on an interactive family. The second is
+                the failure of a fixed point, and it is what distinguishes reflexive limits from static ones.</p>
         </section>
 
-
-
-
+        <section id="plain-terms">
+            <h2>Reflexivity in Plain Terms</h2>
+            <p>Publish a poll a week before an election and the poll changes the vote. Nobody lied. People
+                who see their side comfortably ahead stay home, and people who see it just behind turn out.
+                The number was accurate when it was taken, and publishing it made the election different
+                from the one it described.</p>
+            <p>That pattern has a shape worth naming. Something is done, a result comes back, and the result
+                itself determines how the thing being examined changes. Not just the act, the result: a high
+                reading leads somewhere different from a low one. Once the loop closes that way, three familiar
+                troubles follow.</p>
+            <p>The first is that you may not be able to work backwards. Two different starting points can end at
+                the same place after a measurement, so the reading plus the outcome do not tell you where you
+                began. The second is that what you learn is already out of date, and not by accident: the reading
+                describes the state your reading produced. The third is the sharpest. If the system is built to do
+                the opposite of whatever you predict, then announcing an accurate prediction makes it wrong, and
+                announcing an inaccurate one makes it right. There is no answer that stays true once given.</p>
+            <p>The last case is worth separating from the familiar one. Turing showed that no program can decide,
+                for every program, whether it halts. There the question is fixed and the difficulty is
+                self-reference in the encoding. Here the question is not fixed: it is about a system that reacts to
+                being asked. Both limits are real, they have different sources, and a stubborn traffic jam that worsens wherever the navigation app sends people is an instance of the second kind.</p>
         </section>
 
         <section id="introduction">
-            <h2>1. Introduction: Modeling Limits Arising from Interaction</h2>
-            <p>The study of fundamental limitations is central to scientific
-                understanding across multiple domains. In physics, researchers grapple
-                with the consequences of measurement, particularly in <a href="quantum.html"
-                    style="text-decoration: none; border-bottom: 1px solid transparent; transition: border-bottom 0.3s;"
-                    onmouseover="this.style.borderBottomColor='black';"
-                    onmouseout="this.style.borderBottomColor='transparent';">quantum mechanics</a>,
-                where observation intrinsically influences the system being measured. Thermodynamic principles constrain
-                information processing, formally related to Landauer's principle linking
-                information erasure to energy dissipation.</p>
-
-            <p>Computer science has established fundamental limits through Turing's
-                work on undecidable problems (e.g., the Halting Problem), primarily
-                based on logical paradoxes arising from self-reference applied to static
-                computations on fixed inputs, and through complexity
-                theory classifying the practical difficulty of problems. Economics and social sciences encounter
-                phenomena where
-                observation, prediction, or intervention can alter the system dynamics,
-                relevant to the challenges discussed in the Economic Calculation Problem
-                regarding centralized planning.</p>
-
-            <p>While diverse, certain limitations across these fields appear related to
-                situations where the process of information acquisition, computation, or
-                interaction is not external but embedded, actively modifying the system
-                based on the interaction's outcome. This paper introduces Reflexivity
-                as a formal principle capturing this specific dynamic structure. We
-                propose and formally define Reflexive Computational Systems (RCSs) to
-                model this interaction pattern for both deterministic and
-                non-deterministic systems. Within this framework, we analyze the
-                intrinsic interaction-alteration cycle.</p>
-
-            <p>We investigate the
-                fundamental limits and undecidability that arise specifically from
-                reflexive interaction - where the system's state evolves dynamically in
-                response to the outcomes of interactions, whether deterministically or
-                probabilistically.</p>
-
-            <h2>1.1 Research Objectives</h2>
-            <p>Specifically, we aim to:</p>
-            <ol style="font-size: 20px;">
-                <li>Formally define Reflexive Computational Systems (RCSs) encompassing
-                    both deterministic (D-RCS) and non-deterministic (ND-RCS)
-                    interactions and transformations.</li>
-                <li>Analyze the core mechanism of the interaction-alteration cycle and
-                    its logical consequences, such as potential irreversibility and
-                    circularity, in both settings.</li>
-                <li>Illustrate the applicability of the RCS model through examples,
-                    including a computational interpretation of aspects of the Economic
-                    Calculation Problem and a Reflexive Traveling Salesman Problem
-                    (RTSP). We also discuss analogies to physical principles, carefully
-                    noting the scope and limitations of the RCS model, particularly
-                    using ND-RCS for quantum mechanics.</li>
-                <li>Define and formally prove the existence of a distinct form of
-                    computational undecidability, termed Reflexive Undecidability, which
-                    arises specifically from the dynamic state changes inherent in both
-                    D-RCS and ND-RCS models when interacting with a suitable
-                    computational device (Persistent Interactive Turing Machines).</li>
-            </ol>
-
-            <h2>1.2 Scope and Significance</h2>
-            <p>This work focuses on the logical structure and computational
-                consequences of embedded, outcome-dependent interaction as modeled by
-                RCSs. It aims to provide a rigorous foundation for analyzing systems
-                exhibiting such dynamics, distinct from but related to existing models
-                of interactive computation.</p>
-
-            <p>To concretely illustrate the concept of reflexivity that we will
-                formalize, consider a system that evolves based on observations made of
-                it. For instance, imagine a route-planning problem where each road
-                chosen by a traveler immediately affects the traffic conditions on other
-                roads in ways that depend on which specific road was traversed. Any
-                algorithm attempting to find an optimal route must account for how its
-                own choices dynamically alter the problem instance. This reflexive
-                coupling between observation/action and system transformation creates a
-                fundamentally different computational challenge than traditional static
-                problems, regardless of whether the traffic changes follow deterministic
-                or probabilistic patterns.</p>
-
-
+            <h2>1. Limits That Come from Interaction</h2>
+            <p>Every discipline that studies its own limits has found a version of this. In physics, measurement
+                disturbs what it measures, and the disturbance depends on the outcome obtained. In thermodynamics,
+                recording and erasing information costs energy, a fact Landauer (1961) fixed at
+                <span class="math">k<sub>B</sub>T ln 2</span> per erased bit. In computer science, Turing (1936)
+                showed that a fixed question about programs can be undecidable, and Rice (1953) extended that to
+                every non-trivial semantic property. In economics, publishing a forecast moves the market the
+                forecast is about, which Grunberg and Modigliani (1954) and Simon (1954) analysed as a problem
+                about fixed points.</p>
+            <p>These look like separate difficulties, and one structure is common to them. Information is not
+                acquired from outside the system. The acquisition is an event inside it, and the event's outcome
+                determines how the system changes. Reflexivity names that structure, and Reflexive Computational
+                Systems make it precise enough to prove things about.</p>
+            <p>A concrete case makes the target clear. A traveller plans a route through a city where each road
+                taken changes the traffic on the roads nearby, and the change depends on which road was taken. The
+                planner cannot treat the map as fixed, because the map is a function of the plan being executed.
+                This is not a harder version of an ordinary routing problem. It is a routing problem whose instance
+                is defined by the solution attempt, and the same reversal appears in measurement, in planning, and
+                in self-prediction.</p>
         </section>
-        <img src="images/reflexivity2.jpg" alt="Formalizing Reflexivity" width="1024" height="1536" decoding="async" loading="lazy">
-        <p class="caption">Universe 00110000</p>
+
+            <img src="images/reflexivity2.jpg" alt="Formalizing Reflexivity" width="1024" height="1536" decoding="async" loading="lazy">
+            <p class="caption">Universe 00110000</p>
         <section id="formalizing">
-            <h2>2. Formalizing Reflexivity: Reflexive Computational Systems</h2>
-            <p>We introduce a formal structure to model systems where interaction is
-                intrinsically and dynamically transformative based on its outcome,
-                addressing both deterministic and non-deterministic cases.</p>
+            <h2>2. Reflexive Computational Systems</h2>
 
-            <h2>2.1 Deterministic Reflexive Computational Systems</h2>
-            <p><strong>Definition 2.1 (Deterministic Reflexive Computational System).</strong> A
-                Deterministic Reflexive Computational System (D-RCS) is defined by a
-                tuple <span class="math">S = (X, Y, O, V, T)</span>, where:</p>
+            <h3>2.1 The Deterministic Case</h3>
+            <div class="theorem">
+                <p><strong>Definition 2.1 (D-RCS).</strong> A Deterministic Reflexive Computational System is a
+                    tuple <span class="math">S = (X, Y, O, V, T)</span> where <span class="math">X</span> is a
+                    non-empty set of states, <span class="math">Y</span> a non-empty set of interactions,
+                    <span class="math">O</span> a non-empty set of outcomes,
+                    <span class="math">V: X × Y → O</span> the interaction function, and
+                    <span class="math">T: X × Y × O → X</span> the transformation function. Applying
+                    <span class="math">y</span> to <span class="math">x</span> yields the outcome
+                    <span class="math">o = V(x, y)</span> and leaves the system in state
+                    <span class="math">T(x, y, o)</span>.</p>
+            </div>
+            <p>The whole content is in the third argument of <span class="math">T</span>. A transformation of the
+                form <span class="math">T(x, y)</span> would describe a system that is disturbed by being probed,
+                which is ordinary. Writing <span class="math">T(x, y, o)</span> says that the disturbance depends
+                on what the probe returned, so two runs of the same interaction that happen to yield different
+                outcomes leave the system in different places. That is the reflexive coupling, and everything below
+                follows from it.</p>
 
-            <ol style="font-size: 20px;">
-                <li><span class="math">X</span> is a non-empty set representing the possible states of the
-                    system. An element <span class="math">x ∈ X</span> denotes a specific state.</li>
-                <li><span class="math">Y</span> is a non-empty set representing potential interactions (e.g.,
-                    probes, computational steps, queries, actions) applicable to states
-                    in <span class="math">X</span>. An element <span class="math">y ∈ Y</span> denotes a specific
-                    interaction.</li>
-                <li><span class="math">O</span> is a non-empty set representing the possible outcomes or
-                    results of an interaction. An element <span class="math">o ∈ O</span> denotes a
-                    specific outcome.</li>
-                <li><span class="math">V: X × Y → O</span> is the <strong>interaction function</strong>.
-                    <span class="math">V(x, y)</span> deterministically yields the outcome <span class="math">o ∈
-                        O</span>
-                    resulting from applying interaction <span class="math">y</span> to system state <span
-                        class="math">x</span>.
-                </li>
-                <li><span class="math">T: X × Y × O → X</span> is the <strong>state
-                        transformation function</strong>. <span class="math">T(x, y, o)</span> defines the unique state
-                    <span class="math">x'</span> the system transitions into immediately following the
-                    interaction <span class="math">y</span> applied to state <span class="math">x</span> which yielded
-                    outcome <span class="math">o =
-                        V(x, y)</span>.
-                </li>
-            </ol>
+            <h3>2.2 The Non-Deterministic Case</h3>
+            <div class="theorem">
+                <p><strong>Definition 2.2 (ND-RCS).</strong> A Non-Deterministic Reflexive Computational System is
+                    a tuple <span class="math">S = (X, Y, O, V<sub>prob</sub>, T<sub>prob</sub>)</span> with
+                    <span class="math">X, Y, O</span> as above,
+                    <span class="math">V<sub>prob</sub>: X × Y → Δ(O)</span> assigning to each state and
+                    interaction a distribution over outcomes, written
+                    <span class="math">P(o | x, y)</span>, and
+                    <span class="math">T<sub>prob</sub>: X × Y × O → Δ(X)</span> assigning to each state,
+                    interaction, and realized outcome a distribution over next states, written
+                    <span class="math">P(x′ | x, y, o)</span>.</p>
+            </div>
+            <p>The coupling survives the move to distributions. The outcome is drawn first, and the distribution
+                over next states is conditioned on the outcome that was drawn. A model in which the next state
+                depended only on <span class="math">(x, y)</span> would be an ordinary Markov decision process; the
+                conditioning on <span class="math">o</span> is what keeps it reflexive.</p>
 
-            <p>The key insight in this definition is that the transformation function
-                <span class="math">T</span> depends not only on the state <span class="math">x</span> and interaction
-                <span class="math">y</span>, but
-                crucially on the outcome <span class="math">o</span> of that interaction. This creates a
-                feedback loop where interactions and their outcomes directly influence
-                the evolution of the system state.
-            </p>
+            <h3>2.3 The Cycle</h3>
+            <p>Both variants run the same loop. From state <span class="math">x</span> an interaction
+                <span class="math">y</span> produces outcome <span class="math">o</span>, deterministically through
+                <span class="math">V</span> or by sampling <span class="math">V<sub>prob</sub></span>; the outcome
+                then selects the next state through <span class="math">T</span> or by sampling
+                <span class="math">T<sub>prob</sub></span>; and the loop repeats from
+                <span class="math">x′</span>. A run is the sequence</p>
+            <pre style="font-size: 20px;">x₀ →(y₀, o₀) x₁ →(y₁, o₁) x₂ → …</pre>
+            <p>where <span class="math">o<sub>i</sub></span> is the outcome at
+                <span class="math">x<sub>i</sub></span> and
+                <span class="math">x<sub>i+1</sub> = T(x<sub>i</sub>, y<sub>i</sub>, o<sub>i</sub>)</span>.</p>
 
-            <h2>2.2 Non-Deterministic Reflexive Computational Systems</h2>
-            <p><strong>Definition 2.2 (Non-Deterministic Reflexive Computational System).</strong> A
-                Non-Deterministic Reflexive Computational System (ND-RCS) is defined by
-                a tuple <span class="math">S = (X, Y, O, V<sub>prob</sub>, T<sub>prob</sub>)</span>, where:</p>
+            <h3>2.4 Two Instances</h3>
+            <p><strong>A degrading sensor (deterministic).</strong> Let a state be a pair
+                <span class="math">(temp, acc)</span>, the true temperature and the sensor's accuracy in
+                <span class="math">[0,1]</span>, with the single interaction "measure". Let</p>
+            <pre style="font-size: 20px;">V((temp, acc), measure) = ( temp·(1 + α(1 − acc)),  β(1 − acc) )</pre>
+            <p>returning a reading biased by the accuracy shortfall together with an error estimate, and let</p>
+            <pre style="font-size: 20px;">T((temp, acc), measure, (temp_m, err)) = ( temp − γ|temp − temp_m|,  max(0, acc(1 − δ)) )</pre>
+            <p>so that the probe perturbs the temperature by an amount fixed by the reading it returned, and the
+                sensor degrades. The transformation reads <span class="math">temp<sub>m</sub></span>, a component of
+                the outcome, which is what makes the example reflexive rather than merely noisy.</p>
+            <p><strong>Projective measurement (non-deterministic).</strong> Let <span class="math">X</span> be the
+                density operators on a finite-dimensional Hilbert space, <span class="math">Y</span> a set of
+                observables, and <span class="math">O</span> the union of their spectra. For an observable
+                <span class="math">A = Σ<sub>k</sub> λ<sub>k</sub> P<sub>k</sub></span>, let</p>
+            <pre style="font-size: 20px;">P(λ_k | ρ, A) = Tr(P_k ρ)         (Born rule)
+T_prob(ρ, A, λ_k) = δ at  ρ′_k = P_k ρ P_k / Tr(P_k ρ)   when Tr(P_k ρ) &gt; 0</pre>
+            <p>which is von Neumann's (1932) measurement postulate in the form Lüders (1951) gave it. The outcome
+                is drawn from the Born distribution and the post-measurement state is determined by which outcome
+                was drawn. Quantum measurement is a reflexive system in the exact sense of Definition 2.2, and the
+                framework does not explain the Born rule, which enters here as an input.</p>
 
-            <ol style="font-size: 20px;">
-                <li><span class="math">X</span>, <span class="math">Y</span>, and <span class="math">O</span> are
-                    defined as in Definition 2.1.</li>
-                <li><span class="math">V<sub>prob</sub>: X × Y → Δ(O)</span> is the
-                    <strong>probabilistic interaction function</strong>, where <span class="math">Δ(O)</span> denotes
-                    the set of probability distributions over <span class="math">O</span>. For a state <span
-                        class="math">x
-                        ∈ X</span> and interaction <span class="math">y ∈ Y</span>, <span
-                        class="math">V<sub>prob</sub>(x, y)</span> yields a
-                    probability distribution over possible outcomes. We denote the
-                    probability of outcome <span class="math">o</span> as <span class="math">P(o | x, y) =
-                        (V<sub>prob</sub>(x,
-                        y))(o)</span>.
-                </li>
-                <li><span class="math">T<sub>prob</sub>: X × Y × O → Δ(X)</span> is the
-                    <strong>probabilistic state transformation function</strong>. For a state <span class="math">x
-                        ∈ X</span>, interaction <span class="math">y ∈ Y</span>, and outcome <span class="math">o ∈
-                        O</span>,
-                    <span class="math">T<sub>prob</sub>(x, y, o)</span> yields a probability distribution over
-                    possible next states. We denote the probability of transitioning to
-                    state <span class="math">x'</span> as <span class="math">P(x' | x, y, o) = (T<sub>prob</sub>(x, y,
-                        o))(x')</span>.
-                </li>
-            </ol>
-
-            <p>For both definitions, the core dynamic involves the inseparable coupling
-                of interaction (<span class="math">V</span> or <span class="math">V<sub>prob</sub></span>) and
-                outcome-dependent
-                transformation (<span class="math">T</span> or <span class="math">T<sub>prob</sub></span>). In the
-                deterministic case, any
-                interaction <span class="math">y</span> applied to state <span class="math">x</span> determines a unique
-                outcome <span class="math">o
-                    = V(x, y)</span> and simultaneously triggers a unique state transition <span class="math">x'
-                    = T(x, y, o)</span>. In the non-deterministic case, an interaction yields a
-                probability distribution over outcomes, and each realized outcome <span class="math">o</span>
-                leads to a probability distribution over next states.</p>
-
-            <h2>2.3 Operational Cycle</h2>
-            <p>The operational cycle of both deterministic and non-deterministic RCSs follows this pattern:</p>
-
-            <p style="font-size: 18px; margin: 20px 40px; line-height: 1.6;">
-                The interaction-transformation cycle in an RCS follows a circular pattern: State(x) → [via interaction
-                y] → Interaction function(V/V<sub>prob</sub>) → [producing outcome o] → Transformation
-                function(T/T<sub>prob</sub>) → [resulting in new state x'] → back to State. Each interaction y applied
-                to state x produces outcome o (deterministically or via distribution V<sub>prob</sub>), which then
-                determines the state transformation to x' (deterministically via T or via distribution
-                T<sub>prob</sub>).
-            </p>
-            <h2>2.4 Illustrative Examples</h2>
-            <p>To provide intuition for these abstract definitions, we present two
-                concrete examples of RCS models.</p>
-
-            <h2>2.4.1 Deterministic Example: Degrading Sensor</h2>
-            <p><strong>Example 2.1 (Deterministic: Degrading Sensor):</strong> Consider a simplified
-                model of a sensor measuring temperature, where each measurement slightly
-                affects both the object's temperature and the sensor's internal state
-                (e.g., accuracy), and the reported measurement has a deterministic bias
-                dependent on this state.</p>
-
-            <p><em>Formal Definition (D-RCS):</em></p>
-
-            <ul style="font-size: 20px;">
-                <li><span class="math">X = ℝ × [0,1]</span>: Each state <span class="math">x =
-                        (temp<sub>actual</sub>, acc<sub>sensor</sub>)</span> represents the object's actual
-                    temperature and the sensor's accuracy metric (0 to 1).</li>
-                <li><span class="math">Y = {"measure"}</span>: The only interaction is measurement.</li>
-                <li><span class="math">O = ℝ × ℝ<sub>≥ 0</sub></span>: Each outcome <span class="math">o =
-                        (temp<sub>measured</sub>, error<sub>estimated</sub>)</span> represents the measured
-                    temperature and a non-negative estimated error magnitude.</li>
-                <li><span class="math">V: X × Y → O</span>. Let <span class="math">x = (temp, acc)</span>. Define
-                    <span class="math">V(x, "measure") = (temp · (1 + α(1-acc)),
-                        β(1-acc))</span> for some non-negative constants <span class="math">α,
-                        β</span>. This yields the outcome tuple <span class="math">o = (temp<sub>measured</sub>,
-                        error<sub>estimated</sub>)</span>.
-                </li>
-                <li><span class="math">T: X × Y × O → X</span>. Let <span class="math">x = (temp,
-                        acc)</span>, <span class="math">y = "measure"</span>, and let the outcome be <span
-                        class="math">o =
-                        (temp<sub>m</sub>, err<sub>est</sub>) = V(x,y)</span>. Define <span class="math">T(x, y, o) =
-                        (temp -
-                        γ |temp - temp<sub>m</sub>|, max(0, acc · (1-δ)))</span>
-                    for small positive constants <span class="math">γ, δ</span>. The
-                    transformation affects the actual temperature based on the
-                    measurement disturbance (related to <span class="math">temp_m</span>, a component of the
-                    outcome <span class="math">o</span>) and degrades the sensor accuracy.</li>
-            </ul>
-
-            <p>In this example, every measurement not only produces a biased reading
-                but also alters both the temperature being measured and the sensor's
-                accuracy for future measurements. The degree of alteration depends
-                directly on the outcome of each measurement, creating a reflexive
-                feedback loop.</p>
-
-            <h2>2.4.2 Non-Deterministic Example: Quantum Measurement</h2>
-            <p><strong>Example 2.2 (Non-Deterministic: Quantum Measurement):</strong> Consider a
-                model of projective quantum measurement on a finite-dimensional Hilbert
-                space <span class="math">ℋ</span>.</p>
-
-            <p><em>Formal Definition (ND-RCS):</em></p>
-
-            <ul style="font-size: 20px;">
-                <li><span class="math">X = 𝒟(ℋ)</span>: The set of density matrices
-                    (positive semi-definite operators with trace 1) on <span class="math">ℋ</span>.</li>
-                <li><span class="math">Y = {A<sub>1</sub>, A<sub>2</sub>, …, A<sub>n</sub>}</span>: A set of quantum
-                    observables
-                    (Hermitian operators on <span class="math">ℋ</span>).</li>
-                <li><span class="math">O = ⋃<sub>i=1</sub><sup>n</sup> spec(A<sub>i</sub>)</span>: The set of all
-                    possible eigenvalues (measurement outcomes) for the observables in
-                    <span class="math">Y</span>.
-                </li>
-                <li><span class="math">V<sub>prob</sub>: X × Y → Δ(O)</span>. For a state
-                    <span class="math">ρ ∈ X</span> and observable <span class="math">A ∈ Y</span> with spectral
-                    decomposition <span class="math">A = ∑<sub>k</sub> λ<sub>k</sub> P<sub>k</sub></span> (where <span
-                        class="math">P<sub>k</sub></span> is
-                    the projector onto the eigenspace for eigenvalue <span class="math">λ<sub>k</sub></span>),
-                    the probability distribution over outcomes <span class="math">O</span> is given by the
-                    Born rule: <span class="math">(V<sub>prob</sub>(ρ, A))(λ<sub>k</sub>) = Tr(P<sub>k</sub>
-                        ρ)</span>. This defines the probability <span class="math">P(λ<sub>k</sub> | ρ, A)</span>
-                    of measuring outcome <span class="math">λ<sub>k</sub></span>.
-                </li>
-                <li><span class="math">T<sub>prob</sub>: X × Y × O → Δ(X)</span>. For a
-                    state <span class="math">ρ</span>, observable <span class="math">A</span>, and outcome <span
-                        class="math">λ<sub>k</sub> ∈
-                        spec(A)</span>, if the probability of this outcome <span class="math">P(λ<sub>k</sub>
-                        | ρ, A) = Tr(P<sub>k</sub> ρ)</span> is greater than zero, then
-                    the probabilistic state transformation yields a probability
-                    distribution concentrated at the post-measurement state
-                    <span class="math">ρ'<sub>k</sub></span>: <span class="math">(T<sub>prob</sub>(ρ, A, λ<sub>k</sub>))
-                        =
-                        δ<sub>ρ'<sub>k</sub></sub></span>, where <span class="math">ρ'<sub>k</sub> = P<sub>k</sub> ρ
-                        P<sub>k</sub>/Tr(P<sub>k</sub> ρ)</span>. This means <span class="math">P(ρ'<sub>k</sub> | ρ,
-                        A, λ<sub>k</sub>) = 1</span>. If <span class="math">Tr(P<sub>k</sub> ρ) = 0</span>, the outcome
-                    <span class="math">λ<sub>k</sub></span> is impossible, and this transformation path is not
-                    taken.
-                </li>
-            </ul>
-
-            <p>The overall process <span class="math">ρ</span> <span class="math-op">→</span><sub><span
-                        class="math">A</span></sub> <span class="math">(λ<sub>k</sub>, ρ′<sub>k</sub>)</span> is
-                non-deterministic because the outcome <span class="math">λ<sub>k</sub></span> is selected
-                probabilistically according to <span class="math">V<sub>prob</sub></span>, which in turn determines the
-                specific (but unique given <span class="math">λ<sub>k</sub></span>) post-measurement state <span
-                    class="math">ρ′<sub>k</sub></span>. This example illustrates how quantum measurement naturally fits
-                the ND-RCS framework, with the probabilistic nature of measurement outcomes (<span
-                    class="math">V<sub>prob</sub></span>) and the state collapse that depends on the specific outcome
-                observed (<span class="math">T<sub>prob</sub></span>).</p>
-            <h2>2.5 Contrast with Classical Computation</h2>
-            <p>Classical computation, exemplified by Turing Machines, operates on a
-                static input string <span class="math">w</span>. The machine configuration changes, but the
-                input <span class="math">w</span> itself does not evolve due to the computation. Similarly, in
-                complexity theory (e.g., NP verification), a static problem instance
-                <span class="math">x</span> is checked against a static certificate <span class="math">y</span> using a
-                fixed
-                predicate <span class="math">V<sub>NP</sub>(x, y)</span>. Neither <span class="math">x</span> nor <span
-                    class="math">y</span> changes during the
-                verification step.
-            </p>
-
-            <p>RCSs differ fundamentally: the "state" <span class="math">x</span> (which might encode a
-                problem instance or system configuration) evolves dynamically (<span class="math">x
-                    → x'</span>) as a direct, outcome-dependent consequence of the
-                interaction (<span class="math">y</span>, <span class="math">V/V<sub>prob</sub></span>, <span
-                    class="math">T/T<sub>prob</sub></span>) itself. In
-                ND-RCSs, this evolution is probabilistic. Both systems align
-                conceptually more closely with models of interactive computation where
-                the environment or system state is not static.</p>
+            <h3>2.5 What Makes This Different from Ordinary Computation</h3>
+            <p>A Turing machine reads a fixed input. The machine's configuration changes as it runs and the input
+                string does not, so a question about the input has an answer that stays put while the machine looks
+                for it. Verification in complexity theory has the same character: an instance and a certificate are
+                both static, and checking them changes neither.</p>
+            <p>In a reflexive system the object under examination evolves as a consequence of the examination, and
+                the direction of that evolution depends on what the examination returned. This places the framework
+                among models of interactive computation, where a machine exchanges values with an environment over
+                time rather than consuming a fixed input. Wegner (1997) argued that interaction changes what
+                computation means, and Goldin and colleagues (2004) gave the model used below: persistent Turing machines, which retain their configuration between interactions. Reflexivity adds
+                one requirement to that setting, that the environment's transition depends on the outcome it
+                returned, and the results below come from that requirement.</p>
         </section>
 
         <section id="mechanism">
-            <h2>3. The Mechanism: Interaction-Alteration Cycle and Logical Barriers</h2>
-            <p>The core dynamic in both D-RCS and ND-RCS generates specific challenges
-                for any process interacting with such a system, especially when the goal
-                pertains to properties of an initial state <span class="math">x<sub>0</sub></span> or achieving a stable
-                outcome.</p>
+            <h2>3. Three Consequences of the Cycle</h2>
+            <p>Three results follow from the coupling alone, before any question of decidability arises. Each says
+                what an observer interacting with such a system can and cannot come to know.</p>
 
-            <h2>3.1 Sequential Interaction Process</h2>
-            <p>Consider a sequence of interactions with an RCS, starting from state
-                <span class="math">x<sub>0</sub></span>:
-            </p>
+            <h3>3.1 Prior States Can Be Unrecoverable</h3>
+            <div class="theorem">
+                <p><strong>Lemma 3.1.</strong> (a) Let <span class="math">S</span> be a D-RCS, fix
+                    <span class="math">(y, o)</span>, and let
+                    <span class="math">X<sub>pre</sub> = {x ∈ X : V(x, y) = o}</span>. If the map
+                    <span class="math">x ↦ T(x, y, o)</span> is not injective on
+                    <span class="math">X<sub>pre</sub></span>, then the post-interaction state together with
+                    <span class="math">(y, o)</span> does not determine the pre-interaction state. (b) Let
+                    <span class="math">S</span> be an ND-RCS. If for distinct
+                    <span class="math">x<sub>1</sub>, x<sub>2</sub></span> the supports of
+                    <span class="math">T<sub>prob</sub>(x<sub>1</sub>, y, o)</span> and
+                    <span class="math">T<sub>prob</sub>(x<sub>2</sub>, y, o)</span> intersect, then observing a
+                    state in the intersection with <span class="math">(y, o)</span> does not determine which
+                    preceded it.</p>
+            </div>
+            <div class="proof">
+                <p><strong>Proof.</strong> (a) Non-injectivity gives distinct
+                    <span class="math">x<sub>1</sub>, x<sub>2</sub> ∈ X<sub>pre</sub></span> with
+                    <span class="math">T(x<sub>1</sub>, y, o) = T(x<sub>2</sub>, y, o) = x′</span>. Both are
+                    consistent with the record <span class="math">(x′, y, o)</span>, so the record does not
+                    distinguish them. (b) Let <span class="math">x′</span> lie in both supports. Then
+                    <span class="math">P(x′ | x<sub>1</sub>, y, o) &gt; 0</span> and
+                    <span class="math">P(x′ | x<sub>2</sub>, y, o) &gt; 0</span>, so both predecessors have
+                    positive likelihood given the record. ∎</p>
+            </div>
+            <p>The condition is a hypothesis about the system and not a theorem about all of them. A reflexive
+                system whose transformations are injective loses nothing, which is why the condition appears
+                explicitly wherever the loss is claimed.</p>
 
+            <h3>3.2 Information Describes the State the Interaction Produced</h3>
+            <div class="theorem">
+                <p><strong>Lemma 3.2.</strong> In a run <span class="math">x<sub>0</sub>, …,
+                        x<sub>n</sub></span>, the outcome
+                    <span class="math">o<sub>n</sub> = V(x<sub>n</sub>, y<sub>n</sub>)</span> is a function of
+                    <span class="math">x<sub>n</sub></span> and <span class="math">y<sub>n</sub></span> alone. In
+                    the non-deterministic case the outcome distribution
+                    <span class="math">V<sub>prob</sub>(x<sub>n</sub>, y<sub>n</sub>)</span> depends only on
+                    <span class="math">x<sub>n</sub></span> and <span class="math">y<sub>n</sub></span>. Any
+                    inference about <span class="math">x<sub>0</sub></span> from
+                    <span class="math">o<sub>n</sub></span> must therefore pass through the intervening
+                    transformations.</p>
+            </div>
+            <div class="proof">
+                <p><strong>Proof.</strong> Immediate from the signatures of <span class="math">V</span> and
+                    <span class="math">V<sub>prob</sub></span>, which take the current state as their argument.
+                    The state sequence is generated by
+                    <span class="math">x<sub>i+1</sub> = T(x<sub>i</sub>, y<sub>i</sub>, o<sub>i</sub>)</span>, so
+                    dependence on <span class="math">x<sub>0</sub></span> survives only through the composition of
+                    those maps, and Lemma 3.1 gives conditions under which the composition is not
+                    invertible. ∎</p>
+            </div>
+            <p>This is the formal content of the blood-pressure cuff. Each reading is accurate about the state it
+                found, and that state is one the reading helped bring about. Sequential measurements of quantities
+                that do not commute have the same structure: the first measurement fixes the context in which the
+                second is taken, so the pair of results describes a trajectory rather than a single prior state.
+                The uncertainty relation is proved from the Hilbert-space representation and a supplied commutator,
+                which is a separate argument, and the reflexive structure supplies the operational picture rather
+                than the inequality.</p>
+
+            <h3>3.3 No Prediction Is Stable Against a Counter-Predictive System</h3>
+            <div class="theorem">
+                <p><strong>Definition 3.3 (Counter-predictive system).</strong> A D-RCS is counter-predictive when
+                    <span class="math">Y</span> consists of predictions,
+                    <span class="math">O = {accurate, inaccurate}</span> records whether the prediction holds of
+                    the current state, and the transformation inverts that status:
+                    <span class="math">T(x, y, accurate)</span> is a state at which <span class="math">y</span> is
+                    inaccurate, and <span class="math">T(x, y, inaccurate)</span> is a state at which
+                    <span class="math">y</span> is accurate.</p>
+            </div>
+            <div class="theorem">
+                <p><strong>Lemma 3.4.</strong> In a counter-predictive D-RCS, no prediction is accurate at the
+                    state its own registration produces. Formally, for every
+                    <span class="math">x ∈ X</span> and <span class="math">y ∈ Y</span>, the outcome
+                    <span class="math">o = V(x, y)</span> and the state
+                    <span class="math">x′ = T(x, y, o)</span> satisfy: <span class="math">y</span> is accurate at
+                    <span class="math">x′</span> if and only if <span class="math">o = inaccurate</span>.</p>
+            </div>
+            <div class="proof">
+                <p><strong>Proof.</strong> Both cases are given by Definition 3.3. If
+                    <span class="math">o = accurate</span> then <span class="math">x′ = T(x, y, accurate)</span>,
+                    at which <span class="math">y</span> is inaccurate. If
+                    <span class="math">o = inaccurate</span> then <span class="math">x′ = T(x, y,
+                        inaccurate)</span>, at which <span class="math">y</span> is accurate. ∎</p>
+            </div>
+            <p>The registered outcome and the resulting state always disagree, so the pair
+                <span class="math">(o, x′)</span> is never consistent. This is the fixed-point failure at the
+                centre of the framework, and Section 5 turns it into a statement about machines.</p>
+
+            <h3>3.4 The Probabilistic Version</h3>
+            <p>Softening the prediction into a probability does not restore stability. Let
+                <span class="math">p(x, y) = P(accurate | x, y)</span> be the chance that
+                <span class="math">y</span> holds at <span class="math">x</span>, and suppose the transformation
+                drives that chance the other way: for some
+                <span class="math">δ<sub>1</sub>, δ<sub>2</sub> &gt; 0</span>,</p>
+            <pre style="font-size: 20px;">E[ p(x′, y) | x, y, accurate ]   ≤ p(x, y) − δ₁
+E[ p(x′, y) | x, y, inaccurate ] ≥ p(x, y) + δ₂</pre>
+            <div class="theorem">
+                <p><strong>Lemma 3.5.</strong> Under these conditions the endpoints are repelled. Writing
+                    <span class="math">p = p(x, y)</span> and
+                    <span class="math">E[p′] = p·E[p′ | accurate] + (1 − p)·E[p′ | inaccurate]</span>, at
+                    <span class="math">p = 1</span> we get
+                    <span class="math">E[p′] ≤ 1 − δ<sub>1</sub> &lt; 1</span>, and at
+                    <span class="math">p = 0</span> we get
+                    <span class="math">E[p′] ≥ δ<sub>2</sub> &gt; 0</span>. Neither certainty nor certain failure
+                    is a fixed point of the accuracy dynamics.</p>
+            </div>
+            <div class="proof">
+                <p><strong>Proof.</strong> Substitute <span class="math">p = 1</span> into the decomposition to
+                    get <span class="math">E[p′] = E[p′ | accurate]</span>, which the first condition bounds above
+                    by <span class="math">1 − δ<sub>1</sub></span>. Substitute
+                    <span class="math">p = 0</span> to get
+                    <span class="math">E[p′] = E[p′ | inaccurate]</span>, which the second condition bounds below
+                    by <span class="math">δ<sub>2</sub></span>. ∎</p>
+            </div>
+            <p>Accuracy near one decays and accuracy near zero recovers, so a predictor facing such a system
+                settles into an intermediate band. Perfect prediction and perfect anti-prediction are equally
+                unavailable, which is the probabilistic image of Lemma 3.4.</p>
+
+            <h3>3.5 What the Three Lemmas Give</h3>
             <ul style="font-size: 20px;">
-                <li><strong>Deterministic Case:</strong> <span class="math">x<sub>0</sub>
-                        <span class="arrow-notation">
-                            <span class="arrow-text">y<sub>0</sub>, o<sub>0</sub>=V(x<sub>0</sub>,y<sub>0</sub>)</span>
-                            →
-                        </span>
-                        x<sub>1</sub>=T(x<sub>0</sub>,y<sub>0</sub>,o<sub>0</sub>)
-                        <span class="arrow-notation">
-                            <span class="arrow-text">y<sub>1</sub>, o<sub>1</sub>=V(x<sub>1</sub>,y<sub>1</sub>)</span>
-                            →
-                        </span>
-                        x<sub>2</sub>=T(x<sub>1</sub>,y<sub>1</sub>,o<sub>1</sub>) → …</span>
-                </li>
-                <li><strong>Non-Deterministic Case:</strong> A trajectory <span class="math">x<sub>0</sub>,
-                        o<sub>0</sub>, x<sub>1</sub>, o<sub>1</sub>, x<sub>2</sub>,
-                        …</span> unfolds where <span class="math">o<sub>i</sub></span> is sampled from the distribution
-                    <span class="math">V<sub>prob</sub>(x<sub>i</sub>, y<sub>i</sub>)</span> and <span
-                        class="math">x<sub>i+1</sub></span> is sampled from the
-                    distribution <span class="math">T<sub>prob</sub>(x<sub>i</sub>, y<sub>i</sub>,
-                        o<sub>i</sub>)</span>.
-                </li>
+                <li>Information loss, under the non-injectivity hypothesis of Lemma 3.1.</li>
+                <li>Context shift, unconditionally, by Lemma 3.2: what an interaction reveals is a property of the
+                    state that interaction produced.</li>
+                <li>Fixed-point failure, in counter-predictive systems, by Lemmas 3.4 and 3.5.</li>
             </ul>
-
-            <p>This sequential process highlights how each interaction builds on a
-                state that has already been altered by previous interactions, creating
-                potential challenges for inference about initial states or consistent
-                predictions.</p>
-
-            <h2>3.2 Core Lemmas</h2>
-            <p>The following lemmas formalize potential difficulties arising from the
-                reflexive cycle.</p>
-
-            <p><strong>Lemma 3.1 (Potential Irrecoverability of Prior State):</strong></p>
-
-            <p>(a) <em>Deterministic Case:</em> Let <span class="math">S = (X, Y, O, V, T)</span> be a D-RCS. If
-                for some interaction <span class="math">y</span> and outcome <span class="math">o</span>, the function
-                <span class="math">T<sub>y,o</sub>(x)
-                    = T(x, y, o)</span> is not injective on the set <span class="math">X<sub>pre</sub> = {x ∈ X |
-                    V(x, y) = o}</span>, then given only the subsequent state <span class="math">x' =
-                    T<sub>y,o</sub>(x)</span> and <span class="math">(y, o)</span>, the pre-interaction state <span
-                    class="math">x</span> cannot be
-                uniquely determined.
-            </p>
-
-            <p>(b) <em>Non-Deterministic Case:</em> Let <span class="math">S = (X, Y, O, V<sub>prob</sub>,
-                    T<sub>prob</sub>)</span> be an ND-RCS. If for distinct <span class="math">x<sub>1</sub>,
-                    x<sub>2</sub> ∈ X</span> and some
-                <span class="math">(y, o)</span>, the supports of the distributions <span
-                    class="math">T<sub>prob</sub>(x<sub>1</sub>, y, o)</span>
-                and <span class="math">T<sub>prob</sub>(x<sub>2</sub>, y, o)</span> overlap, then observing a state
-                <span class="math">x'</span> in
-                the overlap and knowing <span class="math">(y, o)</span> is insufficient to uniquely determine
-                whether the pre-interaction state was <span class="math">x<sub>1</sub></span> or <span
-                    class="math">x<sub>2</sub></span>.
-            </p>
-
-            <p><em>Proof of (a):</em> By definition, non-injectivity of <span class="math">T<sub>y,o</sub></span> on
-                <span class="math">X<sub>pre</sub></span> means there exist distinct states <span
-                    class="math">x<sub>1</sub>, x<sub>2</sub> ∈
-                    X<sub>pre</sub></span> such that <span class="math">T(x<sub>1</sub>, y, o) = T(x<sub>2</sub>, y, o)
-                    = x'</span> for some
-                <span class="math">x' ∈ X</span>. Given only the post-interaction state <span class="math">x'</span> and
-                the
-                interaction-outcome pair <span class="math">(y, o)</span>, we cannot uniquely determine
-                whether the pre-interaction state was <span class="math">x<sub>1</sub></span> or <span
-                    class="math">x<sub>2</sub></span>, since both
-                would lead to the same observed <span class="math">x'</span> after interaction <span
-                    class="math">y</span> yielding
-                outcome <span class="math">o</span>. Therefore, the pre-interaction state cannot be uniquely
-                recovered.
-            </p>
-
-            <p><em>Proof of (b):</em> Let <span class="math">x'</span> be a state in the intersection of the
-                supports of <span class="math">T<sub>prob</sub>(x<sub>1</sub>, y, o)</span> and <span
-                    class="math">T<sub>prob</sub>(x<sub>2</sub>, y, o)</span>. This
-                means that: <span class="math">P(x' | x<sub>1</sub>, y, o) > 0</span> and <span class="math">P(x' |
-                    x<sub>2</sub>, y, o) > 0</span></p>
-
-            <p>If we observe the post-interaction state <span class="math">x'</span> and know the
-                interaction-outcome pair <span class="math">(y, o)</span>, we cannot uniquely determine
-                whether the pre-interaction state was <span class="math">x<sub>1</sub></span> or <span
-                    class="math">x<sub>2</sub></span>. Both states
-                have non-zero probability of transitioning to <span class="math">x'</span> after interaction
-                <span class="math">y</span> yielding outcome <span class="math">o</span>. Therefore, the pre-interaction
-                state
-                cannot be uniquely identified.
-            </p>
-
-            <p><strong>Lemma 3.2 (Information Context Shift):</strong></p>
-
-            <p>(a) <em>Deterministic Case:</em> Let <span class="math">S = (X, Y, O, V, T)</span> be a D-RCS.
-                After <span class="math">n</span> interactions generating state sequence
-                <span class="math">x<span class="math-sub">0</span> <span class="math-arrow">→</span>
-                    … <span class="math-arrow">→</span> x<span class="math-sub">n</span></span>,
-                the <span class="math">(n+1)</span>-th interaction <span class="math">y<span
-                        class="math-sub">n</span></span> operates
-                on <span class="math">x<span class="math-sub">n</span></span>, yielding
-                <span class="math">o<span class="math-sub">n</span> = V(x<span class="math-sub">n</span>, y<span
-                        class="math-sub">n</span>)</span>
-                which provides direct information about <span class="math">x<span class="math-sub">n</span></span>,
-                not <span class="math">x<span class="math-sub">0</span></span>.
-            </p>
-
-            <p>(b) <em>Non-Deterministic Case:</em> Let <span class="math">S = (X, Y, O, V<sub>prob</sub>,
-                    T<sub>prob</sub>)</span> be an ND-RCS. After <span class="math">n</span> interactions resulting in
-                state
-                <span class="math">x<sub>n</sub></span>, the outcome distribution <span
-                    class="math">V<sub>prob</sub>(x<sub>n</sub>, y<sub>n</sub>)</span> depends only
-                on <span class="math">x<sub>n</sub></span>, providing direct probabilistic information about <span
-                    class="math">x<sub>n</sub></span>,
-                not <span class="math">x<sub>0</sub></span>.
-            </p>
-
-            <p><em>Proof of (a):</em> We proceed by induction on the sequence of states. After
-                the first interaction <span class="math">y<sub>0</sub></span> with initial state <span
-                    class="math">x<sub>0</sub></span>, we have <span class="math">o<sub>0</sub>
-                    = V(x<sub>0</sub>, y<sub>0</sub>)</span> and <span class="math">x<sub>1</sub> = T(x<sub>0</sub>,
-                    y<sub>0</sub>, o<sub>0</sub>)</span>. Now, for the second
-                interaction <span class="math">y<sub>1</sub></span>, we have <span class="math">o<sub>1</sub> =
-                    V(x<sub>1</sub>, y<sub>1</sub>)</span>, which depends only
-                on <span class="math">x<sub>1</sub></span> (not directly on <span class="math">x<sub>0</sub></span>).
-            </p>
-
-            <p>Assuming the claim holds for <span class="math">n</span> interactions, the <span
-                    class="math">(n+1)</span>-th
-                interaction <span class="math">y<sub>n</sub></span> yields <span class="math">o<sub>n</sub> =
-                    V(x<sub>n</sub>, y<sub>n</sub>)</span>, which, by definition
-                of <span class="math">V</span>, depends only on the current state <span
-                    class="math">x<sub>n</sub></span> and the interaction
-                <span class="math">y<sub>n</sub></span>. Therefore, <span class="math">o<sub>n</sub></span> provides
-                direct information about <span class="math">x<sub>n</sub></span>,
-                not about the initial state <span class="math">x<sub>0</sub></span> or any intermediate state.
-            </p>
-
-            <p><em>Proof of (b):</em> In the non-deterministic case, the state evolution <span
-                    class="math">x<sub>0</sub> → … → x<sub>n</sub></span> forms a Markov chain, where each state depends
-                only on the immediately preceding state and the interaction-outcome pair. After <span
-                    class="math">n</span> interactions, the distribution of possible outcomes for the next interaction
-                <span class="math">y<sub>n</sub></span> is given by <span class="math">V<sub>prob</sub>(x<sub>n</sub>,
-                    y<sub>n</sub>)</span>, which, by definition, depends only on the current state <span
-                    class="math">x<sub>n</sub></span> and the interaction <span class="math">y<sub>n</sub></span>.
-            </p>
-
-            <p>This means that the probabilities <span class="math">P(o | x<sub>n</sub>, y<sub>n</sub>)</span> for
-                various
-                outcomes <span class="math">o</span> provide direct probabilistic information about <span
-                    class="math">x<sub>n</sub></span>,
-                not about the initial state <span class="math">x<sub>0</sub></span> or any intermediate state. The
-                Markov property ensures that the current state <span class="math">x<sub>n</sub></span> encapsulates all
-                relevant information for predicting future outcomes and state
-                transitions.</p>
-
-            <p><strong>Lemma 3.3 (Logical Regress in Self-Prediction):</strong></p>
-
-            <p>(a) <em>Deterministic Case:</em> Let <span class="math">S</span> be a D-RCS where <span
-                    class="math">Y</span> includes
-                predictions and <span class="math">O = {"accurate", "inaccurate"}</span>. If <span class="math">T</span>
-                implements a strict counter-predictive dynamic (<span class="math">T(x, y,
-                    "accurate") → x'</span> where <span class="math">y</span> is inaccurate for
-                state <span class="math">x'</span>; <span class="math">T(x, y, "inaccurate") → x''</span>
-                where
-                <span class="math">y</span> is accurate for state <span class="math">x''</span>), then no prediction
-                <span class="math">y</span> can yield a
-                stable, self-consistent outcome.
-            </p>
-
-            <p>(b) <em>Non-Deterministic Case:</em> Let <span class="math">S</span> be an ND-RCS with the same
-                prediction setup. Let <span class="math">p(x, y)</span> be the probability that prediction
-                <span class="math">y</span> is accurate in state <span class="math">x</span>, i.e., <span
-                    class="math">p(x, y) =
-                    P("accurate" | x, y)</span>. If <span class="math">T<sub>prob</sub></span> implements a
-                counter-predictive dynamic such that for some <span class="math">ε > 0</span> and for
-                all <span class="math">p ∈ (ε, 1-ε)</span>: (i) <span class="math">𝔼[p(x', y) |
-                    x, y, "accurate"] ≤ p(x, y) - δ<sub>1</sub></span> for some
-                <span class="math">δ<sub>1</sub> > 0</span> (ii) <span class="math">𝔼[p(x', y) | x, y,
-                    "inaccurate"] ≥ p(x, y) + δ<sub>2</sub></span> for some
-                <span class="math">δ<sub>2</sub> > 0</span> Then, predictions cannot stably maintain very high
-                (<span class="math">p ≈ 1</span>) or very low (<span class="math">p ≈ 0</span>) accuracy.
-            </p>
-
-            <p><em>Proof of (a):</em> Assume that there exists a prediction <span class="math">y</span> that yields
-                a stable, self-consistent outcome for some state <span class="math">x</span>. There are two
-                possibilities for the outcome of this prediction:</p>
-
-            <p><em>Case 1:</em> <span class="math">V(x, y) = "accurate"</span> This means the prediction
-                <span class="math">y</span> is accurate for state <span class="math">x</span>. However, the
-                transformation function
-                <span class="math">T</span> then generates a new state <span class="math">x' = T(x, y,
-                    "accurate")</span>
-                where, by assumption, <span class="math">y</span> is inaccurate. This contradicts the
-                stability assumption, as the outcome of the prediction is not consistent
-                with the resulting state.
-            </p>
-
-            <p><em>Case 2:</em> <span class="math">V(x, y) = "inaccurate"</span> This means the prediction
-                <span class="math">y</span> is inaccurate for state <span class="math">x</span>. However, the
-                transformation
-                function <span class="math">T</span> then generates a new state <span class="math">x'' = T(x, y,
-                    "inaccurate")</span> where, by assumption, <span class="math">y</span> is accurate. This
-                again contradicts the stability assumption.
-            </p>
-
-            <p>Therefore, no prediction <span class="math">y</span> can yield a stable, self-consistent
-                outcome under the given counter-predictive dynamic.</p>
-
-            <p><em>Proof of (b):</em> We analyze the expected accuracy of prediction <span class="math">y</span> in
-                the next state, given the current state <span class="math">x</span> and the counter-predictive
-                dynamics described by conditions (i) and (ii).</p>
-
-            <p>The expected accuracy in the next state can be expressed as:
-                <span class="math">𝔼[p(x', y)] = p(x, y) · 𝔼[p(x', y) | x,
-                    y, "accurate"] + (1 - p(x, y)) · 𝔼[p(x', y)
-                    | x, y, "inaccurate"]</span>
-            </p>
-
-            <p>Let's consider two extreme cases:</p>
-
-            <ol style="font-size: 20px;">
-                <li>If <span class="math">p(x, y) ≈ 1</span> (highly accurate prediction), then:
-                    <span class="math">𝔼[p(x', y)] ≈ 1 · 𝔼[p(x', y)
-                        | x, y, "accurate"] + 0 · 𝔼[p(x', y) |
-                        x, y, "inaccurate"]</span> <span class="math">𝔼[p(x', y)] ≈
-                        𝔼[p(x', y) | x, y, "accurate"]</span><br>
-
-                    By condition (i), we know that <span class="math">𝔼[p(x', y) | x, y,
-                        "accurate"] ≤ p(x, y) - δ<sub>1</sub></span>, which means:
-                    <span class="math">𝔼[p(x', y)] ≤ p(x, y) - δ<sub>1</sub>
-                        < p(x, y)</span><br>
-
-                            Thus, if the prediction is highly accurate, the expected accuracy
-                            tends to decrease.
-                </li>
-
-                <li>If <span class="math">p(x, y) ≈ 0</span> (highly inaccurate prediction), then:
-                    <span class="math">𝔼[p(x', y)] ≈ 0 · 𝔼[p(x', y)
-                        | x, y, "accurate"] + 1 · 𝔼[p(x', y) |
-                        x, y, "inaccurate"]</span> <span class="math">𝔼[p(x', y)] ≈
-                        𝔼[p(x', y) | x, y, "inaccurate"]</span><br>
-
-                    By condition (ii), we know that <span class="math">𝔼[p(x', y) | x, y,
-                        "inaccurate"] ≥ p(x, y) + δ<sub>2</sub></span>, which means:
-                    <span class="math">𝔼[p(x', y)] ≥ p(x, y) + δ<sub>2</sub> > p(x, y)</span><br>
-
-                    Thus, if the prediction is highly inaccurate, the expected accuracy
-                    tends to increase.
-                </li>
-            </ol>
-
-            <p>These dynamics push the accuracy probability <span class="math">p(x, y)</span> away from the
-                extremes of 0 and 1, preventing stable perfect prediction or
-                anti-prediction. Instead, the accuracy probability will tend to
-                fluctuate within some intermediate range.</p>
-
-            <h2>3.3 Foundational Barriers</h2>
-            <p>These lemmas highlight key barriers inherent in RCSs:</p>
-
-            <ol style="font-size: 20px;">
-                <li><strong>Irreversibility/Information Loss:</strong> Prior states may be
-                    unrecoverable (Lemma 3.1), meaning that interactions with an RCS can
-                    lead to information loss about previous states.</li>
-                <li><strong>Context Shift:</strong> Information gained through interaction applies to
-                    an already-changed state, not the original state (Lemma 3.2),
-                    creating a fundamental challenge for knowledge acquisition about
-                    initial conditions.</li>
-                <li><strong>Circularity/Regress:</strong> Solving certain problems (e.g., <a
-                        href="self-referential.html"
-                        style="text-decoration: none; border-bottom: 1px solid transparent; transition: border-bottom 0.3s;"
-                        onmouseover="this.style.borderBottomColor='black';"
-                        onmouseout="this.style.borderBottomColor='transparent';">making an
-                        accurate prediction</a>) may require information that is altered or made
-                    unstable by the act of solving itself (Lemma 3.3), leading to
-                    logical circularity.</li>
-            </ol>
-
-
-            <p>These barriers are inherent consequences of the outcome-dependent
-                interaction cycle and can be amplified by non-determinism. They suggest
-                fundamental limits on our ability to gain stable knowledge about or
-                control over reflexive systems through interaction.</p>
+            <p>The first two constrain what can be learned; the third constrains what can be settled. Section 5
+                shows that the third is the one that yields a limit classical undecidability does not already
+                cover.</p>
         </section>
-        <img src="images/reflexivity1.jpg" alt="Illustrations of Reflexivity" width="1024" height="1536" decoding="async" loading="lazy">
-        <p class="caption">Universe 00110000</p>
+
+            <img src="images/reflexivity1.jpg" alt="Illustrations of Reflexivity" width="1024" height="1536" decoding="async" loading="lazy">
+            <p class="caption">Universe 00110000</p>
         <section id="manifestations">
-            <h2>4. Manifestations and Illustrations of Reflexivity</h2>
-            <p>The RCS framework provides a formal structure potentially relevant for
-                modeling aspects of various phenomena across different domains. In this
-                section, we explore how reflexivity manifests in physics, economics, and
-                computational problems.</p>
+            <h2>4. Where the Structure Appears</h2>
 
-            <h2>4.1 Physical Limits as Manifestations of Reflexivity</h2>
-            <p>ND-RCSs naturally model quantum measurement, while both deterministic
-                and non-deterministic variants offer structural insights into
-                thermodynamic principles.</p>
+            <h3>4.1 Measurement</h3>
+            <p>Section 2.4 already exhibits projective measurement as an ND-RCS. The observer effect is the
+                dependence of <span class="math">T<sub>prob</sub></span> on the outcome drawn from
+                <span class="math">V<sub>prob</sub></span>, and successive measurements of incompatible observables
+                instantiate Lemma 3.2, since the second acts on the state the first produced. The framework
+                supplies the operational shape of these facts. It does not derive the Born rule, the commutator, or
+                the uncertainty relation, each of which requires the Hilbert-space structure as a separate
+                input.</p>
 
-            <h2>4.1.1 Quantum Measurement (ND-RCS)</h2>
-            <p>As shown in Example 2.2, quantum measurement can be modeled within the
-                ND-RCS framework. The Born rule (<span class="math">V<sub>prob</sub></span>) determines the
-                probability distribution of measurement outcomes, while the state
-                projection (<span class="math">T<sub>prob</sub></span>) accounts for the post-measurement state
-                update.</p>
+            <h3>4.2 Irreversibility and the Cost of Records</h3>
+            <p>Reversing a process to reach a specific earlier microstate requires knowing that microstate, and
+                knowledge of it is obtained by interactions that form a reflexive cycle. Lemma 3.1 gives conditions
+                under which those interactions destroy the distinctions needed, and Lemma 3.2 says the information
+                obtained describes a later state. This is a constraint on the epistemic route to reversal, and it
+                is not a proof that reversal is physically impossible: the second law is established by other
+                arguments, and the reflexive account describes why an observer inside the process cannot assemble
+                what reversal would require.</p>
+            <p>Where a transformation is logically irreversible, in the deterministic case a non-injective
+                <span class="math">T</span> and in the probabilistic case a
+                <span class="math">T<sub>prob</sub></span> that mixes distinct predecessors, its physical
+                implementation obeys Landauer's (1961) bound of
+                <span class="math">k<sub>B</sub>T ln 2</span> per erased bit, analysed further by Bennett (1982).
+                A demon that sorts molecules must record outcomes and reset its memory, and those steps carry the
+                cost, which is the reflexive reading of why the demon buys no free work. Whether a given RCS erases
+                anything is a property of the specific <span class="math">T</span>, so the thermodynamic
+                consequence attaches to systems that are shown to be non-injective and not to reflexivity in
+                general.</p>
 
-            <p>The Observer Effect in quantum mechanics - where measurement unavoidably
-                disturbs the system being measured - corresponds to the <span class="math">T<sub>prob</sub></span>
-                step being dependent on the outcome <span class="math">o</span> from <span
-                    class="math">V<sub>prob</sub></span>. This
-                outcome-dependent transformation is a direct manifestation of
-                reflexivity.</p>
+            <h3>4.3 Economic Calculation</h3>
+            <p>Mises (1920) and Hayek (1945) argued that a central planner lacks access to knowledge that only
+                prices reveal. There is a second obstacle of a computational kind, and it is reflexive. Model the
+                economy as a D-RCS whose state <span class="math">(R, P, U, C)</span> records resources,
+                production possibilities, utilities, and the planner's remaining computational budget. Let
+                interactions be candidate plans, let
+                <span class="math">V(x, A) = (feasible, metrics, C<sub>A</sub>)</span> evaluate a plan and report
+                the cost of evaluating it, and let
+                <span class="math">T(x, A, o)</span> deduct <span class="math">C<sub>A</sub></span> from the
+                budget.</p>
+            <p>An optimal plan has to account for the cost of its own selection, and that cost is known only after
+                the evaluation that consumes it. By Lemma 3.2 each evaluation reports on a state whose budget has
+                already been reduced by earlier evaluations, so the planner never evaluates plans against the
+                resources actually available at the moment of choosing. The knowledge problem and the computational
+                problem are independent, and this model addresses the second.</p>
 
-            <p>The Uncertainty Principle, stating limits on the simultaneous precision
-                of measurements for non-commuting observables (<span class="math">[A,B] ≠ 0</span>), is
-                structurally related to the situation described by Lemma 3.2 (Context
-                Shift). Measuring observable <span class="math">A</span> transforms the state via
-                <span class="math">T<sub>prob</sub>(ρ, A, o<sub>A</sub>)</span> (dependent on the random outcome <span
-                    class="math">o<sub>A</sub></span>),
-                and a subsequent measurement of <span class="math">B</span> acts on this altered state. The
-                state transformation inherent in the first measurement changes the
-                context for the second measurement, limiting the information obtainable
-                about <span class="math">B</span>'s value relative to the initial state <span class="math">ρ</span>. The
-                RCS
-                framework thus provides a structural analogy for how sequential,
-                state-altering measurements lead to such fundamental limitations.
-            </p>
-
-            <h2>4.1.2 Thermodynamic Irreversibility / Arrow of Time</h2>
-            <p>Reversing a complex physical process to reach a specific past microstate
-                <span class="math">x<sub>0</sub></span> requires knowledge of <span class="math">x<sub>0</sub></span>,
-                which can only be obtained
-                through measurements (interactions <span class="math">y<sub>i</sub></span>). These measurements form an
-                RCS cycle (<span class="math">x<sub>i</sub> → y<sub>i</sub> → o<sub>i</sub> →
-                    x<sub>i+1</sub></span>) subject to:
-            </p>
-
-            <ol style="font-size: 20px;">
-                <li>Lemma 3.1 (irrecoverability/information loss), which is amplified by
-                    either quantum randomness or classical coarse-graining</li>
-                <li>Lemma 3.2 (context shift), which means each measurement provides
-                    information about the current state, not the initial state</li>
-            </ol>
-
-            <p>Perfect knowledge required for reversal would need to overcome the
-                information loss and context shift despite the interaction process
-                itself causing physical divergence or information loss, creating a
-                fundamental obstruction to reversal. This reinforces the temporal
-                asymmetry known as <a href="time.html"
-                    style="text-decoration: none; border-bottom: 1px solid transparent; transition: border-bottom 0.3s;"
-                    onmouseover="this.style.borderBottomColor='black';"
-                    onmouseout="this.style.borderBottomColor='transparent';">the arrow of time</a>.</p>
-
-            <h2>4.1.3 Landauer's Principle</h2>
-            <p>Logically irreversible transformations within the RCS cycle correspond
-                to information erasure as described in Lemma 3.1. This occurs when:</p>
-
-            <ul style="font-size: 20px;">
-                <li>The transformation function <span class="math">T</span> is non-injective in the
-                    deterministic case</li>
-                <li>The probabilistic transformation function <span class="math">T<sub>prob</sub></span> leads to
-                    state mixing in the non-deterministic case</li>
-            </ul>
-
-            <p>Landauer's principle dictates a minimum thermodynamic cost (<span class="math">≥ k<sub>B</sub>
-                    T ln 2</span> per bit erased) for the physical implementation of such
-                transformations. This connects the logical structure of reflexivity to
-                fundamental physical limits on information processing.</p>
-
-
-
-            <p>The information processing steps (storing outcome <span class="math">o</span>, resetting
-                memory) incur thermodynamic costs via Landauer's principle, offsetting
-                any entropy reduction from the demon's sorting activities. This
-                provides a reflexive perspective on why the demon cannot violate the
-                second law of thermodynamics.</p>
-
-            <h2>4.2 Economics: Computational Aspects of the Economic Calculation Problem (ECP)</h2>
-            <p>The Economic Calculation Problem (ECP) highlights difficulties in
-                centralized economic planning. The RCS framework can model computational
-                resource limits inherent in this problem.</p>
-
-            <h2>4.2.1 RCS Mapping for Economic Planning</h2>
-            <p>We can formalize aspects of the ECP using a D-RCS model (though an
-                ND-RCS could be used for uncertain evaluation costs or outcomes):</p>
-
-            <ul style="font-size: 20px;">
-                <li><strong>State space <span class="math">X</span>:</strong> States of the economy <span
-                        class="math">(R, P, U, C)</span>
-                    including:
-                    <ul>
-                        <li><span class="math">R</span>: Available resources</li>
-                        <li><span class="math">P</span>: Production possibilities</li>
-                        <li><span class="math">U</span>: Utility functions</li>
-                        <li><span class="math">C</span>: Computational resources available to the central planner</li>
-                    </ul>
-                </li>
-                <li><strong>Interaction space <span class="math">Y</span>:</strong> Candidate economic plans <span
-                        class="math">A</span> that the
-                    central planner evaluates</li>
-                <li><strong>Outcome space <span class="math">O</span>:</strong> Evaluation outcomes <span
-                        class="math">(status, metrics,
-                        C<sub>A</sub>)</span> including:
-                    <ul>
-                        <li><span class="math">status</span>: Whether the plan is feasible</li>
-                        <li><span class="math">metrics</span>: Predicted efficiency/utility of the plan</li>
-                        <li><span class="math">C<sub>A</sub></span>: Computational cost expended to evaluate the plan
-                        </li>
-                    </ul>
-                </li>
-                <li><strong>Interaction function <span class="math">V(x, A)</span>:</strong> Evaluate plan <span
-                        class="math">A</span> given
-                    state <span class="math">x</span>, yielding outcome <span class="math">o = (status, metrics,
-                        C<sub>A</sub>)</span></li>
-                <li><strong>Transformation function <span class="math">T(x, A, o)</span>:</strong> Update state,
-                    primarily
-                    reducing computational resources: <span class="math">C' = C - C<sub>A</sub></span></li>
-            </ul>
-
-            <h2>4.2.2 Reflexive Limit in Economic Planning</h2>
-            <p>Finding the optimal economic plan <span class="math">A^*</span> requires evaluating many
-                candidate plans. Each evaluation <span class="math">V(x, A)</span> consumes computational
-                resources <span class="math">C<sub>A</sub></span>, transforming the state via <span
-                    class="math">T</span> to <span class="math">x'</span> with
-                reduced computational resources <span class="math">C'</span>.</p>
-
-            <p>The optimal plan <span class="math">A^*</span> should account for its own evaluation cost
-                <span class="math">C<sub>A^*</sub></span>, but <span class="math">C<sub>A^*</sub></span> is only known
-                after evaluation, using
-                resources that depend on prior evaluations. This creates a regress: the
-                act of finding the optimal resource allocation itself consumes the
-                resources being allocated.
-            </p>
-
-            <p>This reflexive structure provides a computational perspective on why
-                centralized planning faces inherent computational barriers beyond just
-                knowledge problems. The process of computing optimal allocations is
-                itself resource-consuming in a way that cannot be perfectly anticipated.</p>
-
-            <h2>4.3 Computation: The Reflexive Traveling Salesman Problem (RTSP)</h2>
-            <p>We introduce a variant of the classical Traveling Salesman Problem where
-                traversing an edge dynamically modifies subsequent edge costs,
-                illustrating reflexivity in computational problems.</p>
-
-            <h2>4.3.1 Formal Definitions</h2>
-            <p><strong>Definition 4.1 (Deterministic Reflexive Traveling Salesman Problem):</strong>
-                A D-RTSP instance is defined by a tuple <span class="math">(C, d<sub>0</sub>, τ)</span>, where:</p>
-
-            <ul style="font-size: 20px;">
-                <li><span class="math">C</span> is a set of cities (vertices)</li>
-                <li><span class="math">d<sub>0</sub></span> is an initial distance function (edge costs)</li>
-                <li><span class="math">τ: D × E → D</span> is a deterministic rule
-                    updating the distance function <span class="math">d ∈ D</span> after traversing edge
-                    <span class="math">e ∈ E</span>
-                </li>
-            </ul>
-
-            <p><strong>Definition 4.2 (Non-Deterministic Reflexive Traveling Salesman
-                    Problem):</strong> An ND-RTSP instance is defined by a tuple <span class="math">(C, d<sub>0</sub>,
-                    τ<sub>prob</sub>)</span>, where:</p>
-
-            <ul style="font-size: 20px;">
-                <li><span class="math">C</span> and <span class="math">d<sub>0</sub></span> are as in Definition 4.1
-                </li>
-                <li><span class="math">τ<sub>prob</sub>: D × E → Δ(D)</span> gives a
-                    probability distribution over next distance functions after
-                    traversing edge <span class="math">e</span></li>
-            </ul>
-
-            <p><strong>Goal:</strong> Find a Hamiltonian cycle <span class="math">π = (v<sub>1</sub>, …, v<sub>n</sub>,
-                    v<sub>1</sub>)</span>
-                minimizing total distance <span class="math">D(π) = ∑<sub>i=1</sub><sup>n</sup>
-                    d<sub>i</sub>(v<sub>i</sub>,
-                    v<sub>i+1</sub>)</span>, where each <span class="math">d<sub>i+1</sub></span> is determined by the
-                transformation
-                rule:</p>
-
-            <ul style="font-size: 20px;">
-                <li>For D-RTSP: <span class="math">d<sub>i+1</sub> = τ(d<sub>i</sub>, (v<sub>i</sub>,
-                        v<sub>i+1</sub>))</span></li>
-                <li>For ND-RTSP: <span class="math">d<sub>i+1</sub></span> is sampled from <span
-                        class="math">τ<sub>prob</sub>(d<sub>i</sub>, (v<sub>i</sub>,
-                        v<sub>i+1</sub>))</span></li>
-            </ul>
-
-            <p>For ND-RTSP, we typically aim to minimize the expected total distance
-                <span class="math">𝔼[D(π)]</span>.
-            </p>
-
-            <h2>4.3.2 Examples</h2>
-            <p><strong>Example 4.1 (D-RTSP with Congestion):</strong> In this example, traversing an
-                edge increases the costs of edges adjacent to its endpoints, modeling
-                traffic congestion:</p>
-
-            <ul style="font-size: 20px;">
-                <li><span class="math">τ(d, (u,v))</span> increases costs of edges <span class="math">(v,w)</span> and
-                    <span class="math">(u,w)</span>
-                    for all vertices <span class="math">w ≠ u,v</span>
-                </li>
-            </ul>
-
-            <p><strong>Example 4.2 (ND-RTSP with Unpredictable Congestion):</strong> In this
-                example, traversing an edge probabilistically affects other edge costs:</p>
-
-            <ul style="font-size: 20px;">
-                <li><span class="math">τ<sub>prob</sub>(d, (u,v))</span> gives a distribution of distance
-                    functions where costs of adjacent edges increase with varying
-                    probabilities and magnitudes</li>
-            </ul>
-
-            <h2>4.3.3 RTSP as an RCS</h2>
-            <p>The Reflexive Traveling Salesman Problem can be directly mapped to the
-                RCS framework:</p>
-
-            <p><strong>D-RTSP maps to D-RCS:</strong></p>
-
-            <ul style="font-size: 20px;">
-                <li>State space <span class="math">X = D</span> (the set of all possible distance functions)</li>
-                <li>Interaction space <span class="math">Y = E</span> (the set of edges)</li>
-                <li>Outcome space <span class="math">O = ℝ<sup>+</sup></span> (edge costs)</li>
-                <li>Interaction function <span class="math">V(d,e) = d(e)</span> (cost of edge <span
-                        class="math">e</span> under
-                    distance function <span class="math">d</span>)</li>
-                <li>Transformation function <span class="math">T(d,e,cost) = τ(d,e)</span> (updated
-                    distance function)</li>
-            </ul>
-
-            <p><strong>ND-RTSP maps to ND-RCS:</strong></p>
-
-            <ul style="font-size: 20px;">
-                <li>State space <span class="math">X = D</span></li>
-                <li>Interaction space <span class="math">Y = E</span></li>
-                <li>Outcome space <span class="math">O = ℝ<sup>+</sup></span></li>
-                <li>Interaction function <span class="math">V<sub>prob</sub>(d,e)</span> gives cost <span
-                        class="math">d(e)</span> with
-                    probability 1 (deterministic in this mapping)</li>
-                <li>Transformation function <span class="math">T<sub>prob</sub>(d,e,cost) = τ<sub>prob</sub>(d,e)</span>
-                    (distribution over updated distance functions)</li>
-            </ul>
-
-            <p>The non-determinism in this ND-RCS mapping arises solely from the
-                probabilistic state transformation <span class="math">T<sub>prob</sub></span> determined by
-                <span class="math">τ<sub>prob</sub></span>.
-            </p>
-
-            <h2>4.3.4 Computational Complexity Considerations</h2>
-            <p>The standard Traveling Salesman Problem is NP-hard. The reflexive nature
-                of RTSP introduces additional complexity:</p>
-
-            <ol style="font-size: 20px;">
-                <li>While standard TSP involves searching a static graph, RTSP involves
-                    searching a dynamically changing landscape where past choices
-                    influence future costs.</li>
-                <li>The transformation rule (<span class="math">τ</span> or <span class="math">τ<sub>prob</sub></span>)
-                    creates a
-                    dependency on the history of interactions, requiring algorithms to
-                    anticipate the consequences of their choices on the evolving state
-                    space.</li>
-                <li>For computable transformations, D-RTSP is decidable (by exploring
-                    all <span class="math">n!</span> possible tours and simulating the transformations).
-                    However, the computational resources required may be significantly
-                    higher than for standard TSP.</li>
-                <li>The precise complexity classification of D-RTSP and ND-RTSP under
-                    various restrictions on <span class="math">τ</span> and <span class="math">τ<sub>prob</sub></span>
-                    remains an
-                    open research question. However, the reflexive structure strongly
-                    suggests complexity beyond NP for many non-trivial transformation
-                    rules.</li>
-            </ol>
-
-            <p>This example illustrates how reflexivity can significantly alter the
-                nature of computational problems, introducing dependencies between
-                solution steps that fundamentally change the problem structure.</p>
+            <h3>4.4 Routing on a Map That Reacts</h3>
+            <div class="theorem">
+                <p><strong>Definition 4.1 (D-RTSP).</strong> An instance is a triple
+                    <span class="math">(C, d<sub>0</sub>, τ)</span> of cities, an initial distance function, and an
+                    update rule <span class="math">τ: D × E → D</span> that revises distances after an edge is
+                    traversed. A tour <span class="math">π = (v<sub>1</sub>, …, v<sub>n</sub>,
+                        v<sub>1</sub>)</span> has cost
+                    <span class="math">Σ<sub>i</sub> d<sub>i</sub>(v<sub>i</sub>, v<sub>i+1</sub>)</span> where
+                    <span class="math">d<sub>i+1</sub> = τ(d<sub>i</sub>, (v<sub>i</sub>,
+                        v<sub>i+1</sub>))</span>. The non-deterministic variant replaces
+                    <span class="math">τ</span> by <span class="math">τ<sub>prob</sub>: D × E → Δ(D)</span> and
+                    minimizes expected cost.</p>
+            </div>
+            <p>The mapping to Definition 2.1 is direct: states are distance functions, interactions are edges,
+                outcomes are the costs incurred, and <span class="math">T(d, e, cost) = τ(d, e)</span>. A
+                congestion rule that raises the cost of edges adjacent to the one just used gives the traffic
+                example of Section 1.</p>
+            <div class="theorem">
+                <p><strong>Proposition 4.2.</strong> Let <span class="math">τ</span> be computable in polynomial
+                    time and let all costs stay bounded by a polynomial in the instance size. Then deciding whether
+                    a D-RTSP instance admits a tour of cost at most <span class="math">B</span> is NP-complete.</p>
+            </div>
+            <div class="proof">
+                <p><strong>Proof.</strong> Membership: a tour is a certificate of size
+                    <span class="math">n</span>, and verifying it requires <span class="math">n</span> evaluations
+                    of <span class="math">τ</span> and a sum of <span class="math">n</span> costs, all in
+                    polynomial time. Hardness: take <span class="math">τ(d, e) = d</span>, which is the identity
+                    update and satisfies the hypotheses. Every instance of the travelling salesman decision
+                    problem, NP-complete by Karp (1972), is then a D-RTSP instance with the same answer. ∎</p>
+            </div>
+            <p>The proposition locates the phenomenon. Reflexivity is not a hardness property, which is why a
+                deterministic reactive map sits in the same class as a static one, and the limits it does impose
+                are limits on settlement rather than on computation &mdash; which is what Theorem 5.5 proves.
+                In the non-deterministic variant the expected cost of a single fixed tour is a sum over
+                exponentially many trajectories of the update rule, so it need not be computable in polynomial
+                time, and the decision problem is not known to lie in NP. The same reversal appears in the
+                Canadian traveller problem of Papadimitriou and Yannakakis (1991), where edge costs are revealed as
+                the traveller arrives, and where the adaptive version is PSPACE-complete. Time-dependent and
+                dynamic vehicle routing, surveyed by Psaraftis (1995), studies the case where the map changes on a
+                schedule rather than in response to the route.</p>
         </section>
 
         <section id="undecidability">
-            <h2>5. Reflexive Undecidability</h2>
-            <p>The dynamic interaction-alteration cycle motivates exploring whether
-                reflexivity itself can be a source of computational undecidability
-                distinct from traditional forms of undecidability.</p>
+            <h2>5. Two Undecidability Results</h2>
+            <p>Two limits arise for machines interacting with these systems, and they have different sources. The
+                first fixes a question in advance and reduces the halting problem to it. The second lets the
+                question depend on the probe, and it is the one that does not reduce to any static result.</p>
 
-            <h2>5.1 Formalizing Interactive Computation: Persistent Interactive Turing Machines</h2>
-            <p>To model algorithms interacting with RCSs, we define Persistent
-                Interactive Turing Machines (PITMs) that maintain state between
-                interactions.</p>
-            <p><strong>Definition 5.1 (Persistent Interactive Turing Machine - PITM).</strong> A
-                PITM <span class="math">M = (Q, Σ, Γ, δ, q<sub>0</sub>, q<sub>accept</sub>,
-                    q<sub>reject</sub>)</span> is a Turing machine with:</p>
+            <h3>5.1 Machines That Persist Between Interactions</h3>
+            <div class="theorem">
+                <p><strong>Definition 5.1 (PITM).</strong> A persistent interactive Turing machine is a Turing
+                    machine with two additional head actions, <span class="math">O</span> to emit an interaction
+                    request and <span class="math">I</span> to receive the resulting outcome, whose configuration,
+                    tape, and head position persist across interactions. A PITM is coupled to an RCS: emitting
+                    <span class="math">y</span> applies <span class="math">V</span> and <span class="math">T</span>
+                    to the system's current state, and the outcome is delivered to the machine's pending
+                    <span class="math">I</span>.</p>
+            </div>
+            <p>This is the persistent Turing machine of Goldin and colleagues (2004), coupled to an environment
+                that transforms according to the outcomes it returns.</p>
+            <div class="theorem">
+                <p><strong>Definition 5.2 (Deciding a property).</strong> A PITM <span class="math">M</span>
+                    decides a property <span class="math">Π</span> on a family <span class="math">F</span> of RCSs
+                    when, for every <span class="math">S ∈ F</span> and admissible initial state
+                    <span class="math">x<sub>0</sub></span>, the coupled run halts, and accepts exactly when
+                    <span class="math">Π(S, x<sub>0</sub>)</span> holds.</p>
+            </div>
 
+            <h3>5.2 A Fixed Property That No Machine Decides</h3>
+            <div class="theorem">
+                <p><strong>Theorem 5.3.</strong> There is a computable family of D-RCSs and a property
+                    <span class="math">TERM</span>, fixed independently of any decider, such that no PITM decides
+                    <span class="math">TERM</span> on the family.</p>
+            </div>
+            <div class="proof">
+                <p><strong>Proof.</strong> For a Turing machine code <span class="math">e</span> and input
+                    <span class="math">w</span>, define the D-RCS
+                    <span class="math">S<sub>e,w</sub></span> with states the configurations of
+                    <span class="math">e</span> on <span class="math">w</span>, interactions
+                    <span class="math">Y = {step, read}</span>, and outcomes
+                    <span class="math">O = {running, halted}</span>. Let
+                    <span class="math">V(x, step) = halted</span> when <span class="math">x</span> is a halting
+                    configuration and <span class="math">running</span> otherwise; let
+                    <span class="math">T(x, step, running)</span> be the successor configuration and
+                    <span class="math">T(x, step, halted) = x</span>; and let <span class="math">read</span> return
+                    the last outcome and leave the state fixed. The transformation consults the outcome, so this is
+                    a D-RCS in the sense of Definition 2.1, and the map
+                    <span class="math">(e, w) ↦ S<sub>e,w</sub></span> is computable.</p>
+                <p>Define <span class="math">TERM(S, x<sub>0</sub>)</span> to hold when some finite sequence of
+                    <span class="math">step</span> interactions yields the outcome
+                    <span class="math">halted</span>. By construction
+                    <span class="math">TERM(S<sub>e,w</sub>, x<sub>0</sub>)</span> holds exactly when
+                    <span class="math">e</span> halts on <span class="math">w</span>. A PITM deciding
+                    <span class="math">TERM</span> on the family would, given <span class="math">(e, w)</span>,
+                    construct <span class="math">S<sub>e,w</sub></span> and decide halting, which Turing (1936)
+                    excludes. ∎</p>
+            </div>
+            <p>Randomization with bounded error does not help, provided the machine's resources are bounded in a
+                way that keeps its behaviour enumerable.</p>
+            <div class="theorem">
+                <p><strong>Theorem 5.4.</strong> Take the point-mass ND-RCS versions of the same family, in which
+                    every outcome and transition has probability one. Fix a rational
+                    <span class="math">0 &lt; ε &lt; 1/2</span>. No probabilistic PITM with a computable finite
+                    runtime bound, and with computable finite supports carrying rational probabilities, decides
+                    <span class="math">TERM</span> on the family with success probability at least
+                    <span class="math">1/2 + ε</span>.</p>
+            </div>
+            <div class="proof">
+                <p><strong>Proof.</strong> The runtime bound makes the machine's interaction tree finite, and the
+                    supports and probabilities are computable rationals, so the acceptance probability on a given
+                    instance is computed exactly by enumerating the tree. Under the assumed success rate,
+                    acceptance probability exceeds <span class="math">1/2</span> on terminating instances and falls
+                    below it otherwise. Computing that probability and comparing it with
+                    <span class="math">1/2</span> would decide halting. ∎</p>
+            </div>
+            <p>What Theorems 5.3 and 5.4 establish is that the interactive setting inherits classical
+                undecidability rather than escaping it. The property is fixed before any decider is considered,
+                and the strength of the result comes from the halting problem. This is worth stating because the
+                interesting limit is the next one, and it is a different limit.</p>
+
+            <h3>5.3 A Question That No Interaction Can Settle</h3>
+            <p>Now let the question concern a prediction, and let the system be built to react to it. The
+                obstruction changes character: nothing is undecidable in the classical sense, and instead no answer
+                survives the act of obtaining it.</p>
+            <div class="theorem">
+                <p><strong>Theorem 5.5 (No stable verification).</strong> Let <span class="math">S</span> be a
+                    counter-predictive D-RCS in the sense of Definition 3.3, and let <span class="math">M</span> be
+                    a PITM whose run issues at least one prediction interaction and halts. Let
+                    <span class="math">y</span> be the last prediction <span class="math">M</span> issues,
+                    <span class="math">o</span> the outcome recorded for it, and <span class="math">x′</span> the
+                    state in which the run ends. Then <span class="math">y</span> is accurate at
+                    <span class="math">x′</span> exactly when
+                    <span class="math">o = inaccurate</span>. No PITM halts with a recorded verification that
+                    agrees with the state it leaves behind.</p>
+            </div>
+            <div class="proof">
+                <p><strong>Proof.</strong> Since <span class="math">y</span> is the last prediction issued, no
+                    further prediction interaction occurs after it, so the state at the end of the run is
+                    <span class="math">x′ = T(x, y, o)</span> for the state <span class="math">x</span> at which
+                    <span class="math">y</span> was issued, possibly followed by interactions that Definition 3.3
+                    leaves the prediction's status unchanged under. Lemma 3.4 gives the inversion directly. ∎</p>
+            </div>
+            <div class="theorem">
+                <p><strong>Corollary 5.6.</strong> For counter-predictive systems there is no protocol that
+                    determines whether a prediction holds at the end of the protocol by testing that prediction.
+                    Every such test inverts the property it tests.</p>
+            </div>
+            <p>The difference from Section 5.2 is the source of the difficulty. There the property was fixed and
+                the machine could not compute it. Here the machine computes something exactly, records it
+                correctly, and the record is false of the world the recording produced. No amount of computation
+                repairs this, because computation is not what is missing.</p>
+
+            <h3>5.4 Which Limit Is Which</h3>
+            <p>The two results are worth keeping apart, because they are often merged.</p>
             <ul style="font-size: 20px;">
-                <li>Standard components: states <span class="math">Q</span>, input alphabet <span class="math">Σ</span>,
-                    tape
-                    alphabet <span class="math">Γ</span>, initial state <span class="math">q<sub>0</sub></span>, and
-                    halting states
-                    <span class="math">q<sub>accept</sub></span> and <span class="math">q<sub>reject</sub></span>.
-                </li>
-                <li>Transition function <span class="math">δ: (Q ∖ {q<sub>accept</sub>,
-                        q<sub>reject</sub>}) × Γ → Q × Γ ×
-                        {L, R, I, O}</span>.</li>
-                <li>Actions: <span class="math">L/R</span> (move tape head left/right), <span class="math">I</span>
-                    (request input
-                    from RCS), <span class="math">O</span> (output interaction request <span class="math">y</span> to
-                    RCS).</li>
-                <li><strong>Persistence:</strong> <span class="math">M</span>'s configuration (state, tape, head
-                    position)
-                    persists between interactions.</li>
-                <li><strong>Coupling:</strong> <span class="math">M</span> interacts with an RCS <span
-                        class="math">S</span>. When <span class="math">M</span> outputs
-                    an interaction request <span class="math">y</span> (using action <span class="math">O</span>), this
-                    triggers
-                    <span class="math">S</span>'s interaction function <span class="math">V/V<sub>prob</sub></span> and
-                    transformation
-                    function <span class="math">T/T<sub>prob</sub></span>. <span class="math">S</span> then provides the
-                    outcome <span class="math">o</span> to
-                    <span class="math">M</span> in response to its pending <span class="math">I</span> action.
-                </li>
+                <li><strong>Fixed property, uniform decider excluded.</strong> Theorems 5.3 and 5.4 fix
+                    <span class="math">TERM</span> in advance and rule out a total decider on the family. The
+                    construction is a reduction, the limit is classical, and interaction is the setting rather than
+                    the cause.</li>
+                <li><strong>Live property, no stable answer.</strong> Theorem 5.5 lets the property depend on the
+                    probe. The limit is a fixed-point failure of the kind Lemma 3.4 describes, and it does not
+                    follow from the halting problem or from Rice's (1953) theorem, both of which concern properties
+                    fixed before the decider is chosen.</li>
             </ul>
-
-            <p>PITMs extend standard Turing Machines with persistence and interactive
-                capabilities, allowing them to maintain state between interactions with
-                an RCS and to engage in a sequential dialogue of interactions and
-                responses.</p>
-
-            <h2>5.2 Defining Reflexive Undecidability</h2>
-            <p><strong>Definition 5.2 (Reflexively Undecidable Problem).</strong> A computational
-                problem <span class="math">P</span> concerning properties of a class of D-RCS or ND-RCS is
-                Reflexively Undecidable if no PITM <span class="math">M</span> exists that, when interacting
-                with any RCS <span class="math">S</span> from the class starting in any valid state <span
-                    class="math">x<sub>0</sub></span>,
-                is guaranteed to:</p>
-
-            <ol style="font-size: 20px;">
-                <li>Halt in either <span class="math">q<sub>accept</sub></span> or <span
-                        class="math">q<sub>reject</sub></span>.</li>
-                <li>Correctly decide the property <span class="math">P</span> about <span class="math">S</span>
-                    (relative to <span class="math">x<sub>0</sub></span>
-                    or its evolution).</li>
-            </ol>
-
-            <p>The undecidability must arise fundamentally from the
-                interaction-alteration cycle preventing <span class="math">M</span> from converging to a
-                stable, correct answer due to the system's state reacting to <span class="math">M</span>'s
-                interactions.</p>
-
-            <p>This definition emphasizes that Reflexive Undecidability arises
-                specifically from the dynamic, interaction-driven evolution of the
-                system state, as opposed to classical undecidability that stems from
-                static self-reference applied to fixed inputs.</p>
-
-            <h2>5.3 Existence of Reflexively Undecidable Problems</h2>
-            <p>We now prove the existence of Reflexively Undecidable problems through
-                diagonalization arguments for both deterministic and non-deterministic
-                settings.</p>
-
-            <p><strong>Theorem 5.1 (Existence of Deterministic Reflexively Undecidable
-                    Problems).</strong> There exist Reflexively Undecidable problems for PITMs
-                interacting with D-RCSs.</p>
-
-            <p><em>Proof:</em></p>
-
-            <ol style="font-size: 20px;">
-                <li><strong>Construct D-RCS <span class="math">S<sub>DDiag</sub> = (X, Y, O, V, T)</span>:</strong>
-                    <ul>
-                        <li><strong>State space <span class="math">X</span>:</strong> States <span class="math">x =
-                                (⟨M⟩,
-                                config<sub>sim</sub>, flag)</span>, where:
-                            <ul>
-                                <li><span class="math">⟨M⟩</span> is the encoding of a PITM</li>
-                                <li><span class="math">config<sub>sim</sub></span> is its simulated configuration (tape
-                                    content, state, head position)</li>
-                                <li><span class="math">flag ∈ {UNKNOWN, FORCE_HALT, FORCE_LOOP}</span> (initially
-                                    <span class="math">UNKNOWN</span>)
-                                </li>
-                            </ul>
-                        </li>
-                        <li><strong>Interaction space <span class="math">Y</span>:</strong> Interactions <span
-                                class="math">y ∈
-                                {step, predict_halt, predict_loop}</span></li>
-                        <li><strong>Outcome space <span class="math">O</span>:</strong> Outcomes <span class="math">o ∈
-                                {ack,
-                                step_ok, sim_halted, invalid}</span></li>
-                        <li><strong>Interaction function <span class="math">V(x, y)</span>:</strong> Deterministic
-                            outcome
-                            based on current state and interaction:
-                            <ul>
-                                <li>If <span class="math">y=step</span>:
-                                    <ul>
-                                        <li>If <span class="math">flag = FORCE_HALT</span> or <span
-                                                class="math">config<sub>sim</sub></span> is
-                                            in a halting state → <span class="math">sim_halted</span></li>
-                                        <li>If <span class="math">flag = FORCE_LOOP</span> → <span
-                                                class="math">step_ok</span></li>
-                                        <li>If <span class="math">flag = UNKNOWN</span> and <span
-                                                class="math">config<sub>sim</sub></span> is
-                                            not in a halting state → <span class="math">step_ok</span></li>
-                                        <li>Otherwise → <span class="math">invalid</span></li>
-                                    </ul>
-                                </li>
-                                <li>If <span class="math">y=predict_halt</span> or <span
-                                        class="math">y=predict_loop</span>
-                                    → <span class="math">ack</span></li>
-                            </ul>
-                        </li>
-                        <li><strong>Transformation function <span class="math">T(x, y, o)</span>:</strong> Deterministic
-                            state
-                            transformation function. Let <span class="math">x = (⟨M⟩, config,
-                                flag)</span>:
-                            <ul>
-                                <li>If <span class="math">y=step</span> and <span class="math">o=step_ok</span>:
-                                    <ul>
-                                        <li>If <span class="math">flag=UNKNOWN</span>, update <span
-                                                class="math">config</span> by one
-                                            step of <span class="math">M</span></li>
-                                        <li>If <span class="math">flag=FORCE_LOOP</span>, update <span
-                                                class="math">config</span> to a
-                                            fixed looping pattern</li>
-                                        <li>Flag remains unchanged</li>
-                                    </ul>
-                                </li>
-                                <li>If <span class="math">y=predict_halt</span> and <span class="math">o=ack</span>:
-                                    <ul>
-                                        <li>Set <span class="math">flag</span> to <span class="math">FORCE_LOOP</span>
-                                        </li>
-                                        <li>Optionally update <span class="math">config</span> to a canonical loop start
-                                        </li>
-                                    </ul>
-                                </li>
-                                <li>If <span class="math">y=predict_loop</span> and <span class="math">o=ack</span>:
-                                    <ul>
-                                        <li>Set <span class="math">flag</span> to <span class="math">FORCE_HALT</span>
-                                        </li>
-                                        <li>Optionally update <span class="math">config</span> to a canonical halt state
-                                        </li>
-                                    </ul>
-                                </li>
-                                <li>For all other combinations of <span class="math">(x, y, o)</span>:
-                                    <ul>
-                                        <li>The state remains unchanged: <span class="math">T(x,y,o)=x</span></li>
-                                    </ul>
-                                </li>
-                            </ul>
-                        </li>
-                    </ul>
-                    <p>This construction defines a valid D-RCS <span class="math">S<sub>DDiag</sub></span> where
-                        prediction interactions trigger counter-predictive state
-                        transformations.</p>
-                </li>
-                <li><strong>Define Problem <span class="math">P<sub>PredictD</sub></span>:</strong> Given <span
-                        class="math">S<sub>DDiag</sub></span>
-                    initialized with <span class="math">x<sub>0</sub> = (⟨M⟩,
-                        initial_config, UNKNOWN)</span>, determine whether the <em>flag</em>
-                    will eventually become <span class="math">FORCE_HALT</span> or <span class="math">FORCE_LOOP</span>
-                    through the
-                    sequence of interactions. This captures the system's reaction to
-                    prediction attempts.</li>
-
-                <li><strong>Diagonalization Argument:</strong>
-                    <p>Assume for contradiction that a PITM solver <span class="math">S</span> exists that solves
-                        <span class="math">P<sub>PredictD</sub></span> for all <span class="math">⟨M⟩</span>. We
-                        construct a
-                        diagonal PITM <span class="math">D</span> as follows:
-                    </p>
-                    <ul>
-                        <li><span class="math">D</span> takes no input initially. It obtains its own description
-                            <span class="math">⟨D⟩</span>.
-                        </li>
-                        <li><span class="math">D</span> simulates the interaction between solver <span
-                                class="math">S</span> and the RCS
-                            <span class="math">S<sub>DDiag</sub></span> initialized with <span
-                                class="math">x<sub>D</sub> = (⟨D⟩,
-                                D's initial config, UNKNOWN)</span>.
-                        </li>
-                        <li><span class="math">D</span> relays <span class="math">S</span>'s interaction requests (<span
-                                class="math">y</span>) to the
-                            simulated <span class="math">S<sub>DDiag</sub></span>, computes the outcome <span
-                                class="math">o=V(x<sub>D</sub>, y)</span>
-                            and next state <span class="math">x'<sub>D</sub>=T(x<sub>D</sub>, y, o)</span> according to
-                            the rules
-                            defined above, updates its internal simulation state <span class="math">x<sub>D</sub>
-                                ← x'<sub>D</sub></span>, and provides the outcome <span class="math">o</span> back to
-                            the
-                            simulated <span class="math">S</span>.</li>
-                        <li><span class="math">D</span> continues this simulation until the simulated <span
-                                class="math">S</span> halts
-                            in <span class="math">q<sub>accept</sub></span> (predicting eventual <span
-                                class="math">FORCE_HALT</span>) or
-                            <span class="math">q<sub>reject</sub></span> (predicting eventual <span
-                                class="math">FORCE_LOOP</span>). By
-                            assumption, <span class="math">S</span> always halts and decides correctly.
-                        </li>
-                        <li><strong>D's Action Based on S's Output:</strong>
-                            <ul>
-                                <li>If <span class="math">S</span> accepts (predicts eventual <span
-                                        class="math">FORCE_HALT</span>), <span class="math">D</span>
-                                    enters a specific, trivial infinite loop.</li>
-                                <li>If <span class="math">S</span> rejects (predicts eventual <span
-                                        class="math">FORCE_LOOP</span>), <span class="math">D</span>
-                                    halts immediately.</li>
-                            </ul>
-                        </li>
-                    </ul>
-                </li>
-
-                <li><strong>Contradiction Analysis:</strong>
-                    <p>Consider the actual behavior of <span class="math">D</span> interacting with
-                        <span class="math">S<sub>DDiag</sub></span> initialized with <span class="math">x<sub>D</sub> =
-                            (⟨D⟩,
-                            …, UNKNOWN)</span>. The simulation inside <span class="math">D</span> perfectly mirrors
-                        this real interaction until <span class="math">S</span> halts.
-                    </p>
-                    <p><em>Case 1: Simulated <span class="math">S</span> accepts (predicts <span
-                                class="math">FORCE_HALT</span> for
-                            <span class="math">D</span>).</em></p>
-                    <p>By <span class="math">D</span>'s construction, upon receiving this prediction, the actual
-                        machine <span class="math">D</span> enters an infinite loop. For <span class="math">S</span> to
-                        reach this
-                        conclusion within the simulation, it must have interacted with the
-                        simulated <span class="math">S<sub>DDiag</sub></span>. If <span class="math">S</span> ever
-                        issued the interaction
-                        <span class="math">y=predict_halt</span>, the transition function <span class="math">T</span>
-                        of the
-                        simulated <span class="math">S<sub>DDiag</sub></span> would have set its internal flag to
-                        <span class="math">FORCE_LOOP</span>.
-                    </p>
-                    <p>Even if <span class="math">S</span> never issued <em>predict_halt</em>, its final acceptance
-                        implies it predicts the flag will become <span class="math">FORCE_HALT</span>. But
-                        <span class="math">D</span>'s reaction to this acceptance is to loop. Crucially, if <span
-                            class="math">S</span>
-                        based its prediction on interactions including <em>predict_loop</em>, this
-                        would have forced the flag to <em>FORCE_HALT</em>, seemingly consistent.
-                    </p>
-                    <p>The paradox arises because <span class="math">S</span>'s prediction <em>triggers</em> <span
-                            class="math">D</span>'s
-                        counter-action. If <span class="math">S</span> predicts HALT, <span class="math">D</span> loops.
-                        The interaction
-                        <span class="math">y=predict_halt</span> itself <em>causes</em> the system state to
-                        transition via <span class="math">T</span> towards <span class="math">FORCE_LOOP</span>. The
-                        solver <span class="math">S</span> cannot
-                        make a stable prediction: predicting HALT leads to behavior (D
-                        looping) consistent with a LOOP state potentially forced by the
-                        prediction interaction itself. <span class="math">S</span> is incorrect for input
-                        <span class="math">⟨D⟩</span>.
-                    </p>
-                    <p><em>Case 2: Simulated <span class="math">S</span> rejects (predicts <span
-                                class="math">FORCE_LOOP</span> for
-                            <span class="math">D</span>).</em></p>
-                    <p>By <span class="math">D</span>'s construction, upon receiving this prediction, the actual
-                        machine <span class="math">D</span> halts immediately. Within the simulation, if <span
-                            class="math">S</span>
-                        issued the interaction <span class="math">y=predict_loop</span>, the function
-                        <span class="math">T</span> would have set the simulated flag to <span
-                            class="math">FORCE_HALT</span>. <span class="math">S</span>'s
-                        prediction of LOOP leads <span class="math">D</span> to halt. The interaction
-                        <span class="math">y=predict_loop</span> itself causes the system state to
-                        transition via <span class="math">T</span> towards <span class="math">FORCE_HALT</span>.
-                    </p>
-                    <p>Again, <span class="math">S</span> cannot make a stable prediction: predicting LOOP leads
-                        to behavior (D halting) consistent with a HALT state potentially
-                        forced by the prediction interaction itself. <span class="math">S</span> is incorrect for
-                        input <span class="math">⟨D⟩</span>.</p>
-                </li>
-            </ol>
-
-            <p>In both cases, <span class="math">S</span> fails to correctly predict the eventual flag status
-                for machine <span class="math">D</span> because the reflexive nature of <span
-                    class="math">S<sub>DDiag</sub></span>
-                (reacting to prediction via <span class="math">T</span>) combined with <span class="math">D</span>'s
-                counter-action
-                based on <span class="math">S</span>'s output creates an unavoidable contradiction. This
-                contradicts the assumption that <span class="math">S</span> is a universal solver for
-                <span class="math">P<sub>PredictD</sub></span>. Thus, <span class="math">P<sub>PredictD</sub></span> is
-                Reflexively Undecidable.
-            </p>
-
-            <p><strong>Theorem 5.2 (Existence of Non-Deterministic Reflexively Undecidable
-                    Problems).</strong> There exist Reflexively Undecidable problems for PITMs
-                interacting with ND-RCSs.</p>
-
-            <p><em>Proof:</em></p>
-
-            <ol style="font-size: 20px;">
-                <li><strong>Construct ND-RCS <span class="math">S<sub>NDDiag</sub> = (X, Y, O, V<sub>prob</sub>,
-                            T<sub>prob</sub>)</span>:</strong>
-                    <ul>
-                        <li><strong>State space <span class="math">X</span>, Interaction space <span
-                                    class="math">Y</span>, Outcome space
-                                <span class="math">O</span>:</strong> Same as for <span
-                                class="math">S<sub>DDiag</sub></span> in Theorem 5.1, except state
-                            <span class="math">x = (⟨M⟩, config<sub>sim</sub>, flag)</span> with <span class="math">flag
-                                ∈ {UNKNOWN, HALT_LIKELY, LOOP_LIKELY}</span> (initially
-                            <span class="math">UNKNOWN</span>).
-                        </li>
-                        <li><strong>Probabilistic interaction function <span class="math">V<sub>prob</sub>(x,
-                                    y)</span>:</strong>
-                            Deterministic outcome generation. For any valid <span class="math">(x,y)</span>, there
-                            is a unique outcome <span class="math">o</span> (as defined for <span
-                                class="math">S<sub>DDiag</sub></span>) such
-                            that <span class="math">P(o|x,y)=1</span>.</li>
-                        <li><strong>Probabilistic transformation function <span class="math">T<sub>prob</sub>: X × Y
-                                    × O → Δ(X)</span>:</strong> Let <span class="math">p ∈ (1/2, 1]</span>
-                            be a fixed probability (e.g., <span class="math">p=0.75</span>). Let <span class="math">x =
-                                (⟨M
-                                ⟩, config, flag)</span>.
-                            <ul>
-                                <li>If <span class="math">y=step, o=step_ok</span>:
-                                    <ul>
-                                        <li>If <span class="math">flag=UNKNOWN</span>, update <span
-                                                class="math">config</span> by one
-                                            step of <span class="math">M</span> (deterministic transition to <span
-                                                class="math">x'</span>,
-                                            <span class="math">P(x'|x,y,o)=1</span>)
-                                        </li>
-                                        <li>If <span class="math">flag=HALT_LIKELY</span> or
-                                            <span class="math">flag=LOOP_LIKELY</span>, transition
-                                            deterministically according to some fixed simulation
-                                            rule
-                                        </li>
-                                    </ul>
-                                </li>
-                                <li>If <span class="math">y=predict_halt, o=ack</span>:
-                                    <ul>
-                                        <li>Transition to state <span class="math">x'</span> with
-                                            <span class="math">flag'=LOOP_LIKELY</span> with probability <span
-                                                class="math">p</span>
-                                        </li>
-                                        <li>Transition to state <span class="math">x''</span> with
-                                            <span class="math">flag''=HALT_LIKELY</span> with probability
-                                            <span class="math">1-p</span>
-                                        </li>
-                                        <li>That is, <span class="math">(T<sub>prob</sub>(x, y, o))(x') = p</span> and
-                                            <span class="math">(T<sub>prob</sub>(x, y, o))(x'') = 1-p</span>
-                                        </li>
-                                    </ul>
-                                </li>
-                                <li>If <span class="math">y=predict_loop, o=ack</span>:
-                                    <ul>
-                                        <li>Transition to state <span class="math">x'</span> with
-                                            <span class="math">flag'=HALT_LIKELY</span> with probability <span
-                                                class="math">p</span>
-                                        </li>
-                                        <li>Transition to state <span class="math">x''</span> with
-                                            <span class="math">flag''=LOOP_LIKELY</span> with probability
-                                            <span class="math">1-p</span>
-                                        </li>
-                                        <li>That is, <span class="math">(T<sub>prob</sub>(x, y, o))(x') = p</span> and
-                                            <span class="math">(T<sub>prob</sub>(x, y, o))(x'') = 1-p</span>
-                                        </li>
-                                    </ul>
-                                </li>
-                                <li>For all other combinations of <span class="math">(x, y, o)</span>:
-                                    <ul>
-                                        <li>The state remains unchanged, <span class="math">P(x|x,y,o)=1</span></li>
-                                    </ul>
-                                </li>
-                            </ul>
-                        </li>
-                    </ul>
-                    <p>This <span class="math">S<sub>NDDiag</sub></span> is a well-defined ND-RCS where predictive
-                        interactions probabilistically bias the system's future state
-                        indicator (<em>flag</em>).</p>
-                </li>
-
-                <li><strong>Define Problem <span class="math">P<sub>PredictND</sub></span>:</strong> Given <span
-                        class="math">S<sub>NDDiag</sub></span>
-                    initialized with <span class="math">x<sub>0</sub> = (⟨M⟩,
-                        initial_config, UNKNOWN)</span>, determine if the probability
-                    that the <em>flag</em> eventually becomes <span class="math">HALT_LIKELY</span> (across all
-                    possible interaction sequences and probabilistic transitions) is
-                    greater than <span class="math">1/2</span>.</li>
-
-                <li><strong>Diagonalization Argument:</strong>
-                    <p>Assume for contradiction that a PITM solver <span class="math">S</span> exists that solves
-                        <span class="math">P<sub>PredictND</sub></span> for all <span class="math">⟨M⟩</span>. We
-                        construct a
-                        diagonal PITM <span class="math">D</span> as follows:
-                    </p>
-                    <ul>
-                        <li><span class="math">D</span> obtains its own description <span class="math">⟨D⟩</span>.</li>
-                        <li><span class="math">D</span> simulates the interaction between the assumed solver <span
-                                class="math">S</span>
-                            and the ND-RCS <span class="math">S<sub>NDDiag</sub></span> initialized with state <span
-                                class="math">x<sub>D</sub> =
-                                (⟨D⟩, D's initial config, UNKNOWN)</span>.</li>
-                        <li><span class="math">D</span> faithfully simulates this interaction: When <span
-                                class="math">S</span> outputs
-                            an interaction request <span class="math">y</span>, <span class="math">D</span> computes the
-                            deterministic
-                            outcome <span class="math">o = V<sub>prob</sub>(x<sub>D</sub>, y)</span> (as <span
-                                class="math">V<sub>prob</sub></span> is
-                            deterministic here). <span class="math">D</span> then updates its internal simulation
-                            state <span class="math">x<sub>D</sub></span> by sampling a next state <span
-                                class="math">x'<sub>D</sub></span> according to
-                            the distribution <span class="math">T<sub>prob</sub>(x<sub>D</sub>, y, o)</span> using an
-                            internal
-                            (pseudo-)random source. <span class="math">D</span> provides the outcome <span
-                                class="math">o</span> back to
-                            the simulated <span class="math">S</span>.</li>
-                        <li><span class="math">D</span> continues this simulation until the simulated <span
-                                class="math">S</span> halts.
-                            By assumption, <span class="math">S</span> always halts and decides
-                            <span class="math">P<sub>PredictND</sub></span>. Let <span
-                                class="math">P̂<sub>H</sub></span> be the proposition
-                            "<span class="math">P(flag eventually becomes HALT_LIKELY) > 1/2</span>".
-                            <span class="math">S</span> accepts if it concludes <span class="math">P̂<sub>H</sub></span>
-                            is true, and
-                            rejects otherwise.
-                        </li>
-                        <li><strong>D's Action Upon S's Halt:</strong>
-                            <ul>
-                                <li>If <span class="math">S</span> accepts (outputs a decision indicating
-                                    <span class="math">P̂<sub>H</sub></span> is true), then the actual machine <span
-                                        class="math">D</span>
-                                    enters a specific, trivial infinite loop.
-                                </li>
-                                <li>If <span class="math">S</span> rejects (outputs a decision indicating
-                                    <span class="math">P̂<sub>H</sub></span> is false), then the actual machine <span
-                                        class="math">D</span>
-                                    halts immediately.
-                                </li>
-                            </ul>
-                        </li>
-                    </ul>
-                </li>
-
-                <li><strong>Contradiction Analysis:</strong>
-                    <p>Consider the actual behavior of <span class="math">D</span> when interacting with the real
-                        <span class="math">S<sub>NDDiag</sub></span> initialized with <span class="math">x<sub>D</sub> =
-                            (⟨D⟩,
-                            …, UNKNOWN)</span>. The simulation inside <span class="math">D</span> perfectly mirrors
-                        one possible trajectory of this real interaction until <span class="math">S</span> halts.
-                    </p>
-                    <p><em>Case 1: Simulated <span class="math">S</span> accepts (concludes <span
-                                class="math">P̂<sub>H</sub></span> is true,
-                            i.e., HALT_LIKELY is more probable).</em></p>
-                    <p>Based on this output, the actual machine <span class="math">D</span> enters an infinite
-                        loop. Consider the interactions <span class="math">S</span> must have performed to reach
-                        this conclusion. If <span class="math">S</span> issued the interaction
-                        <span class="math">y=predict_loop</span> (perhaps to test the alternative
-                        hypothesis), this interaction itself triggers <span class="math">T<sub>prob</sub></span> to
-                        transition the state of <span class="math">S<sub>NDDiag</sub></span> towards <span
-                            class="math">flag =
-                            HALT_LIKELY</span> with probability <span class="math">p > 1/2</span>. If <span
-                            class="math">S</span> issued
-                        <span class="math">y=predict_halt</span>, this biases the system towards <span class="math">flag
-                            =
-                            LOOP_LIKELY</span> with probability <span class="math">p > 1/2</span>.
-                    </p>
-                    <p>The crucial point is that <span class="math">S</span>'s act of probing the system via
-                        predictive interactions (<span class="math">y=predict_halt</span> or
-                        <span class="math">y=predict_loop</span>) actively influences the probabilistic
-                        state evolution governed by <span class="math">T<sub>prob</sub></span>. If <span
-                            class="math">S</span> concludes that
-                        HALT_LIKELY is more probable, <span class="math">D</span> responds by looping infinitely.
-                        This creates a conflict: the prediction of a halt-dominant
-                        probability leads to guaranteed looping behavior in <span class="math">D</span>. The
-                        solver <span class="math">S</span> cannot reliably determine the probability, because its
-                        interactions reflexively alter the probabilities, and its final
-                        output triggers a contradicting behavior in <span class="math">D</span>.
-                    </p>
-                    <p><em>Case 2: Simulated <span class="math">S</span> rejects (concludes <span
-                                class="math">P̂<sub>H</sub></span> is
-                            false, i.e., HALT_LIKELY is not more probable).</em></p>
-                    <p>Based on this output, the actual machine <span class="math">D</span> halts immediately.
-                        Similar to Case 1, <span class="math">S</span>'s interactions (particularly
-                        <span class="math">y=predict_halt</span> biasing towards LOOP_LIKELY, or
-                        <span class="math">y=predict_loop</span> biasing towards HALT_LIKELY) influence
-                        the system's probabilistic state via <span class="math">T<sub>prob</sub></span>. If <span
-                            class="math">S</span>
-                        concludes that HALT_LIKELY is not dominant (i.e., loop is likely or
-                        probabilities are balanced), <span class="math">D</span> responds by halting. Again, there
-                        is a conflict: the prediction of a non-halt-dominant probability
-                        leads to guaranteed halting behavior in <span class="math">D</span>.
-                    </p>
-                </li>
-            </ol>
-
-            <p>In both scenarios, the assumed solver <span class="math">S</span> fails for input <span class="math">⟨D
-                    ⟩</span>. The failure stems from the reflexive loop: <span class="math">S</span>'s
-                interactions <span class="math">y</span> with <span class="math">S<sub>NDDiag</sub></span> trigger
-                probabilistic state
-                changes via <span class="math">T<sub>prob</sub></span> that depend on the nature of the interaction
-                <span class="math">y</span>; <span class="math">S</span> attempts to predict the resulting probabilistic
-                outcome
-                (<span class="math">P̂<sub>H</sub></span>); <span class="math">D</span> then acts deterministically
-                based on <span class="math">S</span>'s
-                prediction in a way that contradicts the outcome <span class="math">S</span> predicted.
-            </p>
-
-            <p>This inherent contradiction, arising from the interaction-transformation
-                cycle even under non-determinism, demonstrates that no such universal
-                solver <span class="math">S</span> for <span class="math">P<sub>PredictND</sub></span> can exist.
-                Therefore,
-                <span class="math">P<sub>PredictND</sub></span> is Reflexively Undecidable.
-            </p>
+            <p>Wolpert (2008) proved a related bound for physical inference devices embedded in the universe they
+                measure, and reached the same conclusion by a different route: two such devices cannot be mutually
+                correct, and no device is correct about every question concerning a universe containing it. The
+                reflexive framework isolates the mechanism that forces this in the interactive case, which is the
+                dependence of the transformation on the outcome.</p>
         </section>
-        <img src="images/reflexivity3.jpg" alt="Implications" width="1024" height="1536" decoding="async" loading="lazy">
-        <p class="caption">Universe 00110000</p>
+
+            <img src="images/reflexivity3.jpg" alt="Implications" width="1024" height="1536" decoding="async" loading="lazy">
+            <p class="caption">Universe 00110000</p>
         <section id="implications">
-            <h2>6. Implications</h2>
-            <p>The principle of Reflexivity, formalized through D-RCS and ND-RCS, and
-                the existence of Reflexively Undecidable problems offer insights into
-                fundamental limits across various domains.</p>
+            <h2>6. What Follows</h2>
 
-            <h2>6.1 Foundations of Computation</h2>
-            <p>Reflexive Undecidability presents a distinct source of computational
-                limits compared to classical undecidability results:</p>
+            <h3>6.1 For Computation</h3>
+            <p>The interactive setting inherits classical undecidability, which Theorem 5.3 shows, and it also
+                carries a limit of its own, which Theorem 5.5 shows. The second matters for embedded computation,
+                where the algorithm is part of the system it analyses and its queries are events in that system.
+                An algorithm outside the system is not subject to Theorem 5.5, which is the formal reason external
+                audit is worth more than introspection.</p>
 
-            <ul style="font-size: 20px;">
-                <li><strong>Nature of the undecidability:</strong> Classical undecidability
-                    (Turing's Halting Problem) stems from static self-reference on
-                    fixed inputs. Reflexive Undecidability arises from the dynamic
-                    co-evolution of a computational process (PITM) and a system (RCS)
-                    whose state transforms based on interaction outcomes.</li>
-                <li><strong>Embedded computation:</strong> Reflexive Undecidability highlights limits
-                    inherent in embedded computation where the observer/algorithm is
-                    part of the system it analyzes, not external to it.</li>
-                <li><strong>Connection to interactive computation:</strong> While building on
-                    interactive computation paradigms (Wegner, Goldin et al.), Reflexive
-                    Undecidability provides a specific mechanism (<span class="math">T/T<sub>prob</sub></span>
-                    depends on <span class="math">o</span> from <span class="math">V/V<sub>prob</sub></span>) that
-                    generates limits within
-                    interactive settings.</li>
-                <li><strong>Persistence under non-determinism:</strong> The non-deterministic case
-                    (Theorem 5.2) shows these limits persist even under uncertainty,
-                    suggesting fundamental barriers that cannot be overcome by
-                    probabilistic approaches.</li>
-            </ul>
+            <h3>6.2 For Modelling and Control</h3>
+            <p>An agent that is part of what it models, and whose actions have consequences that depend on their
+                outcomes, cannot hold a stable complete model of the system it belongs to. Control that assumes
+                perfect prediction is therefore misspecified for this class, and control designed around margins,
+                monitoring, and revision is not. In artificial systems the point is concrete: an agent whose
+                actions change its environment, including the humans and other agents in it, changes the
+                distribution its own forecasts were fitted to, so a forecast validated before deployment is
+                evidence about a system that deployment has altered.</p>
 
-            <h2>6.2 Limits of Modeling & Control</h2>
-            <p>Reflexivity implies fundamental challenges for agents attempting to
-                perfectly model, predict, or control systems of which they are an
-                integral, interacting part, especially if interactions have significant
-                outcome-dependent consequences:</p>
+            <h3>6.3 For Social Systems</h3>
+            <p>Published forecasts change behaviour, which Merton (1948) described as the self-fulfilling
+                prophecy. The reflexive framing sharpens the question into one about fixed points. Where the
+                reaction to a forecast moves the outcome toward it, a stable published forecast can exist, which is
+                the case Grunberg and Modigliani (1954) and Simon (1954) analysed. Where the reaction moves the
+                outcome away, Lemma 3.4 applies and no stable forecast exists. Which case holds is a property of
+                the reaction function, and it is an empirical question about the particular system.</p>
 
-            <ul style="font-size: 20px;">
-                <li><strong>Prediction limits:</strong> A complete, stable predictive model may be
-                    logically impossible (Lemma 3.3, Theorems 5.1/5.2) when the act of
-                    prediction itself alters the system in outcome-dependent ways.</li>
-                <li><strong>Relevance to AI Safety:</strong> This has implications for AI Safety,
-                    where AI actions might reflexively alter the environment (including
-                    human responses or other AIs) in ways that undermine predictability
-                    or control.</li>
-                <li><strong>Control paradigms:</strong> Reflexivity suggests a shift from control
-                    based on perfect prediction to approaches that acknowledge and work
-                    with the reflexive nature of complex systems.</li>
-            </ul>
-
-            <h2>6.3 Computational Social Science</h2>
-            <p>Social systems often exhibit reflexivity where predictions and
-                interventions alter the systems themselves:</p>
-
-            <ul style="font-size: 20px;">
-
-
-                <li><strong>Formal framework:</strong> RCS provides a formal computational lens to
-                    analyze the limits of prediction and intervention in social systems,
-                    complementing sociological and economic theories by highlighting the
-                    inherent computational challenges when agents react to information
-                    generated within the system.</li>
-                <li><strong>Probabilistic modeling:</strong> ND-RCS offers a framework for modeling
-                    the probabilistic nature of social responses to interventions or
-                    predictions.</li>
-            </ul>
-
-            <h2>6.4 Physics and Information</h2>
-            <p>The RCS framework, particularly ND-RCS, provides a structural
-                perspective on limits in physics:</p>
-
-            <ul style="font-size: 20px;">
-                <li><strong>Observer Effect:</strong> The framework formalizes the
-                    interaction-outcome-transformation pattern underlying the Observer
-                    Effect.</li>
-                <li><strong>Irreversibility:</strong> RCS reinforces arguments about irreversibility
-                    and the Arrow of Time based on measurement limitations and
-                    information loss.</li>
-                <li><strong>Information-energy relationship:</strong> The connection between logical
-                    irreversibility in RCS and physical costs (Landauer) highlights the
-                    fundamental relationship between information processing and energy.</li>
-            </ul>
-
-            <p>While the RCS framework does not replace physical laws, it offers a
-                computational perspective on information-theoretic limits that align
-                with known physical constraints.</p>
+            <h3>6.4 For Physics and Information</h3>
+            <p>Reflexivity gives the common shape of measurement disturbance, the epistemic obstacles to reversal,
+                and the cost of records, without replacing the physics. The Born rule, the commutator, the second
+                law and Landauer's bound enter as the physics of each case, and what the framework supplies is
+                the structure they share: an outcome that determines how the system it was drawn from changes.
+                That structure carries consequences of its own, proved in Section 3 and applied in Section 5,
+                and they hold across every instance regardless of which physics fills it.</p>
         </section>
 
         <section id="conclusion">
             <h2>7. Conclusion</h2>
-            <p>This paper introduced Reflexivity as a formal principle governing
-                systems with outcome-dependent interaction dynamics, defining both
-                Deterministic (D-RCS) and Non-Deterministic (ND-RCS) variants. The core
-                interaction-alteration cycle (<span class="math">x → y → o
-                    → x'</span>) was shown to impose logical barriers related to
-                information stability, context, and predictability (Lemmas 3.1-3.3). We
-                illustrated the framework's relevance using examples from physics
-                (quantum mechanics via ND-RCS), economics (Economic Calculation
-                Problem), and computation (Reflexive Traveling Salesman Problem), noting
-                the computational challenges arising from the dynamic state evolution in
-                RTSP.</p>
+            <p>Reflexivity is the property that a system's transformation depends on the outcome of the
+                interaction that examined it. Reflexive Computational Systems make that precise in deterministic
+                and probabilistic forms, and three consequences follow from the coupling: prior states can be
+                unrecoverable, what an interaction reveals is a property of the state it produced, and no
+                prediction is stable against a system built to invert it.</p>
+            <p>Two limits follow for machines. Fixing a property in advance and reducing the halting problem shows
+                that interactive computation inherits classical undecidability, and randomization with bounded
+                error does not evade it. Letting the property depend on the probe shows a limit of a different
+                kind: a machine can compute correctly, record correctly, and still end holding a verification that
+                the world it produced has falsified. The first limit is about what can be computed. The second is
+                about what can be settled, and it is the one that belongs to interaction.</p>
+            <p>For systems where an observer is embedded and its interactions are transformative, the practical
+                consequence is that the goal of a stable, complete, externally verifiable account has to be
+                replaced. What remains available is exactly what Sections 3 and 5 leave standing: bounded
+                knowledge, revisable models, and predictions that are useful without being fixed points.</p>
+        </section>
 
-            <p>The central theoretical contribution is the definition and proof of
-                existence for Reflexive Undecidability in both deterministic (Theorem
-                5.1) and non-deterministic (Theorem 5.2) settings. Using diagonalization
-                arguments involving Persistent Interactive Turing Machines (PITMs)
-                interacting with specially constructed RCSs (<span class="math">S<sub>DDiag</sub></span>,
-                <span class="math">S<sub>NDDiag</sub></span>), we rigorously demonstrated that the dynamic,
-                outcome-dependent state evolution inherent in reflexivity can be a
-                source of undecidability distinct from classical, static self-reference.
-                These RCSs actively react to predictive interactions, proving that no
-                universal, halting PITM solver can exist for the associated prediction
-                problems (<span class="math">P<sub>PredictD</sub></span>, <span
-                    class="math">P<sub>PredictND</sub></span>).
-            </p>
-
-            <p>The recognition of Reflexivity compels careful consideration of the
-                inherent limits faced when observing, computing within, or controlling
-                systems where the agent is embedded and interactions are transformative.
-                For certain systems and questions, the very process of seeking an answer
-                fundamentally alters the context, precluding stable, universally
-                verifiable solutions, even under non-determinism. This framework
-                provides a rigorous basis for exploring these limits in computation,
-                artificial intelligence, economics, and potentially as an abstract
-                structural perspective relevant to other scientific domains.</p>
-
-
+        <section id="references">
+            <h3>References</h3>
+            <ul style="font-size: 18px;">
+                <li>Bennett, Charles H. "The Thermodynamics of Computation: A Review." <em>International Journal of
+                        Theoretical Physics</em> 21, no. 12, 1982, 905–940.</li>
+                <li>Goldin, Dina Q., Scott A. Smolka, Paul C. Attie, and Elaine L. Sonderegger. "Turing Machines,
+                    Transition Systems, and Interaction." <em>Information and Computation</em> 194, no. 2, 2004,
+                    101–128.</li>
+                <li>Grunberg, Emile, and Franco Modigliani. "The Predictability of Social Events." <em>Journal of
+                        Political Economy</em> 62, no. 6, 1954, 465–478.</li>
+                <li>Hayek, F. A. "The Use of Knowledge in Society." <em>The American Economic Review</em> 35, no.
+                    4, 1945, 519–530.</li>
+                <li>Karp, Richard M. "Reducibility Among Combinatorial Problems." In <em>Complexity of Computer
+                        Computations</em>, edited by Raymond E. Miller and James W. Thatcher, Plenum Press, 1972,
+                    85–103.</li>
+                <li>Landauer, Rolf. "Irreversibility and Heat Generation in the Computing Process." <em>IBM Journal
+                        of Research and Development</em> 5, no. 3, 1961, 183–191.</li>
+                <li>Lüders, Gerhart. "Über die Zustandsänderung durch den Meßprozeß." <em>Annalen der Physik</em>
+                    443, nos. 5–8, 1951, 322–328.</li>
+                <li>Merton, Robert K. "The Self-Fulfilling Prophecy." <em>The Antioch Review</em> 8, no. 2, 1948,
+                    193–210.</li>
+                <li>Mises, Ludwig von. "Die Wirtschaftsrechnung im sozialistischen Gemeinwesen." <em>Archiv für
+                        Sozialwissenschaft und Sozialpolitik</em> 47, 1920, 86–121.</li>
+                <li>Papadimitriou, Christos H., and Mihalis Yannakakis. "Shortest Paths Without a Map."
+                    <em>Theoretical Computer Science</em> 84, no. 1, 1991, 127–150.</li>
+                <li>Psaraftis, Harilaos N. "Dynamic Vehicle Routing: Status and Prospects." <em>Annals of
+                        Operations Research</em> 61, 1995, 143–164.</li>
+                <li>Rice, H. G. "Classes of Recursively Enumerable Sets and Their Decision Problems."
+                    <em>Transactions of the American Mathematical Society</em> 74, no. 2, 1953, 358–366.</li>
+                <li>Simon, Herbert A. "Bandwagon and Underdog Effects and the Possibility of Election
+                    Predictions." <em>Public Opinion Quarterly</em> 18, no. 3, 1954, 245–253.</li>
+                <li>Turing, A. M. "On Computable Numbers, with an Application to the Entscheidungsproblem."
+                    <em>Proceedings of the London Mathematical Society</em> s2-42, no. 1, 1936, 230–265.</li>
+                <li>von Neumann, John. <em>Mathematische Grundlagen der Quantenmechanik</em>. Springer, 1932.</li>
+                <li>Wegner, Peter. "Why Interaction Is More Powerful Than Algorithms." <em>Communications of the
+                        ACM</em> 40, no. 5, 1997, 80–91.</li>
+                <li>Wolpert, David H. "Physical Limits of Inference." <em>Physica D</em> 237, no. 9, 2008,
+                    1257–1281.</li>
+            </ul>
         </section>
         <div class="circle-container">
             <div class="arrow left" onclick="shiftSlide(-1)">&#10094;</div>
@@ -1678,10 +718,9 @@
 
     </article>
     </main>
-    <div id="footer"></div>
+    <div id="footer"><footer class="footer"><p><span class="footer-ai-note">Created through human and AI collaboration.</span></p></footer></div>
 
-    <script defer src="../../js/components.min.js?v=8"></script>
-    <script defer src="article-subscribe.min.js?v=16"></script>
+    <script defer src="../../js/components.min.js?v=10"></script>
     <script defer src="slider.min.js?v=5"></script>
 </body>
 

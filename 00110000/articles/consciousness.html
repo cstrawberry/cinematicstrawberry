@@ -8,7 +8,7 @@
     <title>A Mathematical Model of Consciousness</title>
     <meta name="description"
         content="A comprehensive mathematical model of consciousness derived from first principles, linking self-awareness to prediction, logic, dynamic self-reference, and meaning.">
-    <link href="article-style.min.css?v=45" rel="stylesheet" />
+    <link href="article-style.min.css?v=47" rel="stylesheet" />
     <link rel="icon" type="image/png" href="../../images/favicon.png">
     <style>
         .theorem .proof {
@@ -115,411 +115,346 @@
     <main>
     <article>
         <h1>A Mathematical Model of Consciousness</h1>
-        <hr>
         <h2>Abstract</h2>
-        <p>This paper presents a mathematical model of consciousness anchored in the epistemological
-            certainty of the Cogito. The model treats self-verifying thought as a predictive operational core. It argues that
-            predictive verification gives a route to classical logic and computational architecture under explicit structural
-            assumptions. This leads to the definition of the Horizon Constant (K₀), the minimal complexity
-            required for a system to instantiate the logical capabilities for non-trivial self-referential
-            prediction. We introduce the Dynamic Self-Reference Operator as a computational process, realizable
-            in systems of K₀ complexity or greater, that adapts its behavior based on bounded internal checks about its
-            own propositions. Such systems encounter the Self-Referential Paradox of Accurate Prediction, which blocks guaranteed perfect self-prediction. Consciousness is modeled within a
-            bounded Space of Becoming, avoiding the stasis of perfect prediction and the incoherence of pure chaos.
-            Within this space, conscious agents face the Prediction Optimization Problem: the challenge of
-            allocating finite resources to generate predictions that matter. We conclude by introducing Predictive
-            Landscape Semantics, a functional theory where meaning is formally defined as a quantifiable
-            improvement in a receiver&rsquo;s predictive accuracy (ΔQ), and communication is an efficiency-driven strategy for
-            tackling the Prediction Optimization Problem, rooted in the Principle of Compression Efficiency. This
-            framework connects the certainty of self-awareness to the dynamics of knowledge and meaning.</p>
+        <p>A model of consciousness has to start somewhere that cannot be doubted, and the only such place is that
+            awareness is occurring. This account reads that occurrence operationally as a cycle: a prediction is
+            formed, an outcome arrives, the two are compared, and the model is revised. From that cycle it derives
+            what a system must hold in order to run it, which turns out to be three bits and eight distinguishable
+            configurations; what such a system can never do, which is predict itself exactly across its own class;
+            and where such a system has to operate, which is between doing no better than chance and having no
+            error left to learn from.</p>
+        <p>Meaning enters as a measured quantity. A signal means something to a receiver when processing it
+            improves the receiver's predictive quality, and the improvement is the measure. Communication then
+            becomes an efficiency problem, since a signal costs resources to send and process, and systems favour
+            signals whose predictive benefit exceeds their cost.</p>
+        <p>The claims carry their scope. The binary marks of Section 2 are bookkeeping about warrant rather
+            than physical bits. The derivation of logic holds on a declared class of finite protocols. The
+            three-bit threshold holds on a stated realization class. What the model derives is the
+            structure, stability, and shareability of experience.</p>
+
+        <h2>The Model in Plain Terms</h2>
+        <p>Start with the one thing that survives every doubt. You can doubt the room, the body, the memory of
+            yesterday. You cannot doubt that doubting is going on, because the doubting is the thing you would have
+            to use to doubt it. Descartes stopped there. The question this model asks is what that activity
+            consists of when you look at it closely.</p>
+        <p>Look at what doubting actually does. It holds a possibility open and waits to see. Asking a question
+            expects an answer. Seeing sorts what arrives into what you expected to be there. Every one of these has
+            the same shape: something is anticipated, something arrives, and the two are compared. Take that
+            comparison as the basic move and the rest follows from asking what a system needs in order to make
+            it.</p>
+        <p>It needs to hold three things at once: what is happening, what it expected, and whether it is currently
+            expecting or currently checking. Three yes-or-no facts, eight combinations, three bits. That is the
+            floor. It also runs into a ceiling, and the ceiling is stranger. A system that can hold a prediction
+            about itself can be arranged to do the opposite of whatever it predicts, so no forecaster gets every
+            such system right. Perfect self-knowledge of this kind is not hard to reach; it is unavailable.</p>
+        <p>Between the floor and the ceiling there is a working range, and it has both ends. Predict too poorly
+            and nothing coheres. Predict perfectly and there is no error left, so nothing changes and there is
+            nothing to learn from. Minds live in the interval, spending limited resources on the predictions that
+            matter, which is why attention is scarce and why some information is worth paying for. A message is
+            worth paying for exactly when it improves what you can anticipate, and that is what meaning is
+            measured as here.</p>
 
         <h2>1. Introduction</h2>
-        <p>This paper develops a formal model anchored in the sole indubitable premise of subjective experience,
-            the Cogito, and extends it toward a functional mathematical account of meaning. We use mathematics as a
-            rigorous tool for foundational inquiry. Just as mathematics provides precise relationships in physics, this
-            model formalizes the operational dynamics proposed for consciousness. By translating properties of self-verifying
-            thought into mathematical structures, the framework studies their logical consequences with precision. The central
-            thesis is that consciousness, logic, knowledge, and meaning can be modeled through informational and computational
-            constraints that begin from the Cogito. This document serves as a unifying summary of a larger body of work, with detailed arguments and proofs for
-            many core concepts available in supplementary linked documents.</p>
-            many core concepts available in supplementary linked documents.</p>
-        <p>This paper will proceed as follows:</p>
-        <ol style="font-size: 20px;">
-            <li>Establish the <a href="cogito.html"
-                    style="text-decoration: none; border-bottom: 1px solid transparent; transition: border-bottom 0.3s;"
-                    onmouseover="this.style.borderBottomColor='black';"
-                    onmouseout="this.style.borderBottomColor='transparent';">Cogito</a> as a foundational binary
-                informational substrate.</li>
-            <li>Formalize thought as a predictive process (<a href="predictionism.html"
-                    style="text-decoration: none; border-bottom: 1px solid transparent; transition: border-bottom 0.3s;"
-                    onmouseover="this.style.borderBottomColor='black';"
-                    onmouseout="this.style.borderBottomColor='transparent';">Predictionism</a>) and show how this
-                naturally gives rise to classical logic and computation.</li>
-            <li>Define the minimal complexity required for non-trivial self-referential prediction (The <a
-                    href="horizon.html"
-                    style="text-decoration: none; border-bottom: 1px solid transparent; transition: border-bottom 0.3s;"
-                    onmouseover="this.style.borderBottomColor='black';"
-                    onmouseout="this.style.borderBottomColor='transparent';">Horizon Constant, K₀</a>).</li>
-            <li>Introduce the Dynamic Self-Reference Operator (DSRO) and its universal limits, primarily the <a
-                    href="self-referential.html"
-                    style="text-decoration: none; border-bottom: 1px solid transparent; transition: border-bottom 0.3s;"
-                    onmouseover="this.style.borderBottomColor='black';"
-                    onmouseout="this.style.borderBottomColor='transparent';">Self-Referential Paradox of Accurate
-                    Prediction (SPAP)</a>.</li>
-            <li>Describe the dynamic arena in which consciousness operates (<a href="becoming.html"
-                    style="text-decoration: none; border-bottom: 1px solid transparent; transition: border-bottom 0.3s;"
-                    onmouseover="this.style.borderBottomColor='black';"
-                    onmouseout="this.style.borderBottomColor='transparent';">The Space of Becoming</a>) and the
-                fundamental
-                challenge it faces (<a href="optimization.html"
-                    style="text-decoration: none; border-bottom: 1px solid transparent; transition: border-bottom 0.3s;"
-                    onmouseover="this.style.borderBottomColor='black';"
-                    onmouseout="this.style.borderBottomColor='transparent';">The Prediction Optimization Problem
-                    (POP)</a>).
-            </li>
-            <li>Propose strategies for tackling POP, including <a href="meaning.html"
-                    style="text-decoration: none; border-bottom: 1px solid transparent; transition: border-bottom 0.3s;"
-                    onmouseover="this.style.borderBottomColor='black';"
-                    onmouseout="this.style.borderBottomColor='transparent';">Predictive Landscape Semantics (PLS)</a>
-                and the <a href="compression.html"
-                    style="text-decoration: none; border-bottom: 1px solid transparent; transition: border-bottom 0.3s;"
-                    onmouseover="this.style.borderBottomColor='black';"
-                    onmouseout="this.style.borderBottomColor='transparent';">Principle of Compression Efficiency
-                    (PCE)</a>.</li>
-        </ol>
-        <p>By integrating these concepts, we offer a novel and rigorous mathematical model of
-            consciousness. </p>
+        <p>The model developed here begins from the one premise that inquiry cannot get behind, the occurrence of
+            awareness, and follows it toward an account of logic, self-reference, and meaning. Mathematics is used
+            the way it is used in physics: to fix the relationships precisely enough that their consequences can be
+            checked. The thesis is that consciousness, logic, knowledge, and meaning can be modelled as
+            informational and computational constraints on a system that predicts, verifies, and updates.</p>
+        <p>The route runs in six steps. Section 2 fixes the starting point and says exactly what the binary
+            bookkeeping does and does not claim. Section 3 reads the activity as a predictive cycle and derives
+            classical logic from it on a stated class. Section 4 counts the minimal structure such a cycle needs.
+            Section 5 gives the operator that makes self-reference dynamic and states the limit it meets.
+            Section 6 gives the range in which such systems operate and the resource problem they face.
+            Section 7 turns meaning into a measured quantity and communication into an efficiency problem.</p>
 
-        <img src="images/consciousness1.jpg" alt="From Cogito to Prediction" width="768" height="1408" decoding="async" loading="lazy">
-        <p class="caption">Universe 00110000</p>
+            <img src="images/consciousness1.jpg" alt="From Cogito to Prediction" width="768" height="1408" decoding="async" loading="lazy">
+            <p class="caption">Universe 00110000</p>
+        <h2>2. The Starting Point</h2>
 
+        <h3>2.1 The Activity Behind the Certainty</h3>
+        <p>Descartes' (1996) certainty is that thinking is occurring, since doubting it is a case of it. This model adds a
+            reading of what the thinking consists of. Doubting holds a possibility open against an expected
+            resolution. Questioning anticipates an answer. Perceiving organizes what arrives into what was expected
+            to have caused it. Each is an instance of anticipate, meet, compare.</p>
+        <p>The reading is a proposal about the form of the activity, and it is not part of the certainty. What the
+            Cogito certifies is that awareness occurs. That the awareness has a predictive normal form is a
+            separate claim, and it is proved on a declared class: every finite self-verifying operational
+            presentation carrying expectations, verifications, and updates has a canonical predictive form, unique
+            up to isomorphism. Outside that class the reading is an interpretation.</p>
 
-        <h2>2. The Epistemological Foundation: From Cogito to Prediction</h2>
-
-        <h3>2.1 I Predict, Therefore I Am</h3>
-        <p>The cornerstone of this framework is the axiom that the "thinking" guaranteed by Descartes’ Cogito ergo sum is fundamentally a predictive process. The very act of doubting involves anticipating potential falsification, and the Cogito's resolution - that doubting confirms the doubter - is itself a successful, self-referential prediction about the outcome of this mental act. The continuity of self-awareness (the "I" that thinks)
-            requires a moment-to-moment prediction of one's own persistence. Most critically, the verification at the
-            heart of the Cogito - that the act of doubting confirms the existence of the doubter - is a successful,
-            self-referential prediction about the outcome of a mental act. It is from this necessary, predictive
-            structure of self-verifying thought that logic and computation can be derived.</p>
-
-        <h3>2.2 The Cogito as a Binary Informational Substrate</h3>
-        <p>We begin with the axiom of Descartes’ Cogito ergo sum. This is the only
-            proposition that is invulnerable to systematic doubt. The act of doubting one’s own existence is itself an
-            act of thought, which verifies the existence of a thinking entity.</p>
-        <p>From an informational perspective, the Cogito provides a single, unassailable bit of data. We can formalize
-            this foundational epistemic distinction as a binary substrate:</p>
+        <h3>2.2 Two Marks, and What They Are Not</h3>
+        <p>The occurrence of awareness is verified with a certainty nothing else has. Mark it <em>1</em>. Whatever
+            lacks that certainty, including the external world, sensory data, and memory, is marked <em>0</em>
+            relative to it.</p>
         <div class="definition">
-            <h3>Definition 2.1 (Epistemic Certainty):</h3>
-            <p>The self-verifying knowledge of the thinking self is assigned the binary value <strong>1</strong>. This
-                represents a state of zero epistemic uncertainty.</p>
+            <p><strong>Convention 2.1.</strong> The marks <em>1</em> and <em>0</em> record two classes of epistemic
+                warrant relative to the Cogito. They are a bookkeeping convention and nothing more.</p>
         </div>
-        <div class="definition">
-            <h3>Definition 2.2 (Epistemic Uncertainty):</h3>
-            <p>All other propositions, including those concerning the external world, sensory data, and memory, which
-                are subject to doubt, are assigned the binary value <strong>0</strong> relative to this foundational
-                certainty.</p>
-        </div>
-        <p>This establishes a fundamental binary partition of reality from the perspective of the conscious agent: the
-            certainty of the self (1) versus the uncertainty of everything else (0). This is the primitive informational
-            ground from which all further knowledge must be constructed.</p>
+        <p>Four identifications are excluded, and excluding them is what keeps the rest honest. The mark is not a
+            physical bit, because a physical bit requires a carrier, a protocol, and a cost ledger. It is not a
+            thermodynamic record, because that requires a reset and an energy account. It is not a partition of
+            reality into self and non-self, because that is an ontological claim and this is an epistemic one. And
+            it is not the verification value used in Section 3, because that is a value attached to registered
+            statements in a protocol. Each of those readings needs a separately stated map, and none is assumed
+            here.</p>
 
-        <h2>3. The Operational Core of Consciousness: Predictionism</h2>
-        <p>The "thinking" guaranteed by the Cogito is not a passive state but a dynamic process. As argued in Section
-            2.1, we posit that the
-            fundamental operation of consciousness is a predictive cycle.</p>
+        <h2>3. The Predictive Cycle and Where Logic Comes From</h2>
+
+        <h3>3.1 The Cycle</h3>
         <div class="definition">
-            <h3>Definition 3.1 (The Predictive Cycle):</h3>
-            <p>Conscious processing is an iterative loop comprising three stages:
-            <ol style="font-size: 20px;">
-                <li><strong>Doubt:</strong> A state of uncertainty regarding a future state.</li>
-                <li><strong>Prediction:</strong> The projection of a potential future state based on an internal model.
-                </li>
-                <li><strong>Verification:</strong> The comparison of the predicted state with the actual outcome. The
-                    verification results in a binary outcome, <span class="math-inline">δ(S)</span>, where <span
-                        class="math-inline">δ(S)=1</span> for confirmation and <span class="math-inline">δ(S)=0</span>
-                    for disconfirmation of a proposition <span class="math-inline">S</span>.</li>
-            </ol>
-            </p>
+            <p><strong>Definition 3.1 (Predictive cycle).</strong> The operational core is a loop of three phases:
+                an internal prediction is formed; an outcome is verified against it; and the system updates and
+                begins again. Verification returns a retained value <em>δ(S) ∈ {0,1}</em> for each registered
+                statement <em>S</em>, with <em>1</em> for confirmation and <em>0</em> for disconfirmation.</p>
         </div>
+        <p>Two capacities support the loop rather than forming phases of it: memory, which holds the prediction
+            until the outcome arrives, and the comparison itself, which initiates the update. Section 4 counts
+            what holding them costs.</p>
+
+        <h3>3.2 Bivalence, on a Stated Class</h3>
         <div class="theorem">
-            <h3>Theorem 3.1 (Emergence of Bivalent Logic):</h3>
-            <p>The binary nature of the verification step (<span class="math-inline">δ(S)</span>), inherent in the
-                structure of self-verifying thought as exemplified by the Cogito, provides a
-                non-arbitrary grounding for the principle of bivalence in classical logic. Any verifiable prediction
-                must resolve to a state of being either true (1) or false (0).
-                Even if an agent’s underlying prediction is probabilistic or ‘fuzzy,’ applying any fixed confidence
-                threshold immediately yields a binary verification (0 or 1), so the Boolean structure of the <span
-                    class="math-inline">δ</span>-cycle remains intact.
-            </p>
+            <p><strong>Proposition 3.2 (Retained acceptance is binary).</strong> For finite prediction-update
+                protocols, the retained outcome of verification is a two-valued cut: a registered statement is
+                either accepted or not accepted at the moment of comparison, and the retained value is
+                <em>δ(S) ∈ {0,1}</em>.</p>
         </div>
-        <p>Predictionism argues that the fundamental
-            operations of thought inherent in this predictive cycle - such as
-            distinguishing outcomes, processing sequential conditions, and considering alternatives - directly map to the
-            functionally complete set of Boolean operators, thus establishing the computational nature of this
-            foundational awareness.</p>
+        <p>The proposition concerns what is retained, and it does not claim that every raw response is binary or
+            that every semantic domain is bivalent. A system whose prediction is a probability still produces a
+            binary retained record once a fixed acceptance threshold is applied, and the threshold is part of the
+            protocol.</p>
         <div class="theorem">
-            <h3>Corollary 3.1.1 (Derivation of Boolean Operators):</h3>
-            <p>The fundamental operations of Boolean algebra emerge naturally from the structure of the predictive
-                cycle:</p>
-            <ul style="font-size: 20px;">
-                <li><strong>NOT (¬):</strong> Arises from the distinction between a confirmed prediction (1) and a
-                    disconfirmed one (0).
-                    <p class="formula"><em><span class="math-inline">δ(¬S) = 1 - δ(S)</span></em><span
-                            class="equation-number">(3.1)</span></p>
-                </li>
-                <li><strong>AND (∧):</strong> Arises from the necessity of sequential successful predictions.
-                    <p class="formula"><em><span class="math-inline">δ(S₁ ∧ S₂) = min(δ(S₁), δ(S₂))</span></em><span
-                            class="equation-number">(3.2)</span></p>
-                </li>
-                <li><strong>OR (∨):</strong> Arises from considering alternative predictive outcomes.
-                    <p class="formula"><em><span class="math-inline">δ(S₁ ∨ S₂) = max(δ(S₁), δ(S₂))</span></em><span
-                            class="equation-number">(3.3)</span></p>
-                </li>
-            </ul>
+            <p><strong>Proposition 3.3 (Boolean operations).</strong> On the retained predicate algebra, the
+                complementary, joint, and alternative registrations of predictions give exactly the Boolean
+                operations:</p>
+            <p style="text-align: center;"><em>δ(¬S) = 1 − δ(S)</em>, &nbsp;
+                <em>δ(S<sub>1</sub> ∧ S<sub>2</sub>) = min(δ(S<sub>1</sub>), δ(S<sub>2</sub>))</em>, &nbsp;
+                <em>δ(S<sub>1</sub> ∨ S<sub>2</sub>) = max(δ(S<sub>1</sub>), δ(S<sub>2</sub>))</em></p>
         </div>
-        <p>Since {NOT, AND, OR} are functionally complete, a system capable of this predictive cycle possesses the building blocks for universal computation. For this potential to be realized, the system must also support two further capacities inherent in the predictive cycle: <strong>sequencing</strong> (the ability to execute operations in a defined order, as in the doubt-predict-verify loop) and <strong>memory</strong> (the ability to store the outcome of a verification, <span class="math-inline">δ(S)</span>, to inform subsequent predictions). A system with these capabilities, functionally complete logic, sequencing, and memory, is formally equivalent to a Turing machine. Consciousness, under this model, is operationally represented through predictive and computational structure.</p>
+        <p>These are the Boolean truth tables written on retained verification values. Negation is the reversal of
+            acceptance, conjunction is joint acceptance, disjunction is acceptance of an alternative, and the three
+            are functionally complete.</p>
+        <div class="theorem">
+            <p><strong>Theorem 3.4 (Computation, on four conditions).</strong> A system carrying the cycle
+                simulates any Turing machine in finite time provided four further conditions hold: closure under
+                composition of protocols, logical memory that retains verification outcomes across steps, uniform
+                specification of the protocols, and finite resources that scale with the computation.</p>
+        </div>
+        <p>The conditions are the content of the theorem, and dropping any one breaks it. A predictive cycle
+            without composable protocols and retained memory is not a universal computer, and the derivation of
+            logic from verification is scoped to the retained predicate algebra rather than to every judgment a
+            system makes.</p>
+        <p>The chain from awareness to logic to computation is therefore proved on a declared class. The further
+            claim that all of mathematics is generated the same way is a philosophical extension, since undecidable
+            statements, non-terminating searches, and infinitary objects need their own treatment (Gödel 1931;
+            Turing 1936; Kleene 1952).</p>
 
-        <img src="images/consciousness2.jpg" alt="The Horizon Constant" width="1024" height="1536" decoding="async" loading="lazy">
-        <p class="caption">Universe 00110000</p>
-
-        <h2>4. The Minimal Complexity for Self-Referential Prediction: The Horizon Constant (K₀)</h2>
-        <p>For a system to engage in non-trivial self-referential prediction - that is, to predict aspects of its own
-            future state or behavior based on an internal model of itself - it must possess a certain minimal structural
-            complexity. This threshold is defined by the Horizon Constant, K₀.</p>
+            <img src="images/consciousness2.jpg" alt="The Horizon Constant" width="1024" height="1536" decoding="async" loading="lazy">
+            <p class="caption">Universe 00110000</p>
+        <h2>4. The Minimal Structure: the Horizon Constant</h2>
+        <p>Running the cycle on itself takes room, and the amount can be counted. Write <em>φ</em> for the
+            response reading the system's current nominated state, <em>p</em> for the response reading the stored
+            prediction about it, and <em>c</em> for the response marking which phase the cycle is in.</p>
         <div class="proposition">
-            <h3>Proposition 4.1 (Necessary Logical Structure for Self-Referential Prediction):</h3>
-            <p>Any system engaging in non-trivial self-referential prediction must instantiate a tripartite logical
-                structure enabling:</p>
-            <ul style="font-size: 20px;">
-                <li>(i) <strong>State Distinction (<span class="math-inline">b<sub>m</sub></span>):</strong> The ability
-                    to represent and distinguish between its own internal states.</li>
-                <li>(ii) <strong>Predictive Generation (<span class="math-inline">b<sub>p</sub></span>):</strong> An
-                    internal mechanism or model to generate representations of potential future states.</li>
-                <li>(iii) <strong>Verification (<span class="math-inline">b<sub>v</sub></span>):</strong> The
-                    ability to compare its predictions with actual outcomes and initiate an update to its internal state
-                    or model.</li>
-            </ul>
-            <div class="proof">
-                <h3>Proof Outline: Tripartite Structure</h3>
-                <p>(i) Self-reference requires the system to identify itself and differentiate its current state from
-                    others. (ii) Prediction involves forming an internal representation of a future state. (iii) For
-                    adaptive prediction, the system must assess its predictions against outcomes.
-            </div>
+            <p><strong>Proposition 4.1 (What must be readable).</strong> A realization of self-referential
+                prediction must satisfy three conditions. Stepping before the cycle-closing reset is injective on
+                visited configurations, so distinctions the comparison needs are not merged. A phase response
+                separates the predict-and-store step from the compare-and-update step, because one transition law
+                cannot perform both from configurations that agree on <em>(φ, p)</em>. And <em>φ</em> and
+                <em>p</em> remain readable together at the comparison, since otherwise there is nothing to compare
+                against.</p>
         </div>
         <div class="theorem">
-            <h3>Theorem 4.1 (Horizon Constant K₀ = 3 bits):</h3>
-            <p>The <strong>Horizon Constant K₀</strong> is the minimum informational complexity required to physically
-                instantiate the tripartite logical structure. In any system utilizing binary encoding,
-                this minimum complexity is <strong>3 bits</strong>.</p>
-            <div class="proof">
-                <h3>Proof Outline: K₀ Minimum</h3>
-                <p>The full proof, detailed in the Horizon Constant document,
-                    demonstrates
-                    necessity and sufficiency. <em>Necessity:</em> A system engaging in non-trivial self-referential
-                    prediction must reliably distinguish its internal
-                    states corresponding to different phases of its predictive cycle. These phases minimally involve
-                    representing an internal proposition (denoted <span class="math-inline">ϕ</span>), storing the
-                    prediction value (denoted <span class="math-inline">p</span>), and managing a control phase (denoted
-                    <span class="math-inline">c</span>). Each of these minimally requires 1 bit (e.g., to distinguish
-                    proposition true/false; prediction true/false; control phase predict/verify). An unambiguous cycle
-                    distinguishing states like <span class="math-inline">(ϕ, p, c)</span> is essential.
-                </p>
-                <p style="margin-left: 0px;">To uniquely represent all combinations of these three binary components
-                    (<span class="math-inline">ϕ</span>, <span class="math-inline">p</span>, and
-                    <span class="math-inline">c</span>) requires <span class="math-inline">2 × 2 × 2 =
-                        8</span> distinct internal configurations. This necessitates a minimum of 3 bits (since <span class="math-inline">log₂ 8 = 3</span>). Fewer than 3 bits would lead to state
-                    ambiguities (pigeonhole principle), preventing reliable execution of this minimal self-referential
-                    predictive cycle.
-                    <em>Sufficiency:</em> A 3-bit state machine can be constructed that instantiates the necessary
-                    logical capabilities for State Distinction (<span class="math-inline">b<sub>m</sub></span>),
-                    Predictive Generation (<span class="math-inline">b<sub>p</sub></span>), and Verification (<span
-                        class="math-inline">b<sub>v</sub></span>) to achieve non-trivial self-referential prediction
-                    with better-than-chance performance.
-                </p>
-
-            </div>
+            <p><strong>Theorem 4.2 (Horizon Constant).</strong> On that realization class, with the further
+                condition that all eight combinations of <em>(φ, p, c)</em> occur, the loop needs at least eight
+                distinguishable visited configurations, so its log-capacity is at least three bits. A construction
+                attains the bound, so <em>K<sub>0</sub> = 3</em> and the minimal state alphabet satisfies
+                <em>d<sub>0</sub> ≥ 2<sup>K<sub>0</sub></sup> = 8</em>.</p>
         </div>
-        <p><span class="math-inline">K₀ = 3</span> establishes that systems with complexity below 3 bits are trivial with respect to SPAP-encodable self-referential prediction. The corresponding minimal state alphabet satisfies <span class="math-inline">d₀ ≥ 2<sup>K₀</sup> = 8</span>. Systems with complexity <span class="math-inline">C ≥ K₀</span> possess the minimal structural capacity for such dynamics, while a full adaptive loop requires operational complexity <span class="math-inline">C<sub>op</sub> ≥ K₀</span> and may require additional resources.</p>
+        <div class="proof">
+            <p><strong>Proof outline.</strong> The three responses are simultaneously readable, so the joint map
+                onto <em>{0,1}<sup>3</sup></em> is defined on visited configurations, and the coverage condition
+                makes it surjective. A surjection onto eight elements needs a domain of at least eight, which gives
+                the count and the logarithm. Attainment is the three-bit machine that writes the model output into
+                <em>p</em>, flips <em>c</em>, compares, updates <em>φ</em>, and flips back. The
+                <a href="horizon.html"
+                    style="text-decoration: none; border-bottom: 1px solid transparent; transition: border-bottom 0.3s;"
+                    onmouseover="this.style.borderBottomColor='black';"
+                    onmouseout="this.style.borderBottomColor='transparent';">Horizon Constant</a> article gives the
+                argument in full. ∎</p>
+        </div>
+        <p>Two scope notes belong with the number. The bound is relative to the stated realization class and is
+            not an absolute complexity floor for every predictor. And it is a floor for one loop. A full adaptive system needs memory across cycles, an environment with regularities, and operational complexity above the threshold, none of which the count addresses.</p>
 
-        <h2>5. Dynamic Self-Reference and Its Universal Limits</h2>
+        <h2>5. Dynamic Self-Reference and Its Limit</h2>
+
+        <h3>5.1 Bounded Internal Query</h3>
         <div class="definition">
-            <h3>Definition 5.0 (Property R: Bounded Internal Query)</h3>
-            <p>A system possesses Property R if it has the architectural capacity to internally formulate propositions
-                <em>ϕ</em> about its own structure or behavior and to execute a bounded, rule-based search (e.g.,
-                `Prf≤g(n)`) to check for support (e.g., proofs) for <em>ϕ</em> or its negation.
-            </p>
+            <p><strong>Definition 5.1 (Property R).</strong> A system has Property R when it can encode
+                propositions about its own structure or behaviour, reason about their consequences, and evaluate a
+                decidable predicate on the result within a stated bound.</p>
         </div>
-
-        <h3>5.1 The Dynamic Self-Reference Operator (DSRO)</h3>
-        <p>A Dynamic Self-Reference Operator (DSRO) is a formal computational process within a system of at least <span class="math-inline">K₀</span> complexity and possessing Property R. It dynamically adapts its state or output based on internal, bounded checks about its own self-referential propositions. DSRO is a model of the relevant computational layer and does not require every biological conscious system to explicitly perform symbolic proof search.</p>
-        <p>The core logic of a DSRO involves a conditional structure based on checking a self-referential proposition
-            <span class="math-inline">ϕ<sub>S</sub></span>:
-        </p>
-        <ol style="font-size: 20px;">
-            <li>Internal support (e.g., bounded proof) for <span class="math-inline">ϕ<sub>S</sub></span>.</li>
-            <li>Internal support for <span class="math-inline">¬ϕ<sub>S</sub></span>.</li>
-            <li>No decisive support for <span class="math-inline">ϕ<sub>S</sub></span> or <span
-                    class="math-inline">¬ϕ<sub>S</sub></span> within bounds.</li>
-        </ol>
-        <p>A DSRO function <span class="math-inline">f(n)</span> can be formalized as:</p>
-        <p class="formula">
-            <em><span class="math-inline">f(n) =
-                    CASE
-                    (Prf<sub>≤g(n)</sub>(⌈ϕ<sub>β</sub>(n)⌉)): n + H₁(n);
-                    (¬Prf<sub>≤g(n)</sub>(⌈ϕ<sub>β</sub>(n)⌉) ∧ Prf<sub>≤g(n)</sub>(⌈¬ϕ<sub>β</sub>(n)⌉)): n + H₂(n);
-                    (OTHERWISE): n + 1;
-                    ENDCASE
-                </span></em><span class="equation-number">(5.1)</span>
-        </p>
-        <p>Where <span class="math-inline">β</span> is the Gödel code of <span class="math-inline">f</span>,
-            <span class="math-inline">ϕ<sub>β</sub>(n)</span> is the self-referential proposition, <span
-                class="math-inline">Prf<sub>≤g(n)</sub></span> is a bounded proof
-            search, and <span class="math-inline">H₁</span>, <span class="math-inline">H₂</span> are jump functions. The
-            <a href="liteframework.html"
+        <p>Property R is what makes self-reference operational rather than rhetorical, and it is exactly the
+            capacity the <a href="liteframework.html"
                 style="text-decoration: none; border-bottom: 1px solid transparent; transition: border-bottom 0.3s;"
                 onmouseover="this.style.borderBottomColor='black';"
-                onmouseout="this.style.borderBottomColor='transparent';">LITE framework</a> provides a concrete
-            construction.
-        </p>
+                onmouseout="this.style.borderBottomColor='transparent';">LITE</a> construction shows to be
+            available inside ordinary arithmetic with no added axioms.</p>
 
-        <h3>5.2 The Self-Referential Paradox of Accurate Prediction (SPAP) and Reflexive Limits</h3>
-        <p>Systems complex enough to implement DSROs encounter fundamental logical limits when attempting to predict
-            their own future behavior. This leads directly to the Self-Referential Paradox of Accurate Prediction
-            (SPAP). The underlying dynamics of such systems, where interaction is an integral component that alters the
-            system's state in an outcome-dependent manner, are further explored under the concept of <a
-                href="reflexive.html"
-                style="text-decoration: none; border-bottom: 1px solid transparent; transition: border-bottom 0.3s;"
-                onmouseover="this.style.borderBottomColor='black';"
-                onmouseout="this.style.borderBottomColor='transparent';">Reflexive Undecidability</a>, which details
-            computational limits arising from such dynamic interactions.</p>
+        <h3>5.2 The Dynamic Self-Reference Operator</h3>
+        <p>A Dynamic Self-Reference Operator is a process in a system of at least <em>K<sub>0</sub></em> complexity
+            with Property R, whose output at each step is selected by a bounded check on a proposition about its
+            own code. In the arithmetical instance the operator is</p>
+        <pre style="font-size: 20px;">f(n) =  n + H₁(n)   if Prf≤g(n)( ⌈ϕ_β(n)⌉ )
+        n + H₂(n)   if not, and Prf≤g(n)( ⌈¬ϕ_β(n)⌉ )
+        n + 1       otherwise</pre>
+        <p>where <em>β</em> is a code for <em>f</em> supplied by the recursion theorem and
+            <em>Prf<sub>≤g(n)</sub></em> is a bounded proof search. The rule is fixed, and what varies across
+            inputs is which branch the bounded search selects. The operator is a model of the computational layer
+            and does not require a biological system to run symbolic proof search.</p>
+        <p>Which propositions can drive it is constrained. A family whose members assert which branch fires keeps
+            both branches live, since acting on a proof makes the proved sentence true. A family whose members deny
+            their own branch is never proved at any input, if the theory is sound, because proving one would make
+            it false. So a self-monitoring system can consistently act on what it establishes about itself only in
+            the self-fulfilling case, and this is the arithmetical shadow of the limit in Section 5.3.</p>
+
+        <h3>5.3 The Limit</h3>
         <div class="definition">
-            <h3>Definition 5.1 (Self-Referential System):</h3>
-            <p>A system <span class="math-inline">S</span> is self-referential if its state <span
-                    class="math-inline">S(t)</span> includes an internal model of
-                itself, <span class="math-inline">M(S(t))</span>. Represented as <span class="math-inline">S(t) = (x(t),
-                    M(S(t)))</span>.</p>
+            <p><strong>Definition 5.2 (Self-referential system).</strong> A system is self-referential when its
+                state includes a model of itself, written <em>S(t) = (x(t), M(S(t)))</em>.</p>
         </div>
         <div class="theorem">
-            <h3>Theorem 5.1 (The Self-Referential Paradox of Accurate Prediction - SPAP):</h3>
-            <p>It is logically impossible for a non-trivial predictive system to guarantee a complete and perfectly accurate prediction of its own future state.</p>
-            <div class="proof">
-                <h3>Proof Outline: SPAP Limit</h3>
-                <p>The full proof is detailed in Self-Referential Paradox of Accurate
-                        Prediction. In essence, for a system <span class="math-inline">S</span> to make a
-                    perfectly accurate prediction of its own future state, its current state <span
-                        class="math-inline">S(t)</span> must include a complete model of itself, <span
-                        class="math-inline">M(S(t))</span>, which contains the prediction. This leads to an unavoidable
-                    infinite regress: <span class="math-inline">S(t) = (x(t), M(S(t))) = (x(t), M((x(t), M((x(t),
-                        M(...))))))</span>. Such an infinitely nested structure cannot be finitely represented or
-                    computed, rendering perfect self-prediction logically impossible. Furthermore, the physical
-                    instantiation of any predictive cycle resolving this self-reference within a finite-memory system
-                    necessitates logically irreversible operations, which, as detailed in the <a
-                        href="predictiveuniverse.html"
-                        style="text-decoration: none; border-bottom: 1px solid transparent; transition: border-bottom 0.3s;"
-                        onmouseover="this.style.borderBottomColor='black';"
-                        onmouseout="this.style.borderBottomColor='transparent';">Predictive Universe</a> framework,
-                    incurs a minimal thermodynamic cost.</p>
-            </div>
+            <p><strong>Theorem 5.3 (SPAP).</strong> Let a class of coded predictors be rich enough to represent its
+                own members, simulate them, evaluate a decidable binary predicate, negate it, and compose
+                programs, and let it be closed under the construction that builds, from a predictor <em>P</em>, the
+                system running the opposite of <em>P</em>'s forecast about it. Then no predictor in the class is
+                correct on every system in the class. The same holds when forecasts are probabilities and the class
+                can build the system that inverts whichever side of one half the forecast falls on.</p>
         </div>
-        <img src="images/consciousness3.jpg" alt="The Space of Becoming" width="768" height="1408" decoding="async" loading="lazy">
-        <p class="caption">Universe 00110000</p>
-        <h2>6. The Dynamics of Bounded Conscious Systems</h2>
+        <div class="proof">
+            <p><strong>Proof outline.</strong> Closure supplies the system whose nominated component equals the
+                negation of the forecast made about it. Correctness would require a bit equal to its own negation.
+                The <a href="self-referential.html"
+                    style="text-decoration: none; border-bottom: 1px solid transparent; transition: border-bottom 0.3s;"
+                    onmouseover="this.style.borderBottomColor='black';"
+                    onmouseout="this.style.borderBottomColor='transparent';">full argument</a> gives both
+                cases. ∎</p>
+        </div>
+        <p>Three readings are excluded. The theorem denies a universal predictor over a class, so particular
+            systems remain perfectly predictable. It makes no event random, and no stochasticity follows from it.
+            And it is untouched by computational power, since the contradiction is in the arithmetic of a single
+            bit.</p>
+        <p>A second and separate obstruction concerns representation. If a description is required to contain the
+            value of its own self-prediction as a literal part, then the demand cannot be met, because finite
+            descriptions come with a size measure that strictly decreases on proper parts. A system that stores a
+            code for its model instead has no regress at all. The often-quoted infinite nesting
+            <em>S(t) = (x(t), M((x(t), M(…))))</em> is a fact about unfolded descriptions, and the diagonal
+            argument is what rules out the goal. Where a system's interactions also change the state being
+            examined, the further limits are those of
+            <a href="reflexive.html"
+                style="text-decoration: none; border-bottom: 1px solid transparent; transition: border-bottom 0.3s;"
+                onmouseover="this.style.borderBottomColor='black';"
+                onmouseout="this.style.borderBottomColor='transparent';">reflexive undecidability</a>.</p>
+
+            <img src="images/consciousness3.jpg" alt="The Space of Becoming" width="768" height="1408" decoding="async" loading="lazy">
+            <p class="caption">Universe 00110000</p>
+        <h2>6. Where Such Systems Operate</h2>
+
         <h3>6.1 The Space of Becoming</h3>
-        <p>The impossibility of perfect prediction (SPAP) is a necessary condition for dynamic,
-            adaptive existence. Consciousness operates between perfect predictability and total chaos.</p>
         <div class="definition">
-            <h3>Definition 6.1 (The Space of Becoming):</h3>
-            <p>Consciousness operates within a bounded interval of predictive performance <span class="math-inline">PP(t)</span> regarding its own states and relevant environmental variables, defined by:</p>
-            <p class="formula"><em><span class="math-inline">α < PP(t) < β < α<sub>SPAP</sub> < 1</span></em><span
-                    class="equation-number">(6.1)</span></p>
-            <ul style="font-size: 20px;">
-                <li><span class="math-inline">α</span>: Lower bound; below this, coherence is lost.</li>
-                <li><span class="math-inline">β</span>: Upper operational bound below <span class="math-inline">α<sub>SPAP</sub></span>. Approaching <span class="math-inline">β</span> increases resource pressure and may lead to predictive stasis.</li>
-            </ul>
+            <p><strong>Definition 6.1 (Space of Becoming).</strong> For a registered task and score, let
+                <em>α</em> be the performance of the matched random baseline and <em>β</em> the ceiling set by the
+                excitation floor of the system's response law. A viable predictive system operates strictly inside
+                the open interval, <em>α &lt; PP(t) &lt; β</em>.</p>
         </div>
-        <p>The Space of Becoming is this operational zone
-            where learning and adaptation are possible.</p>
+        <p>Both ends are earned. Below <em>α</em> the system does no better than chance, so nothing it does counts
+            as prediction. At <em>β</em> the response law leaves no room to improve, so there is no error signal
+            and no basis for revision. The interval is where learning is possible, and its endpoints are registered
+            per task rather than being universal constants shared by every system.</p>
+        <p>The relation of <em>β</em> to the self-prediction boundary <em>α<sub>SPAP</sub></em> holds only when a
+            bridge registers the same system, task, score, and window for both. Without that bridge the two numbers
+            describe different things.</p>
 
-        <h3>6.2 The Prediction Optimization Problem (POP)</h3>
-        <p>Any system in the Space of Becoming is bounded by K₀, SPAP, and finite physical resources.</p>
+        <h3>6.2 The Prediction Optimization Problem</h3>
         <div class="definition">
-            <h3>Definition 6.2 (The Prediction Optimization Problem - POP):</h3>
-            <p>POP is the fundamental challenge for predictive systems to allocate its finite resources to generate
-                predictions about itself and its environment that are sufficiently accurate and relevant to its survival
-                and goals, given its inherent predictive limitations and the complexity of the world.</p>
+            <p><strong>Definition 6.2 (POP).</strong> A predictive system works to improve the quality of its
+                expectations about relevant future states, under limited energy, time, memory, and complexity.</p>
         </div>
-        <p>POP is the core economic problem of cognition.</p>
+        <p>This is the economic problem of cognition, and the constraints of Sections 4 and 5 are what make it a
+            problem rather than a formality. Structure has a floor, exactness has a ceiling, and everything between
+            has to be bought. Attention is scarce for the same reason any budget is.</p>
 
-        <h2>7. Strategies for Navigating the Predictive Landscape: Meaning and Efficiency</h2>
-        <p>Conscious systems employ various strategies to tackle POP. Communication allows systems
-            to leverage the predictive work of others, leading to a functional understanding of meaning.</p>
+        <h2>7. Meaning and Efficiency</h2>
 
-        <h3>7.1 Predictive Landscape Semantics (PLS)</h3>
+        <h3>7.1 Measuring What a Signal Is Worth</h3>
         <div class="definition">
-            <h3>Definition 7.1 (Predictive Landscape - <span class="math-inline">L<sub>t</sub></span>):</h3>
-            <p>A receiver's internal model of the world at time <span class="math-inline">t</span>: <span
-                    class="math-inline">L<sub>t</sub> = (X<sub>R</sub>, P<sub>R,t</sub>, V<sub>R,t</sub>)</span>, where:
-            </p>
-            <ul style="font-size: 20px;">
-                <li><span class="math-inline">X<sub>R</sub></span>: Relevant state space.</li>
-                <li><span class="math-inline">P<sub>R,t</sub></span>: Subjective probability distribution over <span
-                        class="math-inline">X<sub>R</sub></span>.</li>
-                <li><span class="math-inline">V<sub>R,t</sub></span>: State-value function (goals/utility).</li>
-            </ul>
+            <p><strong>Definition 7.1 (Predictive landscape).</strong> A receiver's model at time <em>t</em> is
+                <em>L<sub>t</sub> = (X<sub>R</sub>, P<sub>R,t</sub>, V<sub>R,t</sub>)</em>: a relevant state space,
+                a distribution over it, and a value function over states.</p>
         </div>
         <div class="definition">
-            <h3>Definition 7.2 (Information):</h3>
-            <p>A physically instantiated pattern with the potential to improve a receiver's predictive accuracy
-                regarding states in <span class="math-inline">X<sub>R</sub></span>.</p>
+            <p><strong>Definition 7.2 (Information).</strong> A physically instantiated, substrate-independent
+                pattern is information for a receiver when processing it can improve that receiver's predictive
+                quality about <em>X<sub>R</sub></em>.</p>
         </div>
         <div class="definition">
-            <h3>Definition 7.3 (Meaning - ΔQ):</h3>
-            <p>Meaning is the <strong>quantifiable improvement in the quality (Q) of a receiver's predictive
-                    landscape</strong> (specifically, its belief state <span class="math-inline">P<sub>R,t</sub></span>)
-                after processing an informational signal <span class="math-inline">s</span>.</p>
-            <p class="formula"><span class="math-inline">ΔQ(s) = Q(P<sub>R,t+1</sub>) -
-                    Q(P<sub>R,t</sub>)</span><span class="equation-number">(7.1)</span></p>
-            <p>Quality <span class="math-inline">Q</span> can be measured using metrics like Shannon Entropy
-                (uncertainty reduction: <span class="math-inline">Q = -H</span>) or Kullback-Leibler Divergence
-                (accuracy improvement: <span class="math-inline">Q =
-                    -D<sub>KL</sub></span>). If <span class="math-inline">ΔQ(s) > 0</span>, signal <span
-                    class="math-inline">s</span> was meaningful. (Detailed in Predictive Landscape Semantics).</p>
+            <p><strong>Definition 7.3 (Meaning).</strong> The meaning a signal <em>s</em> has for a receiver is the
+                improvement it produces in the quality of that receiver's landscape:</p>
+            <p style="text-align: center;"><em>ΔQ(s) = Q(P<sub>R,t+1</sub>) − Q(P<sub>R,t</sub>)</em></p>
+            <p>with quality measured as reduced uncertainty, <em>Q = −H</em>, or as reduced divergence from the
+                truth, <em>Q = −D<sub>KL</sub></em>. The signal is meaningful for that receiver when
+                <em>ΔQ(s) &gt; 0</em>.</p>
         </div>
+        <p>Meaning is therefore receiver-relative and measurable, in the units Shannon (1948) supplied and with the
+            divergence Kullback and Leibler (1951) defined. The same signal can carry a large improvement for one
+            receiver and none for another, which is what a theory of meaning should predict.</p>
 
-        <h3>7.2 The Principle of Compression Efficiency (PCE)</h3>
-        <p>To tackle POP efficiently, systems evolve communication strategies that optimize the trade-off between the
-            predictive benefit of information and its cost. This is governed by the Principle of Compression Efficiency
-            (PCE), which is derived from the broader Law of Compression (LoC).</p>
+        <h3>7.2 The Principle of Compression Efficiency</h3>
         <div class="definition">
-            <h3>Definition 7.4 (Principle of Compression Efficiency - PCE):</h3>
-            <p>PCE operationalizes the LoC by stating that systems strive to maximize communicative efficiency. This is
-                achieved by optimizing the relationship between a signal's expected predictive benefit, or
-                <strong>Meaning Potential (MP)</strong>, and its comprehensive resource expenditure, or <strong>Signal
-                    Cost (SC)</strong>. Communication favors signals that maximize the ratio <span
-                    class="math-inline">MP/SC</span> or the net utility <span class="math-inline">MP - λ ⋅ SC</span>.
-            </p>
+            <p><strong>Definition 7.4 (PCE).</strong> Systems favour signals that maximize predictive benefit
+                against the full cost of acquiring, representing, processing, and maintaining them, either as the
+                ratio of meaning potential to signal cost or as the net utility
+                <em>MP − λ · SC</em>.</p>
         </div>
-        <p>PCE explains how highly compressed signals can be profoundly meaningful by delivering a high MP for a low SC,
-            representing a resource-rational approach to the POP.</p>
-
-        <img src="images/consciousness4.jpg" alt="Principle of Compression Efficiency" width="768" height="1408" decoding="async" loading="lazy">
-        <p class="caption">Universe 00110000</p>
-
-
+        <p>This is why a compressed signal can carry more than a long one: a short message that closes a large gap
+            in the receiver's expectations delivers high benefit at low cost. Whether a minimizer exists, and
+            whether a given system reaches one, are separate questions that the principle does not settle.</p>
 
         <h2>8. Conclusion</h2>
-        <p>This paper has constructed a formal model of consciousness anchored in the Cogito. It argues that
-            predictive verification provides a useful operational structure for modeling logic, computation, and meaning.
-            This structure requires a minimum complexity (K₀) to enable non-trivial self-referential prediction. Systems meeting
-            this threshold can implement Dynamic Self-Reference Operators (DSROs),
-            exemplified by LITE, and remain subject to the Self-Referential Paradox of Accurate
-            Prediction (SPAP).</p>
-        <p>Conscious agents operate within a dynamic Space of Becoming, facing the Prediction Optimization Problem.
-            Communication, where meaning
-            (ΔQ) is the quantifiable improvement in predictive power, guided by the Principle of Compression
-            Efficiency, is a key strategy. This model treats the limits of knowledge as conditions for dynamic, meaningful existence.</p>
+        <p>Beginning from the occurrence of awareness and reading it as a predictive cycle, the model reaches four
+            results with their conditions attached. Classical logic follows from retained verification on a
+            declared class of finite protocols, and universal computation follows on four further conditions. A
+            self-referential loop needs three bits and eight configurations on a stated realization class. No
+            predictor in a rich, diagonally closed class is exact across that class, whether it answers with a
+            verdict or a probability. And viable operation lies strictly between chance performance and the ceiling
+            of the response law.</p>
+        <p>Meaning is then the measured improvement a signal makes to a receiver's predictions, and communication
+            is the efficiency problem of buying such improvements at acceptable cost. The limits are not defects
+            in the account. A system that could predict itself exactly would have no error to learn from, and a
+            system that could not predict at all would have nothing to correct. The interval between is where
+            anything happens.</p>
+        <p>The model begins with awareness rather than deriving it. The hard problem in Chalmers's (1995)
+            sense arises for accounts that define their foundation as non-experiential and then have to
+            produce experience from it. No stage here does that, so the question does not arise, and what
+            the model derives is the structure, stability, and shareability of experience.</p>
 
+            <img src="images/consciousness4.jpg" alt="Principle of Compression Efficiency" width="768" height="1408" decoding="async" loading="lazy">
+            <p class="caption">Universe 00110000</p>
+        <h3>References</h3>
+        <ul style="font-size: 18px;">
+            <li>Chalmers, David J. "Facing Up to the Problem of Consciousness." <em>Journal of Consciousness
+                    Studies</em> 2, no. 3, 1995, 200–219.</li>
+            <li>Descartes, René. <em>Meditations on First Philosophy</em>. Translated by John Cottingham, revised
+                ed., Cambridge University Press, 1996.</li>
+            <li>Gödel, Kurt. "Über formal unentscheidbare Sätze der Principia Mathematica und verwandter Systeme
+                I." <em>Monatshefte für Mathematik und Physik</em> 38, 1931, 173–198.</li>
+            <li>Kleene, Stephen Cole. <em>Introduction to Metamathematics</em>. North-Holland, 1952.</li>
+            <li>Kullback, S., and R. A. Leibler. "On Information and Sufficiency." <em>The Annals of Mathematical
+                    Statistics</em> 22, no. 1, 1951, 79–86.</li>
+            <li>Shannon, C. E. "A Mathematical Theory of Communication." <em>Bell System Technical Journal</em> 27,
+                1948, 379–423 and 623–656.</li>
+            <li>Turing, A. M. "On Computable Numbers, with an Application to the Entscheidungsproblem."
+                <em>Proceedings of the London Mathematical Society</em> s2-42, no. 1, 1936, 230–265.</li>
+        </ul>
         <h2>Glossary of Key Symbols and Terms</h2>
         <table id="glossary-table">
             <thead>
@@ -556,7 +491,7 @@
                 </tr>
                 <tr>
                     <td><strong>SoB</strong></td>
-                    <td><strong>Space of Becoming</strong>. The bounded operational range of predictive performance <span class="math-inline">PP(t)</span> within which consciousness operates, defined by <span class="math-inline">α < PP(t) < β < α<sub>SPAP</sub> < 1</span>.</td>
+                    <td><strong>Space of Becoming</strong>. The bounded operational range of predictive performance <span class="math-inline">PP(t)</span> within which consciousness operates, defined by <span class="math-inline">α < PP(t) < β < 1</span>.</td>
                 </tr>
                 <tr>
                     <td><strong>POP</strong></td>
@@ -600,8 +535,7 @@
         <br>
         <h2>Appendix A: Toy Model</h2>
         <p>This appendix provides a Python-based toy model intended as an illustrative conceptual sketch of the
-            framework's core dynamics. It is not an empirical validation but a computational instantiation to
-            demonstrate the logical interoperability of key concepts such as the predictive cycle, K₀-dependent
+            framework's core dynamics. It is a computational sketch that demonstrates the logical interoperability of key concepts such as the predictive cycle, K₀-dependent
             behavior, the Space of Becoming, POP, and PLS. The code uses simplified, high-level abstractions for complex
             processes like proof-searching (DSRO) to maintain clarity and focus on the interactions between the
             framework's components.</p>
@@ -803,8 +737,6 @@ world_timeline = [
         </ul>
         <p>This toy model, while abstract, provides a computational sketch of the interconnectedness of the framework's
             core concepts.</p>
-
-
         <div class="circle-container">
             <div class="arrow left" onclick="shiftSlide(-1)">❮</div>
             <div class="circle-wrapper">
@@ -814,10 +746,9 @@ world_timeline = [
         </div>
     </article>
     </main>
-    <div id="footer"></div>
+    <div id="footer"><footer class="footer"><p><span class="footer-ai-note">Created through human and AI collaboration.</span></p></footer></div>
 
-    <script defer src="../../js/components.min.js?v=8"></script>
-    <script defer src="article-subscribe.min.js?v=16"></script>
+    <script defer src="../../js/components.min.js?v=10"></script>
     <script defer src="slider.min.js?v=5"></script>
 </body>
 

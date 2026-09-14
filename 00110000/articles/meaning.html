@@ -8,7 +8,7 @@
     <title>What is Meaning? A Predictive Universe Perspective</title>
     <meta name="description"
         content="A formal and conceptual exploration of meaning, defining it as a quantifiable improvement in predictive accuracy within the Predictive Universe (PU) framework.">
-    <link href="article-style.min.css?v=45" rel="stylesheet" />
+    <link href="article-style.min.css?v=47" rel="stylesheet" />
     <link rel="icon" type="image/png" href="../../images/favicon.png">
 
 </head>
@@ -39,10 +39,7 @@
         <h1>What is Meaning? A Predictive Universe Perspective</h1>
         <hr>
         <h2>Abstract</h2>
-        <p>This paper develops Predictive Landscape Semantics (PLS), a theoretical framework defining meaning
-            functionally by applying core principles from the Predictive Universe (PU) framework. We first establish
-            that
-            information is a physically instantiated, substrate-independent pattern possessing the
+        <p>Predictive Landscape Semantics (PLS) defines meaning functionally, using the core principles of the Predictive Universe framework. Information is a physically instantiated, substrate-independent pattern possessing the
             inherent potential to enable a suitable system to improve predictive accuracy about relevant states.
             Building on this, PLS defines <strong>meaning</strong> as the quantifiable, realized improvement (ΔQ) in a
             receiver's predictive accuracy concerning motivationally relevant states, resulting from processing such
@@ -55,29 +52,41 @@
             accuracy within the receiver's probabilistic model of its state space (its predictive landscape). This
             definition is integrated with the PU's Principle of Compression Efficiency (PCE), which
             proposes that communication systems optimize the trade-off between maximizing the information's Meaning
-            Potential (MP) and minimizing its comprehensive Signal Cost (SC). The framework elucidates how structurally
-            simple information ('minimal spark') can be profoundly meaningful by offering significant predictive gains
-            relative to their cost, representing a resource-rational solution to the POP. PLS thus offers a coherent,
+            Potential (MP) and minimizing its comprehensive Signal Cost (SC). Structurally simple information can carry a great deal of meaning by offering large predictive gains relative to its cost, representing a resource-rational solution to the POP. PLS thus offers a coherent,
             mathematically grounded perspective on the emergence and function of information and meaning, rooted in the
             computational imperative for efficient prediction.
         </p>
 
+        <h2>Meaning in Plain Terms</h2>
+        <p>A chess player glances at a board and sees that white is losing. You look at the same board and
+            see thirty-two pieces on squares. The board is identical; what differs is what each of you can
+            now expect to happen next. The player can tell you which side will run out of moves, roughly
+            when, and what will force it. That difference is what meaning is here: a change the board makes
+            in a particular reader rather than a property the board has.</p>
+        <p>This gives meaning a measure. Before the message you hold some expectation about how things will go,
+            spread across possibilities. After it, that expectation is sharper or better aimed. The size of the
+            improvement is the meaning the message carried for you, and a message that changes nothing you can
+            anticipate carried none, however many words it used.</p>
+        <p>Two consequences follow, and both match ordinary experience. Meaning is receiver-relative, since
+            the same sentence can be decisive for one person and empty for another, which is why the
+            audience has to be modelled before anything is said. And meaning is not tied to length: three
+            words to the right person can outperform three pages, which is why a scoreline, a stock ticker,
+            and a warning shout all work.</p>
+        <p>Because reading a message costs effort, the useful quantity is improvement per unit of cost. That ratio
+            is what pushes communication toward compression, and it explains why every field that communicates
+            under pressure develops shorthand.</p>
+
         <h2>1. Introduction</h2>
-        <p>Understanding the nature of information and meaning constitutes a central, intertwined challenge across the
-            cognitive, biological, and computational sciences. While influential theories offer crucial insights, a
-            unified framework remains elusive. This paper develops Predictive Landscape Semantics (PLS), a framework
-            that applies the core axioms and principles of the
+        <p>Understanding information and meaning is a central challenge across the cognitive, biological, and computational sciences. Shannon (1948) measured information while setting meaning aside as irrelevant to the engineering problem, and the attempts to put it back have gone in several directions: semantic content as the set of possibilities a message excludes (Bar-Hillel and Carnap 1953; Floridi 2004), meaning as what a signal reliably carries about the world (Dretske 1981), meaning as speaker intention recognized by a hearer (Grice 1957), meaning as use in a practice (Wittgenstein 1953), meaning as biological function (Millikan 1984), and meaning as the balance of cognitive effect against processing effort (Sperber and Wilson 1986). Predictive Landscape Semantics applies the core axioms and principles of the
             <a href="predictiveuniverse.html"
                 style="text-decoration: none; border-bottom: 1px solid transparent; transition: border-bottom 0.3s;"
                 onmouseover="this.style.borderBottomColor='black';"
                 onmouseout="this.style.borderBottomColor='transparent';">Predictive Universe (PU)</a> to
-            the domain of semantics. We ground our approach in a foundational principle
-            derived from the PU framework:
+            the domain of semantics. The approach rests on one principle from that framework:
             <strong>that all knowledge is predictive.</strong> To 'know' something - from
             the identity of a physical object to the truth of a mathematical theorem - is to possess a model that enables
             the successful anticipation of its behavior and relations. This perspective reframes classical dilemmas,
-            such as the Ship of Theseus paradox, by suggesting that an object's identity is defined not by material
-            continuity but by its predictive consistency. If <a href="inquiry.html"
+            such as the Ship of Theseus paradox, by making an object's identity a matter of predictive consistency rather than material continuity. That criterion is task-relative: it needs a registered object, a response family, a tolerance, and a time window, and it does not claim to exhaust what identity means. If <a href="inquiry.html"
                 style="text-decoration: none; border-bottom: 1px solid transparent; transition: border-bottom 0.3s;"
                 onmouseover="this.style.borderBottomColor='black';"
                 onmouseout="this.style.borderBottomColor='transparent';">knowledge is prediction</a>, then meaning must
@@ -93,11 +102,7 @@
             strategy for addressing the POP, where information is valued for its potential to improve prediction, and
             meaning is the functional consequence of that improvement.
         </p>
-        <p>Our framework is built upon a clear hierarchy. First, we will establish a foundational definition of
-            information based on its physical nature and predictive potential. Second, we will formally define meaning
-            as the quantifiable, realized improvement in a receiver's predictive model (ΔQ). Finally, we will introduce
-            the Principle of Compression Efficiency (PCE) as the economic driver that optimizes the
-            trade-off between the predictive benefit of information and its associated costs. This principle represents
+        <p>The account runs in three steps. Information is defined by its physical nature and its predictive potential. Meaning is then defined as the realized improvement in a receiver's predictive model. The Principle of Compression Efficiency supplies the economics, trading predictive benefit against cost. This principle represents
             the formal application of <a href="compression.html"
                 style="text-decoration: none; border-bottom: 1px solid transparent; transition: border-bottom 0.3s;"
                 onmouseover="this.style.borderBottomColor='black';"
@@ -112,7 +117,7 @@
         <h2>2. Foundational Principles: Prediction, Information, and Knowledge</h2>
 
         <h3>2.1 Foundational Prerequisites for Prediction</h3>
-        <p>To build a rigorous definition of information, we first establish the minimal prerequisites for any system
+        <p>A rigorous definition of information starts from the minimal prerequisites for any system
             capable
             of processing it. These principles ground the framework in the logical and physical necessities of
             prediction.
@@ -124,7 +129,7 @@
                 and be subject to physical processes or transformations that can operate on or transition between these
                 states. Without distinct states, no variation can be represented; without transformations, the system is
                 static and cannot process information.</li>
-            <li><strong>Predictive Capability Foundation:</strong> For a system to generate predictions about
+            <li><strong>Predictive Capacity Foundation:</strong> For a system to generate predictions about
                 a target process with accuracy consistently better than a defined baseline (e.g., chance), it must
                 possess an internal model that captures statistical regularities or correlations pertinent to the
                 evolution of that process. This links the existence of an effective internal model to observable
@@ -150,7 +155,7 @@
             states (R).</p>
         <p>This definition resolves the tension between information's abstract and physical nature. As it must be
             physically instantiated, it is subject to thermodynamics, yet its essence lies in the substrate-independent
-            pattern. Thus, information is not made of matter, but it must be physically articulated in the
+            pattern. Information is therefore carried by matter without being made of it, and it must be physically articulated in the
             world. We can elaborate on each component (P, I, S, E, F, R):</p>
         <ul style="font-size: 20px;">
 
@@ -182,14 +187,11 @@
         <h3>2.4 Communication as Recursive Cross-Prediction</h3>
         <p>We propose a novel interpretation of communicative interaction: every act of communication constitutes a form
             of
-            distributed, recursive cross-prediction. Communication is not merely the transmission of a message from one
-            system
-            to another, but the projection of a self-model across cognitive boundaries, with the sender implicitly
+            distributed, recursive cross-prediction. Communication projects a self-model across cognitive boundaries, with the sender implicitly
             modeling how
             the receiver will, in turn, model the sender.</p>
-        <p>In crafting a message <em>s</em>, the sender S does not simply encode their intent <em>I_S(s)</em>. The
-            process
-            involves anticipating the interpretive behavior of the receiver R. The sender's message generation is thus
+        <p>In crafting a message <em>s</em>, the sender S encodes their intent <em>I_S(s)</em> while anticipating the
+            interpretive behavior of the receiver R. The sender's message generation is thus
             dependent
             on its internal model of the receiver's cognitive framework. The message s is a recursive construct: a
             message about
@@ -206,9 +208,7 @@
             perfect prediction of its own future state, this cross-predictive recursion implies that a sender cannot
             fully
             model the receiver’s model of the sender’s model of the receiver. This meta-modeling ceiling introduces a
-            fundamental logical limit to the achievable coherence between communicating agents. This principle, which we
-            will
-            formalize, is the cognitive and social manifestation of two deeper concepts from the PU framework:
+            fundamental logical limit to the achievable coherence between communicating agents. This principle, formalized below, is the cognitive and social manifestation of two deeper concepts from the PU framework:
             <a href="predictionrelativity.html"
                 style="text-decoration: none; border-bottom: 1px solid transparent; transition: border-bottom 0.3s;"
                 onmouseover="this.style.borderBottomColor='black';"
@@ -226,8 +226,7 @@
                 In communication, achieving perfect interpretive coherence is equivalent to achieving perfect predictive
                 accuracy about the other agent's internal state. The cognitive effort (complexity, energy) required to
                 deepen
-                the recursive model (`model(R(model(S...)))`) likewise diverges. Therefore, the impossibility of perfect
-                communication is not just a logical curiosity but is enforced by the same thermodynamic and
+                the recursive model (`model(R(model(S...)))`) likewise diverges. Therefore, the impossibility of perfect communication goes beyond a logical curiosity and is enforced by the same thermodynamic and
                 resource-based
                 limits that govern Prediction Relativity. </li>
             <li style="font-size: 20px;">Communication is an
@@ -314,8 +313,8 @@
             P<sub>R,t</sub>, must be quantifiable. Let Q(P<sub>R,t</sub>) denote such a quality measure; these metrics
             serve as the cognitive-level implementation of the Predictive Performance (PP) metric from the PU framework,
             where a higher Q corresponds to a higher PP. This drive to maximize predictive quality is conceptually
-            analogous to the Free Energy Principle in computational neuroscience, which posits that intelligent systems
-            act to minimize prediction error or "surprise". Furthermore, communication between distinct agents is
+            analogous to the free-energy principle in computational neuroscience (Friston 2010), on which intelligent systems
+            act to minimize prediction error, or surprise. Furthermore, communication between distinct agents is
             subject to the Principle of Interpretive Uncertainty (PIU, Definition 2.3), which recognizes a fundamental
             limit to the achievable congruence between sender and receiver. Key metrics for Q, which quantify
             performance in the face of this uncertainty, include:
@@ -337,7 +336,7 @@
             <li><strong>Accuracy Improvement (Relative to Ground Truth):</strong> In scenarios where a ground
                 truth
                 distribution <em>P<sub>true</sub></em> can be assumed,
-                accuracy is measured by the Kullback-Leibler (KL) divergence, which quantifies the information
+                accuracy is measured by the Kullback and Leibler (1951) divergence, which quantifies the information
                 lost when
                 <em>P<sub>R,t</sub></em> is used to approximate <em>P<sub>true</sub></em>. Lower KL divergence
                 signifies
@@ -405,7 +404,7 @@
         </ol>
         <p>
             Therefore, meaningful information is that which moves the system <em>towards</em> this optimal,
-            high-performance regime within the Space of Becoming, not that which attempts the impossible task of pushing
+            high-performance regime within the Space of Becoming, and it stops short of the impossible task of pushing
             it
             into the non-viable and logically incoherent state of absolute, static truth.
         </p>
@@ -476,7 +475,6 @@
                 (<em>R<sub>I</sub>(C)</em>) of the Predictive Universe framework, reflecting costs of attention,
                 sensory
                 processing, computation, and memory.</li>
-        </ul>
         </ul>
         <p>The total Signal Cost is a function of these components: SC(<em>s</em>) = f(SC<sub>prod</sub>,
             SC<sub>trans</sub>, SC<sub>proc</sub>), reflecting tangible resource limitations.</p>
@@ -569,8 +567,8 @@
                 <p>where:</p>
                 <ul style="font-size: 20px;">
                     <li><em>I</em> represents <strong>Shared Intentionality or Functional Relevance:</strong>
-                        The (often implicit) mutual presumption that the perceived pattern <em>s</em> is not purely
-                        accidental noise but is relevant to the receiver's predictive needs.</li>
+                        The (often implicit) mutual presumption that the perceived pattern <em>s</em> carries
+                        structure rather than accidental noise, and is relevant to the receiver's predictive needs.</li>
                     <li><em>κ</em> represents a <strong>Shared Code or Interpretive Model:</strong> The mapping that
                         enables the
                         receiver to interpret the relationship between the pattern <em>s</em> and potential states
@@ -671,7 +669,7 @@
                         this feature allows a listener to drastically reduce uncertainty over the intended word,
                         yielding high meaning (large ΔQ) by accessing entirely different semantic networks.
                         Phonological
-                        systems arguably exhibit hallmarks of PCE optimization, balancing perceptual
+                        systems exhibit hallmarks of PCE optimization, balancing perceptual
                         discriminability
                         (ensuring MP) against articulatory ease (minimizing SC).</li>
 
@@ -697,8 +695,7 @@
                     foundational
                     definition of information with an operational definition of meaning, centered on the
                     functional role
-                    of prediction in systems facing the Prediction Optimization Problem. We first defined
-                    information as a physically instantiated pattern characterized by its inherent
+                    of prediction in systems facing the Prediction Optimization Problem. Information was defined first as a physically instantiated pattern characterized by its inherent
                     potential to enable predictive improvement.
                 </p>
                 <p>Building on this, PLS redefines meaning away from intrinsic symbolic content
@@ -1106,6 +1103,30 @@
             }
         </script>
 
+            <h3>References</h3>
+            <ul style="font-size: 18px;">
+                <li>Bar-Hillel, Yehoshua, and Rudolf Carnap. "Semantic Information." <em>The British Journal for
+                        the Philosophy of Science</em> 4, no. 14, 1953, 147&ndash;157.</li>
+                <li>Dretske, Fred I. <em>Knowledge and the Flow of Information</em>. MIT Press, 1981.</li>
+                <li>Floridi, Luciano. "Outline of a Theory of Strongly Semantic Information." <em>Minds and
+                        Machines</em> 14, no. 2, 2004, 197&ndash;221.</li>
+                <li>Friston, Karl. "The Free-Energy Principle: A Unified Brain Theory?" <em>Nature Reviews
+                        Neuroscience</em> 11, no. 2, 2010, 127&ndash;138.</li>
+                <li>Grice, H. P. "Meaning." <em>The Philosophical Review</em> 66, no. 3, 1957,
+                    377&ndash;388.</li>
+                <li>Kullback, S., and R. A. Leibler. "On Information and Sufficiency." <em>The Annals of
+                        Mathematical Statistics</em> 22, no. 1, 1951, 79&ndash;86.</li>
+                <li>Millikan, Ruth Garrett. <em>Language, Thought, and Other Biological Categories</em>. MIT
+                    Press, 1984.</li>
+                <li>Shannon, C. E. "A Mathematical Theory of Communication." <em>Bell System Technical
+                        Journal</em> 27, 1948, 379&ndash;423 and 623&ndash;656.</li>
+                <li>Sperber, Dan, and Deirdre Wilson. <em>Relevance: Communication and Cognition</em>. Blackwell,
+                    1986.</li>
+                <li>Wittgenstein, Ludwig. <em>Philosophical Investigations</em>. Translated by G. E. M. Anscombe,
+                    Blackwell, 1953.</li>
+            </ul>
+
+
         <div class="circle-container">
             <div class="arrow left" onclick="shiftSlide(-1)">&#10094;</div>
             <div class="circle-wrapper">
@@ -1118,10 +1139,9 @@
 
     </article>
     </main>
-    <div id="footer"></div>
+    <div id="footer"><footer class="footer"><p><span class="footer-ai-note">Created through human and AI collaboration.</span></p></footer></div>
 
-    <script defer src="../../js/components.min.js?v=8"></script>
-    <script defer src="article-subscribe.min.js?v=16"></script>
+    <script defer src="../../js/components.min.js?v=10"></script>
     <script defer src="slider.min.js?v=5"></script>
 
 </body>

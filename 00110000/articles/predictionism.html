@@ -8,7 +8,7 @@
   <title>Predictionism: From Cogito to Logic and Computation</title>
   <meta name="description"
     content="A rigorous framework grounding binary verification, Boolean operations, and computational structure in the epistemic certainty of the Cogito." />
-  <link href="article-style.min.css?v=45" rel="stylesheet" />
+  <link href="article-style.min.css?v=47" rel="stylesheet" />
   <link rel="icon" type="image/png" href="../../images/favicon.png" />
   <style>
     .math-inline {
@@ -60,7 +60,7 @@
 
     <h2>Abstract</h2>
     <p>
-      <strong>Predictionism</strong> grounds binary verification and Boolean operations in the epistemic certainty of Descartes’ <em>cogito ergo sum</em>. Traditional approaches to classical logic
+      <strong>Predictionism</strong> grounds binary verification and Boolean operations in the epistemic certainty of Descartes' (1996) <em>cogito ergo sum</em>. It is an interpretive proposal whose theorem-level content is the finite-protocol results below. Traditional approaches to classical logic
       often <em>assume</em> the principle of bivalence axiomatically. Predictionism asks how bivalence can arise from
       self-verifying thought. By formalizing the Cogito as a cyclical prediction and verification process, the framework
       explains why verification has a true/false structure under a specified test, context, and threshold.
@@ -72,7 +72,27 @@
       of logic and computation, Predictionism offers a framework for grounding these systems in predictive verification.
     </p>
 
-    <h2>1. Introduction</h2>
+            <h2>Predictionism in Plain Terms</h2>
+        <p>A referee's flag is either up or down. It can go up hesitantly, after a long look, or in the wrong
+            call, and none of that changes the shape of the outcome: the play stands or it does not. Whatever
+            deliberation happens beforehand, the record that is kept has two values.</p>
+        <p>Classical logic assumes that statements are true or false and builds everything on that. The question
+            here is where the assumption comes from, and the answer is the moment of checking. A prediction meets
+            an outcome, and what gets written down is that it held or it did not. Two values, because the record
+            is the result of a comparison and a comparison either passes or fails.</p>
+        <p>From that one move the rest follows in a way you can watch. Expecting the opposite of what you expected
+            is negation. Needing both of two things to hold is conjunction. Being ready for either of two things
+            is disjunction. These three build every truth table there is, and with a way to run steps in order and
+            remember results between them, they build any computation.</p>
+        <p>The starting case is the one that cannot go the other way. Try to check whether you are thinking, and
+            the checking is thinking, so the flag can only go one way. Descartes found that; what this account
+            adds is that the finding has the form of a verification, which is why it can carry the weight of a
+            logical foundation and not just a psychological observation.</p>
+        <p>One boundary belongs here. The claim covers what gets retained at the moment of checking, on protocols
+            where a check is defined. It does not say that every judgment a mind makes is two-valued, or that
+            vagueness and degrees of belief are illusions.</p>
+
+        <h2>1. Introduction</h2>
     <p>
       Classical logic underpins modern mathematics, philosophy, and computer science, yet its fundamental principle of
       bivalence is often accepted without deeper justification. Predictionism grounds bivalence in the binary outcome of verification: a prediction is confirmed or disconfirmed relative to a specified test, context, and threshold.
@@ -80,33 +100,33 @@
     </p>
     <p>
       When Descartes attempted to doubt everything, he arrived at a singular certainty: the act of doubting itself
-      confirmed the presence of thinking, revealing a fundamentally binary verification process - the proposition "I
+      confirmed the presence of thinking, revealing a binary verification process, which Hintikka (1962) analysed as performative rather than inferential - the proposition "I
       exist" must be true (as the very act of doubting demonstrates existence) and cannot possibly be false (as
       attempting to verify "I do not exist" is self-contradictory) - thus establishing that consciousness, at the most
       fundamental level, operates through a true/false verification structure that provides the foundation of bivalence in
       logic.
     </p>
     <p>
-      By formalizing this insight into a cyclical structure of <strong>doubt → prediction → verification → renewed
+      Formalizing the insight as a cycle of <strong>doubt → prediction → verification → renewed
         doubt</strong>,
       we illustrate how bivalent verification naturally emerges. We then extend this to show how Boolean operations (NOT, AND, OR) arise from such a binary verification framework, and how universal computation follows when those operations are combined with sequencing, iteration, and memory.
     </p>
     <p>
-      The paper’s main contributions are:
+      The account has three parts:
     </p>
     <ul style="font-size:20px;">
       <li>
-        <strong>Epistemological Justification of Bivalence:</strong> Demonstrates how the
+        <strong>Bivalence:</strong> Grounded in the retained outcome of verification, showing how the
         principle of bivalence is grounded in the self-verifying loop of consciousness, rather
         than simply taken as an axiom.
       </li>
       <li>
-        <strong>Formal Specification of the Predictive Cycle:</strong> Provides mathematical
+        <strong>The predictive cycle:</strong> Specified by mathematical
         definitions for the state space, prediction function, verification function, and the
         cyclical doubt function. These clarify how self-reflection enforces a binary outcome.
       </li>
       <li>
-        <strong>Derivation of Boolean Operations and Computation:</strong> Shows that the
+        <strong>Boolean operations and computation:</strong> The
         core Boolean operators arise from different facets of the predictive cycle, and that
         universal computation follows from their functional completeness.
       </li>
@@ -117,7 +137,7 @@
 
     <h2>2.1 The Fundamental Predictive Loop and the Cogito</h2>
     <p>
-      We begin by modeling consciousness as an iterative cycle:
+      Consciousness is modelled here as an iterative cycle:
     </p>
     <ol style="font-size:20px;">
       <li>
@@ -147,7 +167,7 @@
 
     <h2>2.2 Formal Definitions and Notation</h2>
     <p>
-      To bring mathematical clarity to this cyclical model, we define:
+      The cyclical model uses four objects:
     </p>
     <ul style="font-size:20px;">
       <li>
@@ -177,7 +197,7 @@
       </li>
     </ul>
     <p>
-      We often write <span class="math-inline">δ(r)</span> in place of <span class="math-inline">V(r)</span>. This is
+      The notation <span class="math-inline">δ(r)</span> is used in place of <span class="math-inline">V(r)</span>. This is
       simply a notational convenience
       to emphasize the binary output, <span class="math-inline">δ(r) ∈ {0,1}</span>.
     </p>
@@ -222,8 +242,7 @@
 
     <h2>3.1 The Emergence of Boolean Operations from the Predictive Loop</h2>
     <p>
-      We now show how the canonical Boolean operations (NOT, AND, OR) arise from the fundamental
-      verification scheme <span class="math-inline">δ(r) ∈ {0,1}</span>. By extension, all of classical Boolean algebra
+      The canonical Boolean operations arise from the verification scheme <span class="math-inline">δ(r) ∈ {0,1}</span>. By extension, all of classical Boolean algebra
       can be generated.
     </p>
 
@@ -285,19 +304,15 @@
       </li>
     </ol>
     <p>
-      These three operations (NOT, AND, OR) are well-known to be functionally complete:
-      they can generate all Boolean functions.
+      These three operations are functionally complete, so they generate every Boolean function, a fact established for two-valued logic by Sheffer (1913) and classified in full by Post (1941). Boole (1854) supplied the algebra, and Shannon (1938) showed that circuits of switches realize it.
     </p>
 
     <h2>3.2 From Boolean Logic to Universal Computation</h2>
     <p>
       <strong>Theorem 3 (Universal Computation from Binary Verification):</strong>
       <br />
-    <p>
       The progression from Boolean algebra to universal computation is well-established in the foundations of
-      computer science. Given that we have established the fundamental Boolean operations (NOT, AND, OR) in binary
-      verification processes inherent in the Cogito, we can efficiently sketch the path to universal computation:
-    </p>
+      computer science. With the Boolean operations established on the retained verification values, the path to universal computation is short:
     </p>
     <p><strong>Proof (Sketch):</strong></p>
 
@@ -313,7 +328,7 @@
         capable of storing bits, running algorithms, and branching on conditions.
       </li>
       <li>
-        <strong>Turing Completeness:</strong> Functional completeness alone is not enough for universal computation. A system also needs sequencing, iteration, and sufficient memory. When these capacities are present alongside arbitrary Boolean functions, the system can simulate a universal Turing machine.
+        <strong>Turing completeness:</strong> Functional completeness alone does not suffice, and four further conditions scope the result: closure under composition of protocols, memory that retains verification outcomes across steps, uniform specification of the protocols, and finite resources that scale with the computation. With those, the system simulates a universal Turing machine in the sense Turing (1936) defined and Kleene (1952) developed.
       </li>
     </ol>
     <p>
@@ -332,23 +347,43 @@
     </p>
     <ul style="font-size:20px;">
       <li>
-        We grounded <strong>bivalence</strong> in the binary dynamics of doubt and verification,
+        Bivalence is grounded<strong>bivalence</strong> in the binary dynamics of doubt and verification,
         showing that the Cogito’s self-awareness is an unassailable example of how a verification
         step cannot be other than <span class="math-inline">0</span> or <span class="math-inline">1</span>.
       </li>
       <li>
-        We demonstrated how <strong>Boolean operations</strong> (NOT, AND, OR) emerge from structural
+        The <strong>Boolean operations</strong> (NOT, AND, OR) emerge from structural
         features of a predictive cycle. This formal correspondence highlights the non-arbitrary
         nature of classical logic.
       </li>
       <li>
-        We argued that these foundational logical operations support <strong>Turing-completeness</strong> when combined with sequencing, iteration, and memory. The binary checks at the root of verification can therefore serve as the basis for general computation.
+        These logical operations support <strong>Turing-completeness</strong> when combined with sequencing, iteration, and memory. The binary checks at the root of verification can therefore serve as the basis for general computation.
       </li>
     </ul>
     <p>
       This approach suggests that classical logic and computation reflect an inherent feature of self-conscious thought
       rather than merely convenient human constructs.
     </p>
+
+      <h3>References</h3>
+      <ul style="font-size: 18px;">
+        <li>Boole, George. <em>An Investigation of the Laws of Thought</em>. Walton and Maberly, 1854.</li>
+        <li>Descartes, Ren&eacute;. <em>Meditations on First Philosophy</em>. Translated by John Cottingham,
+          revised ed., Cambridge University Press, 1996.</li>
+        <li>Hintikka, Jaakko. "Cogito, Ergo Sum: Inference or Performance?" <em>The Philosophical Review</em> 71,
+          no. 1, 1962, 3&ndash;32.</li>
+        <li>Kleene, Stephen Cole. <em>Introduction to Metamathematics</em>. North-Holland, 1952.</li>
+        <li>Post, Emil L. <em>The Two-Valued Iterative Systems of Mathematical Logic</em>. Princeton University
+          Press, 1941.</li>
+        <li>Shannon, Claude E. "A Symbolic Analysis of Relay and Switching Circuits." <em>Transactions of the
+            American Institute of Electrical Engineers</em> 57, no. 12, 1938, 713&ndash;723.</li>
+        <li>Sheffer, H. M. "A Set of Five Independent Postulates for Boolean Algebras, with Application to
+          Logical Constants." <em>Transactions of the American Mathematical Society</em> 14, no. 4, 1913,
+          481&ndash;488.</li>
+        <li>Turing, A. M. "On Computable Numbers, with an Application to the Entscheidungsproblem."
+          <em>Proceedings of the London Mathematical Society</em> s2-42, no. 1, 1936, 230&ndash;265.</li>
+      </ul>
+
     <div class="circle-container">
       <div class="arrow left" onclick="shiftSlide(-1)">&#10094;</div>
       <div class="circle-wrapper">
@@ -361,10 +396,9 @@
 
   <!-- Footer -->
     </main>
-    <div id="footer"></div>
+    <div id="footer"><footer class="footer"><p><span class="footer-ai-note">Created through human and AI collaboration.</span></p></footer></div>
 
-    <script defer src="../../js/components.min.js?v=8"></script>
-    <script defer src="article-subscribe.min.js?v=16"></script>
+    <script defer src="../../js/components.min.js?v=10"></script>
     <script defer src="slider.min.js?v=5"></script>
 </body>
 

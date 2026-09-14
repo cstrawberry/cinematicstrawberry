@@ -262,6 +262,13 @@ hr {
   margin: 0 0 20px;
 }
 
+.footer-ai-note {
+  display: inline-block;
+  margin-top: 6px;
+  font-size: 13px;
+  color: #555;
+}
+
 /* Utility Classes */
 a,
 a:focus,

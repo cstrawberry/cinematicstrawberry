@@ -9,7 +9,7 @@
     <title>AI-Powered Predictive Compression: Leveraging AI Model Priors for Data Compression</title>
     <meta name="description"
         content="Introduces Predictive Compression, a novel approach leveraging AI model priors for efficient data compression via optimized predictive seeding. This framework selects critical data features based on their Predictive Potential for enabling reconstruction by compatible AI models.">
-    <link href="article-style.min.css?v=45" rel="stylesheet" />
+    <link href="article-style.min.css?v=47" rel="stylesheet" />
     <link rel="icon" type="image/png" href="../../images/favicon.png">
 
     <style>
@@ -134,14 +134,37 @@
         </section>
 
         <section id="introduction">
+            <h2>The Method in Plain Terms</h2>
+            <p>Two people who have both read the same novel can discuss it in shorthand. One says the name
+                of a minor character and a whole scene comes back, because the shared reading is doing the
+                work and the words spoken are only the index into it. To a third person who has not read
+                the book, the same sentence carries almost nothing.</p>
+            <p>Predictive Compression is that arrangement between a sender and a machine. Both ends hold a
+                large model trained on similar data. The sender therefore does not transmit the file. It
+                works out which fragments of the file the receiving model would fail to guess, sends only
+                those, and lets the model reconstruct the rest from what it already holds. The compression
+                ratio depends on how much the two ends have in common, exactly as the shorthand does.</p>
+            <p>The equivalence between prediction and compression is neither new nor loose. A model that
+                assigns probabilities to the next symbol converts directly into an arithmetic coder whose
+                output length is the negative log probability it assigned. Del&eacute;tang et al. (2024)
+                ran this in both directions, using a large language model trained on text to compress
+                image patches to 43.4 percent of raw size against PNG's 58.5. What Predictive Compression
+                adds is a selection step: rather than coding every symbol against the model, it chooses
+                which parts of the source to send at all.</p>
+            <p>That step is where the difficulty concentrates. Choosing a subset by estimated usefulness
+                is a combinatorial problem, the estimate has to be made before the reconstruction that
+                would confirm it, and the receiver's model must match the sender's closely enough that a
+                fragment means the same thing at both ends. The sections below develop the framework and
+                then examine each of those three points.</p>
+
             <h2>1. Introduction</h2>
             <p>Data compression is a foundational technology enabling efficient digital
                 storage and communication. Classical algorithms
                 achieve success by exploiting statistical regularities within data
                 streams, such as symbol frequencies and repetitive patterns.
-                Foundational theories like Shannon's source coding and
-                rate-distortion theory (RDT) establish fundamental limits
-                based on source entropy and acceptable distortion D. However, these
+                Shannon (1948) established the limits for lossless coding in terms of source
+                entropy, and Berger (1971) developed the rate-distortion theory that fixes the minimum
+                rate for a given tolerated distortion D. However, these
                 methods primarily address surface statistics and may not fully exploit
                 deeper structural or semantic redundancies inherent in complex data,
                 often optimizing for mathematically convenient distortion measures
@@ -229,8 +252,8 @@
 
             <ul style="font-size: 20px;">
                 <li><strong>Traditional Lossless and Lossy Compression:</strong> Methods like
-                    Huffman coding, Lempel-Ziv variants, Arithmetic coding, JPEG, MP3, etc.
-                    primarily exploit statistical redundancies or
+                    Huffman coding, Lempel-Ziv variants, arithmetic coding, JPEG, and MP3
+                    primarily exploit statistical redundancies (Shannon 1948; Berger 1971) or
                     remove information deemed perceptually irrelevant based on
                     psychoacoustic/visual models. They generally operate without complex
                     generative world models at the decoder beyond basic statistical or
@@ -552,9 +575,9 @@
                     This continues until the budget R<sub>max</sub> is met. If the
                     aggregated potential function MP(S) is monotone and submodular, and the
                     cost function (rate) is modular, this greedy approach provides provable
-                    approximation guarantees, typically achieving
-                    solutions within a constant factor (1 - 1/e) of optimal for cardinality
-                    constraints. However, it requires estimating the marginal contribution
+                    approximation guarantees. Nemhauser et al. (1978) proved the bound: greedy
+                    selection reaches within a factor (1 - 1/e) of the optimum under a cardinality
+                    constraint, and the guarantee holds only while monotonicity and submodularity do. However, it requires estimating the marginal contribution
                     MP(S ∪ {e}) - MP(S), which may itself be
                     challenging.
                 </li>
@@ -565,8 +588,11 @@
                 <li><strong>Information Bottleneck Inspired:</strong> Frame selection as finding
                     S minimizing rate len(E(S)) while maximizing an estimate of
                     the mutual information I(S; X̂) between seed S and the
-                    eventual reconstruction X̂ = M(S). This requires
-                    approximations but offers a
+                    eventual reconstruction X̂ = M(S). Tishby et al. (1999) formulated this
+                    trade-off as compressing one variable while preserving information about a relevant
+                    second one, which is the shape of the problem here with the reconstruction as the
+                    relevant variable. The formulation is exact; the mutual information terms have to be
+                    approximated, which is where the difficulty moves. It supplies a
                     principled information-theoretic foundation.</li>
             </ol>
 
@@ -810,10 +836,14 @@
             <ol style="font-size: 20px;">
                 <li><strong>Identify the Minimum Sufficient Seed:</strong> Given a complex data object X (image, text,
                     graph, etc.), select the minimal seed S that enables accurate reconstruction.</li>
-                <li><strong>Optimize the Information-Rate Tradeoff:</strong> Navigate the rate-distortion curve to find
-                    optimal operating points that balance compression and fidelity.</li>
-                <li><strong>Transfer Compression Knowledge:</strong> Select seeds that enable reconstruction not just by
-                    the original model but by different models with different priors.</li>
+                <li><strong>Optimize the Information-Rate Tradeoff:</strong> Find operating points on the
+                    rate-distortion curve that balance compression against fidelity, and state which
+                    fidelity is meant. Blau and Michaeli (2019) proved that distortion and perceptual
+                    quality trade against each other at any fixed rate, so a reconstruction that scores
+                    well on a per-element distance and a reconstruction that looks right are different
+                    targets, and a system cannot maximise both.</li>
+                <li><strong>Transfer Compression Knowledge:</strong> Select seeds that enable reconstruction
+                    by models other than the one used for selection, holding different priors.</li>
             </ol>
 
             <p>These tasks would be parameterized by data complexity (information density, structure), reconstruction
@@ -847,8 +877,10 @@
                 complexity providing a clear visualization of relative understanding capabilities.</p>
 
             <p>As AI systems advance, we hypothesize that improvements in Predictive Compression performance will
-                correlate strongly with advancements in general intelligence capabilities, making this framework not
-                just a compression technique but a valuable lens through which to measure progress in AI understanding.
+                correlate strongly with advancements in general intelligence capabilities, which would make the
+                framework a measuring instrument for progress in AI understanding as well as a compression
+                method. Del&eacute;tang et al. (2024) give the empirical grounding for that expectation, finding
+                compression rate to track model capability across scales and modalities.
             </p>
             <img src="images/prediction4.jpg" alt="Compression Intelligence" width="1024" height="1536" decoding="async" loading="lazy">
             <p class="caption">Universe 00110000</p>
@@ -922,12 +954,12 @@
                             reconstruction.</li>
                     </ul>
                 </li>
-                <li><strong>Fundamental Challenge: MP vs. ΔQ Correlation:</strong> The core
+                <li><strong>The First Measurement: MP vs. ΔQ Correlation:</strong> The core
                     operational hypothesis of Predictive Compression is that the Predictive
                     Potential (MP) estimated during compression is a reliable predictor of
-                    the Predictive Gain (ΔQ) realized during decompression. The strength and
-                    reliability of this correlation are critical but not guaranteed. Factors
-                    influencing this include: (1) the accuracy and appropriateness of the
+                    the Predictive Gain (ΔQ) realized during decompression. That correlation is
+                    directly measurable, and measuring it is the first experiment the framework
+                    calls for. Three quantities set it: (1) the accuracy and appropriateness of the
                     heuristic method chosen for MP estimation (Section 4.1), (2) the degree
                     of M<sub>enc</sub> / M compatibility (Section 6), and (3) the
                     potential for complex, non-linear interactions between seed elements
@@ -952,8 +984,9 @@
                     requires extensive empirical validation. This involves comparing
                     Predictive Compression against state-of-the-art traditional and neural
                     compression baselines across diverse datasets and tasks, using
-                    appropriate semantic and perceptual distortion metrics (not just PSNR or
-                    MSE). Crucially, these studies must critically analyze the relationship
+                    appropriate semantic and perceptual distortion metrics rather than PSNR or
+                    MSE alone, given the trade-off between the two established by Blau and Michaeli
+                    (2019). Crucially, these studies must critically analyze the relationship
                     between the estimated MP used for selection and the actual, measured ΔQ
                     achieved during reconstruction.</li>
             </ul>
@@ -975,7 +1008,6 @@
                 data X̂, ideally achieving high fidelity (low semantic distortion D) and realizing a significant
                 Predictive Gain (ΔQ). The core optimization objective during compression is maximizing the estimated
                 utility per bit (MP/R).</p>
-
             <p>This approach differs from traditional compression and standard neural compression by focusing on source
                 feature selection guided by estimated reconstruction utility, rather than statistical redundancy removal
                 or wholesale latent space transformation. We outlined its key components: MP assessment heuristics,
@@ -987,18 +1019,37 @@
                 prerequisite for reliable performance. Furthermore, we proposed extending this framework to define
                 "Compression Intelligence Tasks" (CITs) as a novel benchmark for evaluating AI understanding based on
                 its ability to perform efficient predictive reconstruction from minimal seeds.</p>
-
-            <p>Realizing the potential benefits of Predictive Compression - namely, high compression ratios for complex
-                data and preservation of semantic fidelity - necessitates overcoming significant challenges. These include
-                developing robust and reliable MP estimators that accurately predict realized ΔQ, designing efficient
-                optimization algorithms for seed selection, ensuring practical model compatibility, managing
-                computational costs, mitigating risks of unfaithful reconstruction, and establishing stronger
-                theoretical guarantees. Crucially, extensive empirical validation across diverse data types using
-                appropriate semantic metrics is required, specifically focusing on validating the correlation between
-                estimated MP and achieved ΔQ. If these hurdles can be surmounted, Predictive Compression could represent
-                a paradigm shift in compression technology, moving towards systems that intelligently leverage learned
-                world models for highly efficient data representation in the era of advanced AI.</p>
+            <p>The framework rests on one measurable correlation, between the estimated Predictive Potential
+                used to select a seed and the Predictive Gain actually realised at reconstruction, and
+                establishing it is the first experiment.</p>
+            <p>The baseline it has to beat is direct model-based coding, where a general language model used
+                as an arithmetic coder already compresses image patches to 43.4 percent of raw size against
+                PNG's 58.5 (Del&eacute;tang et al. 2024). The distinctive claim of Predictive Compression is
+                that curating the source outperforms coding all of it well, and that claim is measurable
+                against exactly that number.</p>
         </section>
+        
+            <h3>References</h3>
+            <ul style="font-size: 18px;">
+                <li>Berger, Toby. <em>Rate Distortion Theory: A Mathematical Basis for Data
+                        Compression</em>. Prentice-Hall, 1971.</li>
+                <li>Blau, Yochai, and Tomer Michaeli. "Rethinking Lossy Compression: The
+                    Rate-Distortion-Perception Tradeoff." In <em>Proceedings of the 36th International
+                        Conference on Machine Learning</em>, PMLR 97, 2019, 675&ndash;685.</li>
+                <li>Del&eacute;tang, Gr&eacute;goire, et al. "Language Modeling Is Compression." In
+                    <em>Proceedings of the 12th International Conference on Learning Representations</em>,
+                    2024.</li>
+                <li>Nemhauser, George L., Laurence A. Wolsey, and Marshall L. Fisher. "An Analysis of
+                    Approximations for Maximizing Submodular Set Functions I." <em>Mathematical
+                        Programming</em> 14, no. 1, 1978, 265&ndash;294.</li>
+                <li>Shannon, Claude E. "A Mathematical Theory of Communication." <em>Bell System Technical
+                        Journal</em> 27, no. 3, 1948, 379&ndash;423, and 27, no. 4, 1948,
+                    623&ndash;656.</li>
+                <li>Tishby, Naftali, Fernando C. Pereira, and William Bialek. "The Information Bottleneck
+                    Method." In <em>Proceedings of the 37th Annual Allerton Conference on Communication,
+                        Control and Computing</em>, 1999, 368&ndash;377.</li>
+            </ul>
+
         <div class="circle-container">
             <div class="arrow left" onclick="shiftSlide(-1)">&#10094;</div>
             <div class="circle-wrapper">
@@ -1009,10 +1060,9 @@
 
     </article>
     </main>
-    <div id="footer"></div>
+    <div id="footer"><footer class="footer"><p><span class="footer-ai-note">Created through human and AI collaboration.</span></p></footer></div>
 
-    <script defer src="../../js/components.min.js?v=8"></script>
-    <script defer src="article-subscribe.min.js?v=16"></script>
+    <script defer src="../../js/components.min.js?v=10"></script>
     <script defer src="slider.min.js?v=5"></script>
 </body>
 

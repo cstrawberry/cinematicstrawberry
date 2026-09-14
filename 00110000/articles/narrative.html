@@ -8,7 +8,7 @@
     <title>The Principle of Narrative Realization: Constrained Semantic Permutation</title>
     <meta name="description"
         content="This article proposes the Principle of Narrative Realization (PNR), suggesting that a source text is a highly coherent configuration within a vast permutation space dominated by incoherent sequences.">
-    <link href="article-style.min.css?v=45" rel="stylesheet" />
+    <link href="article-style.min.css?v=47" rel="stylesheet" />
     <link rel="icon" type="image/png" href="../../images/favicon.png">
 
 </head>
@@ -39,15 +39,8 @@
         <h1>The Principle of Narrative Realization: Constrained Semantic Permutation within Fixed Lexical Sets</h1>
         <hr>
         <h2>Abstract</h2>
-        <p>This article introduces the Principle of Narrative Realization (PNR), which posits that a coherent narrative
-            represents an exceptionally rare permutation within the vast combinatorial space of its own Fixed Lexical
-            Set. We formalize this by hypothesizing a heavy-tailed distribution of coherence scores, where the original
-            text occupies a near-optimal configuration. The PNR is situated within a broader theoretical framework that
-            connects combinatorial rarity to function, geometry, and cross-domain applicability. We integrate the
-            principle with Predictive Landscape Semantics (PLS), defining coherence functionally as the capacity to
-            maximize a receiver's predictive improvement. We then propose that this coherence manifests as
-            structured, low-entropy geometric trajectories in semantic space, offering a computationally
-            tractable proxy for analysis. The principle's generality is demonstrated through a parallel framework for
+        <p>The Principle of Narrative Realization holds that a coherent narrative is an exceptionally rare permutation within the combinatorial space of its own fixed lexical set. Coherence scores are hypothesized to follow a heavy-tailed distribution in which the original text occupies a near-optimal configuration, a distributional shape common in human activity (Zipf 1949; Barab&aacute;si 2010). The PNR is situated within a broader theoretical framework that
+            connects combinatorial rarity to function, geometry, and cross-domain applicability. Predictive Landscape Semantics supplies the functional definition, on which coherence is the capacity to maximize a receiver's predictive improvement, which is the quantity that predicts reading effort word by word (Hale 2001; Levy 2008). That coherence is proposed to appear as structured, low-entropy geometric trajectories in semantic space, which gives a computationally tractable proxy for analysis, of the kind latent semantic analysis (Landauer and Dumais 1997) and distributed word representations (Mikolov et al. 2013) supply. The principle's generality is demonstrated through a parallel framework for
             music. This synthesis leads to theoretically grounded
             explorations of bidirectional realization - generating narratives from abstract geometric forms - and future
             AI-to-AI communication via resonant semantic shapes. By providing precise definitions, formal analysis, and
@@ -55,7 +48,23 @@
             investigating the deep structure of meaningful information.</p>
 
 
-        <h2>1 Introduction</h2>
+        <h2>The Principle in Plain Terms</h2>
+        <p>Take the words of a paragraph and shuffle them. There are astronomically many orderings, and almost every one is gibberish, which is the situation Borges (1941) staged in a library holding every possible book. The original was one arrangement out of that space, and it was the arrangement
+            that made sense. That rarity is the whole observation.</p>
+        <p>Putting a number on it is what makes it useful. A page of two hundred words has more orderings than
+            there are atoms in the observable universe, and the coherent ones are a vanishing fraction. So writing
+            is a search problem: finding one of the rare arrangements that works, in a space too large to
+            enumerate.</p>
+        <p>What counts as working can be defined rather than left to taste. An arrangement works when a reader
+            who processes it can anticipate more than before, which makes coherence a measurable improvement in
+            prediction rather than a matter of opinion. That definition transfers: the same account applies to a
+            melody, where the notes are the lexical set and coherence is what lets a listener anticipate the next
+            phrase.</p>
+        <p>The claim being made is about rarity and function together, and it stops short of aesthetics. A text
+            can be coherent and dull. What the principle says is that coherence occupies an extremely small part
+            of the space of arrangements, and that this smallness is what a writer is working against.</p>
+
+        <h2>1. Introduction</h2>
         <p>Human language allows for a virtually infinite number of sentences, yet full-length, coherent narratives are
             comparatively rare. It is a familiar intuition that arbitrarily permuting the words of a novel results in
             incoherence. The Principle of Narrative Realization (PNR) proposed herein
@@ -87,7 +96,7 @@
             landscape within which higher-order structures can emerge.</p>
         <img src="images/narrative5.jpg" alt="Fixed Lexical Set" width="768" height="1408" decoding="async" loading="lazy">
         <p class="caption">Universe 00110000</p>
-        <h2>2 Preliminaries and Definitions</h2>
+        <h2>2. Preliminaries and Definitions</h2>
 
         <h3>2.1 Fixed Lexical Set (FLS)</h3>
         <p>Let <i>S</i> = ⟨<i>w</i><sub>1</sub>, <i>w</i><sub>2</sub>, …, <i>w</i><sub>N</sub>⟩ be a source narrative of
@@ -108,9 +117,9 @@
                 style="text-decoration: none; border-bottom: 1px solid transparent; transition: border-bottom 0.3s;"
                 onmouseover="this.style.borderBottomColor='black';"
                 onmouseout="this.style.borderBottomColor='transparent';">Predictive Landscape Semantics (PLS)</a>. We
-            define the narrative coherence score, <i>f<sub>NC</sub></i>, not as a simple composite of linguistic
-            features, but as an <strong>estimate of the expected predictive improvement (ΔQ)</strong> a realized
-            narrative <i>R</i> would produce in a qualified receiver. This reframes coherence as a measure of a text's
+            define the narrative coherence score, <i>f<sub>NC</sub></i>, as an <strong>estimate of the expected
+            predictive improvement (ΔQ)</strong> a realized narrative <i>R</i> would produce in a qualified
+            receiver, in place of a simple composite of linguistic features. This reframes coherence as a measure of a text's
             potential to achieve significant predictive improvement (ΔQ), thereby being meaningful in the PLS framework.
         </p>
         <p>Formally, <i>f<sub>NC</sub>(R)</i> = E[ΔQ(<i>R</i>)]. Since this expectation is not directly computable, we
@@ -216,7 +225,7 @@
             </tbody>
         </table>
 
-        <h2>3 The Principle of Narrative Realization</h2>
+        <h2>3. The Principle of Narrative Realization</h2>
 
         <h3>3.1 Formal Statement</h3>
         <p><strong>Proposed Principle 1 (Principle of Narrative Realization):</strong>
@@ -261,8 +270,8 @@
             impossibility of producing a coherent text (e.g., a Shakespearean play) from a random selection of
             characters. The PNR poses a conceptually deeper problem: it grants the "monkey" a massive advantage by
             providing the <strong>complete and correct lexical inventory</strong> (the FLS) of such a play. The question
-            then becomes not whether a coherent text can arise from a random alphabet, but whether permuting the
-            <em>exact, correct</em> set of words can yield another equally coherent narrative. Even with this profound
+            then shifts away from whether a coherent text can arise from a random alphabet, and asks instead whether
+            permuting the <em>exact, correct</em> set of words can yield another equally coherent narrative. Even with this profound
             head-start, the PNR posits that the combinatorial space remains so vast that coherent arrangements are
             exceedingly rare. For a novel with <i>N</i> ≈ 10<sup>5</sup>, the number of permutations
             can exceed 10<sup>150,000</sup>, rendering exhaustive search practically impossible and making a random
@@ -278,7 +287,7 @@
             <li><b>Syntactic Constraints:</b> Natural-language grammars impose strict ordering rules. The fixed counts
                 of parts-of-speech in <i>L<sub>S</sub></i> severely limit the number of permutations that are even
                 locally grammatical.</li>
-            <li><b>Semantic & Referential Constraints:</b></li> The challenge of satisfying these constraints is not
+            <li><b>Semantic & Referential Constraints:</b> The challenge of satisfying these constraints is not
             merely a matter of local word meaning; it is a
             network-level constraint. The Theory of Minimal Description (TMD) posits that words exist within a
             structured semantic network governed by principles like Semantic Directionality and Network Connection. Each
@@ -360,11 +369,11 @@
         </p>
         <img src="images/narrative1.jpg" alt="Geometric Manifestations of Coherence" width="768" height="1408" decoding="async" loading="lazy">
         <p class="caption">Universe 00110000</p>
-        <h2>4 Implications</h2>
+        <h2>4. Implications</h2>
 
         <h3>4.1 Information Theory</h3>
         <p>Coherent narratives are low-entropy states. The probability of randomly selecting <i>S</i> from its
-            permutation space is <i>P<sub>S</sub></i> = 1/|<i>P(L<sub>S</sub>)</i>|, implying high Shannon information
+            permutation space is <i>P<sub>S</sub></i> = 1/|<i>P(L<sub>S</sub>)</i>|, implying high Shannon (1951) information
             <i>I(S)</i> = -log<sub>2</sub> <i>P<sub>S</sub></i>. The PNR further proposes that coherence
             itself is a high-information property, as the set of coherent texts <i>P</i><sub>≥ τ</sub> is a tiny
             fraction
@@ -416,8 +425,8 @@
                 processing effort because the Signal Cost (SC) of reading is offset by a large gain in predictive
                 understanding (high Meaning Potential, MP).</li>
         </ul>
-        <p>The synergy between PNR and PLS thus paints a picture where narrative coherence is not an arbitrary aesthetic
-            preference but a functional imperative related to the efficient acquisition of predictive power. The
+        <p>The synergy between PNR and PLS thus paints a picture where narrative coherence is a functional imperative
+            related to the efficient acquisition of predictive power rather than an arbitrary aesthetic preference. The
             specific lexical configuration of an original narrative <i>S</i> is valuable precisely because it is one of
             the
             vanishingly few permutations of <i>L<sub>S</sub></i> that unlocks this predictive potential for a reader.
@@ -498,10 +507,10 @@
 
         <img src="images/narrative3.jpg" alt="Cymatics" width="1024" height="1536" decoding="async" loading="lazy">
         <p class="caption">Universe 00110000</p>
-        <h2>5 Cross-Domain Parallels and Extensions</h2>
+        <h2>5. Cross-Domain Parallels and Extensions</h2>
 
         <h3>5.1 The Principle in Music: A Parallel Framework</h3>
-        <p>The PNR finds a compelling, and potentially more empirically tractable, parallel in the domain of music,
+        <p>Meyer (1956) made the same connection for music, treating meaning as the play of expectation against fulfilment. The PNR finds a compelling, and potentially more empirically tractable, parallel in the domain of music,
             suggesting a "Principle of Musical Realization" (PMR).</p>
 
         <h3>5.1.1 Fixed-Note Set (FNS) and Musical Coherence</h3>
@@ -541,8 +550,8 @@
                 onmouseout="this.style.borderBottomColor='transparent';">Law of Compression</a>, and allow for
             near-instantaneous coherence checking.</p>
         <h3>5.2.2 The Predictive Alignment Principle</h3>
-        <p>Effective communication would occur if a message-shape <i>T</i> transmitted by AI<sub>1</sub> is not only
-            recognized as geometrically coherent by AI<sub>2</sub> but also produces a significant predictive
+        <p>Effective communication would occur if a message-shape <i>T</i> transmitted by AI<sub>1</sub> is
+            recognized as geometrically coherent by AI<sub>2</sub> and also produces a significant predictive
             improvement
             (Δ<i>Q</i>) in AI<sub>2</sub>'s world model. This can be formalized as a principle of predictive alignment:
             communication is successful if <i>f<sub>geom</sub><sup>(A1)</sup>(T)</i> ≈
@@ -553,8 +562,8 @@
         <h3>5.2.3 Implications for Intersubjective AI</h3>
         <p>This model suggests that resonant semantic forms could serve as an interlingual or inter-representational
             bridge, allowing AIs with different internal architectures to communicate via a shared geometric
-            understanding of coherence. Miscommunication would be measured not in token errors but in topological
-            deviations or failures of predictive alignment.</p>
+            understanding of coherence. Miscommunication would be measured in topological
+            deviations or failures of predictive alignment rather than in token errors.</p>
         <h3>5.3 Toward Universal Principles of Coherent Information</h3>
         <p>The parallels between narrative and music suggest the PNR may be an instance of a more general, cross-domain
             principle governing the structure of all meaningful information. This leads to the proposal of a unifying
@@ -593,10 +602,10 @@
             grasp of the characteristic shapes of its coherent structures. Learning would be reframed as developing the
             ability to recognize, navigate, and create these structured trajectories within a given abstract space. This
             echoes the historical aspirations for a <em>characteristica universalis</em> - a universal formal language - but
-            reimagines it not as a set of symbols, but as a universal grammar of shape and form. Investigating this
+            reimagines it as a universal grammar of shape and form in place of a set of symbols. Investigating this
             geometry is a profound long-term goal for uncovering the deep architecture of meaning, reason, and
             intelligence itself.</p>
-        <h2>6 Future Directions</h2>
+        <h2>6. Future Directions</h2>
         <p>The Principle of Narrative Realization opens a rich, multi-pronged research program that spans empirical
             validation, theoretical refinement, and the development of advanced computational models:</p>
 
@@ -634,27 +643,30 @@
             <code>f<sub>NC</sub>(·)</code> metric requires the development of computationally tractable proxy
             metrics and advanced models of coherence. One of the most promising avenues is the geometric
             approach outlined in Conjecture G, which seeks to find efficient geometric or topological correlates of
-            coherence in semantic space. It must be acknowledged that this conjecture is optimistic, assuming that
-            current semantic embedding models capture the relevant properties and that the resulting geometry is not
-            overwhelmingly noisy or complex. A more speculative but powerful direction is the formulation of coherence
+            coherence in semantic space. Its two requirements are stated and testable: that
+            current embedding models carry the relevant properties, and that the resulting geometry is legible
+            at the scale of a narrative. Both are settled by measurement rather than argument. A more speculative but powerful direction is the formulation of coherence
             using
             the mathematics of fiber bundles. In such a model, a core semantic trajectory would form the "base space,"
             while evolving stylistic, pragmatic, or discourse features would exist in the "fibers." Coherence could then
             be elegantly cast as the problem of finding a smooth, holistic trajectory (a "section") through this total
             space, providing a sophisticated framework for disentangling semantic flow from other narrative features.
-            These advanced models not only promise computational feasibility but also a deeper, more structured
+            These advanced models promise computational feasibility together with a deeper, more structured
             understanding of meaning itself.
         </p>
 
         <img src="images/narrative2.jpg" alt="The Principle of Narrative Realization" width="1024" height="1536" decoding="async" loading="lazy">
         <p class="caption">Universe 00110000</p>
-        <h2>7 Conclusion</h2>
+        <h2>7. Conclusion</h2>
         <p>The Principle of Narrative Realization formalizes the intuition that coherent narratives are exceptionally
             rare configurations within the permutation space of a fixed lexical set. By hypothesizing a heavy-tailed
             distribution of coherence scores, it offers a theoretical explanation for the apparent uniqueness of
-            extensive narratives. The principle's connections to predictive processing, geometric models of meaning, and other domains such as music suggest a focused research program. While requiring
-            extensive empirical validation and mathematical refinement, the PNR may contribute to linguistics, artificial intelligence, and literary studies. The research program points toward
-            a geometry of meaning in which coherent information is constrained by form, context, and predictive fit.</p>
+            extensive narratives. The bigram experiment of Appendix C exhibits the predicted shape on a
+            short passage, and the bound of Appendix A shows what follows once the constraint classes are
+            given their decay rates. Its connections to predictive processing, to geometric models of meaning,
+            and to music mark out where the same measurements can be repeated. What the principle proposes is a
+            geometry of meaning in which coherent information is constrained by form, context, and predictive
+            fit, and it stands on quantities that lexical resources and corpora can supply.</p>
 
         <h2>Appendix A: Conditional Proof of a Polynomial Coherence Bound</h2>
         <p>This proof adopts a strict, non-compensatory model of coherence (A-Assumption 3) to achieve formal
@@ -739,10 +751,10 @@
 
         <h2>Appendix B: A Toy Model for Operationalizing <i>f<sub>NC</sub>(&middot;)</i></h2>
         <p>To demonstrate the principle of calculating the composite coherence score <i>f<sub>NC</sub>(R)</i>, this
-            appendix operationalizes a simplified, computable model for a small-scale example. This exercise is not
-            intended to be a definitive metric but rather to illustrate how the abstract components of
-            <i>f<sub>NC</sub>(&middot;)</i> can be grounded in concrete, quantitative proxies, making the principle
-            falsifiable in practice.
+            appendix operationalizes a simplified, computable model for a small-scale example. The exercise illustrates how the abstract components of
+            <i>f<sub>NC</sub>(&middot;)</i> can be grounded in concrete, quantitative proxies, which is what makes
+            the principle falsifiable in practice. The proxies below are chosen for legibility at this scale;
+            Section 6.1 sets out how they are replaced for full texts.
         </p>
 
         <h3>B.1 Setup: The Sentence and its Permutation Space</h3>
@@ -970,6 +982,30 @@ print(<span class="string">f"Mean = {scores.mean():.2f}; 95th pct = {np.percenti
                 });
             }
         </script>
+
+        <h3>References</h3>
+        <ul style="font-size: 18px;">
+            <li>Barab&aacute;si, Albert-L&aacute;szl&oacute;. <em>Bursts: The Hidden Patterns Behind Everything We
+                    Do</em>. Dutton, 2010.</li>
+            <li>Borges, Jorge Luis. "The Library of Babel." 1941. In <em>Collected Fictions</em>, translated by
+                Andrew Hurley, Penguin, 1998, 112&ndash;118.</li>
+            <li>Hale, John. "A Probabilistic Earley Parser as a Psycholinguistic Model." <em>Proceedings of the
+                    Second Meeting of the North American Chapter of the Association for Computational
+                    Linguistics</em>, 2001, 159&ndash;166.</li>
+            <li>Landauer, Thomas K., and Susan T. Dumais. "A Solution to Plato's Problem: The Latent Semantic
+                Analysis Theory of Acquisition, Induction, and Representation of Knowledge." <em>Psychological
+                    Review</em> 104, no. 2, 1997, 211&ndash;240.</li>
+            <li>Levy, Roger. "Expectation-Based Syntactic Comprehension." <em>Cognition</em> 106, no. 3, 2008,
+                1126&ndash;1177.</li>
+            <li>Mikolov, Tomas, Kai Chen, Greg Corrado, and Jeffrey Dean. "Efficient Estimation of Word
+                Representations in Vector Space." arXiv:1301.3781, 2013.</li>
+            <li>Meyer, Leonard B. <em>Emotion and Meaning in Music</em>. University of Chicago Press, 1956.</li>
+            <li>Shannon, C. E. "Prediction and Entropy of Printed English." <em>Bell System Technical
+                    Journal</em> 30, no. 1, 1951, 50&ndash;64.</li>
+            <li>Zipf, George Kingsley. <em>Human Behavior and the Principle of Least Effort</em>. Addison-Wesley,
+                1949.</li>
+        </ul>
+
         <div class="circle-container">
             <div class="arrow left" onclick="shiftSlide(-1)">❮</div>
             <div class="circle-wrapper">
@@ -980,10 +1016,9 @@ print(<span class="string">f"Mean = {scores.mean():.2f}; 95th pct = {np.percenti
 
     </article>
     </main>
-    <div id="footer"></div>
+    <div id="footer"><footer class="footer"><p><span class="footer-ai-note">Created through human and AI collaboration.</span></p></footer></div>
 
-    <script defer src="../../js/components.min.js?v=8"></script>
-    <script defer src="article-subscribe.min.js?v=16"></script>
+    <script defer src="../../js/components.min.js?v=10"></script>
     <script defer src="slider.min.js?v=5"></script>
 
 </body>

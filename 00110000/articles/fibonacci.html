@@ -8,7 +8,7 @@
     <title>Fibonacci Strings: Integrating the Something–Nothing Spectrum</title>
     <meta name="description"
         content="An exploration of Fibonacci Strings, a framework that integrates the Fibonacci sequence with the Something-Nothing Spectrum to encode semantic meaning into binary data.">
-    <link href="article-style.min.css?v=45" rel="stylesheet" />
+    <link href="article-style.min.css?v=47" rel="stylesheet" />
     <link rel="icon" type="image/png" href="../../images/favicon.png">
 
 </head>
@@ -38,13 +38,28 @@
         <h1>Fibonacci Strings: Integrating the Something–Nothing Spectrum</h1>
         <hr>
         <h2>Abstract</h2>
-        <p>This paper introduces <strong>Fibonacci Strings</strong>, a novel framework that uses the mathematical elegance of the Fibonacci sequence to encode semantic meaning directly into binary data. The approach
-            is simple yet powerful: we convert Fibonacci numbers (like 1, 2, 3, 5, 8) into their binary code and then
-            translate this code into language. Each '1' is mapped to a word representing “something” (e.g., 'presence,'
-            'entity'), while each '0' becomes a word for “nothing” (e.g., 'void,' 'absence'). This process is guided by
-            the Something-Nothing Spectrum (SNS), a system where modern AI helps classify word. The result
+        <p><strong>Fibonacci Strings</strong> use the Fibonacci sequence to carry semantic meaning in binary data. The construction converts Fibonacci numbers (like 1, 2, 3, 5, 8) into their binary code and then
+            translate this code into language, using the binary representation that underlies all digital encoding (Shannon 1948; Knuth 1997). Each '1' is mapped to a word representing “something” (e.g., 'presence,'
+            'entity'), while each '0' becomes a word for nothing, such as void or absence. The mapping is fixed by the Something-Nothing Spectrum, a scale on which language models place words by their proximity to existence or its denial. The result
             is a method for transforming pure numbers into meaningful phrases, allowing binary data to carry
             semantic weight.</p>
+
+        <h2>Fibonacci Strings in Plain Terms</h2>
+        <p>Write 8 in binary and you get 1000. Read each 1 as a word meaning presence and each 0 as a word
+            meaning absence, and 1000 becomes a four-beat phrase: something, nothing, nothing, nothing. The number
+            has become a sentence with a shape.</p>
+        <p>Doing this to the Fibonacci sequence rather than to arbitrary numbers is the point. Fibonacci numbers
+            grow by a fixed rule, each the sum of the two before it, so their binary forms are neither regular nor
+            arbitrary. The phrases inherit that character: they have structure without being repetitive, which is
+            what makes them readable as rhythm rather than noise.</p>
+        <p>Choosing which words count as presence and which as absence is the part that needs care, and it is what
+            the Something-Nothing Spectrum supplies: a scale from 0 to 1 on which words are placed by how close
+            they sit to existence or its denial. The scale makes the mapping repeatable, so two people encoding the
+            same number get comparable phrases.</p>
+        <p>What this is for is worth stating plainly. It is a way of giving numbers a semantic surface, useful for
+            generating text with mathematical structure and for asking whether a machine reading such text can
+            recover the number. It is a construction, and it makes no claim that Fibonacci numbers are hidden in
+            language.</p>
 
         <h2>1. Introduction</h2>
         <h3>1.1 Motivation</h3>
@@ -62,7 +77,7 @@
 
         <h2>2. Background</h2>
         <h3>2.1 The Fibonacci Sequence</h3>
-        <p>The Fibonacci sequence (<em>F</em><sub>n</sub>) is defined as:</p>
+        <p>The sequence appears in Fibonacci's <em>Liber Abaci</em> of 1202 (Sigler 2002), and Zeckendorf's (1972) theorem shows that every positive integer has a unique representation as a sum of non-consecutive Fibonacci numbers, which is what makes a Fibonacci-based encoding well defined. The Fibonacci sequence (<em>F</em><sub>n</sub>) is defined as:</p>
         <p style="text-align: center; font-size: 1.2em;"><em>F</em><sub>0</sub> = 0, <em>F</em><sub>1</sub> = 1,
             <em>F</em><sub>n</sub> = <em>F</em><sub>n-1</sub> + <em>F</em><sub>n-2</sub>, for n ≥ 2
         </p>
@@ -73,7 +88,7 @@
 
         <h3>2.2 The Something–Nothing Spectrum (SNS)</h3>
         <p>According to the SNS, words can be assigned values in the interval [0,1], where 0 represents
-            “non-existence” and 1 represents "existence.” This foundational concept allows for the quantification of a word's ontological weight. Examples:</p>
+            “non-existence” and 1 represents “existence.” This foundational concept allows for the quantification of a word's ontological weight. Examples:</p>
         <ul style="font-size: 20px;">
             <li>Words near 0: “void,” “absence,” “nothingness.”</li>
             <li>Words near 1: “being,” “presence,” “entity.”</li>
@@ -85,7 +100,7 @@
             <li><strong>Inherent Connection to Growth:</strong>The Fibonacci sequence often emerges in plant growth patterns and other natural spirals, paralleling concept emergence - the way complexity arises from simple, foundational rules. Each Fibonacci String can be seen as a snapshot of this self-organising growth process.
  </li>
             <li><strong>Recursive Simplicity:</strong> The rule <em>F</em><sub>n</sub> = <em>F</em><sub>n-1</sub> + <em>F</em><sub>n-2</sub> models how new states of being are built upon the sum of what came immediately before. This recursive structure perfectly mirrors how complex semantic ideas can be constructed from a sequence of simple "something" (1) and "nothing" (0) concepts.</li>
-          <li><strong>The Golden Ratio (φ) as Aesthetic Composition:</strong> The golden ratio, often called the “divine proportion,” has been a cornerstone of artistic and architectural composition for centuries, believed to produce aesthetically pleasing and natural harmony. In this framework, choosing the Fibonacci sequence is a deliberate artistic act. It implies that the resulting strings are not just data, but <em>semantic compositions</em> intended to achieve a form of linguistic balance and beauty.</li>
+          <li><strong>The Golden Ratio (φ) as Aesthetic Composition:</strong> The golden ratio, often called the “divine proportion,” has been a cornerstone of artistic and architectural composition for centuries, believed to produce aesthetically pleasing and natural harmony. In this framework, choosing the Fibonacci sequence is a deliberate artistic act. It implies that the resulting strings are <em>semantic compositions</em> rather than plain data, intended to achieve a form of linguistic balance and beauty.</li>
           
         </ul>
         
@@ -149,6 +164,20 @@
         <p>Fibonacci Strings offer a captivating fusion of mathematical recursion and an ontological scale via the SNS. By mapping binary digits to “nothing” or “something” words, bits evolve from inert tokens into meaning-bearing elements. The choice of the Fibonacci sequence is not arbitrary; its inherent properties of natural growth, recursion, and its convergence toward the golden ratio provide a mathematical backbone that mirrors the very process of ontological creation from simple foundations.</p>
         <p>This framework is made tangible through modern tools. Drawing on large language models for classification ensures scalable and relatively unbiased word assignments, while grammatical filters help maintain the linguistic coherence of the resulting strings. Ultimately, Fibonacci Strings propose a paradigm shift in how we conceive of information - turning pure data into poetry.</p>
 
+        <h3>References</h3>
+        <ul style="font-size: 18px;">
+            <li>Fibonacci, Leonardo. <em>Fibonacci's Liber Abaci: A Translation into Modern English of Leonardo
+                    Pisano's Book of Calculation</em>. Translated by L. E. Sigler, Springer, 2002.</li>
+            <li>Knuth, Donald E. <em>The Art of Computer Programming, Volume 1: Fundamental Algorithms</em>. 3rd
+                ed., Addison-Wesley, 1997.</li>
+            <li>Shannon, C. E. "A Mathematical Theory of Communication." <em>Bell System Technical Journal</em>
+                27, 1948, 379&ndash;423 and 623&ndash;656.</li>
+            <li>Zeckendorf, E. "Repr&eacute;sentation des nombres naturels par une somme de nombres de Fibonacci
+                ou de nombres de Lucas." <em>Bulletin de la Soci&eacute;t&eacute; Royale des Sciences de
+                    Li&egrave;ge</em> 41, 1972, 179&ndash;182.</li>
+        </ul>
+
+
         <div class="circle-container">
             <div class="arrow left" onclick="shiftSlide(-1)">❮</div>
             <div class="circle-wrapper">
@@ -158,10 +187,9 @@
         </div>
     </article>
     </main>
-    <div id="footer"></div>
+    <div id="footer"><footer class="footer"><p><span class="footer-ai-note">Created through human and AI collaboration.</span></p></footer></div>
 
-    <script defer src="../../js/components.min.js?v=8"></script>
-    <script defer src="article-subscribe.min.js?v=16"></script>
+    <script defer src="../../js/components.min.js?v=10"></script>
     <script defer src="slider.min.js?v=5"></script>
 
 </body>

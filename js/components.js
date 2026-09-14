@@ -27,7 +27,7 @@ class ComponentLoader {
 
       await Promise.all([
         this.loadComponent('header', new URL('../components/header.html?v=1.3', componentBaseUrl).href),
-        this.loadComponent('footer', new URL('../components/footer.html?v=1.5', componentBaseUrl).href)
+        this.loadComponent('footer', new URL('../components/footer.html?v=1.7', componentBaseUrl).href)
       ]);
       document.dispatchEvent(new CustomEvent("site-components-loaded"));
     }

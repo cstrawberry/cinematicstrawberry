@@ -433,7 +433,7 @@
     
                 const slideCount = 30;
                 const slides = Array.from({ length: slideCount }, (_, index) => {
-                    return `images/slideshow/pu/PU_slide_${String(index + 1).padStart(2, '0')}-desktop.jpg`;
+                    return `images/slideshow/pu/PU_slide_${String(index + 1).padStart(2, '0')}-desktop.jpg?v=5`;
                 });
                 const image = lightbox.querySelector('.slide-deck-image');
                 const closeButton = lightbox.querySelector('.slide-deck-close');

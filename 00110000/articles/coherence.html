@@ -9,7 +9,7 @@
         Cognition and Artificial Intelligence</title>
     <meta name="description"
         content="Exploring the concept of subjective coherence in human cognition and AI, bridging the gap between local consistency and global inconsistency.">
-    <link href="article-style.min.css?v=45" rel="stylesheet" />
+    <link href="article-style.min.css?v=47" rel="stylesheet" />
     <link rel="icon" type="image/png" href="../../images/favicon.png">
 </head>
 
@@ -40,19 +40,31 @@
         <hr>
 
         <h2>Abstract</h2>
-        <p>This paper introduces the novel concept of <strong>subjective coherence</strong>, presenting a
-            paradigm-shifting framework that reconciles the paradox of locally consistent yet globally inconsistent
-            decision-making in human cognition. Extending beyond traditional bounded rationality theories, this
-            framework offers a more nuanced understanding of human decision processes. We explore the implications of
-            subjective coherence for artificial intelligence (AI) development, arguing that integrating this concept
-            into AI design represents a significant advancement toward creating systems capable of navigating complex,
-            dynamic environments with human-like flexibility and robustness.</p>
+        <p>Subjective coherence accounts for decision-making that is consistent within a frame and inconsistent
+            across frames. It extends bounded rationality by adding a structural reason for the pattern alongside
+            the resource-based one. For artificial systems the consequence is that local soundness and global
+            divergence come together, so the design question becomes which inconsistencies matter and where
+            comparison across frames has to be forced.</p>
+
+        <h2>The Framework in Plain Terms</h2>
+        <p>A person can be scrupulously honest at work, sharp with their family, and generous to strangers, and each of the three will look consistent from inside the situation that produced it. Tversky and Kahneman (1981) showed how much the framing of a choice determines the choice, and Kahneman (2011) collected the wider pattern. Put the three side
+            by side and they do not add up. Nothing has gone wrong with the reasoning; the reasoning was never
+            done across all three at once.</p>
+        <p>Subjective coherence names that arrangement. Judgment happens locally, inside whatever frame is active, and the frames are not reconciled unless something forces the comparison, which is close to Minsky's (1986) picture of mind as many partly independent agents. Festinger (1957) described what happens when the comparison is forced and the pieces do not fit. This is why
+            people are surprised by their own inconsistencies when they are pointed out, and why pointing them out
+            often changes nothing.</p>
+        <p>Bounded rationality, in Simon's (1955) formulation, explained shortfalls by limited resources: not enough time, memory, or attention to be fully consistent. Gigerenzer and Goldstein (1996) added that simple procedures often match complex ones on real tasks. The account here adds a structural reason. Global consistency requires holding
+            every frame together at once, and a system built to act inside one frame at a time is not failing when
+            it does not do that. It is doing what it is for.</p>
+        <p>The consequence for artificial systems is direct. A system that reasons locally will produce locally
+            sound and globally divergent behaviour, so the engineering question is which inconsistencies matter and
+            where the comparison has to be forced, rather than how to eliminate the phenomenon.</p>
 
         <h2>1. Introduction</h2>
         <p>Classical decision theories have long posited that rational agents exhibit consistent, transitive
             preferences, leading to globally coherent decision-making patterns. However, empirical observations reveal
             that human decision-making often displays context-dependent choices, challenging these traditional notions.
-            This paper introduces the novel concept of <strong>subjective coherence</strong>, a theoretical framework
+            <strong>Subjective coherence</strong> is introduced here as a theoretical framework
             that reconciles the apparent contradiction between local consistency and global inconsistency in human
             cognition.</p>
         <img src="images/coherence.jpg" alt="Understanding Local Consistency and Global Inconsistency" width="1024" height="1792" decoding="async" loading="lazy">
@@ -86,7 +98,7 @@
         <h3>2.4 Non-Transitive Preferences</h3>
         <p>Non-transitive preferences are defined as preference orderings that violate the transitivity axiom of
             classical rationality (i.e., if A > B and B > C, then A > C does not necessarily hold). Our framework posits
-            that non-transitive preferences are not merely errors or biases but can serve adaptive functions in complex
+            that non-transitive preferences can serve adaptive functions in complex
             decision environments.</p>
 
         <h3>2.5 Examples</h3>
@@ -101,7 +113,7 @@
         <h2>3. Theoretical Foundations</h2>
 
         <h3>3.1 Beyond Bounded Rationality</h3>
-        <p>While our framework builds the concept of bounded rationality, we argue that subjective coherence represents
+        <p>While our framework builds the concept of bounded rationality, subjective coherence represents
             a significant theoretical advancement. Unlike bounded rationality, which often treats cognitive limitations
             as constraints on an ideal rational process, subjective coherence posits that local consistency coupled with
             global inconsistency is an adaptive feature of human cognition. This enables flexible responses to complex,
@@ -140,11 +152,25 @@
             AI agents capable of handling real-world complexities.</p>
 
         <h2>5. Conclusion</h2>
-        <p>This paper introduces <strong>subjective coherence</strong> as a novel framework for understanding human
+        <p><strong>Subjective coherence</strong> has been set out here as a framework for understanding human
             decision-making and advancing artificial intelligence. By reconciling local consistency with global
             inconsistency, our approach offers a more nuanced and realistic model of cognition. Future research should
             explore empirical validations of subjective coherence in diverse decision-making scenarios and further
             investigate its applications in AI system design to fully realize its transformative potential.</p>
+
+        <h3>References</h3>
+        <ul style="font-size: 18px;">
+            <li>Festinger, Leon. <em>A Theory of Cognitive Dissonance</em>. Stanford University Press, 1957.</li>
+            <li>Gigerenzer, Gerd, and Daniel G. Goldstein. "Reasoning the Fast and Frugal Way: Models of Bounded
+                Rationality." <em>Psychological Review</em> 103, no. 4, 1996, 650&ndash;669.</li>
+            <li>Kahneman, Daniel. <em>Thinking, Fast and Slow</em>. Farrar, Straus and Giroux, 2011.</li>
+            <li>Minsky, Marvin. <em>The Society of Mind</em>. Simon and Schuster, 1986.</li>
+            <li>Simon, Herbert A. "A Behavioral Model of Rational Choice." <em>The Quarterly Journal of
+                    Economics</em> 69, no. 1, 1955, 99&ndash;118.</li>
+            <li>Tversky, Amos, and Daniel Kahneman. "The Framing of Decisions and the Psychology of Choice."
+                <em>Science</em> 211, no. 4481, 1981, 453&ndash;458.</li>
+        </ul>
+
         <div class="circle-container">
             <div class="arrow left" onclick="shiftSlide(-1)">&#10094;</div>
             <div class="circle-wrapper">
@@ -154,10 +180,9 @@
         </div>
     </article>
     </main>
-    <div id="footer"></div>
+    <div id="footer"><footer class="footer"><p><span class="footer-ai-note">Created through human and AI collaboration.</span></p></footer></div>
 
-    <script defer src="../../js/components.min.js?v=8"></script>
-    <script defer src="article-subscribe.min.js?v=16"></script>
+    <script defer src="../../js/components.min.js?v=10"></script>
     <script defer src="slider.min.js?v=5"></script>
 </body>
 

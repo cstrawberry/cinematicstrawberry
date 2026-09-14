@@ -9,7 +9,7 @@
         <title>The Self-Referential Paradox of Accurate Prediction</title>
         <meta name="description"
                 content="The Self-Referential Paradox of Accurate Prediction (SPAP) explores the inherent challenges in predicting systems capable of modeling themselves.">
-        <link href="article-style.min.css?v=45" rel="stylesheet" />
+        <link href="article-style.min.css?v=47" rel="stylesheet" />
         <link rel="icon" type="image/png" href="../../images/favicon.png">
 </head>
 
@@ -37,764 +37,572 @@
         <main>
     <article>
                         <h1>The Self-Referential Paradox of Accurate Prediction</h1>
+                        <section id="abstract">
+                                <h2>Abstract</h2>
+                                <p>Build a predictor that is told what it will do, and it can be built to do
+                                        otherwise. The Self-Referential Paradox of Accurate Prediction (SPAP) turns
+                                        that observation into a theorem about classes of predictors. On any class
+                                        rich enough to encode its own members, simulate them, evaluate a binary
+                                        predicate on the result, negate it, and compose programs, and closed under
+                                        the construction that feeds a predictor's forecast back to the system it
+                                        forecasts, no predictor in the class is correct about every system the
+                                        class can build. The probabilistic version closes the obvious escape:
+                                        hedging with a number rather than a verdict fails on the same
+                                        construction.</p>
+                                <p>What the theorem denies is a universal predictor over a class. It leaves
+                                        particular systems perfectly predictable, and it does not make any
+                                        individual event random. Approaching the boundary is separately expensive:
+                                        on a stated quantitative branch, the verification and update work needed to
+                                        come within <code>δ</code> of the limit grows like
+                                        <code>log(1/δ)/δ²</code>. A related structural result concerns
+                                        representation: no finite description can contain its own value as a
+                                        literal proper part, so unfolded self-description regresses, while a
+                                        description holding a code or a pointer does not. Together these give a
+                                        limit that is logical rather than technological, and a class of systems
+                                        that can improve their self-models without ever completing them.</p>
+                        </section>
+
+                        <section id="plain-terms">
+                                <h2>SPAP in Plain Terms</h2>
+                                <p>A friend tells you, before you choose, which of two doors you will walk through.
+                                        If you hear the answer, you can take the other one. The trick is not that
+                                        your friend is a poor forecaster. It is that handing you the forecast makes
+                                        it part of what you are deciding about, and you can always be the kind of
+                                        person who does the opposite. Any machine built the same way defeats any
+                                        predictor that has to be right about every such machine.</p>
+                                <p>Notice what survives. Your friend can still predict people who are not told the
+                                        prediction, and can still predict you about things you cannot change, like
+                                        how tall you are. The limit falls on one specific ambition: a single
+                                        forecaster that is right about every system in a family that includes the
+                                        contrarian machines built from that very forecaster. That ambition is the
+                                        one that fails, and it fails for a reason no faster computer removes.</p>
+                                <p>Hedging does not rescue it. Suppose your friend refuses to name a door and gives
+                                        a probability instead. Build the machine that reads the probability and
+                                        takes the less likely door whenever the number leans one way. The forecast
+                                        is wrong more often than chance, and the escape closes.</p>
+                                <p>The other half of the result is about cost, and it is the useful half. Almost
+                                        getting there is expensive in a way that can be measured: closing the last
+                                        sliver of the gap to the boundary takes work that grows faster than the
+                                        sliver shrinks. This is why self-knowledge behaves the way it does in
+                                        practice. A person, a company, or a program can always learn more about
+                                        itself, each step costs more than the one before, and the account never
+                                        closes.</p>
+                        </section>
 
                         <section id="introduction">
                                 <h2>1. Introduction</h2>
-                                <p>The accurate prediction of future events is a key goal in various fields such as
-                                        physics, computer science, and cognitive science. However, this objective
-                                        becomes especially problematic in self-referential systems - those that include
-                                        a model of themselves within the system. We refer to this issue as the
-                                        Self-Referential Paradox of Accurate Prediction (SPAP), which questions
-                                        fundamental assumptions about the predictability, self-awareness, and
-                                        comprehensibility of self-referential systems.</p>
-
-                                <p>The significance of SPAP lies in its universal applicability. It is not merely a
-                                        quirk of specific systems but a fundamental constraint arising from the logical
-                                        structure of self-reference itself. This universality underscores the
-                                        fundamental nature of the paradox and its far-reaching implications for our
-                                        understanding
-                                        of prediction, consciousness, and the nature of reality itself.</p>
-
-                                <p>To illustrate the intuition behind SPAP, consider a hypothetical predictor attempting to forecast its own future state with guaranteed perfect accuracy. To make this prediction, it must model its own predictive process, which in turn requires modeling its modeling of its predictive process, ad infinitum. This infinite regress blocks complete and perfectly accurate self-prediction while leaving approximate, bounded, and useful self-modeling available.</p>
+                                <p>Prediction is the working currency of physics, computer science, and cognitive
+                                        science. It behaves strangely when the predictor is inside what it
+                                        predicts. A system holding a model of itself is not simply a system with a
+                                        larger model; it is a system whose model has to describe its own describing,
+                                        and whose output can be routed back into its input.</p>
+                                <p>The Self-Referential Paradox of Accurate Prediction names the resulting limit.
+                                        The result is a diagonal theorem, in the family that runs from Cantor's
+                                        argument through Gödel's (1931) incompleteness theorems and Turing's (1936)
+                                        halting result, and its general form is Lawvere's (1969) fixed-point
+                                        theorem, of which these are instances. What SPAP adds is the setting: the
+                                        objects are predictors and the sentences are forecasts, so the fixed point
+                                        that fails to exist is a forecast that must equal its own negation.</p>
+                                <p>The claims come with their scope attached, because the interesting part of the
+                                        result is what it leaves standing. Restricted systems remain predictable,
+                                        hedged forecasts fail for the same reason unhedged ones do, and no
+                                        randomness is derived anywhere.</p>
                         </section>
+
                         <img src="images/SPAP.jpg" alt="SPAP" width="1024" height="1792" decoding="async" loading="lazy">
                         <p class="caption">Universe 00110000</p>
-
                         <section id="foundations">
-                                <h2>2. Mathematical Foundations</h2>
+                                <h2>2. The Setting</h2>
 
-                                <h3>A. Measure-Theoretic Framework</h3>
-                                <p>We begin by establishing a rigorous measure-theoretic framework to provide a
-                                        unified treatment of both deterministic and non-deterministic systems.</p>
-                                <p><strong>Definition 2.1 (System State Space):</strong></p>
-                                <p>Let (S, Σ, μ) be a measure space representing the universe of possible system
-                                        states, where:</p>
-                                <ul style="font-size: 20px;">
-                                        <li>S is the set of all possible states</li>
-                                        <li>Σ is a σ-algebra on S</li>
-                                        <li>μ is a probability measure on (S, Σ)</li>
-                                </ul>
-
-                                <h3>B. Transition Functions</h3>
-                                <p><strong>Definition 2.2 (Generalized Transition Function):</strong> Define T : S × ℝ⁺
-                                        → P(S), where P(S) is the power set of S. For any current state s ∈ S and future
-                                        time interval Δt &gt; 0, T(s, Δt) yields the set of possible future
-                                        states.</p>
-
-                                <p><strong>Definition 2.3 (Transition Probability):</strong> Let P_T(A | s, Δt) be the
-                                        probability of transitioning to a state in set A ∈ Σ, given the current
-                                        state s and time interval Δt. This defines a probability kernel from (S × ℝ⁺, Σ
-                                        × B(ℝ⁺))
-                                        to (S, Σ), where B(ℝ⁺) is the Borel σ-algebra on ℝ⁺.</p>
-
-                                <h3>C. Prediction Functions</h3>
-
-                                <p><strong>Definition 2.4 (Prediction Function):</strong> Let P : S × ℝ⁺ → S be a
-                                        prediction function, where for any current state s ∈ S and future time interval
-                                        Δt &gt; 0, P(s, Δt) yields a predicted future state.</p>
-
-                                <p><strong>Definition 2.5 (Loss Function):</strong> Let L : S × S → ℝ⁺ be a loss
-                                        function quantifying the error between predicted and actual states.</p>
-
-                                <p><strong>Definition 2.6 (Expected Loss):</strong> The expected loss of a prediction
-                                        function P for a given current state s and time interval Δt is:</p>
-                                <pre
-                                        style="font-size: 20px;">E[L(P(s, Δt), s') | s, Δt] = ∫_S L(P(s, Δt), s') dP_T(s' | s, Δt)</pre>
-
-                                <p><strong>Definition 2.7 (Complexity Measure):</strong> Let C : (S × ℝ⁺ → S) →
-                                        ℝ⁺ be a complexity measure for prediction functions. This could be defined in
-                                        terms of
-                                        computational complexity, description length, or other relevant metrics.</p>
-
-                                <p><strong>Definition 2.8 (Accurate Prediction Function):</strong> An Accurate
-                                        prediction function P* minimizes the expected loss while balancing complexity:
+                                <h3>2.1 Systems, Predictors, and Forecasts</h3>
+                                <p>Fix a class <code>M</code> of coded objects. Members of <code>M</code> are both
+                                        systems, which evolve, and predictors, which output forecasts about
+                                        systems. Each system has a nominated component, a designated binary feature
+                                        of its next state that forecasts are about, written
+                                        <code>φ<sub>t+1</sub> ∈ {0,1}</code>. A predictor <code>P</code> applied to a
+                                        coded system <code>S</code> at time <code>t</code> returns a forecast
+                                        <code>P(S,t) ∈ {0,1}</code>, and <code>P</code> is correct on
+                                        <code>S</code> at <code>t</code> when <code>P(S,t) = φ<sub>t+1</sub></code>.
                                 </p>
-                                <pre style="font-size: 20px;">P* = arg min_P [E[L(P(s, Δt), s') | s, Δt] + λC(P)]</pre>
-                                <p>where λ &gt; 0 is a parameter balancing accuracy and complexity.</p>
+                                <p>Restricting forecasts to one bit costs nothing. A predictor that gets a rich
+                                        description right also gets every binary feature of it right, so an
+                                        impossibility proved for one bit holds for anything richer.</p>
+
+                                <h3>2.2 Two Hypotheses on the Class</h3>
+                                <p>Two properties of <code>M</code> do the work, and both are assumptions about the
+                                        class rather than about any single system.</p>
+                                <div class="definition">
+                                        <p><strong>Computational richness.</strong> <code>M</code> can encode its
+                                                own members as objects it manipulates, simulate a member applied to
+                                                a state, evaluate a decidable binary predicate on the result, negate
+                                                a bit, and compose finitely many programs uniformly.</p>
+                                </div>
+                                <div class="definition">
+                                        <p><strong>Uniform diagonal closure.</strong> For every predictor
+                                                <code>P ∈ M</code>, the class contains the system
+                                                <code>D(P)</code> that obtains its own code, queries <code>P</code>
+                                                for the forecast of its own nominated component, and sets that
+                                                component to the opposite of the answer.</p>
+                                </div>
+                                <p>Richness is what lets a system read a forecast about itself; Gödel numbering is
+                                        the classical instance, and Kleene's (1938) recursion theorem is what lets a
+                                        program obtain its own code. Diagonal closure is the substantive
+                                        assumption, and it says the class is not artificially pruned to exclude
+                                        contrarian machines. A class of systems that never receive forecasts about
+                                        themselves fails it, and the theorem below does not apply to such a
+                                        class.</p>
+
+                                <h3>2.3 Cost and Accuracy</h3>
+                                <p>Let <code>A(P)</code> be the accuracy of a predictor on a registered task,
+                                        measured as the negative of expected loss under a stated loss function, and
+                                        let <code>C(P)</code> be its cost, measured in whatever ledger the
+                                        implementation charges: description length, run time, memory, energy. A
+                                        predictor is selected by trading the two,</p>
+                                <pre style="font-size: 20px;">P* = arg min_P [ E[L(P(s, Δt), s')] + λ C(P) ]</pre>
+                                <p>with <code>λ &gt; 0</code> fixing the exchange rate. Nothing in the theorems
+                                        below depends on the particular ledger. What matters is that cost is
+                                        finite and that accuracy has to be bought.</p>
                                 <figure>
                                         <img src="images/3.png" alt="Complexity vs. Accuracy Trade-off" width="1686" height="1101" decoding="async" loading="lazy">
                                         <figcaption>
-                                                <p><i>This graph illustrates the trade-off between complexity and
-                                                                accuracy in prediction functions. As complexity
-                                                                increases, accuracy improves but with diminishing
-                                                                returns. The curve demonstrates that beyond a certain
-                                                                point, significant increases in complexity yield only
-                                                                marginal gains in accuracy.</i></p>
+                                                <p><i>Accuracy against the cost of the model. Each increment of structure buys less accuracy than the one before it, and the curve flattens without ever reaching the top of the frame.</i></p>
                                         </figcaption>
                                 </figure>
-
-                                <h3>D. Self-Referential Systems</h3>
-                                <p><strong>Definition 2.9 (Self-Referential System):</strong>
-                                        A system S is self-referential if its state at any time t can be
-                                        represented as:</p>
-                                <pre style="font-size: 20px;"><code>S(t) = (x(t), M(S(t)))</code></pre>
-                                <p>where:</p>
-                                <ul style="font-size: 20px;">
-                                        <li>x(t) represents all aspects of the system's state at time t other
-                                                than its
-                                                self-model</li>
-                                        <li>M is a function that maps the system's state to a model or
-                                                prediction of
-                                                itself</li>
-                                </ul>
-
-                                <p>This self-referential structure inherently leads to an infinite regress:</p>
-                                <pre style="font-size: 20px;"><code>S(t) = (x(t), M((x(t), M((x(t), M(...))))))
-                                </code></pre>
-                                <p>This infinite nesting of the self-model M within itself is at the core of the
-                                        SPAP.
-                                        It demonstrates that any attempt at complete self-modeling necessarily
-                                        leads to
-                                        an unresolvable infinite regress.</p>
-                                <img src="images/0.png" alt="Infinite Regression in Self-Referential Systems" width="1686" height="1101" decoding="async" loading="lazy">
-                                <figcaption>
-                                        <p><i>This graph illustrates the exponential growth of
-                                                        complexity in
-                                                        self-referential systems as the depth of
-                                                        self-reference
-                                                        increases. The steep curve demonstrates how each
-                                                        level
-                                                        of self-reference compounds the system's
-                                                        complexity,
-                                                        leading to an infinite regression. </i></p>
-                                </figcaption>
-
-                                <p><strong>Definition 2.10 (Self-Prediction Function):</strong> For a
-                                        self-referential
-                                        system S, a self-prediction function P is defined as:</p>
-                                <pre style="font-size: 20px;">P : S × ℝ⁺ → S</pre>
-
-                                <p>such that for any current state s ∈ S and future time interval Δt > 0, P(s,
-                                        Δt)
-                                        yields a predicted future state of the
-
-                                        system.</p>
-
-                                <p><strong>Definition 2.11 (Accurate Self-Prediction):</strong> An Accurate
-                                        self-prediction function P* for a self-referential system S is a
-                                        function that
-                                        minimizes both the expected loss and the complexity of the prediction:
-                                </p>
-
-                                <pre
-                                        style="font-size: 20px;">P* = arg min_P [E[L(P(S(t), Δt), S(t + Δt))] + λC(P)]</pre>
-
-                                <p>where:</p>
-                                <ul style="font-size: 20px;">
-                                        <li>L is a loss function measuring the discrepancy between predicted and
-                                                actual
-                                                states</li>
-                                        <li>C is a complexity measure for prediction functions</li>
-                                        <li>λ > 0 is a parameter balancing accuracy and complexity</li>
-                                </ul>
-
-                                <p><strong>Definition 2.12 (SPAP):</strong> The Self-Referential Paradox of Accurate Prediction (SPAP) states that no non-trivial self-referential predictive system <code>S</code> can contain a complete, guaranteed, and perfectly accurate self-prediction function for its own future state.</p>
                         </section>
 
                         <section id="formal-proof">
-                                <h2>3. Formal Proof of SPAP</h2>
-                                <h3>A. Infinite Regress and Self-Prediction Impossibility Theorem</h3>
-                                <p><strong>Theorem 3.1 (Infinite Regress and Self-Prediction Impossibility):</strong>
-                                        The self-referential nature of Definition 2.9 leads to an infinite regress,
-                                        rendering complete self-prediction impossible due to the inherent nature of
-                                        self-reference, not due to practical limitations on computational resources.</p>
+                                <h2>3. The Theorems</h2>
 
-                                <p><strong>Proof:</strong></p>
-                                <ol style="font-size: 20px;">
-                                        <li>Let s_t be the state of a self-referential system at time t.</li>
-                                        <li>By Definition 2.9, s_t = (x_t, M(s_t)), where x_t represents all aspects of
-                                                the system's state other than the self-model.</li>
-                                        <li>Expanding this once:
-                                                <pre><code>s_t = (x_t, M((x_t, M(s_t))))</code></pre>
-                                        </li>
-                                        <li>Continuing this expansion:
-                                                <pre><code>s_t = (x_t, M((x_t, M((x_t, M(s_t))))))</code></pre>
-                                        </li>
-                                        <li>We observe that this process continues indefinitely, as each expansion
-                                                introduces a new instance of M(s_t) that requires further expansion.
-                                        </li>
-                                        <li>No matter how many times we expand this expression, there will always be an
-                                                innermost M(s_t) that necessitates additional expansion.</li>
-                                        <li>Therefore, a complete representation of s_t would require an infinite number
-                                                of expansions.</li>
-                                        <li>This infinite regress is not a result of computational limitations, but
-                                                rather an inherent property of the self-referential structure itself.
-                                        </li>
-                                        <li>For a system to completely predict its own future state, it would need to
-                                                fully represent its current state, including its predictive model.</li>
-                                        <li>However, as shown, such a complete representation is impossible due to the
-                                                infinite regress.</li>
-                                        <li>Thus, complete self-prediction is rendered impossible by the very nature of
-                                                self-reference, not by any practical limitations on the number of
-                                                expansions we can perform.</li>
-                                </ol>
+                                <h3>3.1 The Deterministic Case</h3>
+                                <div class="theorem">
+                                        <p><strong>Theorem 1 (SPAP, deterministic form).</strong> Let
+                                                <code>M</code> be computationally rich and uniformly diagonal
+                                                closed. Then no <code>P<sub>f</sub> ∈ M</code> is correct on every
+                                                system in <code>M</code> for its nominated component.</p>
+                                </div>
+                                <div class="proof">
+                                        <p><strong>Proof.</strong> Suppose <code>P<sub>f</sub></code> is such a
+                                                predictor. By diagonal closure the class contains
+                                                <code>S<sub>diag</sub> = D(P<sub>f</sub>)</code>. Write
+                                                <code>φ̂ = P<sub>f</sub>(S<sub>diag</sub>, t)</code> for the
+                                                forecast of its nominated component. By construction that component
+                                                takes the value</p>
+                                        <pre style="font-size: 20px;">φ_{t+1} = NOT(φ̂)</pre>
+                                        <p>Correctness on <code>S<sub>diag</sub></code> requires
+                                                <code>φ̂ = φ<sub>t+1</sub></code>, so
+                                                <code>φ̂ = NOT(φ̂)</code>. Neither 0 nor 1 satisfies this, so no
+                                                such <code>P<sub>f</sub></code> exists. ∎</p>
+                                </div>
+                                <p>The proof takes three lines because everything hard is in the hypotheses.
+                                        Richness lets <code>S<sub>diag</sub></code> be built and lets it read the
+                                        forecast; closure puts it in the class; the negation supplies the
+                                        contradiction. Remove any one and the argument stops.</p>
 
-                                <p>This theorem demonstrates that the self-referential nature of the system leads to an
-                                        unresolvable infinite regress, making complete self-prediction fundamentally
-                                        impossible. Any attempt to fully represent the state of a self-referential
-                                        system will always be incomplete, regardless of the number of expansions
-                                        performed, due to the inherent structure of self-reference.</p>
+                                <h3>3.2 Hedging Does Not Help</h3>
+                                <p>The obvious repair is to let the predictor output a probability rather than a
+                                        verdict. It fails, and it fails at the same step.</p>
+                                <div class="theorem">
+                                        <p><strong>Theorem 2 (SPAP, probabilistic form).</strong> Let
+                                                <code>M</code> be a coded class with uniform diagonal closure for
+                                                probabilistic predictors, in which each predicted marginal
+                                                <code>p</code> has a finite representation making the predicate
+                                                <code>p &gt; 1/2</code> decidable inside the class, and which is
+                                                closed under forming the Bernoulli law selected by that predicate.
+                                                Then no predictor in <code>M</code> gives the exact marginal for
+                                                every system in <code>M</code>.</p>
+                                </div>
+                                <div class="proof">
+                                        <p><strong>Proof.</strong> Suppose <code>P<sub>f</sub></code> is exact.
+                                                Closure supplies <code>S′<sub>diag</sub> ∈ M</code> which obtains
+                                                its own code, computes
+                                                <code>p = P<sub>f</sub>(φ<sub>t+1</sub> = 1 | S′<sub>diag</sub>,
+                                                        t)</code>, and adopts the one-step law</p>
+                                        <pre style="font-size: 20px;">P_actual(φ_{t+1} = 1) = 0 if p &gt; 1/2,   1 if p ≤ 1/2</pre>
+                                        <p>Exactness requires <code>p = P<sub>actual</sub>(φ<sub>t+1</sub> =
+                                                        1)</code>. If <code>p &gt; 1/2</code> then the right side is
+                                                0, contradicting <code>p &gt; 1/2</code>. If <code>p ≤ 1/2</code>
+                                                then the right side is 1, contradicting <code>p ≤ 1/2</code>. ∎</p>
+                                </div>
+                                <p>The threshold rule is what makes the construction work: the system needs to
+                                        read only which side of one half the forecast falls on, which the
+                                        decidability hypothesis grants. A predictor that answers exactly one half
+                                        every time escapes this particular system and is useless, since it is
+                                        exact for no system whose component is not a fair coin.</p>
 
-                                <h3>B. Complexity Growth Analysis</h3>
-                                <p><strong>Theorem 3.2 (Complexity Growth):</strong> The complexity C(s) of the state s
-                                        grows without bound as we attempt to refine our predictions.</p>
+                                <h3>3.3 The General Shape</h3>
+                                <p>Both proofs are instances of one fixed-point argument. Lawvere (1969) showed
+                                        that if a structure admits a map <code>eval: A × A → Out</code> through
+                                        which every function from <code>A</code> to <code>Out</code> is named by
+                                        some element of <code>A</code>, then every function from <code>Out</code>
+                                        to itself has a fixed point. Contrapositively, an operation on outcomes
+                                        with no fixed point rules out that naming. Negation on <code>{0,1}</code>
+                                        has no fixed point, so a class whose predictors name all the forecast
+                                        functions on it cannot exist. Cantor's diagonal, Gödel's undecidable
+                                        sentence, Turing's halting argument, and Theorem 1 are the same move applied
+                                        to different categories, as Yanofsky (2003) sets out in detail.</p>
+                                <p>The reading that follows is worth stating plainly, because much of what is
+                                        claimed for such theorems does not follow from them. What fails is a naming:
+                                        the class cannot contain a predictor that correctly names the forecast
+                                        function for all of its own members. Nothing is said about any particular
+                                        system, and nothing is said about how the world behaves.</p>
 
-                                <p><strong>Proof:</strong></p>
-                                <ol style="font-size: 20px;">
-                                        <li>Let C(s^(n)) be the complexity of the n-th partial state as defined in the
-                                                proof of Theorem 3.1.</li>
-                                        <li>Each level of recursive prediction adds a layer of complexity to the state
-                                                representation:
-                                                <pre style="font-size: 20px;">C(s^(n+1)) > C(s^(n)) for all n ≥ 0</pre>
-                                        </li>
-                                        <li>This is because s^(n+1) includes all the information in s^(n) plus an
-                                                additional prediction step.</li>
-                                        <li>As n → ∞, C(s^(n)) → ∞.</li>
-                                </ol>
-
-                                <h3>C. The Optimality-Complexity Tradeoff</h3>
-                                <p><strong>Theorem 3.3 (Optimality-Complexity Tradeoff):</strong> There exists a
-                                        fundamental tradeoff between predictive accuracy and complexity in
-                                        self-referential systems.</p>
-
-                                <p><strong>Proof:</strong></p>
-                                <ol style="font-size: 20px;">
-                                        <li>Let A(P) be the accuracy of prediction function P, defined as the negative
-                                                of the expected loss:
-                                                <pre style="font-size: 20px;">A(P) = -E[L(P(s, Δt), s') | s, Δt]</pre>
-                                        </li>
-                                        <li>From Definition 2.8, we aim to maximize A(P) while minimizing C(P).</li>
-                                        <li>However, from Theorem 3.2, we know that increasing accuracy requires
-                                                increasing complexity.</li>
-                                        <li>Therefore, there exists no global optimum that maximizes accuracy and
-                                                minimizes complexity simultaneously.</li>
-                                        <li>Instead, we have a Pareto frontier of optimal solutions trading off accuracy
-                                                and complexity.</li>
-                                </ol>
-
-                                <img src="images/4.png" alt="Optimality-Complexity Tradeoff" width="1686" height="1101" decoding="async" loading="lazy">
-                                <figcaption>
-                                        <p><i>This graph illustrates the Pareto frontier of optimal solutions in self-referential systems. The purple curve shows accuracy A(P) increasing with complexity C(P), but with diminishing returns. Red and green lines represent increasing complexity and accuracy respectively. This demonstrates the absence of a global optimum maximizing accuracy while minimizing complexity, highlighting the fundamental tradeoff in these systems.</i></p>
-                                    </figcaption>
-                                <h3>D. Logical Proof of the Paradox</h3>
-                                <p>
-                                        <strong>Theorem 3.4 (Perfect Self-Prediction Impossibility):</strong>
-                                        Guaranteed complete and perfectly accurate prediction of a non-trivial self-referential system by itself is logically impossible.
-                                </p>
-                                <p><strong>Proof:</strong></p>
-                                <ol style="font-size: 20px;">
-                                        <li>Assume, for contradiction, that an accurate prediction function <em>P*</em>
-                                                exists as defined in Definition 2.8.</li>
-                                        <li>By Definition 2.5, the current state <em>s<sub>t</sub></em> must include
-                                                <em>P*(s<sub>t</sub>, Δt)</em>.
-                                        </li>
-                                        <li>To compute <em>P*(s<sub>t</sub>, Δt)</em> optimally, we need to know
-                                                <em>s<sub>t</sub></em> completely.
-                                        </li>
-                                        <li>But <em>s<sub>t</sub></em> includes <em>P*(s<sub>t</sub>, Δt)</em>, creating
-                                                a circular dependency.</li>
-                                        <li>This circularity can only be resolved through an infinite regress, as shown
-                                                in Theorem 3.1.</li>
-                                        <li>An infinite regress cannot be completed, even with infinite time and
-                                                resources, due to the inherent logical structure of self-reference.</li>
-                                        <li>Therefore, <em>P*</em> cannot be computed as a complete and perfectly accurate self-prediction function within the self-referential system.</li>
-                                </ol>
-
-                                <h3>E. Logical Indeterminism in Deterministic Systems</h3>
-                                <p><strong>Theorem 3.5 (Logical Indeterminism):</strong> Any system
-                                        capable of self-reference exhibits inherent indeterminism, regardless of the
-                                        deterministic nature of its underlying dynamics.</p>
-                                <p><strong>Proof:</strong> Consider a deterministic system S with state space Ω and
-                                        evolution function f : Ω × ℝ⁺ → Ω. If S is capable of self-reference, it must
-                                        include a representation of its own state and evolution function. By Theorem
-                                        3.4, optimal prediction of such a system is impossible, introducing an element
-                                        of indeterminism. This indeterminism arises not from randomness in the
-                                        underlying dynamics, but from the logical structure of self-reference.</p>
-                        </section>
-
-
-                        <section id="implications-consciousness">
-                                <h2>4. Implications for Consciousness</h2>
-
-                                <p>Before exploring the implications of SPAP for consciousness, it is crucial to
-                                        establish a working definition of consciousness that aligns with our current
-                                        understanding and the framework of this paper:</p>
-
-                                <p><strong>Definition 4.0 (Consciousness):</strong> Consciousness is a state of
-                                        awareness characterized by subjective experiences and the capacity for
-                                        self-reflection. Fundamentally, consciousness involves:</p>
-                                <ol style="font-size: 20px;">
-
-                                        <li>A self-model: An internal representation of the self and its states.</li>
-                                        <li>Self-awareness: The ability to recognize and process information about one's
-                                                own existence and mental states.</li>
-                                        <li>Prediction: The capacity to anticipate future states of both the self and
-                                                the environment.</li>
-                                </ol>
-
-                                <p>This definition emphasizes that consciousness, at its core, must contain a self-model
-                                        to be aware of itself, and this self-model inherently involves prediction. This
-                                        conceptualization of consciousness provides a foundation for understanding the
-                                        profound implications of SPAP on our understanding of self-aware systems.</p>
-
-
-                                <h3>A. Mathematical Formalization of Self-Reference in Conscious Systems</h3>
-                                <p>Let C be a conscious system and S(C, t) be its state at time t. SPAP demonstrates
-                                        that:</p>
-                                <p><em>S(C, t) = (x_t, P(S(C, t), Δt))</em></p>
-                                <p>This equation encapsulates the self-referential nature of consciousness, where x_t
-                                        represents all aspects of the conscious system's state at time t other than its
-                                        self-prediction, and P(S(C, t), Δt) is the system's prediction of its own future
-                                        state. This formalization highlights the recursive nature of self-awareness,
-                                        where a conscious system's current state includes its prediction of its future
-                                        state.</p>
-
-                                <h3>B. Fundamental Limits of Self-Knowledge</h3>
-                                <p><strong>Theorem 4.1 (Impossibility of Complete Self-Knowledge)</strong></p>
-                                <p>For any conscious system C, there exists no function F such that F(S(C, t)) = S(C, t
-                                        + Δt) for all t.</p>
-                                <p><strong>Proof:</strong> Assume such an F exists. Then S(C, t) would include an
-                                        accurate prediction of itself, leading to the infinite regress proved in Theorem
-                                        3.1. This contradicts the finite nature of physical systems. Therefore, no such
-                                        F can exist.</p>
-                                <p>This theorem has profound implications for our understanding of consciousness. It
-                                        suggests that even a hypothetical "perfect" conscious system would be
-                                        fundamentally unable to achieve complete self-knowledge. This aligns with
-                                        philosophical concepts like the "blind spot" in consciousness and provides a
-                                        mathematical foundation for such ideas.</p>
-
-                                <h3>C. Emergence of Complexity in Conscious Systems</h3>
-                                <p><strong>Definition 4.1 (Emergent Complexity)</strong></p>
-                                <p>Let EC(C) be the emergent complexity of a conscious system C. We define EC(C) as:</p>
-                                <p><em>EC(C) = H(S(C, t + Δt) | P(S(C, t), Δt))</em></p>
-                                <p>where H( · | · ) is the conditional entropy, measuring the uncertainty in the actual
-                                        future state given the system's prediction.</p>
-
-                                <p><strong>Theorem 4.2 (SPAP-Induced Complexity)</strong></p>
-                                <p>For any conscious system C, EC(C) &gt; 0.</p>
-                                <p><strong>Proof:</strong> By Theorem 3.4, P(S(C, t), Δt) cannot perfectly predict S(C,
-                                        t + Δt). Therefore, there must be some non-zero uncertainty in S(C, t + Δt)
-                                        given P(S(C, t), Δt), implying EC(C) &gt; 0.</p>
-                                <img src="images/1.png" alt="Emergent Complexity vs. Self-Reference Depth" width="1707" height="1101" decoding="async" loading="lazy">
-                                <figcaption>
-                                        <p><i>This graph shows how emergent complexity increases with self-reference
-                                                        depth in conscious systems. The curve illustrates a non-linear
-                                                        growth in complexity as self-reference deepens. While
-                                                        simplified, it captures the paper's key principle: emergent
-                                                        complexity in self-referential systems accelerates with
-                                                        increased self-modeling sophistication.</i></p>
-                                </figcaption>
-
-                                <p>This theorem suggests that all conscious systems, by virtue of their self-referential
-                                        nature, must exhibit some level of emergent complexity. This could help explain
-                                        why consciousness often appears to have properties that are not easily reducible
-                                        to simpler components.</p>
-
-                                <h3>D. Implications for Understanding Consciousness</h3>
-                                <p>The principles established by SPAP have several important implications for our
-                                        understanding of consciousness:</p>
-                                <ul style="font-size: 20px;">
-                                        <li>Even highly sophisticated conscious systems have inherent limitations in
-                                                their ability to predict their own future states.</li>
-                                        <li>The self-referential nature of consciousness necessarily leads to some
-                                                degree of emergent complexity.</li>
-                                        <li>There exists a fundamental trade-off between the sophistication of a
-                                                system's self-model and its predictive accuracy.</li>
-                                        <li>Complete self-knowledge is theoretically impossible for any conscious
-                                                system, regardless of its complexity or sophistication.</li>
-                                </ul>
-
-                                <p>These implications provide a rigorous mathematical foundation for many intuitive and
-                                        philosophical ideas about the nature of consciousness, while also opening new
-                                        avenues for research in cognitive science, neuroscience, and artificial
-                                        intelligence.</p>
-                        </section>
-                        <section id="implications-reality">
-                                <h2>5. Implications for Our Understanding of Reality</h2>
-
-                                <h3>A. Inherent Indeterminism in Seemingly Deterministic Systems</h3>
-                                <p>SPAP reveals an inherent "logical indeterminism" that exists even in systems
-                                        seemingly governed by deterministic laws. This indeterminism arises not
-                                        from
-                                        missing information or quantum effects, but from the system's capacity
-                                        for
-                                        self-reference.</p>
-
-                                <h3>B. Limits of Knowledge and Scientific Realism</h3>
-                                <p>SPAP challenges naive scientific realism by highlighting the limitations of
-                                        self-prediction. Even a "theory of everything" would be inherently
-                                        incomplete.
-                                </p>
-
-                                <h3>C. SPAP and the Problem of Induction</h3>
-                                <p>SPAP offers a unique perspective on the Problem of Induction by viewing
-                                        scientific
-                                        laws as the universe's "self-prediction" of its behavior. The universe,
-                                        through
-                                        its self-aware subsystems (like humans), is effectively trying to
-                                        "predict"
-                                        itself. SPAP demonstrates that accurate self-prediction in such systems
-                                        is
-                                        impossible.</p>
-
-                                <p>This doesn't invalidate the scientific pursuit of understanding the
-                                        universe's
-                                        regularities. Instead, it provides a fundamental reason for the
-                                        provisional and
-                                        iterative nature of scientific progress. SPAP suggests that this
-                                        constant
-                                        refinement and revision isn't just a practical limitation but a
-                                        consequence of
-                                        the universe's self-referential nature.</p>
-                        </section>
-
-                        <section id="implications-ai">
-                                <h2>6. Implications for Artificial Intelligence</h2>
-
-                                <h3>A. Limits on Predictability and Self-Modeling in AI Systems</h3>
-                                <p><strong>Theorem 6.1 (AI Self-Modeling Limit):</strong> Any AI system capable
-                                        of
-                                        self-reference and prediction is subject to the limitations described by
-                                        SPAP.
-                                </p>
-
-                                <h3>B. Implications for Artificial General Intelligence (AGI)</h3>
-                                <p>The concept of rapid intelligence growth through recursive self-improvement
-                                        may need
-                                        to be reevaluated in light of SPAP. Key implications include:</p>
+                                <h3>3.4 Regress, and Why It Is a Claim About Representation</h3>
+                                <p>A second argument is often run alongside the diagonal one. A self-referential
+                                        system is written as</p>
+                                <pre style="font-size: 20px;"><code>S(t) = (x(t), M(S(t)))</code></pre>
+                                <p>where <code>x(t)</code> is everything other than the self-model and
+                                        <code>M</code> maps the state to the system's model of it. Substituting the
+                                        left side into the right gives</p>
+                                <pre style="font-size: 20px;"><code>S(t) = (x(t), M((x(t), M((x(t), M(…))))))</code></pre>
+                                <p>with no innermost term. The conclusion usually drawn is that complete
+                                        self-description is impossible. The conclusion is right under a condition
+                                        that has to be named, and the condition is about representation.</p>
+                                <div class="definition">
+                                        <p><strong>Unfolded representation.</strong> A description is unfolded, or
+                                                extensional, for a component when it literally contains that
+                                                component's value as a proper part, and not a pointer, index,
+                                                address, or code that must be interpreted to recover it.</p>
+                                </div>
+                                <div class="theorem">
+                                        <p><strong>Theorem 3 (No proper self-containment).</strong> Let
+                                                <code>R</code> be a class of finite, acyclic descriptions with a
+                                                proper-part relation <code>≺</code> and a size measure
+                                                <code>μ</code> satisfying <code>r′ ≺ r ⇒ μ(r′) &lt; μ(r)</code>.
+                                                Then no <code>r ∈ R</code> satisfies <code>r ≺ r</code>, and there
+                                                is no infinite descending chain
+                                                <code>r<sub>0</sub> ≻ r<sub>1</sub> ≻ r<sub>2</sub> ≻ …</code>.
+                                                Hence no unfolded description contains its own value as a proper
+                                                part.</p>
+                                </div>
+                                <div class="proof">
+                                        <p><strong>Proof.</strong> If <code>r ≺ r</code> then
+                                                <code>μ(r) &lt; μ(r)</code>, which no natural number satisfies. An
+                                                infinite descending chain would give an infinite strictly
+                                                decreasing sequence of natural numbers, which does not exist. ∎</p>
+                                </div>
+                                <p>So the regress is real, and it is a fact about unfolded descriptions rather than
+                                        about self-reference in general. A system that stores a code for its own
+                                        model, in the way a program stores its own source, has no regress at all,
+                                        and Kleene's (1938) recursion theorem shows that such storage is always
+                                        available in a rich enough class. This matters for what the limit rests on:
+                                        the diagonal argument of Theorem 1 works against coded self-models too, and
+                                        it is the argument that carries the weight. Regress rules out one way of
+                                        laying out a self-description; diagonalization rules out the goal.</p>
                                 <figure>
-                                        <img src="images/2.png" alt="AI Self-Improvement and Uncertainty" width="1707" height="1101" decoding="async" loading="lazy">
+                                        <img src="images/0.png" alt="Infinite Regression in Self-Referential Systems" width="1686" height="1101" decoding="async" loading="lazy">
                                         <figcaption>
-                                                <p><i>This graph depicts the relationship between AI capability
-                                                                growth
-                                                                and prediction uncertainty over time. As AI
-                                                                systems
-                                                                become more advanced, their ability to improve
-                                                                themselves grows, but so does the uncertainty in
-                                                                predicting their future states.</i></p>
+                                                <p><i>The size of an unfolded self-description against the depth to which the self-model is expanded. Each level of nesting adds the whole of the level below it, so the size grows without bound and no finite depth completes the description.</i></p>
                                         </figcaption>
                                 </figure>
 
-                                <ul style="font-size: 20px;">
-                                        <li><strong>Bounded Self-Improvement:</strong> AGI systems will face
-                                                inherent
-                                                limitations in their ability to predict and optimize their own
-                                                future
-                                                states.</li>
-                                        <li><strong>Uncertainty in Long-term Planning:</strong> AGI systems will
-                                                need to
-                                                contend with increasing uncertainty in long-term predictions
-                                                about their
-                                                own behavior and capabilities.</li>
-                                        <li><strong>Necessity of Approximation:</strong> Successful AGI systems
-                                                will
-                                                likely rely on approximation strategies and heuristics rather
-                                                than
-                                                pursuing optimal self-models.</li>
-                                </ul>
-
-                                <h3>C. AGI Optimality-Complexity Trade-off Principle</h3>
-                                <p><strong>Theorem 6.2 (AGI Optimality-Complexity Trade-off Principle):</strong>
-                                        For any
-                                        artificial general intelligence system A, there exists a fundamental
-                                        trade-off
-                                        between its level of self-knowledge, its ability to make accurate
-                                        predictions
-                                        about its own future states, and the computational complexity of its
-                                        self-model.
-                                </p>
-
-                                <h3>D. AI Safety and Ethics</h3>
-                                <p>SPAP has profound implications for AI safety and ethics, particularly in the
-                                        context
-                                        of advanced AI systems:</p>
-
-                                <ul style="font-size: 20px;">
-                                        <li><strong>Fundamental Uncertainty:</strong> Even highly advanced AI
-                                                systems
-                                                will face inherent limitations in predicting their own future
-                                                states,
-                                                challenging the notion of perfectly controllable AI.</li>
-                                        <li><strong>Limits of Value Alignment Certainty:</strong> Perfect certainty about an advanced AI system's future alignment state may be structurally unavailable when that system models and modifies itself.
-                                        </li>
-                                        <li><strong>Ethical Reasoning Under Uncertainty:</strong> AI systems
-                                                will need
-                                                to develop robust methods for ethical reasoning under
-                                                uncertainty.</li>
-                                </ul>
-
-                                <p>These implications underscore the need for a probabilistic approach to AI
-                                        safety,
-                                        where the focus shifts from achieving perfect control or alignment to
-                                        managing
-                                        and mitigating risks in inherently uncertain systems.</p>
-                        </section>
-
-                        <section id="universal-constraint">
-                                <h2>7. SPAP as a Universal Constraint</h2>
-
-                                <h3>A. Application to All Forms of Consciousness and Intelligence</h3>
-
-                                <p>The Self-Referential Paradox of Accurate Prediction (SPAP), grounded in
-                                        mathematical
-                                        logic, establishes a universal limit on the self-knowledge and
-                                        prediction
-                                        capabilities of any self-aware system.</p>
-
+                                <h3>3.5 The Cost of Getting Close</h3>
+                                <p>Exact self-prediction is unavailable across a class. Approximate self-prediction
+                                        is available, improves with effort, and gets expensive in a way that can be
+                                        stated. Write <code>α</code> for the performance a system achieves on a
+                                        registered task, <code>α<sub>SPAP</sub></code> for the boundary its class
+                                        cannot pass, and <code>δ = α<sub>SPAP</sub> − α</code> for the remaining
+                                        gap.</p>
                                 <div class="theorem">
-                                        <h3>Theorem 7.1 (Universality of SPAP)</h3>
-                                        <p>Any self-aware system is subject to the limitations imposed by the
-                                                SPAP.</p>
+                                        <p><strong>Theorem 4 (Divergence near the boundary).</strong> On the
+                                                quantitative branch, given a certificate that reduces the task to a
+                                                hard family and fixes the counting of operations, the number of
+                                                verification and update operations required to close the gap to
+                                                <code>δ</code> satisfies</p>
+                                        <pre style="font-size: 20px;">C_uni(δ) = Ω( log(1/δ) / δ² )</pre>
+                                        <p>The same asymptotic bound transfers to a predictive-complexity measure
+                                                whenever that measure lower-bounds the operations being counted.</p>
                                 </div>
-
-                                <div class="proof">
-                                        <h3>Proof:</h3>
-                                        <p>Let S be any self-aware system. By definition, S must be capable of
-                                                self-reference and prediction. Let P<sub>S</sub> be the
-                                                prediction
-                                                function of S. Now, consider the state of S at time t, denoted
-                                                as
-                                                S<sub>t</sub>. For S to predict its own state at time t+Δt, we
-                                                must
-                                                have:</p>
-                                        <p class="equation">P<sub>S</sub>(S<sub>t
-
-                                                </sub>, Δt) = S<sub>t+Δt</sub></p>
-                                        <p>However, S<sub>t</sub> must include P<sub>S</sub> itself, as it is
-                                                part of
-                                                the system's state. This leads to:</p>
-                                        <p class="equation">S<sub>t</sub> = (x<sub>t</sub>, P<sub>S</sub>)</p>
-                                        <p>where x<sub>t</sub> represents all other aspects of the system's
-                                                state.
-                                                Substituting this into the prediction equation:</p>
-                                        <p class="equation">P<sub>S</sub>((x<sub>t</sub>, P<sub>S</sub>), Δt) =
-                                                S<sub>t+Δt</sub></p>
-                                        <p>This is precisely the self-referential structure that leads to the
-                                                infinite
-                                                regress proved in Theorem 3.1. Therefore, S is subject to the
-                                                limitations of SPAP, regardless of its specific nature or
-                                                origin.</p>
-                                </div>
-
-                                <p>This theorem has profound implications for our understanding of consciousness
-                                        and
-                                        intelligence, whether biological, artificial, or potentially
-                                        extraterrestrial.
-                                </p>
-
-                                <h3>B. Common Self-Referential Architecture</h3>
-
-                                <p>The universality of SPAP suggests a common constraint on systems that can model and
-                                        update themselves. This motivates a shared architecture template for self-referential predictive systems.</p>
-
-                                <div class="definition">
-                                        <h3>Definition 7.1 (Self-Referential Cognitive Architecture)</h3>
-                                        <p>A self-referential cognitive architecture is an information-processing framework that incorporates the limits imposed by SPAP and
-                                                applies to systems capable of representing, modeling, and updating themselves.</p>
-                                </div>
-
-                                <div class="theorem">
-                                        <h3>Theorem 7.2 (Shared Architecture Constraint)</h3>
-                                        <p>Any non-trivial system that represents, models, and updates itself must operate under a shared set of SPAP constraints:</p>
-                                        <ol style="font-size: 20px;">
-                                            <li><strong>Inherent uncertainty:</strong> This follows from the impossibility of guaranteed complete self-prediction.</li>
-                                            <li><strong>Limits on perfect self-prediction:</strong> This is a restatement of the core result of SPAP.</li>
-                                            <li><strong>Dynamic, evolving self-models:</strong> As per the definition of self-referential systems (Definition 2.9), the state of the system includes its own model. As the system evolves over time, this self-model must also evolve, leading to dynamic self-models.</li>
-                                            <li><strong>Emergence of complexity:</strong> This follows from Theorem 4.2, which demonstrates that SPAP induces non-zero emergent complexity in conscious systems.</li>
-                                            <li><strong>Optimality-complexity trade-offs:</strong> This is a direct consequence of Theorem 3.3, which establishes the fundamental trade-off between predictive accuracy and complexity.</li>
-                                        </ol>
-                                    </div>
-                                    
-
-                                <p>This shared architecture constraint has implications for comparative studies of intelligence across different substrates and origins.</p>
+                                <p>The form is familiar from statistics: telling two hypotheses apart when they
+                                        differ by <code>δ</code> takes on the order of <code>1/δ²</code> samples,
+                                        and the logarithm is the price of confidence. Reading the bound in practical
+                                        terms, halving the remaining gap costs more than four times the work, so
+                                        each stage of self-improvement is dearer than the last while the boundary
+                                        stays where it is. The certificate is part of the statement; without it the
+                                        numerical boundary <code>α<sub>SPAP</sub></code> is undefined and the bound
+                                        has nothing to attach to.</p>
+                                <p>The trade-off this creates has no optimum. Accuracy rises with cost, the returns
+                                        diminish, and no setting of the exchange rate <code>λ</code> maximizes
+                                        accuracy while minimizing cost at once. What exists is a frontier of
+                                        efficient pairs, and a choice of where on it to sit.</p>
+                                <figure>
+                                        <img src="images/4.png" alt="Optimality-Complexity Tradeoff" width="1686" height="1101" decoding="async" loading="lazy">
+                                        <figcaption>
+                                                <p><i>The frontier of achievable pairs of accuracy and cost. Points below the curve are wasteful, points above it are unavailable, and moving along it trades one quantity for the other.</i></p>
+                                        </figcaption>
+                                </figure>
                         </section>
 
-                        <section id="related-concepts">
-                                <h2>8. Related Concepts</h2>
-                                <p>SPAP is intertwined with a diverse array of concepts from philosophy, logic,
-                                        computer science, and cognitive science. Understanding these connections
-                                        provides a
-                                        richer context for SPAP and highlights its unique contributions.</p>
-
+                        <section id="scope">
+                                <h2>4. What SPAP Does Not Say</h2>
+                                <p>Four readings are excluded by the statements above. Each has been drawn from
+                                        results of this kind, and none follows.</p>
                                 <ul style="font-size: 20px;">
-                                        <li>
-                                                <strong><a href="cogito.html"
-                    style="text-decoration: none; border-bottom: 1px solid transparent; transition: border-bottom 0.3s;"
-                    onmouseover="this.style.borderBottomColor='black';"
-                    onmouseout="this.style.borderBottomColor='transparent';">Cogito</a> ergo sum ("I think, therefore I am"):</strong>
-                                                Descartes'
-                                                famous dictum emphasizes the self-awareness of a thinking being.
-                                                SPAP
-                                                complements this by showing that while we can be aware of our
-                                                thinking,
-                                                this awareness is inherently limited when it comes to predicting
-                                                future
-                                                states of that thinking.
-                                        </li>
-                                        <li>
-                                                <strong>Gödel's Incompleteness Theorems:</strong> SPAP
-                                                shares
-                                                a deep connection with Gödel's theorems. Both reveal
-                                                inherent
-                                                limitations in formal
-                                                systems, with Gödel focusing on provability and SPAP on
-                                                predictability. However, SPAP
-                                                extends these ideas to encompass a wider range of
-                                                systems beyond
-                                                formal logic.
-                                        </li>
-                                        <li>
-                                                <strong>The Halting Problem:</strong> This problem,
-                                                central to
-                                                computability
-                                                theory, demonstrates
-                                                the impossibility of creating a general algorithm that
-                                                can
-                                                determine whether any given
-                                                program will halt or run forever. SPAP's proof structure
-                                                mirrors
-                                                the Halting Problem's,
-                                                using a self-referential construction to demonstrate an
-                                                inherent
-                                                limitation. However, SPAP
-                                                broadens this concept to encompass not just program
-                                                termination,
-                                                but the broader
-                                                predictability of any self-referential system.
-                                        </li>
-                                                                                <li>
-                                                <strong>Scriven's Paradox of Self-Prediction:</strong>
-                                                This paradox states that it is logically impossible for a deterministic system
-                                                to predict its own future actions perfectly. SPAP aligns with this by providing
-                                                a formal framework showing how this impossibility arises from self-referential loops.
-                                        </li>
-                                        <li>
-                                                <strong>Newcomb's Paradox:</strong> SPAP offers a new
-                                                perspective on Newcomb's Paradox by highlighting the
-                                                potential
-                                                limitations of the "near-perfect predictor." It suggests
-                                                that
-                                                such type of prediction might be impossible, especially
-                                                when the
-                                                agent is aware of the prediction itself.
-                                        </li>
-                                        <li>
-                                                <strong>Russell's Paradox:</strong> This paradox arises from
-                                                considering
-                                                the "set of all sets that do not contain themselves." SPAP can
-                                                be seen
-                                                as a dynamic analog of Russell's paradox, where the system's
-                                                attempt to
-                                                model itself creates a similar self-contradictory loop.
-                                        </li>
-                                        <li>
-                                                <strong>Goodhart's Law:</strong> This law states that "When a
-                                                measure
-                                                becomes a target, it ceases to be a good measure." SPAP aligns
-                                                with
-                                                Goodhart's Law by showing that when a self-referential system
-                                                optimizes
-                                                its behavior based on a self-model, the very act of optimization
-                                                can
-                                                make the model less accurate.
-                                        </li>
-                                        <li>
-                                                <strong>Strange Loop:</strong> This concept, developed by
-                                                Douglas
-                                                Hofstadter, describes a hierarchical system where, through a
-                                                series of
-                                                levels, the system seems to "transcend" itself, only to return
-                                                to its
-                                                starting point. SPAP can be seen as formalizing the limitations
-                                                inherent
-                                                in such Strange Loops when it comes to self-prediction.
-                                        </li>
-                                        <li>
-                                                <strong>Phenomenal Self-Model (PSM):</strong> This theory,
-                                                proposed by
-                                                Thomas Metzinger, suggests that our conscious experience arises
-                                                from a
-                                                brain-generated model of the self. SPAP complements PSM by
-                                                showing that
-                                                this self-model, however sophisticated, will always be
-                                                incomplete and
-                                                subject to predictive limitations.
-                                        </li>
-                                                                                <li>
-                                                <strong>Penrose's G&ouml;delian Argument on Consciousness:</strong>
-                                                Penrose's argument and SPAP both concern limits on formal self-description, but they
-                                                take different routes. SPAP focuses on the limits of self-referential prediction,
-                                                while Penrose focuses on the limits of formal computation in explaining human understanding.
-                                        </li>
+                                        <li><strong>No system is predictable.</strong> The theorem denies a
+                                                universal predictor over a class. A pendulum is perfectly
+                                                predictable; so is any system that does not receive forecasts about
+                                                itself; so is a rich system on tasks it cannot act against. The
+                                                quantifier is over the class, and it stays there.</li>
+                                        <li><strong>Events are random.</strong> Nothing in the argument makes any
+                                                individual outcome stochastic. The obstruction is a fact about which
+                                                predictors can exist, and a world of this kind can be entirely
+                                                deterministic. Where physical theory introduces chance, it does so
+                                                on separate assumptions about dynamics.</li>
+                                        <li><strong>Enough computation would fix it.</strong> The contradiction is
+                                                in the arithmetic of <code>{0,1}</code>. No speed, memory, or
+                                                parallelism changes the fact that no bit equals its own
+                                                negation.</li>
+                                        <li><strong>The boundary has a known numerical value.</strong>
+                                                <code>α<sub>SPAP</sub></code> is a symbol until a task, a
+                                                performance measure, an admissible class, and a certificate are
+                                                fixed. Theorems 1 and 2 need no such number; Theorem 4 does.</li>
                                 </ul>
+                                <p>Related classical results respect the same boundaries. Popper (1950) and MacKay
+                                        (1960) argued that a predictor cannot supply a prediction to an agent who
+                                        can act against it, and Scriven (1965) drew the consequence for human
+                                        behavior. Grunberg and Modigliani (1954) and Simon (1954) showed the other
+                                        side: when a prediction is published into a system that reacts to it
+                                        continuously, a fixed point can exist, and a self-fulfilling forecast is
+                                        available even though a self-defeating one is not. The difference is the
+                                        reaction function, and the contrarian construction is exactly the case with
+                                        no fixed point.</p>
                         </section>
 
+                        <section id="implications-consciousness">
+                                <h2>5. Systems That Model Themselves</h2>
+                                <p>A system with a self-model, an expectation about its own next state, and a
+                                        comparison that revises the model is inside the scope of Theorem 1 provided
+                                        its class satisfies the two hypotheses. Three consequences follow for such
+                                        systems, and they are consequences about self-models rather than about
+                                        experience.</p>
+                                <ul style="font-size: 20px;">
+                                        <li>The self-model is always a compression. Complete unfolded
+                                                self-description is unavailable by Theorem 3, so what a system holds
+                                                about itself is a summary that leaves parts out.</li>
+                                        <li>There is a residue of self-uncertainty that does not go to zero. Write
+                                                <code>H(S(t+Δt) | P(S(t), Δt))</code> for the uncertainty about the
+                                                next state given the system's own forecast. Since no predictor in
+                                                the class is exact across the class, this quantity stays positive
+                                                for the systems the class builds against it.</li>
+                                        <li>Improving the self-model does not close the gap. By Theorem 4 the
+                                                remaining gap gets more expensive as it narrows, which is what
+                                                sustained self-inquiry looks like from inside.</li>
+                                </ul>
+                                <figure>
+                                        <img src="images/1.png" alt="Emergent Complexity vs. Self-Reference Depth" width="1707" height="1101" decoding="async" loading="lazy">
+                                        <figcaption>
+                                                <p><i>Residual uncertainty about the next state, given the system's own forecast of it, plotted against the depth of self-modeling. The residue shrinks and stays positive.</i></p>
+                                        </figcaption>
+                                </figure>
+                                <p>SPAP sits alongside the main structural accounts of self-modelling minds.
+                                    Metzinger (2003) argues that experience involves a model of the self
+                                    that the system cannot recognize as a model, and Hofstadter (1979, 2007)
+                                    treats the loop of self-reference as the central feature of mind. SPAP
+                                    supplies the formal constraint both pictures need, fixing what any self-
+                                    modeling system can compute about itself. Penrose (1989, 1994) argued
+                                    from G&ouml;del's theorems that human understanding exceeds computation,
+                                    an argument that turns on a premise about human soundness. SPAP reaches
+                                    its result without that premise.</p>
+                        </section>
+
+                        <section id="implications-reality">
+                                <h2>6. Knowledge and Inquiry</h2>
+                                <p>Read as a claim about knowledge, the theorem says that a complete and certified
+                                        account of a domain that includes the account-giver is unavailable from
+                                        inside that domain. It does not say the account is worthless, and the
+                                        distinction is the point.</p>
+                                <p>Scientific practice already runs this way. Theories are revised, and revision is
+                                        the normal condition rather than a symptom of failure. A framework that
+                                        includes its own users among the systems it describes is subject to
+                                        Theorem 1 whenever those users can act on what it says, which is the case
+                                        wherever a published theory changes behavior. Economics is the clear
+                                        example, and Grunberg and Modigliani (1954) showed both the difficulty and
+                                        the conditions under which a stable published forecast survives.</p>
+                                <p>Induction is left where it was found. Hume's problem is that past regularity does
+                                        not entail future regularity, and SPAP adds a different limitation: even
+                                        granting regularities, a predictor inside the system cannot be exact about
+                                        every system its own class can build. The two limits are independent, and
+                                        neither implies the other.</p>
+                        </section>
+
+                        <section id="implications-ai">
+                                <h2>7. Artificial Systems</h2>
+                                <p>An artificial system that reads its own code, forecasts its own behavior, and
+                                        modifies itself is precisely the setting the hypotheses describe, so the
+                                        consequences apply directly.</p>
+                                <figure>
+                                        <img src="images/2.png" alt="AI Self-Improvement and Uncertainty" width="1707" height="1101" decoding="async" loading="lazy">
+                                        <figcaption>
+                                                <p><i>Capability and self-prediction uncertainty over time for a system that modifies itself. Both rise together, because each improvement changes the system the forecast was about.</i></p>
+                                        </figcaption>
+                                </figure>
+                                <ul style="font-size: 20px;">
+                                        <li><strong>Self-improvement is bounded in accuracy.</strong> A system can
+                                                improve its self-model, and by Theorem 4 each further step costs
+                                                more, so unbounded acceleration of self-prediction is unavailable
+                                                even where capability grows.</li>
+                                        <li><strong>Long-horizon self-forecasts degrade.</strong> Each
+                                                self-modification changes the system the forecast was about. The
+                                                forecast is made by a system that no longer exists when the horizon
+                                                arrives.</li>
+                                        <li><strong>Certainty about future alignment is unavailable from
+                                                        inside.</strong> Verifying that a system will hold a
+                                                property after it modifies itself is a self-prediction task in the
+                                                class, so a proof of that kind cannot come from the system
+                                                alone.</li>
+                                        <li><strong>Approximation is the design target.</strong> Since exactness is
+                                                excluded and closeness is costly, safety work is bounded-risk work:
+                                                monitoring, containment, and margins rather than certified
+                                                self-knowledge.</li>
+                                </ul>
+                                <p>An external verifier is not a way around the theorem, and it is not useless
+                                        either. A verifier outside the system's class can be exact about that
+                                        system, which is why external audit is worth more than introspection. What
+                                        the theorem forbids is a verifier inside the class that handles every
+                                        system the class can build, including the ones built to defeat it.</p>
+                        </section>
                         <img src="images/SPAP2.jpg" alt="Novelty of SPAP" width="1024" height="1792" decoding="async" loading="lazy">
                         <p class="caption">Universe 00110000</p>
-
-                        <section id="novelty">
-                                <h2>9. Novelty of SPAP</h2>
-                                <p>While SPAP shares similarities with other concepts, it introduces several
-                                        novel
-                                        aspects:</p>
-                                <ol style="font-size: 20px;">
-                                        <li>
-                                                <strong>Incorporation of Temporal Dynamics:</strong> SPAP
-                                                explicitly
-                                                considers the evolution of self-referential systems over time,
-                                                focusing
-                                                on how prediction limitations change as the system itself
-                                                changes.
-                                        </li>
-                                        <li>
-                                                <strong>Unified Treatment of Deterministic and Non-Deterministic
-                                                        Systems:</strong> SPAP's core argument stems from the
-                                                limitations imposed by self-reference itself, regardless of
-                                                whether the
-                                                underlying system operates under deterministic or
-                                                non-deterministic
-                                                rules.
-                                        </li>
-                                        <li>
-                                                <strong>Connection to Emergent Complexity:</strong> SPAP offers
-                                                a
-                                                potential mechanism for understanding the emergence of complex,
-                                                seemingly unpredictable behavior from simpler underlying rules.
-                                        </li>
-                                        <li>
-                                                <strong>Quantitative Framework for Self-Referential
-                                                        Prediction:</strong>
-                                                SPAP provides a quantitative lens for analyzing self-referential
-                                                prediction, moving beyond qualitative observations.
-                                        </li>
-                                        <li>
-                                                <strong>Universal Applicability:</strong> SPAP stands out due to
-                                                its
-                                                universal applicability across various forms of intelligence and
-                                                self-awareness, laying the groundwork for a "universal cognitive
-                                                architecture."
-                                        </li>
-                                </ol>
+                        <section id="related-concepts">
+                                <h2>8. Neighbouring Results</h2>
+                                <p>SPAP sits in a well-populated area, and its contribution is clearest against the
+                                        results it borders.</p>
+                                <ul style="font-size: 20px;">
+                                        <li><strong>Gödel (1931).</strong> A consistent formal system rich enough
+                                                for arithmetic contains a true sentence it cannot prove. The
+                                                obstruction is about provability inside a fixed system; SPAP's is
+                                                about correctness of forecasts across a class of predictors.</li>
+                                        <li><strong>Turing (1936).</strong> No algorithm decides halting for all
+                                                programs. The construction is the same diagonal, and the property
+                                                is fixed in advance. SPAP's property is supplied by the predictor
+                                                being tested, which is why the two results are not
+                                                interchangeable.</li>
+                                        <li><strong>Rice (1953).</strong> Every non-trivial semantic property of
+                                                programs is undecidable, which extends Turing's result to a whole
+                                                family of questions and leaves the self-prediction setting
+                                                untouched.</li>
+                                        <li><strong>Lawvere (1969) and Yanofsky (2003).</strong> The common
+                                                skeleton: a structure that names all its own functions to an
+                                                outcome set forces every operation on outcomes to have a fixed
+                                                point. Theorem 1 is this argument with predictors as the naming
+                                                objects.</li>
+                                        <li><strong>Conant and Ashby (1970).</strong> Every good regulator of a
+                                                system must be a model of that system. This says a controller needs
+                                                a model; SPAP says a model inside its own class cannot be exact
+                                                across it. They constrain the same design from opposite
+                                                sides.</li>
+                                        <li><strong>Wolpert (2008).</strong> No physical inference device can be
+                                                correct about every question concerning a universe containing it,
+                                                and two such devices cannot be mutually correct. The setting is
+                                                physical devices and the conclusion is close, which makes it the
+                                                nearest published relative of Theorem 1.</li>
+                                        <li><strong>Breuer (1995).</strong> No observer can perform an exact
+                                                measurement of the state of a system that includes the observer.
+                                                The result is about self-measurement in physics; SPAP is about
+                                                self-prediction in computation, and the two agree in shape.</li>
+                                        <li><strong>Nozick (1969).</strong> Newcomb's problem assumes a
+                                                near-perfect predictor of an agent who knows a prediction has been
+                                                made. Theorem 1 says such a predictor cannot be exact across a
+                                                class containing the agent, which relocates the puzzle to how good
+                                                a predictor can actually be.</li>
+                                        <li><strong>Goodhart's law.</strong> A measure that becomes a target stops
+                                                being a good measure, a pattern documented by Goodhart (1984) and
+                                                given its familiar phrasing by Strathern (1997). The mechanism is
+                                                the one in Theorem 1: optimizing against a model changes the system
+                                                the model described.</li>
+                                </ul>
+                                <p>What the theorems here add to that list is a setting and a scope. The objects
+                                        are predictors, the sentences are forecasts about a nominated component, and
+                                        the deterministic and probabilistic cases are treated by one construction
+                                        with the quantifier over the class stated in both. Theorem 3 separates the
+                                        representational obstruction from the diagonal one, which are usually run
+                                        together. Theorem 4 attaches a cost to the approach, which turns a
+                                        qualitative barrier into a rate.</p>
                         </section>
 
                         <section id="conclusion">
-                                <h2>10. Conclusion</h2>
+                                <h2>9. Conclusion</h2>
+                                <p>Feed a predictor's forecast to the system it forecasts, and let the system act
+                                        against the answer. No predictor in a class rich enough to build that system
+                                        is correct across its own class, whether it answers with a verdict or with a
+                                        probability. That is the whole of SPAP, and it is a theorem about classes
+                                        rather than about any particular system.</p>
+                                <p>Three things travel with it. Unfolded self-description fails for a separate and
+                                        simpler reason, that no finite description contains itself as a proper part,
+                                        while coded self-description is available and still subject to the diagonal.
+                                        Approaching the boundary costs work that grows like
+                                        <code>log(1/δ)/δ²</code> on a certified branch, so accuracy is purchasable
+                                        and never complete. And the limit is logical, so it is untouched by better
+                                        hardware and unrelated to randomness in the world.</p>
+                                <p>What remains available is the useful part. Systems that model themselves can
+                                        improve, can be audited from outside, and can be designed for margins rather
+                                        than for certainty. The gap that Theorem 1 opens is not a defect to be
+                                        engineered away. It is the space in which prediction stays worth doing.</p>
+                        </section>
 
-                                <p>The Self-Referential Paradox of Accurate Prediction (SPAP) identifies the impossibility of guaranteed complete self-prediction in non-trivial systems capable of self-reference. This paradox imposes limits on complete self-knowledge and perfect predictability while allowing bounded, approximate, and practically useful prediction. SPAP applies across systems that can represent, model, and update themselves, revealing a trade-off between predictive accuracy and computational complexity.</p>
-
-                                <p>SPAP offers a unifying principle that bridges diverse disciplines, providing
-                                        new
-                                        insights into the nature of consciousness, intelligence, and the limits
-                                        of
-                                        scientific knowledge. This paradox not only highlights the limitations
-                                        of our
-                                        understanding but also points to the rich potential for innovation and
-                                        deeper
-                                        comprehension in various fields. As we continue to explore SPAP's
-                                        implications,
-                                        we may uncover new connections and gain unprecedented insights into the
-                                        nature
-                                        of reality itself.</p>
+                        <section id="references">
+                                <h3>References</h3>
+                                <ul style="font-size: 18px;">
+                                        <li>Breuer, Thomas. "The Impossibility of Accurate State Self-Measurements."
+                                                <em>Philosophy of Science</em> 62, no. 2, 1995, 197–214.</li>
+                                        <li>Conant, Roger C., and W. Ross Ashby. "Every Good Regulator of a System
+                                                Must Be a Model of That System." <em>International Journal of
+                                                        Systems Science</em> 1, no. 2, 1970, 89–97.</li>
+                                        <li>Gödel, Kurt. "Über formal unentscheidbare Sätze der Principia
+                                                Mathematica und verwandter Systeme I." <em>Monatshefte für
+                                                        Mathematik und Physik</em> 38, 1931, 173–198.</li>
+                                        <li>Goodhart, C. A. E. "Problems of Monetary Management: The U.K.
+                                                Experience." In <em>Monetary Theory and Practice: The UK
+                                                        Experience</em>, Macmillan, 1984, 91–121.</li>
+                                        <li>Grunberg, Emile, and Franco Modigliani. "The Predictability of Social
+                                                Events." <em>Journal of Political Economy</em> 62, no. 6, 1954,
+                                                465–478.</li>
+                                        <li>Hofstadter, Douglas R. <em>Gödel, Escher, Bach: An Eternal Golden
+                                                        Braid</em>. Basic Books, 1979.</li>
+                                        <li>Hofstadter, Douglas R. <em>I Am a Strange Loop</em>. Basic Books,
+                                                2007.</li>
+                                        <li>Kleene, S. C. "On Notation for Ordinal Numbers." <em>The Journal of
+                                                        Symbolic Logic</em> 3, no. 4, 1938, 150–155.</li>
+                                        <li>Lawvere, F. William. "Diagonal Arguments and Cartesian Closed
+                                                Categories." In <em>Category Theory, Homology Theory and Their
+                                                        Applications II</em>, Lecture Notes in Mathematics 92,
+                                                Springer, 1969, 134–145.</li>
+                                        <li>MacKay, D. M. "On the Logical Indeterminacy of a Free Choice."
+                                                <em>Mind</em> 69, no. 273, 1960, 31–40.</li>
+                                        <li>Metzinger, Thomas. <em>Being No One: The Self-Model Theory of
+                                                        Subjectivity</em>. MIT Press, 2003.</li>
+                                        <li>Nozick, Robert. "Newcomb's Problem and Two Principles of Choice." In
+                                                <em>Essays in Honor of Carl G. Hempel</em>, edited by Nicholas
+                                                Rescher, Reidel, 1969, 114–146.</li>
+                                        <li>Penrose, Roger. <em>The Emperor's New Mind</em>. Oxford University
+                                                Press, 1989.</li>
+                                        <li>Penrose, Roger. <em>Shadows of the Mind</em>. Oxford University Press,
+                                                1994.</li>
+                                        <li>Popper, Karl R. "Indeterminism in Quantum Physics and in Classical
+                                                Physics." <em>The British Journal for the Philosophy of
+                                                        Science</em> 1, no. 2, 1950, 117–133, and no. 3,
+                                                173–195.</li>
+                                        <li>Rice, H. G. "Classes of Recursively Enumerable Sets and Their Decision
+                                                Problems." <em>Transactions of the American Mathematical
+                                                        Society</em> 74, no. 2, 1953, 358–366.</li>
+                                        <li>Scriven, Michael. "An Essential Unpredictability in Human Behavior." In
+                                                <em>Scientific Psychology: Principles and Approaches</em>, edited by
+                                                Benjamin B. Wolman and Ernest Nagel, Basic Books, 1965,
+                                                411–425.</li>
+                                        <li>Simon, Herbert A. "Bandwagon and Underdog Effects and the Possibility of
+                                                Election Predictions." <em>Public Opinion Quarterly</em> 18, no. 3,
+                                                1954, 245–253.</li>
+                                        <li>Strathern, Marilyn. "'Improving Ratings': Audit in the British
+                                                University System." <em>European Review</em> 5, no. 3, 1997,
+                                                305–321.</li>
+                                        <li>Turing, A. M. "On Computable Numbers, with an Application to the
+                                                Entscheidungsproblem." <em>Proceedings of the London Mathematical
+                                                        Society</em> s2-42, no. 1, 1936, 230–265.</li>
+                                        <li>Wolpert, David H. "Physical Limits of Inference." <em>Physica D</em>
+                                                237, no. 9, 2008, 1257–1281.</li>
+                                        <li>Yanofsky, Noson S. "A Universal Approach to Self-Referential Paradoxes,
+                                                Incompleteness and Fixed Points." <em>The Bulletin of Symbolic
+                                                        Logic</em> 9, no. 3, 2003, 362–386.</li>
+                                </ul>
                         </section>
                         <div class="circle-container">
                                 <div class="arrow left" onclick="shiftSlide(-1)">&#10094;</div>
@@ -805,10 +613,9 @@
                             </div>
                 </article>
     </main>
-    <div id="footer"></div>
+    <div id="footer"><footer class="footer"><p><span class="footer-ai-note">Created through human and AI collaboration.</span></p></footer></div>
 
-    <script defer src="../../js/components.min.js?v=8"></script>
-    <script defer src="article-subscribe.min.js?v=16"></script>
+    <script defer src="../../js/components.min.js?v=10"></script>
     <script defer src="slider.min.js?v=5"></script>
 
 </body>

@@ -7,7 +7,7 @@
     <meta name="format-detection" content="telephone=no">
     <title>Synesthetic: Unveiling the Hidden Connections Between Color and Language</title>
     <meta name="description" content="Synesthetic is an AI-powered approach that uncovers the connections between color and language, creating a sophisticated color-word translator to bridge visual perception and linguistic expression.">
-    <link href="article-style.min.css?v=45" rel="stylesheet" />
+    <link href="article-style.min.css?v=47" rel="stylesheet" />
     <link rel="icon" type="image/png" href="../../images/favicon.png">
 
 </head>
@@ -36,10 +36,18 @@
     <article>
         <h1>Synesthetic: Unveiling the Hidden Connections Between Color and Language</h1>
         <hr>
-        <p>Synesthetic is a revolutionary AI-powered approach that delves into the intricate world of human cognition to
-            uncover the hidden connections between color and language. By harnessing the power of large language models
-            and machine learning, Synesthetic aims to create a sophisticated color-word translator that can bridge the
-            gap between visual perception and linguistic expression.</p>
+        <p>Synesthetic maps the connections between colour and language using large language models. The aim is a colour-word translator that connects visual perception with linguistic expression, built from the associations that appear in ordinary usage.</p>
+
+        <h2>The Idea in Plain Terms</h2>
+        <p>Ask a room full of people which colour is angry and most will say red, an association Palmer et al. (2013) traced through emotion rather than direct perception. Ask which is calm and most will
+            say blue. Nobody taught them a rule, and the agreement is strong enough to build on.</p>
+        <p>Some of that agreement has a physical basis. Red is blood and heat, blue is water and distance, and
+            bodies react to both before any word is involved. Some of it is cultural, which is why white is a funeral colour in some places and a wedding colour in others. Berlin and Kay (1969) found that even the basic colour terms appear in a constrained order across languages, so the cultural part is patterned too. Any system that maps words to colours
+            has to handle both, and has to say which it is relying on.</p>
+        <p>Language models are useful here because they place words by how they co-occur in use (Mikolov et al. 2013), and rated scales of the kind Osgood, Suci, and Tannenbaum (1957) introduced give the same associations a measurable form, so their associations reflect usage rather than one designer's taste, and they are
+            consistent enough to reuse. What they cannot do is settle whether an association is universal or
+            local, since their training data has a culture too.</p>
+        <p>Genuine synaesthesia, where letters or sounds involuntarily carry colours, is a different phenomenon from the shared associations described here (Ramachandran and Hubbard 2001; Cytowic and Eagleman 2009), and the name is borrowed rather than claimed.</p>
 
         <h2>The Concept of Word Association</h2>
         <p>At the core of Synesthetic lies the concept of word association, a phenomenon deeply rooted in human language
@@ -67,7 +75,7 @@
         <p class="caption">Universe 00110000</p>
 
         <h2>Potential Applications</h2>
-        <p>The potential applications of Synesthetic are far-reaching and transformative. In the realm of machine
+        <p>The potential applications of Synesthetic are far-reaching and transformative. In machine
             perception, Synesthetic can endow AI systems with a form of "visual intelligence" that goes beyond mere
             object recognition. By linking visual input to a dense network of linguistic associations, Synesthetic
             enables machines to interpret and describe the world in a more human-like manner, capturing the nuances of
@@ -80,11 +88,29 @@
             avenues for artistic exploration and storytelling.</p>
 
         <h2>Conclusion</h2>
-        <p>As we continue to explore the potential of Synesthetic, we are not only advancing the frontiers of AI and
-            machine learning but also deepening our understanding of the complex interplay between perception, language,
+        <p>As we continue to explore the potential of Synesthetic, we are advancing the frontiers of AI and
+            machine learning while deepening our understanding of the interplay between perception, language,
             and cognition. By unveiling the hidden patterns and connections that lie within human language, Synesthetic
             is paving the way for a future in which machines can truly comprehend and express the world in all its
             colorful complexity.</p>
+
+        <h3>References</h3>
+        <ul style="font-size: 18px;">
+            <li>Berlin, Brent, and Paul Kay. <em>Basic Color Terms: Their Universality and Evolution</em>.
+                University of California Press, 1969.</li>
+            <li>Cytowic, Richard E., and David M. Eagleman. <em>Wednesday Is Indigo Blue: Discovering the Brain of
+                    Synesthesia</em>. MIT Press, 2009.</li>
+            <li>Mikolov, Tomas, Kai Chen, Greg Corrado, and Jeffrey Dean. "Efficient Estimation of Word
+                Representations in Vector Space." arXiv:1301.3781, 2013.</li>
+            <li>Osgood, Charles E., George J. Suci, and Percy H. Tannenbaum. <em>The Measurement of Meaning</em>.
+                University of Illinois Press, 1957.</li>
+            <li>Palmer, Stephen E., Karen B. Schloss, Zoe Xu, and Lilia R. Prado-Le&oacute;n. "Music-Color
+                Associations Are Mediated by Emotion." <em>Proceedings of the National Academy of Sciences</em>
+                110, no. 22, 2013, 8836&ndash;8841.</li>
+            <li>Ramachandran, V. S., and E. M. Hubbard. "Synaesthesia: A Window into Perception, Thought and
+                Language." <em>Journal of Consciousness Studies</em> 8, no. 12, 2001, 3&ndash;34.</li>
+        </ul>
+
             <div class="circle-container">
                 <div class="arrow left" onclick="shiftSlide(-1)">&#10094;</div>
                 <div class="circle-wrapper">
@@ -94,10 +120,9 @@
             </div>
         </article>
     </main>
-    <div id="footer"></div>
+    <div id="footer"><footer class="footer"><p><span class="footer-ai-note">Created through human and AI collaboration.</span></p></footer></div>
 
-    <script defer src="../../js/components.min.js?v=8"></script>
-    <script defer src="article-subscribe.min.js?v=16"></script>
+    <script defer src="../../js/components.min.js?v=10"></script>
     <script defer src="slider.min.js?v=5"></script>
 
 </body>

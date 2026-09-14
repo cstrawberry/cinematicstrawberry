@@ -1,0 +1,20 @@
+# Keep line endings consistent: LF in the repository and in the working tree.
+# Prevents Windows editors from rewriting whole files as CRLF churn.
+* text=auto eol=lf
+
+# Binary assets - never line-ending-converted or diffed as text.
+*.png   binary
+*.jpg   binary
+*.jpeg  binary
+*.gif   binary
+*.webp  binary
+*.ico   binary
+*.ttf   binary
+*.otf   binary
+*.woff  binary
+*.woff2 binary
+*.mp3   binary
+*.mp4   binary
+*.m4a   binary
+*.webm  binary
+*.pdf   binary

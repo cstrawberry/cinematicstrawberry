@@ -8,7 +8,7 @@
     <title>Smart Perception Management: Navigating the Cognitive Landscape of the Digital Age</title>
     <meta name="description"
         content="Exploring Smart Perception Management, an approach integrating cognitive science and advanced technologies for enhancing well-being in the digital age.">
-    <link href="article-style.min.css?v=45" rel="stylesheet" />
+    <link href="article-style.min.css?v=47" rel="stylesheet" />
     <link rel="icon" type="image/png" href="../../images/favicon.png">
 </head>
 
@@ -40,9 +40,28 @@
         <h2>Abstract</h2>
         <p>In the contemporary era marked by relentless digital stimuli and information overload, individuals encounter unprecedented cognitive challenges. This comprehensive paper introduces <strong>Smart Perception Management (SPM)</strong>, an integrated approach that combines advanced technologies with insights from cognitive science to create secure, manageable, and enriching cognitive environments. SPM encompasses AI-powered content filtering, and augmented reality solutions, to empower individuals in navigating the complexities of the modern digital landscape. </p>
 
+        <h2>The Proposal in Plain Terms</h2>
+        <p>Noise-cancelling headphones do not make a plane quieter. They sample the engine drone and play
+            its inverse, so the two cancel before they reach the ear. What arrives is an edited version of
+            the outside world, chosen by a manufacturer, and almost nobody minds, because the thing being
+            removed is agreed to be noise.</p>
+        <p>Smart Perception Management proposes the same device for information: a layer between a person
+            and the world that subtracts what has been classified as noise. The engineering question is
+            straightforward. The hard part is the classification, because outside an aircraft cabin there
+            is no consensus about which signal is the engine.</p>
+        <p>The problem it addresses is old and was named precisely. Simon (1971) observed that a wealth of
+            information creates a poverty of attention, and that the design task is therefore allocating
+            attention rather than delivering more information. What has changed since is that the
+            allocation is now performed by systems with their own objectives. Bakshy et al. (2015)
+            measured the split on Facebook and found the ranking algorithm cut exposure to cross-cutting
+            political content by around 15 percent, while users' own clicking cut it by around 70 percent.
+            The larger filter was already the person.</p>
+        <p>That sets the design brief. The filter that matters most is the one the user is already running,
+            so a system worth building widens what reaches them by default and shows them what it removed.</p>
+
         <h2>1. Introduction</h2>
         <h3>1.1 Contextual Background</h3>
-        <p>The digital age has transformed how individuals interact with information, leading to an unprecedented surge in data consumption and sensory stimulation. Recent phenomena, such as the proliferation of deepfake technologies 0and the rampant spread of AI-generated misinformation on social media platforms, underscore the urgent need for strategies to manage cognitive overload and protect against manipulative content.</p>
+        <p>The digital age has transformed how individuals interact with information, leading to a surge in data consumption and sensory stimulation. The spread of synthetic media and of false claims on social platforms has been measured rather than assumed. Vosoughi et al. (2018) tracked roughly 126,000 verified rumour cascades on Twitter over eleven years and found false stories reached more people, faster and deeper, than true ones in every category, with the gap widest in politics, and the acceleration attributable to human sharing rather than to automated accounts. Groh et al. (2022) tested 15,016 participants on deepfake videos and found ordinary viewers about as accurate as the leading detection model, making different mistakes, with a model prediction improving accuracy when the model was right and degrading it when the model was wrong.</p>
 
         <h3>1.2 Thesis Statement</h3>
         <p>This paper posits that <strong>Smart Perception Management (SPM)</strong>, through its integration of advanced technologies and cognitive science principles, offers a robust framework to empower individuals in managing their cognitive environments. By addressing information overload, AI-powered misinformation, and targeted manipulation, SPM enhances cognitive resilience and promotes well-being in the digital age.</p>
@@ -50,10 +69,10 @@
         <p class="caption">Universe 00110000</p>
         <h2>2. Background and Foundations</h2>
         <h3>2.1 Information Overload and Cognitive Fatigue</h3>
-        <p>Information overload, defined as the difficulty in comprehending an issue due to excessive information, has been extensively studied in cognitive psychology. The advent of digital technologies has exacerbated this phenomenon, leading to cognitive fatigue and reduced decision-making capabilities.</p>
+        <p>Information overload, the difficulty of comprehending an issue because there is too much bearing on it, was diagnosed before the technology that made it acute. Simon (1971) stated the mechanism: information consumes the attention of its recipients, so abundance of the first produces scarcity of the second, and any system that adds information without allocating attention makes the problem worse. Bawden and Robinson (2009) surveyed the empirical work that followed and found the pathologies well documented and the thresholds not, which is why prescriptions in this area tend to be qualitative.</p>
 
         <h3>2.2 AI in Information Filtering and Cognitive Management</h3>
-        <p>AI technologies have been increasingly leveraged to filter and manage information flows. Machine learning algorithms, natural language processing, and sentiment analysis are pivotal in identifying and mitigating misinformation.</p>
+        <p>AI technologies have been increasingly leveraged to filter and manage information flows. Their accuracy is the constraint. Groh et al. (2022) found that machine-informed judgement beat either humans or the model alone, and that a confident wrong prediction pulled human accuracy down with it. A filter deployed at the perceptual layer removes the chance to notice the error, since what it screens out never arrives to be doubted.</p>
 
         <h2>3. Theoretical Framework</h2>
         <h3>3.1 Defining Smart Perception Management</h3>
@@ -79,13 +98,50 @@
         <p class="caption">Universe 00110000</p>
         <h2>6. Challenges and Ethical Considerations</h2>
         <h3>6.1 Balancing Protection and Autonomy</h3>
-        <p>Striking the right balance between protecting individuals from manipulation and preserving their exposure to diverse ideas is critical. User-centric design principles are essential to prioritize individual control and transparency.</p>
+        <p>Striking the balance between protecting individuals from manipulation and preserving their
+            exposure to diverse ideas is the central problem, and the user's own behaviour is part of what
+            has to be balanced. Bakshy et al. (2015) measured both effects on Facebook: algorithmic ranking
+            reduced the cross-cutting political content that appeared in a feed by around 15 percent, and
+            users then clicked through to about 70 percent less of what did appear. The dominant term is therefore at the point of
+            choice rather than in the ranking, which is where a perceptual layer operates: defaults that
+            widen exposure, a visible record of what was removed, and removal the person can reverse.</p>
 
         <h3>6.2 Algorithmic Bias</h3>
-        <p>AI systems could introduce or amplify biases, leading to skewed perceptions or unfair treatment of certain ideas. To mitigate this, diverse datasets and regular bias assessments are necessary.</p>
+        <p>AI systems introduce and amplify biases, producing skewed perceptions or unfair treatment of particular ideas. Diverse training data and regular assessment reduce this and do not remove it, because a filter has to embody some standard of relevance and no such standard is neutral. The tractable requirement is auditability: a log of what was removed, available to the person it was removed from, so the classifier's standard can be examined by the one living inside it.</p>
 
         <h2>7. Conclusion</h2>
-        <p>Smart Perception Management (SPM) signifies a paradigm shift in addressing cognitive well-being and information processing in the digital age. By integrating advanced technologies with cognitive science insights, SPM offers a comprehensive framework to empower individuals in managing their perceptual environments, enhancing cognitive resilience, and promoting well-being.</p>
+        <p>Smart Perception Management treats attention as the resource to be allocated. Simon (1971) stated
+            the problem before the technology made it acute: information consumes the attention of its
+            recipients, so abundance of the first produces scarcity of the second, and the design task is
+            allocation. Bawden and Robinson (2009) documented what that shortage does to people.</p>
+        <p>The material to be filtered is measurably hostile. False stories reach more people, faster and
+            deeper, than true ones in every category (Vosoughi et al. 2018), and viewers cannot reliably
+            identify synthetic video, performing about as well as the leading detection model while making
+            different mistakes (Groh et al. 2022).</p>
+        <p>Three properties make such a system worth having. It says what it removed, the removal is
+            reversible by the person, and the defaults widen exposure rather than narrowing it. The last one
+            carries the most weight. Ranking cuts the cross-cutting content reaching a feed by around 15
+            percent, and users then click through to roughly 70 percent less of what does arrive (Bakshy et
+            al. 2015), so the behaviour a default shapes matters more than the ranking it replaces. Built to
+            those three rules, SPM hands back the attention the environment is taking.</p>
+    
+        <h3>References</h3>
+        <ul style="font-size: 18px;">
+            <li>Bakshy, Eytan, Solomon Messing, and Lada A. Adamic. "Exposure to Ideologically Diverse News
+                and Opinion on Facebook." <em>Science</em> 348, no. 6239, 2015, 1130&ndash;1132.</li>
+            <li>Bawden, David, and Lyn Robinson. "The Dark Side of Information: Overload, Anxiety and Other
+                Paradoxes and Pathologies." <em>Journal of Information Science</em> 35, no. 2, 2009,
+                180&ndash;191.</li>
+            <li>Groh, Matthew, Ziv Epstein, Chaz Firestone, and Rosalind Picard. "Deepfake Detection by
+                Human Crowds, Machines, and Machine-Informed Crowds." <em>Proceedings of the National
+                    Academy of Sciences</em> 119, no. 1, 2022, e2110013119.</li>
+            <li>Simon, Herbert A. "Designing Organizations for an Information-Rich World." In
+                <em>Computers, Communications, and the Public Interest</em>, edited by Martin Greenberger,
+                Johns Hopkins Press, 1971, 37&ndash;72.</li>
+            <li>Vosoughi, Soroush, Deb Roy, and Sinan Aral. "The Spread of True and False News Online."
+                <em>Science</em> 359, no. 6380, 2018, 1146&ndash;1151.</li>
+        </ul>
+
         <div class="circle-container">
             <div class="arrow left" onclick="shiftSlide(-1)">&#10094;</div>
             <div class="circle-wrapper">
@@ -95,10 +151,9 @@
         </div>
     </article>
     </main>
-    <div id="footer"></div>
+    <div id="footer"><footer class="footer"><p><span class="footer-ai-note">Created through human and AI collaboration.</span></p></footer></div>
 
-    <script defer src="../../js/components.min.js?v=8"></script>
-    <script defer src="article-subscribe.min.js?v=16"></script>
+    <script defer src="../../js/components.min.js?v=10"></script>
     <script defer src="slider.min.js?v=5"></script>
 </body>
 

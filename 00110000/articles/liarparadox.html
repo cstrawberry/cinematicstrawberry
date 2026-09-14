@@ -5,10 +5,10 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width,initial-scale=1.0" />
     <meta name="format-detection" content="telephone=no">
-    <title>The Lie of the Liar - Resolving the Liar Paradox: Self-Reference, Evaluative Role-Splitting, and the Universality Assumption</title>
+    <title>The Lie of the Liar - Resolving the Liar Paradox with Subjective Numbers: Role-Indexed Evaluation, the Observer Theorem, and Guarded Collapse</title>
     <meta name="description"
-        content="The Lie of the Liar: Self-Reference, Evaluative Role-Splitting, and the Universality Assumption" />
-    <link href="article-style.min.css?v=45" rel="stylesheet" />
+        content="The Lie of the Liar: Resolving the Liar Paradox with Subjective Numbers. Role-Indexed Evaluation, the Observer Theorem, and Guarded Collapse" />
+    <link href="article-style.min.css?v=47" rel="stylesheet" />
     <link rel="icon" type="image/png" href="../../images/favicon.png">
 
 
@@ -224,19 +224,45 @@
 
     <main>
     <article>
-<h1>The Lie of the Liar - Resolving the Liar Paradox</h1>
+<h1>The Lie of the Liar - Resolving the Liar Paradox with Subjective Numbers</h1>
         <hr />
 
         <!-- =================== ABSTRACT =================== -->
 <h2>Abstract</h2>
 <p>
-    The liar sentence, "this sentence is false," creates a familiar cycle: if it is true, then it is false; if it is false, then it is true. This article analyzes the cycle through role-indexed evaluation. A self-referential sentence occupies two roles at once: pointer and target, evaluator and evaluated. The expression is one expression, but the positions it occupies in the semantic dependency are distinct. The classical contradiction follows when those roles are collapsed into one unindexed truth standpoint. We call that collapse the <strong>Universality Assumption</strong>.
-</p>
-<p>
-    Let <span class="math">v<sub>Ptr</sub>(L)</span> be the value of the liar sentence in the pointer role, and let <span class="math">v<sub>Tgt</sub>(L)</span> be its value in the target role. The liar gives the directed relation <span class="math">v<sub>Ptr</sub>(L) = ¬v<sub>Tgt</sub>(L)</span>. Contradiction follows only after adding the collapse condition <span class="math">v<sub>Ptr</sub>(L) = v<sub>Tgt</sub>(L)</span>. <a href="subjectivenumbers.html"
+    The liar sentence, "this sentence is false," produces a familiar cycle: if it is true, it is false; if it is false, it is true. The classical derivation of the contradiction uses bivalence, the truth schema, self-reference, and classical logic, together with one premise it does not state: that the two occurrences of the sentence, the one that evaluates and the one that is evaluated, carry one value at one position. This article represents that premise as a judgment of an evaluating perspective, using the machinery of <a href="subjectivenumbers.html"
                 style="text-decoration: none; border-bottom: 1px solid transparent; transition: border-bottom 0.3s;"
                 onmouseover="this.style.borderBottomColor='black';"
-                onmouseout="this.style.borderBottomColor='transparent';">The subjective numbers framework</a> expresses this by treating roles as indexed evaluative positions and by making all cross-perspective passage explicit through guarded adoption rules. Local classical reasoning is preserved inside each fixed indexed position. The account directly covers liar-like negating cycles and gives a controlled diagnostic for Russell, Curry, Yablo, and Berry-style dependency patterns.
+                onmouseout="this.style.borderBottomColor='transparent';">subjective numbers</a>, and proves that the contradiction depends on it alone.
+</p>
+<p>
+    In that framework a value carries an intrinsic perspective and a judgment carries an evaluating perspective, and the two indices are distinct. The content of the liar is the pair of directed judgments <span class="math">x(Tgt) ⊑<sub>e</sub> ¬x(Ptr)</span> and <span class="math">x(Ptr) ⊑<sub>e</sub> ¬x(Tgt)</span> at an evaluating perspective <span class="math">e</span>; the unstated premise is the identification <span class="math">x(Ptr) ⊑<sub>e</sub> x(Tgt)</span>. The closure of <span class="math">e</span> derives a contradiction if and only if it contains such an identification (Observer Theorem). Every derivation of the contradiction carries, in its proof term, the identity entry responsible and the perspective it was adopted from (Provenance Theorem). Identifications pass between perspectives only through the guard <span class="math">CPA</span>, so the paradox is transmissible and blockable (Transmission Theorem). The two-role structure is the coarsest coherent quotient of the dependency unfolding, the classical structure is the next coarser one, and a reference cycle is coherent exactly when its number of negating links is even (Parity Theorem). An identification of two positions is licensed when every coherent valuation of the dependency already agrees on them, forbidden when none does, and open otherwise; licensed identifications change nothing and forbidden ones destroy coherence (Licensing Theorem).
+</p>
+<p>
+    The liar is the case in which the identification is forbidden: every coherent valuation of its content assigns its two occurrences different values. That is its semantic status, it is the same at every evaluator, and it is determinate. The classical error is adding as an axiom what is a theorem where licensed, an unforced choice where open, and refuted where forbidden. Bivalence, disquotation, self-reference, and classical inference hold at every position. The same form, a coherent dependency together with a forbidden identification, is then shown to underlie Grelling's paradox, Curry's paradox, Russell's paradox, Berry's paradox, Yablo's paradox, and the revenge liar, each with its own dependency map and each decided by the same criterion. In the reading ring of the framework article the liar is a unit <span class="math">σ</span> with <span class="math">σ<sup>2</sup>=1</span> that reads true at the pointer and false at the target; re-reading after the loop sends <span class="math">σ</span> to <span class="math">−σ</span>, and the parity theorem is its descent criterion. The liar stands to the classical values as <span class="math">√−1</span> stands to the reals.
+</p>
+
+<h2>The Resolution in Plain Terms</h2>
+<p>
+    The sentence "this sentence is false" is doing two jobs at once. It is the one saying something, and it is the thing being talked about. Those are two positions, in the way that "I" in a sentence written about oneself is both the author and the subject.
+</p>
+<p>
+    Read that way, the sentence is in order. It says: whatever value the thing talked about has, the thing saying it has the opposite. Two positions, opposite values. There are exactly two ways to satisfy that, they are mirror images of each other, and neither breaks anything.
+</p>
+<p>
+    The contradiction appears only when a reader insists that the two positions must hold the same value, on the ground that it is the same sentence. That insistence comes from the reader, since the sentence does not contain it. And the sentence's own content forbids it: every consistent reading gives the two positions different values. A reader who identifies them contradicts the sentence and then attributes the contradiction to the sentence.
+</p>
+<p>
+    Readers do this because for every ordinary sentence, treating the thing said and the thing talked about as one value is harmless and correct; it is how "'snow is white' is true" works. The habit never fails until the single case in which the thing said is the thing talked about. There it turns a two-position sentence into a one-position knot.
+</p>
+<p>
+    What the machinery of subjective numbers adds is the ability to say who did it and how. A reader is a perspective with its own list of judgments. The identification of the two positions is an entry on that list. Whether the sentence allows the entry can be checked before it is added: allowed for ordinary sentences, forced for "this sentence is true," forbidden for the liar. If a reader adds it anyway, the derivation of the contradiction contains that entry, so it can be pointed to. If the reader took it from another reader, the record shows that as well. The paradox has an address and a chain of custody.
+</p>
+<p>
+    There is also a positive way to say what the liar's value is. There is no real number whose square is <span class="math">−1</span>, and the complex numbers supply one, <span class="math">i</span>, with a conjugation that swaps <span class="math">i</span> and <span class="math">−i</span>. There is no ordinary value that is the negation of itself, and the subjective numbers supply one, <span class="math">σ</span>: it reads true from the pointer and false from the target, it squares to one, and going once around the loop swaps <span class="math">σ</span> and <span class="math">−σ</span>. From either position it adds and multiplies like an ordinary number. What it lacks is a reading that is the same from both, and that lack is the paradox.
+</p>
+<p>
+    The liar has no single classical value, and it is not defective. It is a sentence whose two halves cannot share a value, and the paradox is what happens when a reader makes them. The same check settles the other classical paradoxes of self-reference: each is a consistent dependency plus an identification that the dependency forbids.
 </p>
 
 <h3>Notation Guide</h3>
@@ -251,31 +277,23 @@
     </tr>
     <tr>
         <td><span class="math">Ptr</span></td>
-        <td>Pointer role: the role in which the sentence performs evaluation.</td>
+        <td>Pointer role: the intrinsic perspective of the occurrence of <span class="math">L</span> that performs evaluation.</td>
     </tr>
     <tr>
         <td><span class="math">Tgt</span></td>
-        <td>Target role: the role in which the sentence is evaluated.</td>
+        <td>Target role: the intrinsic perspective of the occurrence of <span class="math">L</span> that is evaluated.</td>
     </tr>
     <tr>
-        <td><span class="math">v<sub>Ptr</sub>(L)</span></td>
-        <td>Value of <span class="math">L</span> in the pointer role.</td>
-    </tr>
-    <tr>
-        <td><span class="math">v<sub>Tgt</sub>(L)</span></td>
-        <td>Value of <span class="math">L</span> in the target role.</td>
-    </tr>
-    <tr>
-        <td><span class="math">UA</span></td>
-        <td>Universality Assumption: the collapse condition <span class="math">v<sub>Ptr</sub>(L) = v<sub>Tgt</sub>(L)</span>.</td>
+        <td><span class="math">e</span></td>
+        <td>An evaluating perspective: the standpoint from which judgments about <span class="math">L</span> are validated. Distinct from both roles.</td>
     </tr>
     <tr>
         <td><span class="math-set">P</span></td>
-        <td>Set of perspectives in the subjective numbers framework.</td>
+        <td>Set of perspectives. For the liar, <span class="math">P ⊇ {Ptr, Tgt, e}</span>. The roles have empty kernels and closed guards; they hold values and judge nothing.</td>
     </tr>
     <tr>
         <td><span class="math-set">V</span></td>
-        <td>Value space; for the liar example, <span class="math">V = {true, false}</span>.</td>
+        <td>Value space; for the liar, <span class="math">V = {true, false}</span>.</td>
     </tr>
     <tr>
         <td><span class="math">a(s)</span></td>
@@ -283,7 +301,7 @@
     </tr>
     <tr>
         <td><span class="math">R<sup>∘</sup><sub>p</sub></span></td>
-        <td>Base kernel of initial judgments at perspective <span class="math">p</span>.</td>
+        <td>Base kernel of judgments held outright by evaluating perspective <span class="math">p</span>.</td>
     </tr>
     <tr>
         <td><span class="math">R<sup>⋆</sup><sub>p</sub></span></td>
@@ -291,15 +309,51 @@
     </tr>
     <tr>
         <td><span class="math">a(s) ⊑<sub>p</sub> b(t)</span></td>
-        <td>Closed judgment <span class="math">R<sup>⋆</sup><sub>p</sub>(s,t,a,b) = true</span>.</td>
+        <td>Closed judgment <span class="math">R<sup>⋆</sup><sub>p</sub>(s,t,a,b) = 1</span>, read as determination: from the standpoint of <span class="math">p</span>, value <span class="math">a</span> at position <span class="math">s</span> fixes value <span class="math">b</span> at position <span class="math">t</span>.</td>
     </tr>
     <tr>
         <td><span class="math">CPA<sub>p</sub>(q,u)</span></td>
-        <td>Guard allowing <span class="math">p</span> to adopt a judgment validated by <span class="math">q</span> about target perspective <span class="math">u</span>.</td>
+        <td>Guard. The value <span class="math">1</span> lets <span class="math">p</span> use every judgment of <span class="math">q</span> that lands at position <span class="math">u</span>.</td>
+    </tr>
+    <tr>
+        <td>Liar edges</td>
+        <td>The judgments <span class="math">x(Tgt) ⊑<sub>e</sub> ¬x(Ptr)</span> and <span class="math">x(Ptr) ⊑<sub>e</sub> ¬x(Tgt)</span> for <span class="math">x ∈ V</span>.</td>
+    </tr>
+    <tr>
+        <td><span class="math">C<sub>e</sub></span></td>
+        <td>Collapse at <span class="math">e</span>: the identity edges <span class="math">x(Ptr) ⊑<sub>e</sub> x(Tgt)</span> and <span class="math">x(Tgt) ⊑<sub>e</sub> x(Ptr)</span> for all <span class="math">x ∈ V</span>.</td>
+    </tr>
+    <tr>
+        <td><span class="math">UA</span></td>
+        <td>Universality Assumption: the demand that an evaluating perspective validate <span class="math">C<sub>e</sub></span>, equivalently the demand for a global section.</td>
+    </tr>
+    <tr>
+        <td><span class="math">v</span>, <span class="math">Coh<sub>e</sub></span></td>
+        <td>A role-valuation assigns one value to each position; it is coherent at <span class="math">e</span> when it respects every closed judgment of <span class="math">e</span>. <span class="math">Coh<sub>e</sub></span> is the set of coherent valuations.</td>
+    </tr>
+    <tr>
+        <td>Licensed / forbidden / open</td>
+        <td>Status of an identification of two positions at <span class="math">e</span>: all, none, or some coherent valuations agree on them.</td>
+    </tr>
+    <tr>
+        <td><span class="math">r<sub>n</sub></span></td>
+        <td>Positions of the dependency unfolding, <span class="math">n ∈ ω</span>.</td>
+    </tr>
+    <tr>
+        <td><span class="math">π</span>, <span class="math">H<sub>e</sub></span></td>
+        <td>A proof term records the derivation of a closed judgment; the provenance functor <span class="math">H<sub>e</sub></span> sends it to its history of base entries and adoption events.</td>
+    </tr>
+    <tr>
+        <td>Open pair</td>
+        <td>Two sentences each asserting that the other is false; coherent, with two symmetric valuations.</td>
     </tr>
     <tr>
         <td><span class="math">F</span></td>
-        <td>Value transformation applied by a self-referential construction.</td>
+        <td>Value transformation carried by a reflexive construction; <span class="math">F = ¬</span> for the liar.</td>
+    </tr>
+    <tr>
+        <td><span class="math">σ</span></td>
+        <td>The liar unit of the framework article's reading ring: <span class="math">σ<sup>2</sup>=1</span>, reading true at even and false at odd positions of the unfolding.</td>
     </tr>
     <tr>
         <td><span class="math">¬</span></td>
@@ -307,107 +361,74 @@
     </tr>
 </table>
 
-        <!-- =================== INTRO SECTION =================== -->
-        <h2>1. Introduction</h2>
+<h2>1. Introduction</h2>
 
-        <h3>1.1 The Liar Paradox and Its Significance</h3>
-        <p>
-            The liar paradox, instantiated by the self-referential statement "This statement is false," challenges the
-            assumption that every meaningful statement can be assigned a determinate unindexed truth value. If we assign
-            the truth value <span class="math">true</span> to the statement, then its assertion forces it to be <span
-                class="math">false</span>; if we assign <span class="math">false</span>, the statement then becomes
-            <span class="math">true</span>. This contradiction has profound implications for semantics, the nature of
-            truth, and the logical foundations of formal systems.
-        </p>
-        <p>
-            The paradox has been a central concern in logic and philosophy of language for over two millennia. From
-            Epimenides of Crete in ancient Greece to modern mathematical logic, this seemingly simple self-referential
-            statement has challenged our understanding of truth and formal systems. Its significance extends beyond pure
-            logic to impact theories of meaning, formal semantics, foundations of mathematics, and computational theory.
-        </p>
-        <p>
-            A particularly important feature of the liar paradox is that it arises within ordinary language and
-            reasoning, not requiring specialized logical machinery or exotic mathematical concepts. This naturalness
-            suggests that the paradox reveals something fundamental about the interaction between truth, reference, and
-            evaluative position.
-        </p>
-
-<h3>1.2 The Universality Assumption</h3>
+<h3>1.1 The Liar Paradox</h3>
 <p>
-    The central source of the liar paradox is the attempt to evaluate two roles through one unindexed standpoint. When a sentence refers to itself, the expression is the same expression in two roles: it points, and it is pointed to. The contradiction appears when the pointer role and the target role are treated as one semantic position.
+    The liar paradox, instantiated by the self-referential statement "This statement is false," challenges the assumption that every meaningful statement can be assigned a determinate unindexed truth value. If the statement is assigned true, its content forces it to be false; if it is assigned false, its content is satisfied and it is true. The consequences of this small cycle reach into the theory of meaning, the foundations of mathematics, the definability of truth, and the limits of formal systems.
 </p>
 <p>
-    The relevant distinction is therefore role-indexed. Let <span class="math">v<sub>Ptr</sub>(L)</span> denote the value of the liar sentence in the pointer role, and let <span class="math">v<sub>Tgt</sub>(L)</span> denote its value in the target role. The liar gives the directed relation
-</p>
-<div class="math-block">
-    <span class="math">v<sub>Ptr</sub>(L) = ¬v<sub>Tgt</sub>(L)</span>
-</div>
-<p>
-    The classical contradiction requires the additional collapse condition
-</p>
-<div class="math-block">
-    <span class="math">v<sub>Ptr</sub>(L) = v<sub>Tgt</sub>(L)</span>
-</div>
-<p>
-    This collapse is the Universality Assumption. Once the collapse is added, the directed relation becomes <span class="math">v = ¬v</span>. Without that collapse, the structure is a role-indexed evaluation cycle.
+    The paradox uses no exotic machinery. It arises inside ordinary language with ordinary inference. Whatever it reveals must already be present in the ordinary interaction between reference, predication, and the standpoint from which a sentence is evaluated.
 </p>
 
-<h3>1.3 A Role-Indexed Perspective Approach</h3>
+<h3>1.2 Where the Missing Parameter Lives</h3>
 <p>
-    Subjective numbers provide the formal setting for the role-indexed analysis. A subjective number has a value together with an intrinsic perspective. Closed judgments are written <span class="math">a(s) ⊑<sub>p</sub> b(t)</span>, meaning that perspective <span class="math">p</span> validates the relation between value <span class="math">a</span> at perspective <span class="math">s</span> and value <span class="math">b</span> at perspective <span class="math">t</span>.
+    Accounts of the liar that keep the language unrestricted and keep classical logic share one diagnosis: the classical derivation omits a parameter, and once the parameter is restored the contradiction dissolves into a dependency that is locally consistent. They differ on where the parameter is placed.
 </p>
+<ul style="font-size: 18px;">
+    <li>Between the sentence and the world. In situation semantics (Barwise and Etchemendy 1987) an Austinian proposition is a claim that a particular situation is of a particular type, and the situation a statement is about is a contextual parameter between the sentence and the proposition it expresses. The liar proposition is false, and the fact of its falsity lies in a situation larger than the one the proposition was about.</li>
+    <li>Between sentences. Reference-graph analyses (Gaifman 1992; Cook 2004; Walicki 2009; Rabern, Rabern, and Macauley 2013; Beringer and Schindler 2017) assign one truth-bearer to each sentence and record which sentences depend on which. Paradoxicality is a property of the reference pattern. When the graph is unfolded into a tree, a consistent decoration always exists; paradoxicality enters when the decorated tree is re-collapsed onto the graph.</li>
+    <li>Between measurement contexts. The sheaf-theoretic account of contextuality (Abramsky and Brandenburger 2011; Abramsky, Barbosa, Kishida, Lal, and Mansfield 2015) describes families of data that are consistent on every context and admit no global section. Liar cycles, encoded as systems of Boolean equations, have the same structure.</li>
+</ul>
 <p>
-    The framework separates initial judgments from inferential closure. Base judgments are encoded by kernels <span class="math">R<sup>∘</sup><sub>p</sub></span>. Closed judgments <span class="math">R<sup>⋆</sup><sub>p</sub></span> are generated by a least fixpoint closure that adds reflexivity, transitivity, value substitution, and guarded cross-perspective adoption. The guard <span class="math">CPA<sub>p</sub>(q,u)</span> specifies when perspective <span class="math">p</span> may adopt a judgment validated by <span class="math">q</span> about target perspective <span class="math">u</span>.
+    Each of these accounts identifies the operation that manufactures the contradiction: the demand for one situation, one decoration, one global section. None of them represents the party that makes the demand. The re-collapse in a reference-graph analysis has no agent performing it. The global section in a sheaf model has no observer requiring it. The situation in Austinian semantics is a portion of the world. The question this article asks is therefore who collapses the parameter, and what follows from representing that party explicitly. Section 11 compares the accounts in detail.
 </p>
-<p>
-    For the liar sentence, the pointer role and target role are represented as indexed evaluative positions. The liar relation is a value transformation across those positions. The contradiction arises when a single universal evaluation is imposed on both roles at once.
-</p>
-<ol style="font-size: 18px;">
-    <li><strong>Indexed roles:</strong> The sentence-as-evaluator and sentence-as-evaluated are tracked separately.</li>
-    <li><strong>Guarded passage:</strong> Cross-perspective import occurs only through explicit <span class="math">CPA</span> rules.</li>
-    <li><strong>Local classicality:</strong> Each fixed indexed position uses ordinary Boolean values for the liar example.</li>
-    <li><strong>Controlled scope:</strong> The account applies directly to liar-like negating cycles; other paradoxes require their own dependency maps.</li>
-</ol>
 
-                <img src="images/liar_paradox1.jpg" alt="Role-indexed evaluation separates pointer and target positions in the liar sentence" width="1024" height="1792" decoding="async" loading="lazy">
-        <p class="caption">Universe 00110000</p>
-<h2>2. The Liar Paradox and Traditional Approaches</h2>
-
-        <h3>2.1 Formal Derivation of the Paradox</h3>
+<h3>1.3 The Evaluating Perspective</h3>
 <p>
-    Let <span class="math">L</span> denote the liar statement "This statement is false." To analyze the paradox
-    in its classical form, introduce an unindexed truth evaluation function <span class="math">τ</span> mapping
-    statements to truth values in <span class="math">{true, false}</span>. Under this unindexed evaluation, the
-    content of <span class="math">L</span> requires:
+    Subjective numbers give that party a formal home. A subjective number <span class="math">a(s)</span> is a value <span class="math">a</span> together with the intrinsic perspective <span class="math">s</span> at which it is held. A closed judgment <span class="math">a(s) ⊑<sub>p</sub> b(t)</span> is validated by an evaluating perspective <span class="math">p</span>, which is a separate index from <span class="math">s</span> and <span class="math">t</span>. The framework carries two kinds of perspective at once: the perspective a value belongs to, and the perspective from which a relation between values is judged.
+</p>
+<p>
+    For the liar, the two occurrences of the sentence are two intrinsic perspectives, <span class="math">Ptr</span> and <span class="math">Tgt</span>. The falsity predicate, read from either occurrence toward the other, contributes the directed judgments <span class="math">x(Tgt) ⊑<sub>e</sub> ¬x(Ptr)</span> and <span class="math">x(Ptr) ⊑<sub>e</sub> ¬x(Tgt)</span>. These are validated by an evaluating perspective <span class="math">e</span> that is neither occurrence. The identification of the two occurrences, <span class="math">x(Ptr) ⊑<sub>e</sub> x(Tgt)</span>, is contributed by neither the falsity predicate nor the demonstrative. It is an additional judgment that <span class="math">e</span> may hold, adopt from another perspective, or refuse. The contradiction is derivable at <span class="math">e</span> exactly when that judgment is in the closure of <span class="math">e</span>.
+</p>
+<ul style="font-size: 18px;">
+    <li><strong>Two indices.</strong> The occurrence that holds a value and the standpoint that judges a relation are distinct parameters.</li>
+    <li><strong>Collapse as judgment.</strong> The identification of pointer and target is a kernel entry of an evaluator.</li>
+    <li><strong>Guarded passage.</strong> One perspective may use another's judgments only where the guard <span class="math">CPA</span> permits, and the guard is relative to where the adopted judgment lands.</li>
+    <li><strong>Local classicality.</strong> Each fixed position uses ordinary Boolean values and ordinary inference.</li>
+</ul>
+
+<h3>1.4 What a Resolution Requires</h3>
+<p>
+    A resolution of the liar is held to five requirements. It must assign the sentence a determinate semantic status. It must identify the step at which the classical derivation fails and show that the step is unjustified. It must preserve the classical principles as far as they can be preserved and state exactly what is given up. It must treat revenge sentences by the same mechanism it uses for the liar. And it must not relocate the contradiction into the meta-theory. Section 8 states the resolution as a single theorem and checks it against each requirement.
+</p>
+
+                <img src="images/liar_paradox1.jpg" alt="Role-indexed evaluation: an evaluating perspective validates the liar's directed content without identifying the two occurrences" width="1024" height="1792" decoding="async" loading="lazy">
+                <p class="caption">Universe 00110000</p>
+<h2>2. The Classical Derivation and Its Hidden Premise</h2>
+
+<h3>2.1 Formal Derivation of the Paradox</h3>
+<p>
+    Let <span class="math">L</span> denote the liar statement "This statement is false." Introduce an unindexed truth evaluation function <span class="math">τ</span> mapping statements to values in <span class="math">{true, false}</span>. The content of <span class="math">L</span> requires
 </p>
 <div class="math-block">
     <span class="math">τ(L) = ¬τ(L)</span>
 </div>
-
-        <p>
-            However, this defining equation creates an inherent circularity: the truth value of <span
-                class="math">L</span> is determined by the content of <span class="math">L</span> itself, which refers
-            to its own truth value. Consider both possible cases:
-        </p>
-        <ol style="font-size: 18px;">
-            <li>If <span class="math">τ(L) = true</span>, then <span class="math">L</span>'s claim that <span class="math">L</span> is false is correct only if <span class="math">τ(L)=false</span>, contradicting the assumption.</li>
-            <li>If <span class="math">τ(L) = false</span>, then <span class="math">L</span>'s claim that <span class="math">L</span> is false is correct, so <span class="math">τ(L)=true</span>, again contradicting the assumption.</li>
-        </ol>
-        <p>
-            In short, we obtain the paradoxical relation:
-        </p>
-        <div class="math-block">
-            <span class="math">τ(L) = ¬τ(L)</span>
-        </div>
 <p>
-    where <span class="math">¬</span> denotes Boolean negation. In a two-valued Boolean setting, no value satisfies this equation.
+    The equation determines the truth value of <span class="math">L</span> by the content of <span class="math">L</span>, which refers to that same truth value. Both cases fail:
+</p>
+<ul style="font-size: 18px;">
+    <li>If <span class="math">τ(L) = true</span>, then the claim made by <span class="math">L</span> holds only if <span class="math">τ(L) = false</span>.</li>
+    <li>If <span class="math">τ(L) = false</span>, then the claim made by <span class="math">L</span> is correct, so <span class="math">τ(L) = true</span>.</li>
+</ul>
+<p>
+    No Boolean value satisfies <span class="math">τ(L) = ¬τ(L)</span>.
 </p>
 
-
         <div class="example-box">
-            <h3>Example 2.1: A Simple Liar Paradox</h3>
+            <h3>Example 2.1: The Unindexed Liar</h3>
             <p>Consider the statement L: "This statement is false."</p>
-            <p>If we try to evaluate L's truth value without indexing its semantic roles:</p>
+            <p>Evaluating L at one semantic position:</p>
             <ul style="font-size: 18px;">
                 <li>Assume L is true → L's content forces L to be false → contradiction.</li>
                 <li>Assume L is false → L's content is correct → L is true → contradiction.</li>
@@ -415,502 +436,852 @@
             <p>Classical unindexed two-valued semantics provides no consistent truth assignment for L.</p>
         </div>
 
-        <p>
-            The paradox appears to use only familiar logical principles:
-        </p>
-        <ul style="font-size: 18px;">
-            <li><strong>Bivalence:</strong> Every statement has a definite truth value, either true or false.</li>
-            <li><strong>Truth Schema:</strong> The statement "X is true" is true if and only if X is true.</li>
-            <li><strong>Self-Reference:</strong> Statements may refer to themselves.</li>
-            <li><strong>Classical Logic:</strong> Standard laws including excluded middle, non-contradiction, and ordinary rules of inference.</li>
-        </ul>
-        <p>
-            The role-indexed account does not reject classical reasoning inside an indexed position. Instead, it identifies a further principle: the assumption that all occurrences of one expression must be evaluated at one unindexed semantic position.
-        </p>
+<h3>2.2 The Hidden Premise</h3>
+<p>
+    The derivation appears to use only familiar principles:
+</p>
+<ul style="font-size: 18px;">
+    <li><strong>Bivalence:</strong> Every statement has a definite truth value, either true or false.</li>
+    <li><strong>Truth Schema:</strong> The statement "X is true" is true if and only if X is true.</li>
+    <li><strong>Self-Reference:</strong> Statements may refer to themselves.</li>
+    <li><strong>Classical Logic:</strong> Excluded middle, non-contradiction, and ordinary rules of inference.</li>
+</ul>
+<p>
+    It uses one more. The two occurrences of the sentence, the one that says and the one that is said about, are held to a single value at a single position. Writing the paradox as an equation in this way is standard, and Wen (2001) treats the semantic paradoxes as equations throughout. The equation <span class="math">τ(L) = ¬τ(L)</span> is written only after this identification has been made: <span class="math">τ</span> has one argument, and the argument is the expression rather than an occurrence of it.
+</p>
+<p>
+    The identification is performed by whoever evaluates the sentence. The derivation is an act of an evaluator who requires a single value for the expression across both of its positions. This demand is the <em>Universality Assumption</em>: the requirement that an evaluating standpoint validate one value for the expression irrespective of the position at which the expression occurs. In the vocabulary of sheaf-theoretic contextuality, it is the demand for a global section. The demand hides inside the truth schema. The schema <span class="math">True(⌜S⌝) ↔ S</span> connects <span class="math">S</span> as evaluated, the argument of the truth predicate, with <span class="math">S</span> as asserted, and so bundles two principles. One is disquotation: an attribution of a value to a sentence is correct exactly when the sentence has that value. The other is occurrence identity: the sentence evaluated and the sentence asserted carry one value. For a grounded sentence the second principle is a theorem of the sentence's dependency, since the same non-semantic fact fixes the value at both occurrences and every coherent valuation agrees on them (Theorem 8.3). The classical derivation adds it as an axiom for every sentence, and for the liar the axiom is refuted by every coherent valuation of the sentence's own content. The term "universality" is used here for a property of an evaluator; the expressive universality of natural language discussed by Simmons (1993) is a different notion.
+</p>
 
-        <h3>2.2 Traditional Semantic Hierarchies and Fixed-Point Solutions</h3>
-        <p>
-            Two major traditional solutions are semantic hierarchies and fixed-point theories. The present account is not a rejection of these traditions. It isolates a structural feature that those approaches manage in different ways: uncontrolled passage between the evaluating role and the evaluated role.
-        </p>
-
-        <h4>2.2.1 Semantic Hierarchies (Tarski)</h4>
-        <p>
-            Alfred Tarski proposed that the truth predicate cannot be consistently defined within the language to which
-            it applies. Instead, truth must be defined in a meta-language:
-        </p>
-        <ul style="font-size: 18px;">
-            <li>Language <span class="math">L<sub>0</sub></span> contains no truth predicate.</li>
-            <li>Language <span class="math">L<sub>1</sub></span> contains a truth predicate <span
-                    class="math">True<sub>1</sub></span> that can be applied only to sentences in <span class="math">L<sub>0</sub></span>.</li>
-            <li>Language <span class="math">L<sub>2</sub></span> contains a truth predicate <span
-                    class="math">True<sub>2</sub></span> that can be applied only to sentences in <span class="math">L<sub>1</sub></span>.</li>
-            <li>And so on, creating an infinite hierarchy of languages and truth predicates.</li>
-        </ul>
-        <p>
-            In this framework, the liar paradox is blocked because a statement cannot apply its truth predicate to itself at the same level. The role-indexed account agrees that unrestricted same-level collapse is the dangerous step, but it allows self-reference to be represented as a directed dependency rather than banned in advance.
-        </p>
-        <p>
-            <strong>Limitation:</strong> The hierarchy is powerful but restrictive. Natural language routinely permits self-reference, and many self-referential claims are harmless. A role-indexed account distinguishes harmless from paradoxical self-reference by inspecting the transformation and the permitted collapse rule.
-        </p>
-
-        <h4>2.2.2 Fixed-Point Theories (Kripke)</h4>
-        <p>
-            Saul Kripke developed an alternative approach using fixed-point techniques from mathematical logic:
-        </p>
-        <ul style="font-size: 18px;">
-            <li>Truth values are assigned in stages, starting with grounded statements.</li>
-            <li>At each stage, more statements receive truth values based on the values assigned in previous stages.</li>
-            <li>Some statements, including the liar sentence, never receive a definite truth value; they remain undefined or ungrounded.</li>
-            <li>The process reaches a fixed point where no more truth values can be consistently assigned.</li>
-        </ul>
-        <p>
-            In Kripke's framework, the liar sentence is neither true nor false but falls into a truth-value gap. The role-indexed account can be read as locating why the stable unindexed assignment fails: the directed negating dependency has no Boolean fixed point after collapse.
-        </p>
-        <p>
-            <strong>Limitation:</strong> Fixed-point theories handle many semantic pathologies elegantly, but strengthened revenge sentences require careful treatment. The present account treats revenge as a new dependency map whose quantifier domain and access rules must be specified.
-        </p>
-
-<div class="key-takeaways">
-    <h3>Key Takeaways: The Liar Paradox and Traditional Approaches</h3>
-    <ul style="font-size: 18px;">
-        <li>The unindexed liar equation is <span class="math">τ(L) = ¬τ(L)</span>.</li>
-        <li>The role-indexed liar relation is <span class="math">v<sub>Ptr</sub>(L) = ¬v<sub>Tgt</sub>(L)</span>.</li>
-        <li>The contradiction follows after adding <span class="math">v<sub>Ptr</sub>(L) = v<sub>Tgt</sub>(L)</span>.</li>
-        <li>Tarski, Kripke, paraconsistent logic, and revision theory each control semantic circularity in a different way.</li>
-        <li>The present account preserves local classical reasoning by separating evaluative roles and making cross-perspective passage explicit.</li>
-    </ul>
-</div>
-
-        <h3>2.3 Meta-Theoretical Consistency</h3>
-        <p>The meta-theoretical framework employed to develop and analyze subjective numbers is consistent relative to ZFC set theory.</p>
-        <p>
-            The framework is formulated entirely within ordinary set-theoretic mathematics, using standard constructs such as sets, functions, relations, categories, and morphisms. It does not introduce any axiom that asserts a universal truth predicate over its own total language.
-        </p>
-        <p>
-            If ZFC is consistent, then the external mathematics used to define the role-indexed models is consistent relative to ZFC. The liar analysis occurs inside object-level indexed structures; it does not require the meta-theory to contain a self-applying truth predicate.
-        </p>
-        <p>
-            This meta-theoretical background states the setting in which the formal constructions are made. It does not add a new truth value, a new inference rule, or a hidden universal evaluating perspective inside the object-level system.
-        </p>
+<h3>2.3 Meta-Theoretical Setting</h3>
+<p>
+    The framework is formulated inside ordinary set-theoretic mathematics, using sets, functions, relations, categories, and morphisms. It introduces no axiom asserting a universal truth predicate over its own total language. If ZFC is consistent, the external mathematics used to define the role-indexed models is consistent relative to ZFC. The liar analysis takes place inside object-level indexed structures. The meta-theory describes the family of perspectives; it is not a member of the perspective set and validates no judgment of the form <span class="math">⊑<sub>p</sub></span>. It adds no truth value, no inference rule, and no hidden evaluating perspective to the object-level system.
+</p>
 
 <h3>2.4 Static Evaluation Convention</h3>
 <p>
-    Unless an update parameter is explicitly introduced, the analysis treats evaluative positions as fixed. The liar argument below does not require temporal revision stages. Repeated traversal of the liar relation is represented as a directed role-indexed cycle, not as a time-dependent assignment of changing truth values.
+    Unless an update parameter is explicitly introduced, evaluative positions are fixed. Repeated traversal of the liar relation is represented as a directed cycle of indexed judgments, and a time-dependent sequence of changing truth values is a different representation of the same traversal; Section 11 compares it with revision sequences.
 </p>
 
-        <h2>3. Role-Indexed Semantics</h2>
+<div class="callout">
+    <h3>Key Takeaways: The Classical Derivation</h3>
+    <ul style="font-size: 18px;">
+        <li>The unindexed liar equation is <span class="math">τ(L) = ¬τ(L)</span>, written after the two occurrences have been identified.</li>
+        <li>The identification is the Universality Assumption, a demand made by an evaluator. It is the occurrence-identity component that the truth schema bundles with disquotation.</li>
+        <li>For grounded sentences the identification is a theorem of the dependency. For the liar it is refuted by the dependency. Sections 4 and 8 make both claims exact.</li>
+    </ul>
+</div>
+
+<h2>3. Role-Indexed Truth Bearers</h2>
 <p>
-    The key adequacy claim is that role-indexing does not invent two different sentences. It distinguishes two semantic positions occupied by one expression. The phrase "this sentence" preserves referential identity: the same sentence <span class="math">L</span> is being referred to. It does not by itself settle role identity: whether the evaluating occurrence and the evaluated occurrence occupy the same semantic position. It also does not settle value identity: whether the truth value assigned at one role must equal the truth value assigned at the other role.
+    Role-indexing distinguishes two semantic positions occupied by one expression. The phrase "this sentence" preserves referential identity: the same sentence <span class="math">L</span> is referred to. It does not settle role identity, whether the evaluating occurrence and the evaluated occurrence are one semantic position, and it does not settle value identity, whether the value assigned at one position must equal the value assigned at the other.
 </p>
 <p>
-    The analysis therefore separates three claims that are often compressed into one:
+    Three claims are therefore separated that the classical derivation compresses into one:
 </p>
-<ol style="font-size: 18px;">
-    <li><strong>Referential identity:</strong> the pointer and target concern the same expression <span class="math">L</span>.</li>
-    <li><strong>Role identity:</strong> the pointer role and target role are identified as one semantic position.</li>
-    <li><strong>Value identity:</strong> the values assigned at those roles are required to be equal.</li>
-</ol>
+<ul style="font-size: 18px;">
+    <li><strong>Referential identity:</strong> the pointer and the target concern the same expression <span class="math">L</span>.</li>
+    <li><strong>Role identity:</strong> the pointer position and the target position are one semantic position.</li>
+    <li><strong>Value identity:</strong> the values assigned at those positions are required to be equal.</li>
+</ul>
 <p>
-    The liar sentence supplies the first claim and a directed truth-value attribution. It does not automatically supply the second or third claim.
+    The liar sentence supplies the first claim together with a directed attribution of falsity. It supplies neither the second nor the third.
 </p>
 
-<h3>3.1 Role-Indexed Truth Bearers</h3>
+<h3>3.1 Role-Indexed Bearers</h3>
 <p>
-    Let <span class="math">Roles = {Ptr,Tgt}</span>. A role-indexed truth bearer is a pair <span class="math">(L,r)</span>, where <span class="math">L</span> is the expression and <span class="math">r ∈ Roles</span> is its evaluative role. A role valuation is a function
+    Let <span class="math">Roles = {Ptr, Tgt}</span>. A role-indexed truth bearer is a pair <span class="math">(L, r)</span> with <span class="math">r ∈ Roles</span>. A role valuation is a function
 </p>
 <div class="math-block">
-    <span class="math">v: Roles → {true,false}</span>.
+    <span class="math">v: Roles → {true, false}.</span>
 </div>
 <p>
-    We write <span class="math">v<sub>Ptr</sub>(L)</span> for <span class="math">v(Ptr)</span> and <span class="math">v<sub>Tgt</sub>(L)</span> for <span class="math">v(Tgt)</span>. The reference map still sends both role-indexed bearers to the same expression:
+    Write <span class="math">v<sub>Ptr</sub>(L)</span> for <span class="math">v(Ptr)</span> and <span class="math">v<sub>Tgt</sub>(L)</span> for <span class="math">v(Tgt)</span>. The reference map sends both bearers to the same expression:
 </p>
 <div class="math-block">
-    <span class="math">ref(L,Ptr)=L=ref(L,Tgt).</span>
+    <span class="math">ref(L, Ptr) = L = ref(L, Tgt).</span>
 </div>
 <p>
-    Thus role-indexing preserves the self-reference. It does not replace the liar with two unrelated sentences. It represents one expression in two dependency positions.
+    Self-reference is preserved. What is represented is one expression at two positions of one dependency.
 </p>
 
-<h3>3.2 Adequacy of the Role Split</h3>
+<h3>3.2 The Directed Liar Relation</h3>
 <p>
-    The sentence "this sentence is false" has two semantic operations. The demonstrative phrase fixes the target expression <span class="math">L</span>. The predicate "is false" evaluates that target from the position occupied by the whole sentence. These operations are not the same operation. Reference determines what is evaluated; predication determines how the evaluation is made.
-</p>
-<p>
-    In role-indexed form, the demonstrative contributes <span class="math">ref(L,Tgt)=L</span>. The falsity predicate contributes the directed dependence from the target value to the pointer value:
-</p>
-<div class="math-block">
-    <span class="math">v<sub>Ptr</sub>(L)=¬v<sub>Tgt</sub>(L).</span>
-</div>
-<p>
-    This representation is adequate because it preserves the ordinary self-reference while refusing to add an unstated transfer from referential identity to role identity. The same expression is involved on both sides; what differs is the semantic position from which the expression is evaluated.
-</p>
-<div class="theorem">
-    <strong>Theorem 3.1 (Adequacy of Role-Indexed Representation):</strong> The role-indexed representation preserves the self-reference of the liar sentence and preserves the content of the falsity predicate, while separating those features from the additional claim that the evaluating role and evaluated role have the same value.
-</div>
-<div class="complete-proof">
-    <p>
-        <strong>Proof:</strong> The reference component sends both role-indexed occurrences to the same expression <span class="math">L</span>, so the target of the demonstrative remains the original sentence. The predicate "is false" is represented by Boolean negation applied to the value of the target role, giving <span class="math">v<sub>Ptr</sub>(L)=¬v<sub>Tgt</sub>(L)</span>. Thus the representation contains both self-reference and falsity attribution. The further equation <span class="math">v<sub>Ptr</sub>(L)=v<sub>Tgt</sub>(L)</span> is not part of reference and is not part of negation; it is an additional identification between semantic roles. Therefore the role-indexed representation preserves the liar's content without smuggling in the collapse that generates the contradiction. □
-    </p>
-</div>
-
-<h3>3.3 The Directed Liar Relation</h3>
-<p>
-    The content of the liar sentence is represented by the directed role relation
+    The demonstrative fixes the target of evaluation; the predicate "is false" performs the evaluation from the position of the whole sentence. Read from the pointer toward the target, the predicate contributes
 </p>
 <div class="math-block">
     <span class="math">v<sub>Ptr</sub>(L) = ¬v<sub>Tgt</sub>(L).</span>
 </div>
 <p>
-    This says: in the pointer role, the sentence attributes falsity to the target role. It does not say that the pointer role and target role are the same role. That additional identification is exactly what must be justified.
-</p>
-
-<h3>3.4 The Collapse Rule</h3>
-<p>
-    A collapse rule is a function or identification that sends the role-indexed bearers <span class="math">(L,Ptr)</span> and <span class="math">(L,Tgt)</span> to one unindexed bearer. In the Boolean liar case, the relevant collapse condition is
+    The target occurrence is itself the sentence, and so is itself a pointer whose target is the pointer occurrence. Read from the target toward the pointer, the predicate contributes
 </p>
 <div class="math-block">
-    <span class="math">UA: v<sub>Ptr</sub>(L) = v<sub>Tgt</sub>(L).</span>
+    <span class="math">v<sub>Tgt</sub>(L) = ¬v<sub>Ptr</sub>(L).</span>
 </div>
 <p>
-    The Universality Assumption is not a law of logic. It is a semantic transfer principle. It is harmless in many ordinary contexts, but in self-referential negating cycles it forces two distinct dependency positions into one value.
+    As constraints on a valuation the two equations are one equation. As judgments they are two directed edges, and Section 4 uses the directed form.
 </p>
-<p>
-    A collapse rule is licensed only when three conditions are met:
-</p>
-<ol style="font-size: 18px;">
-    <li><strong>Prior statement:</strong> the rule is available independently of the sentence whose value is disputed.</li>
-    <li><strong>Type preservation:</strong> the rule preserves the source role, target role, and direction of the dependency it collapses.</li>
-    <li><strong>Transformation coherence:</strong> after collapse, the induced equation has a value compatible with the transformation already present in the component.</li>
-</ol>
-<p>
-    The fixed-point test checks the third condition. It does not by itself supply the first two. A collapse is not licensed merely because one wants an unindexed truth value.
-</p>
-
 <div class="theorem">
-    <strong>Theorem 3.2 (Expression Identity Does Not Entail Role Identity):</strong> In a role-indexed semantics, the fact that the same expression <span class="math">L</span> occupies two positions does not entail <span class="math">v<sub>Ptr</sub>(L)=v<sub>Tgt</sub>(L)</span>. That equality requires an additional collapse rule.
+    <strong>Proposition 3.1 (Two Valuations):</strong> The directed liar relation has exactly two satisfying role valuations, <span class="math">v<sub>Ptr</sub>(L) = true, v<sub>Tgt</sub>(L) = false</span> and <span class="math">v<sub>Ptr</sub>(L) = false, v<sub>Tgt</sub>(L) = true</span>. No satisfying valuation assigns the same value to both roles.
 </div>
 <div class="complete-proof">
     <p>
-        <strong>Proof:</strong> A role-indexed truth bearer is defined as a pair <span class="math">(L,r)</span>. Ordered-pair identity gives <span class="math">(L,Ptr)=(L,Tgt)</span> if and only if <span class="math">L=L</span> and <span class="math">Ptr=Tgt</span>. The first equality holds, but <span class="math">Ptr</span> and <span class="math">Tgt</span> are distinct role labels by definition. Therefore the two role-indexed bearers are distinct. A valuation may assign equal values to distinct bearers, but equality of values is not forced by expression identity. The equation <span class="math">v<sub>Ptr</sub>(L)=v<sub>Tgt</sub>(L)</span> therefore requires a separate semantic premise, namely the collapse rule. □
+        <strong>Proof:</strong> The constraint <span class="math">v<sub>Ptr</sub>(L) = ¬v<sub>Tgt</sub>(L)</span> over <span class="math">{true, false}</span> is satisfied by the two alternating assignments and by no other, since an assignment with <span class="math">v<sub>Ptr</sub>(L) = v<sub>Tgt</sub>(L) = x</span> would require <span class="math">x = ¬x</span>. □
+    </p>
+</div>
+<p>
+    The proposition is elementary. Its content lies in the adequacy of the representation: the two positions are positions of one dependency. Section 3.3 gives the semantic ground and Section 7 gives the structural ground, by showing that the two roles are the classes of the coarsest coherent quotient of the dependency unfolding.
+</p>
+
+<h3>3.3 Why There Are Two Positions</h3>
+<p>
+    Two distinct operations are performed by the sentence. Reference determines what is evaluated; predication determines how the evaluation is made. The demonstrative contributes a target; the predicate contributes a transformation applied to the value found at that target. An expression can be the target of its own predicate only by occurring twice in one act of evaluation: once as the thing referred to, once as the thing doing the referring. These are two occurrences of one type. Discourse-level analyses reach the same conclusion from the other side: the carriers of truth values are sentence tokens, and saying the same sentence type at two points of a network of cross-references produces two statements, each a node of the discourse graph (Gaifman 1992; Dyrkolbotn and Walicki 2014). The role split records the same distinction inside a single sentence, where the network has exactly two nodes and one type.
+</p>
+<p>
+    The split decides neither the value at either position nor whether the positions carry one value. Those are the second and third claims of the list above, and the second is the one the classical derivation makes without stating it.
+</p>
+<h2>4. The Evaluating Perspective</h2>
+
+<h3>4.1 Two Indices</h3>
+<p>
+    A closed judgment <span class="math">a(s) ⊑<sub>p</sub> b(t)</span> carries three perspective indices: the intrinsic perspective <span class="math">s</span> of the source value, the intrinsic perspective <span class="math">t</span> of the target value, and the evaluating perspective <span class="math">p</span> that validates the judgment. For the liar, <span class="math">s</span> and <span class="math">t</span> range over <span class="math">Roles</span>, and <span class="math">p</span> is an evaluating perspective <span class="math">e</span> that is neither role. The reading of the judgment throughout is determination, as in Section 5 of the framework article: from the standpoint of <span class="math">e</span>, the value <span class="math">a</span> at position <span class="math">s</span> fixes the value <span class="math">b</span> at position <span class="math">t</span>.
+</p>
+<p>
+    Let <span class="math">P ⊇ {Ptr, Tgt, e}</span> and <span class="math">V = {true, false}</span>. The roles are positions only: their kernels are empty and their guards are identically <span class="math">0</span>. The base kernel of <span class="math">e</span> records the directed liar relation as judgments of <span class="math">e</span>:
+</p>
+<div class="math-block">
+    <span class="math">R<sup>∘</sup><sub>e</sub>(Tgt, Ptr, x, ¬x) = 1</span>   and   <span class="math">R<sup>∘</sup><sub>e</sub>(Ptr, Tgt, x, ¬x) = 1</span>   for <span class="math">x ∈ V</span>.
+</div>
+<p>
+    These four entries are the <em>liar edges</em> at <span class="math">e</span>. They are negating edges between the roles. An <em>identity edge</em> between the roles is an entry <span class="math">R<sup>∘</sup><sub>e</sub>(Ptr, Tgt, x, x) = 1</span> or <span class="math">R<sup>∘</sup><sub>e</sub>(Tgt, Ptr, x, x) = 1</span>. The collapse <span class="math">C<sub>e</sub></span> is the set of all four identity edges. Neither the demonstrative nor the predicate contributes an identity edge. An identity edge is an additional judgment of <span class="math">e</span>: the judgment that the value at one occurrence is the value at the other.
+</p>
+<p>
+    A <em>contradiction</em> at <span class="math">e</span> is a closed judgment of the form <span class="math">x(r) ⊑<sub>e</sub> ¬x(r)</span>, a same-role negating judgment. Under the determination reading it says that the value <span class="math">x</span> at <span class="math">r</span> fixes the value <span class="math">¬x</span> at <span class="math">r</span>, which no valuation with <span class="math">v(r) = x</span> can respect. It is a positive judgment, never a derived negation; the framework's Theorem 3.4 is untouched. When both values are forbidden at a role, no valuation survives, and <span class="math">e</span> is incoherent in the sense of the framework's Section 5.
+</p>
+<p>
+    Throughout this section the base kernel of <span class="math">e</span> contains role edges only and the guard <span class="math">CPA<sub>e</sub></span> is identically <span class="math">0</span>, so that the closure of <span class="math">e</span> is generated by its own kernel. Adoption from other perspectives is treated in Section 5.
+</p>
+
+<h3>4.2 Coherent Role-Valuations</h3>
+<div class="theorem">
+    <strong>Definition 4.1 (Coherent Role-Valuation):</strong> A role valuation <span class="math">v: Roles → V</span> is coherent at <span class="math">e</span> if for every closed judgment <span class="math">a(s) ⊑<sub>e</sub> b(t)</span> with <span class="math">s, t ∈ Roles</span>, <span class="math">v(s) = a</span> implies <span class="math">v(t) = b</span>. The set of coherent valuations is <span class="math">Coh<sub>e</sub></span>.
+</div>
+<p>
+    This is the framework's notion of coherence with the positions of <span class="math">e</span> equal to the two roles. By Lemma 5.1 of the framework article, a valuation is coherent exactly when it respects every generator of <span class="math">e</span>, that is, every kernel entry and every imported judgment: a reflexive judgment is respected by every valuation, and respect is preserved under transitive composition. A same-role negating judgment <span class="math">x(r) ⊑<sub>e</sub> ¬x(r)</span> is respected by a valuation only if <span class="math">v(r) ≠ x</span>; it forbids one value at one role. The full collapse forbids both values at both roles.
+</p>
+
+<h3>4.3 The Observer Theorem</h3>
+<p>
+    Every closed judgment of <span class="math">e</span> between role positions is witnessed by a path of base edges. Each base edge is a step between the two roles and is either negating, sending <span class="math">x</span> to <span class="math">¬x</span>, or identity, sending <span class="math">x</span> to <span class="math">x</span>. The value carried around a path is therefore determined by the number of steps of each kind.
+</p>
+<div class="theorem">
+    <strong>Lemma 4.2 (Parity of Role Paths):</strong> Let the base kernel of <span class="math">e</span> consist of liar edges and identity edges between the roles. A path of base edges from <span class="math">x(r)</span> to <span class="math">y(r')</span> containing <span class="math">i</span> identity steps yields <span class="math">y = ¬<sup>i</sup>x</span> when <span class="math">r = r'</span> and <span class="math">y = ¬<sup>i+1</sup>x</span> when <span class="math">r ≠ r'</span>. In particular a same-role judgment is negating if and only if its path contains an odd number of identity steps.
+</div>
+<div class="complete-proof">
+    <p>
+        <strong>Proof:</strong> Every base edge switches role, so a path of length <span class="math">n</span> from role <span class="math">r</span> ends at <span class="math">r</span> when <span class="math">n</span> is even and at the other role when <span class="math">n</span> is odd. Of the <span class="math">n</span> steps, <span class="math">i</span> are identity and <span class="math">n − i</span> are negating, so the path carries <span class="math">x</span> to <span class="math">¬<sup>n−i</sup>x</span>. Over <span class="math">{true, false}</span>, <span class="math">¬<sup>k</sup>x</span> depends only on the parity of <span class="math">k</span>. If <span class="math">n</span> is even, <span class="math">n − i ≡ i</span> (mod 2), so <span class="math">y = ¬<sup>i</sup>x</span>; if <span class="math">n</span> is odd, <span class="math">n − i ≡ i + 1</span>, so <span class="math">y = ¬<sup>i+1</sup>x</span>. □
+    </p>
+</div>
+<div class="theorem">
+    <strong>Theorem 4.3 (Observer Theorem):</strong> Let the base kernel of <span class="math">e</span> contain the liar edges together with a set <span class="math">I ⊆ C<sub>e</sub></span> of identity edges, and let <span class="math">CPA<sub>e</sub> ≡ 0</span>.
+    <p>(i) If <span class="math">I = ∅</span>, then <span class="math">R<sup>⋆</sup><sub>e</sub></span> restricted to role positions consists of the judgments <span class="math">x(r) ⊑<sub>e</sub> ¬x(r')</span> for <span class="math">r ≠ r'</span> and the reflexive judgments <span class="math">x(r) ⊑<sub>e</sub> x(r)</span>. It contains no same-role negating judgment, and <span class="math">e</span> admits exactly the two alternating valuations of Proposition 3.1.</p>
+    <p>(ii) If <span class="math">I = C<sub>e</sub></span>, then <span class="math">x(r) ⊑<sub>e</sub> ¬x(r)</span> belongs to <span class="math">R<sup>⋆</sup><sub>e</sub></span> for every role <span class="math">r</span> and value <span class="math">x</span>, and <span class="math">e</span> admits no coherent role-valuation.</p>
+    <p>(iii) In general, <span class="math">R<sup>⋆</sup><sub>e</sub></span> contains a same-role negating judgment if and only if <span class="math">I ≠ ∅</span>.</p>
+</div>
+<div class="complete-proof">
+    <p>
+        <strong>Proof:</strong> (i) With no identity edges, every path has <span class="math">i = 0</span>. By Lemma 4.2 a same-role path yields <span class="math">y = x</span> and a cross-role path yields <span class="math">y = ¬x</span>, which gives exactly the listed judgments; the diagonal contributes the reflexive ones. Both alternating valuations respect every listed judgment: for <span class="math">v(Ptr) = x</span>, <span class="math">v(Tgt) = ¬x</span>, the judgment <span class="math">x(Ptr) ⊑<sub>e</sub> ¬x(Tgt)</span> is respected because <span class="math">v(Tgt) = ¬x</span>, the judgment <span class="math">¬x(Tgt) ⊑<sub>e</sub> x(Ptr)</span> is respected because <span class="math">v(Ptr) = x</span>, and the remaining cross-role judgments have false antecedents. A valuation with <span class="math">v(Ptr) = v(Tgt) = x</span> violates <span class="math">x(Ptr) ⊑<sub>e</sub> ¬x(Tgt)</span>. Hence exactly two coherent valuations.
+    </p>
+    <p>
+        (ii) For each <span class="math">x</span>, the path <span class="math">x(Ptr) → x(Tgt) → ¬x(Ptr)</span>, one identity step followed by one liar step, witnesses <span class="math">x(Ptr) ⊑<sub>e</sub> ¬x(Ptr)</span>; the path <span class="math">x(Tgt) → x(Ptr) → ¬x(Tgt)</span> witnesses <span class="math">x(Tgt) ⊑<sub>e</sub> ¬x(Tgt)</span>. A coherent valuation with <span class="math">v(r) = x</span> would have to satisfy <span class="math">v(r) = ¬x</span>. Since this holds for both values at both roles, no coherent valuation exists.
+    </p>
+    <p>
+        (iii) If <span class="math">I</span> contains an identity edge <span class="math">a(Ptr) ⊑<sub>e</sub> a(Tgt)</span>, the two-step path in (ii) yields <span class="math">a(Ptr) ⊑<sub>e</sub> ¬a(Ptr)</span>; if it contains <span class="math">a(Tgt) ⊑<sub>e</sub> a(Ptr)</span>, the symmetric path yields <span class="math">a(Tgt) ⊑<sub>e</sub> ¬a(Tgt)</span>. Conversely, by Lemma 4.2 a same-role negating judgment requires a path with an odd number of identity steps, hence at least one identity edge in the kernel. □
+    </p>
+</div>
+<p>
+    A partial collapse, in which <span class="math">I</span> contains identity edges for one value only, forbids that value at the affected role and leaves one alternating valuation coherent. The full collapse forbids every value at every role. In each case the presence and extent of the contradiction at <span class="math">e</span> are read off the identity edges that <span class="math">e</span> validates.
+</p>
+<div class="theorem">
+    <strong>Corollary 4.4 (Location of the Contradiction):</strong> The liar edges alone never yield a contradiction at any evaluating perspective. A contradiction at <span class="math">e</span> exists exactly when the closure of <span class="math">e</span> contains an identity edge between the roles. The liar contradiction is a property of the evaluating perspective, determined by its kernel and, as Section 5 shows, by its guards.
+</div>
+<div class="complete-proof">
+    <p>
+        <strong>Proof:</strong> Immediate from Theorem 4.3 (i) and (iii). □
     </p>
 </div>
 
-        <h2>4. Formal Analysis of the Liar Sentence</h2>
+        <img src="images/liar_paradox3.jpg" alt="The liar cycle closes into contradiction only when the evaluating perspective validates an identity edge between the roles" width="1024" height="1792" decoding="async" loading="lazy">
+        <p class="caption">Universe 00110000</p>
+
+<h3>4.4 Global View Without Global Section</h3>
 <p>
-    Let <span class="math">L</span> be the sentence "this sentence is false." The analysis begins by separating two roles occupied by the same expression.
+    Two demands on an evaluating perspective must be kept apart. The first is that it represent the whole dependency: that it hold the liar edges and thereby see that the value at each occurrence determines the value at the other. The second is that it hold one value for the expression: that some coherent valuation assign the same value to both occurrences.
 </p>
-<ol style="font-size: 18px;">
-    <li><strong>Pointer role <span class="math">Ptr</span>:</strong> the role in which <span class="math">L</span> performs evaluation.</li>
-    <li><strong>Target role <span class="math">Tgt</span>:</strong> the role in which <span class="math">L</span> is evaluated.</li>
-</ol>
+<div class="theorem">
+    <strong>Definition 4.5 (Global View and Global Section):</strong> An evaluating perspective <span class="math">e</span> has a global view of <span class="math">L</span> if the liar edges belong to <span class="math">R<sup>⋆</sup><sub>e</sub></span>. A global section for <span class="math">L</span> at <span class="math">e</span> is a coherent role-valuation <span class="math">v</span> at <span class="math">e</span> with <span class="math">v(Ptr) = v(Tgt)</span>.
+</div>
+<div class="theorem">
+    <strong>Proposition 4.6 (No Global Section):</strong> If <span class="math">e</span> has a global view of <span class="math">L</span>, then <span class="math">e</span> has no global section for <span class="math">L</span>.
+</div>
+<div class="complete-proof">
+    <p>
+        <strong>Proof:</strong> Suppose <span class="math">v</span> is coherent at <span class="math">e</span> with <span class="math">v(Ptr) = v(Tgt) = x</span>. The liar edge <span class="math">x(Ptr) ⊑<sub>e</sub> ¬x(Tgt)</span> belongs to <span class="math">R<sup>⋆</sup><sub>e</sub></span> and its antecedent holds, so coherence requires <span class="math">v(Tgt) = ¬x</span>, contradicting <span class="math">v(Tgt) = x</span>. □
+    </p>
+</div>
 <p>
-    The expression is the same expression in both roles. The roles have different positions in the evaluation relation.
+    The Universality Assumption at <span class="math">e</span> is the demand for a global section. Proposition 4.6 says that no perspective with a global view can meet the demand, and Theorem 4.3 says what happens when the demand is enforced anyway by adding the collapse: the perspective loses its local sections as well. Under Theorem 4.3 (i), <span class="math">e</span> sees everything and asserts one value for nothing; under (ii), <span class="math">e</span> has demanded one value and can coherently hold none.
+</p>
+<p>
+    The meta-theory is the limiting case of a global view. It defines <span class="math">R<sup>⋆</sup><sub>p</sub></span> for every <span class="math">p ∈ P</span>, so it sees every perspective's judgments, including every collapse and every refusal to collapse. It belongs to no perspective, validates no judgment of the form <span class="math">⊑<sub>p</sub></span>, and assigns <span class="math">L</span> no value. Surveying the multiplicity of positions and adjudicating between them are different acts, and only the second is the source of the paradox.
 </p>
 
-<h3>4.1 Satisfiability Without Collapse</h3>
+<h3>4.5 Provenance of the Contradiction</h3>
 <p>
-    The directed relation is satisfiable as a role-indexed constraint. There are exactly two Boolean assignments satisfying it:
+    The closure of a perspective is generated by derivations, and the framework records each derivation as a proof term: <span class="math">base<sub>p</sub>(s,t,a,b)</span> for a kernel entry, <span class="math">refl<sub>p</sub>(x)</span> for reflexivity, <span class="math">trans(π,ρ)</span> for transitive composition, and <span class="math">cpa<sub>p,q,u</sub>(π,ρ)</span> for a guarded composition whose right edge is the <span class="math">q</span>-derivation <span class="math">ρ</span>. Substitution is vacuous over <span class="math">{true, false}</span>. The provenance functor <span class="math">H<sub>p</sub></span> sends a derivation to its history, recording each base entry and each adoption event together with the perspective adopted from. A contradiction at a perspective is therefore a derivation with a record.
 </p>
-<table style="width: 70%; margin: 1em auto;">
+<div class="theorem">
+    <strong>Theorem 4.7 (Provenance of the Contradiction):</strong> Suppose every base entry incident to a role position, at every perspective in <span class="math">P</span>, is a liar edge or an identity edge. Let <span class="math">π</span> be a proof term at <span class="math">e</span> of a same-role negating judgment <span class="math">x(r) ⊑<sub>e</sub> ¬x(r)</span>. Then <span class="math">π</span> contains an identity base entry <span class="math">base<sub>p</sub>(s,t,a,a)</span> with <span class="math">s ≠ t</span>, either with <span class="math">p = e</span> or inside a subterm <span class="math">ρ</span> adopted by a <span class="math">cpa</span> step, and the history <span class="math">H<sub>e</sub>(π)</span> records that entry together with every perspective through which it was adopted.
+</div>
+<div class="complete-proof">
+    <p>
+        <strong>Proof:</strong> Flatten <span class="math">π</span> into its underlying sequence of base entries: a <span class="math">trans</span> constructor contributes the concatenation of the sequences of its two arguments, and a <span class="math">cpa</span> constructor contributes the sequence of its left argument followed by the sequence underlying the adopted derivation <span class="math">ρ</span>. The result is a path of base edges between role positions, since every base edge incident to a role is a liar or identity edge between the roles, and the path starts and ends at a role. Each edge is validated by some perspective and each is negating or identity. The argument of Lemma 4.2 concerns only the sequence of step types, so it applies to this path: a same-role negating judgment requires an odd number of identity steps, hence at least one identity base entry. If that entry is validated by <span class="math">e</span>, it appears in <span class="math">π</span> directly. Otherwise it lies inside an adopted subterm <span class="math">ρ</span>, and the enclosing <span class="math">cpa<sub>e,q,u</sub></span> constructor names the perspective <span class="math">q</span> whose derivation was used; if <span class="math">ρ</span> itself contains adoption steps, each is named in turn. The provenance functor records base entries and adoption events, so <span class="math">H<sub>e</sub>(π)</span> contains the identity entry and the chain of perspectives through which it reached <span class="math">e</span>. □
+    </p>
+</div>
+<div class="theorem">
+    <strong>Corollary 4.8 (Traceability):</strong> The classical contradiction is never derived from the liar's content alone, and whenever it is derived at any perspective, the derivation names the identity judgment responsible and the perspective that supplied it.
+</div>
+<div class="complete-proof">
+    <p>
+        <strong>Proof:</strong> The first clause is Theorem 4.3 (i); the second is Theorem 4.7. □
+    </p>
+</div>
+<p>
+    Traceability is what distinguishes a resolution from a prohibition. A hierarchy forbids the identification by making it unformulable. The present account permits it, records it when it occurs, and exhibits it as the sole cause of the contradiction in every derivation that reaches one.
+</p>
+
+<h2>5. Transmission of Collapse Between Perspectives</h2>
+<p>
+    Perspectives do not evaluate in isolation. The closure of <span class="math">e</span> may compose a judgment validated by <span class="math">e</span> with a judgment validated by another perspective <span class="math">q</span>, provided the guard permits it. The rule is
+</p>
+<div class="math-block">
+    <span class="math">a(s) ⊑<sub>e</sub> b(t),   b(t) ⊑<sub>q</sub> c(u),   CPA<sub>e</sub>(q, u) = 1  ⇒  a(s) ⊑<sub>e</sub> c(u).</span>
+</div>
+<p>
+    The guard is relative to the intrinsic perspective <span class="math">u</span> at which the adopted edge lands. Since the left premise can be reflexive, the rule lets <span class="math">e</span> take on every judgment of <span class="math">q</span> that lands at <span class="math">u</span> (framework article, Theorem 3.6). A perspective may accept what <span class="math">q</span> concludes about one position and refuse what <span class="math">q</span> concludes about another.
+</p>
+<div class="theorem">
+    <strong>Theorem 5.1 (Transmission):</strong> Let the base kernel of <span class="math">e</span> consist of the liar edges, and let <span class="math">q</span> be a perspective whose closure contains the collapse <span class="math">C<sub>q</sub></span>. Suppose no other base edges incident to role positions exist at <span class="math">e</span> or <span class="math">q</span>, and that <span class="math">e</span> adopts from no perspective other than <span class="math">q</span>. Then <span class="math">R<sup>⋆</sup><sub>e</sub></span> contains a same-role negating judgment if and only if <span class="math">CPA<sub>e</sub>(q, Ptr) = 1</span> or <span class="math">CPA<sub>e</sub>(q, Tgt) = 1</span>. When it does, <span class="math">e</span> admits no coherent role-valuation.
+</div>
+<div class="complete-proof">
+    <p>
+        <strong>Proof:</strong> Suppose <span class="math">CPA<sub>e</sub>(q, Tgt) = 1</span>. Compose the liar edge <span class="math">x(Tgt) ⊑<sub>e</sub> ¬x(Ptr)</span> with the identity edge <span class="math">¬x(Ptr) ⊑<sub>q</sub> ¬x(Tgt)</span> of <span class="math">q</span>. The adopted edge lands at <span class="math">Tgt</span> and the guard permits, so <span class="math">x(Tgt) ⊑<sub>e</sub> ¬x(Tgt)</span> for every <span class="math">x</span>. Suppose instead <span class="math">CPA<sub>e</sub>(q, Ptr) = 1</span>. Compose <span class="math">x(Ptr) ⊑<sub>e</sub> ¬x(Tgt)</span> with <span class="math">¬x(Tgt) ⊑<sub>q</sub> ¬x(Ptr)</span> to obtain <span class="math">x(Ptr) ⊑<sub>e</sub> ¬x(Ptr)</span> for every <span class="math">x</span>.
+    </p>
+    <p>
+        A same-role negating judgment at one role for every value yields one at the other role by transitivity inside <span class="math">e</span>: from <span class="math">x(Tgt) ⊑<sub>e</sub> ¬x(Ptr)</span>, <span class="math">¬x(Ptr) ⊑<sub>e</sub> x(Ptr)</span>, and <span class="math">x(Ptr) ⊑<sub>e</sub> ¬x(Tgt)</span> follows <span class="math">x(Tgt) ⊑<sub>e</sub> ¬x(Tgt)</span>, and symmetrically. Hence either guard suffices for contradiction at both roles, and no coherent valuation survives, as in Theorem 4.3 (ii).
+    </p>
+    <p>
+        Conversely, if both guards are <span class="math">0</span>, every judgment <span class="math">e</span> imports lands outside the roles, and no base edge leads from a position outside the roles back to a role. So the judgments of <span class="math">e</span> between role positions are generated by its own kernel, which contains no identity edge, and Theorem 4.3 (i) applies. □
+    </p>
+</div>
+<div class="theorem">
+    <strong>Corollary 5.2 (Immunity):</strong> Let the base kernel of <span class="math">e</span> consist of the liar edges. Then <span class="math">e</span> admits both alternating valuations if and only if no path with net identity transformation between the roles is assembled in <span class="math">R<sup>⋆</sup><sub>e</sub></span>. In particular, if every base edge incident to a role position in every perspective is a liar edge or an identity edge, and <span class="math">CPA<sub>e</sub>(q, Ptr) = CPA<sub>e</sub>(q, Tgt) = 0</span> for every <span class="math">q</span> whose closure contains an identity judgment between the roles, then <span class="math">e</span> is immune regardless of how many perspectives hold the collapse.
+</div>
+<div class="complete-proof">
+    <p>
+        <strong>Proof:</strong> The first claim is Lemma 4.2 read on net transformations: a same-role negating judgment at <span class="math">e</span> is a path between the roles whose net transformation, counting adopted segments, has an odd number of identity steps, and such a path composed with a liar edge is a net-identity path between the roles; conversely a net-identity path composed with a liar edge is a same-role negating judgment. For the second claim, let <span class="math">q</span> be a perspective whose closure contains no identity judgment between the roles. Then every judgment of <span class="math">q</span> between the roles has an even number of identity steps on its path: an odd number would give, by Lemma 4.2, either a cross-role identity judgment or a same-role negating judgment, and a same-role negating path contains a cross-role identity judgment of <span class="math">q</span> as well: if its last step is an identity edge, that edge is one; if its last step is a liar edge, the prefix before that step is one, by Lemma 4.2. The judgments <span class="math">e</span> imports therefore carry even identity counts, its own edges carry none, and every path assembled at <span class="math">e</span> between the roles has an even identity count. By Lemma 4.2 no same-role negating judgment arises. □
+    </p>
+</div>
+<p>
+    Three features of the theorem deserve emphasis. First, the collapse does not propagate by decree; it propagates only through an explicit composition that the receiving perspective has permitted, and the composition is recorded in the provenance of the resulting judgment. Second, although the guard is relative to the landing position, permission at either role transmits the full contradiction, because the liar's own edges connect the roles; immunity to a collapsed perspective requires refusing its judgments at both roles. Third, a collapse can be distributed: if <span class="math">q<sub>1</sub></span> validates <span class="math">x(Ptr) ⊑ x(u)</span> and <span class="math">q<sub>2</sub></span> validates <span class="math">x(u) ⊑ x(Tgt)</span> for a position <span class="math">u</span> outside the roles, neither holds an identity edge between the roles, yet an evaluator that adopts both assembles one. The general condition is the first clause of Corollary 5.2: what matters is whether a net-identity path between the roles is assembled in the evaluator's closure, from whatever sources. The parity of Lemma 4.2 is a property of the net transformation along a path, so Theorems 4.3 and 4.7 hold with "identity edge" read as "net-identity path," and the provenance of such a path records every perspective that contributed a segment. The framework's Theorem 5.3 (4) states the general fact: an identification enters a perspective's closure only through its own kernel or through a permitted import, and the history names the route.
+</p>
+
+        <div class="example-box">
+            <h3>Example 5.1: Three Evaluators</h3>
+            <p>Let <span class="math">P = {Ptr, Tgt, e, q, o}</span>. All three evaluating perspectives hold the liar edges.</p>
+            <ul style="font-size: 18px;">
+                <li><span class="math">q</span> also holds <span class="math">C<sub>q</sub></span>. By Theorem 4.3 (ii), <span class="math">R<sup>⋆</sup><sub>q</sub></span> contains <span class="math">x(r) ⊑<sub>q</sub> ¬x(r)</span> for all <span class="math">r, x</span>, and <span class="math">q</span> admits no coherent valuation. <span class="math">q</span> is the classical evaluator: it has made the Universality Assumption.</li>
+                <li><span class="math">o</span> has <span class="math">CPA<sub>o</sub>(q, Ptr) = 1</span> and <span class="math">CPA<sub>o</sub>(q, Tgt) = 0</span>. By Theorem 5.1, <span class="math">o</span> derives <span class="math">x(Ptr) ⊑<sub>o</sub> ¬x(Ptr)</span> through <span class="math">q</span>, then <span class="math">x(Tgt) ⊑<sub>o</sub> ¬x(Tgt)</span> by transitivity, and admits no coherent valuation. Its provenance records that the contradiction arrived by composition through <span class="math">q</span> at <span class="math">Ptr</span>.</li>
+                <li><span class="math">e</span> has <span class="math">CPA<sub>e</sub>(q, Ptr) = CPA<sub>e</sub>(q, Tgt) = 0</span>. By Corollary 5.2, <span class="math">R<sup>⋆</sup><sub>e</sub></span> is as in Theorem 4.3 (i). <span class="math">e</span> sees the same dependency that <span class="math">q</span> sees and holds both alternating valuations.</li>
+            </ul>
+            <p>Three perspectives, one sentence, one dependency. The contradiction is present at two of them and absent at one, and the difference lies entirely in what each perspective has validated or adopted.</p>
+        </div>
+
+        <img src="images/liar_paradox2.jpg" alt="Subjective-number embedding: the evaluating perspective, the two role positions, and the guarded path along which a collapse can be adopted" width="1024" height="1792" decoding="async" loading="lazy">
+        <p class="caption">Universe 00110000</p>
+<h2>6. Collapse and Fixed Points</h2>
+<p>
+    The liar is one member of a family. A reflexive construction carries a transformation <span class="math">F: V → V</span> across the reference: the value found at the target is transformed into the value asserted at the pointer. For the liar, <span class="math">F = ¬</span>. For the truth-teller, "this sentence is true," <span class="math">F</span> is the identity. In general the edges at <span class="math">e</span> are
+</p>
+<div class="math-block">
+    <span class="math">x(Tgt) ⊑<sub>e</sub> F(x)(Ptr)</span>   and   <span class="math">x(Ptr) ⊑<sub>e</sub> F(x)(Tgt)</span>   for <span class="math">x ∈ V</span>,
+</div>
+<p>
+    and the collapse <span class="math">C<sub>e</sub></span> is as before.
+</p>
+<div class="theorem">
+    <strong>Theorem 6.1 (Collapse Criterion):</strong> Let the closure of <span class="math">e</span> contain the <span class="math">F</span>-edges and the collapse <span class="math">C<sub>e</sub></span>. Then <span class="math">e</span> admits a coherent role-valuation if and only if <span class="math">F</span> has a fixed point, and the coherent valuations are exactly the constant valuations <span class="math">v(Ptr) = v(Tgt) = c</span> with <span class="math">F(c) = c</span>.
+</div>
+<div class="complete-proof">
+    <p>
+        <strong>Proof:</strong> The identity edges force any coherent valuation to be constant, <span class="math">v(Ptr) = v(Tgt) = c</span>. The edge <span class="math">c(Tgt) ⊑<sub>e</sub> F(c)(Ptr)</span> then requires <span class="math">v(Ptr) = F(c)</span>, so <span class="math">c = F(c)</span>. Conversely, if <span class="math">F(c) = c</span>, the constant valuation <span class="math">c</span> respects every identity edge, respects the two <span class="math">F</span>-edges with antecedent <span class="math">c</span> because their consequent is <span class="math">c</span>, and respects the remaining <span class="math">F</span>-edges vacuously; by Lemma 5.1 of the framework article it is coherent. □
+    </p>
+</div>
+<p>
+    For the liar, <span class="math">¬</span> has no fixed point, and the collapsed evaluator has no coherent valuation. For the truth-teller, every value is a fixed point, and the collapsed evaluator has two coherent constant valuations; the collapse is coherent and leaves the value undetermined. Self-reference alone is therefore never the source of contradiction. What matters is the transformation carried across the reference and whether the evaluator has identified the two occurrences.
+</p>
+<p>
+    On the collapsed object, Theorem 6.1 is the fixed-point criterion of Kripke (1975): the liar is paradoxical because <span class="math">v = ¬v</span> has no solution, and the truth-teller is undetermined because <span class="math">v = v</span> has too many. Beringer and Schindler (2017) show that the reference-graph notion of paradoxicality coincides with Kripke's, and Theorem 6.1 is that coincidence restated at a single evaluator. What the present account adds is the step before the test: whether the collapse belongs to the closure of a given evaluating perspective, by what path it arrived there, and whether the evaluator was entitled to make it. The last question is decided by the licensing criterion of Section 8, which reads the entitlement off the coherent valuations of the content before any collapse is made.
+</p>
+
+<h2>7. The Unfolding and the Parity Theorem</h2>
+<p>
+    Two roles were introduced in Section 3 by observing that the sentence occurs twice in one act of evaluation. But the target occurrence is the sentence, and so contains a demonstrative that refers to the sentence, which occurs again. Following the reference produces a sequence of positions. The two-role structure is a quotient of that sequence, and the choice of quotient is where the paradox is decided.
+</p>
+
+<h3>7.1 The Dependency Unfolding</h3>
+<p>
+    Let the positions of the unfolding be <span class="math">r<sub>n</sub></span> for <span class="math">n ∈ ω</span>, with <span class="math">r<sub>0</sub></span> the outermost occurrence. Each occurrence <span class="math">r<sub>n</sub></span> refers to <span class="math">r<sub>n+1</sub></span> and attributes falsity to it. Each such link contributes the constraint <span class="math">v(r<sub>n</sub>) = ¬v(r<sub>n+1</sub>)</span>, recorded at an evaluating perspective <span class="math">e</span> as the pair of negating edges
+</p>
+<div class="math-block">
+    <span class="math">x(r<sub>n+1</sub>) ⊑<sub>e</sub> ¬x(r<sub>n</sub>)</span>   and   <span class="math">x(r<sub>n</sub>) ⊑<sub>e</sub> ¬x(r<sub>n+1</sub>)</span>   for <span class="math">x ∈ V</span>.
+</div>
+<p>
+    The unfolding is the ray obtained from the single-node reference graph of the liar by opening its self-loop, and a valuation of the unfolding is a decoration of that ray. Beringer and Schindler (2017) prove that the unfolded structure always admits a decoration and that paradoxicality enters only when the decorated structure is re-collapsed. A different construction, the unwinding of Cook (2004), replaces the loop by an <span class="math">ω</span>-sequence each of whose members refers to all later members; it preserves paradoxicality and turns the liar into Yablo's paradox. The unfolding used here removes paradoxicality until a quotient is imposed. The two constructions answer different questions.
+</p>
+<div class="theorem">
+    <strong>Proposition 7.1 (Coherence of the Unfolding):</strong> With the edges of all links in its kernel and no identity edges, <span class="math">e</span> admits exactly two coherent valuations of the unfolding, the alternating valuations <span class="math">v(r<sub>n</sub>) = ¬<sup>n</sup>v(r<sub>0</sub>)</span> for the two choices of <span class="math">v(r<sub>0</sub>)</span>.
+</div>
+<div class="complete-proof">
+    <p>
+        <strong>Proof:</strong> The positions and links form a path graph. Any closed walk in a path graph traverses each link an even number of times, so the net number of negations along any closed path is even and no same-position negating judgment is derivable. The alternating valuations respect every link edge, since each link relates adjacent positions with opposite values, and no other valuation does, since a link with equal values at its ends violates its edge. □
+    </p>
+</div>
+
+<h3>7.2 Quotients of the Unfolding</h3>
+<p>
+    A <em>quotient</em> of the unfolding is a partition of its positions into classes. At <span class="math">e</span>, the quotient is the addition of the identity edges <span class="math">x(r<sub>m</sub>) ⊑<sub>e</sub> x(r<sub>n</sub>)</span> for all <span class="math">x</span> and all positions <span class="math">r<sub>m</sub>, r<sub>n</sub></span> in a common class. The quotient of <em>period</em> <span class="math">k ≥ 1</span> identifies <span class="math">r<sub>n</sub></span> with <span class="math">r<sub>n+k</sub></span> for every <span class="math">n</span>; equivalently, it is the cycle of <span class="math">k</span> classes <span class="math">[r<sub>0</sub>], …, [r<sub>k−1</sub>]</span> joined by <span class="math">k</span> negating links.
+</p>
+<div class="theorem">
+    <strong>Theorem 7.2 (Parity Theorem for the Liar):</strong> The period-<span class="math">k</span> quotient of the unfolding admits a coherent valuation at <span class="math">e</span> if and only if <span class="math">k</span> is even. When <span class="math">k</span> is even there are exactly two, the alternating valuations. When <span class="math">k</span> is odd, <span class="math">R<sup>⋆</sup><sub>e</sub></span> contains <span class="math">x([r<sub>n</sub>]) ⊑<sub>e</sub> ¬x([r<sub>n</sub>])</span> for every class and value.
+</div>
+<div class="complete-proof">
+    <p>
+        <strong>Proof:</strong> The path from <span class="math">x(r<sub>0</sub>)</span> along the identity edge to <span class="math">x(r<sub>k</sub>)</span> and then down <span class="math">k</span> links to <span class="math">r<sub>0</sub></span> carries <span class="math">x</span> to <span class="math">¬<sup>k</sup>x</span>, so <span class="math">x(r<sub>0</sub>) ⊑<sub>e</sub> ¬<sup>k</sup>x(r<sub>0</sub>)</span>; the same holds at every position. If <span class="math">k</span> is odd this is a same-position negating judgment for every value, and no coherent valuation exists. If <span class="math">k</span> is even, consider any closed walk. Each link moves the position by <span class="math">±1</span> and each identity edge by a multiple of <span class="math">k</span>, so a walk that returns to its start traverses a number of links congruent to <span class="math">0</span> modulo <span class="math">k</span> once forward and backward traversals are netted, and hence an even number of links in total. Its net number of negations is therefore even, and no same-class negating judgment is derivable. The alternating valuation around an even cycle is well defined and respects every link, and as in Proposition 7.1 no other valuation respects every link. □
+    </p>
+</div>
+<p>
+    The period-2 quotient has two classes, the even positions and the odd positions. Its links become the edges <span class="math">x(Tgt) ⊑<sub>e</sub> ¬x(Ptr)</span> and <span class="math">x(Ptr) ⊑<sub>e</sub> ¬x(Tgt)</span> with <span class="math">Ptr = [r<sub>0</sub>]</span> and <span class="math">Tgt = [r<sub>1</sub>]</span>. This is exactly the two-role model of Section 4, and under the quotient the link from <span class="math">r<sub>1</sub></span> to <span class="math">r<sub>2</sub></span> becomes a link from the target back to the pointer, which is the reading of Section 3.2 that the target occurrence is itself a pointer. The period-1 quotient has one class and one self-loop, <span class="math">x(r) ⊑<sub>e</sub> ¬x(r)</span>: it is the classical unindexed liar of Section 2.1.
+</p>
+<div class="theorem">
+    <strong>Corollary 7.3 (The Two Roles Are the Coarsest Coherent Quotient):</strong> A quotient of the unfolding is coherent at <span class="math">e</span> if and only if every class of the quotient consists of positions of one parity. Hence the period-2 quotient is coherent, every quotient coarser than it is incoherent, and every coherent quotient refines it. The Universality Assumption is the passage from the period-2 quotient to the period-1 quotient.
+</div>
+<div class="complete-proof">
+    <p>
+        <strong>Proof:</strong> Suppose some class contains <span class="math">r<sub>m</sub></span> and <span class="math">r<sub>n</sub></span> with <span class="math">n − m</span> odd. The path from <span class="math">x(r<sub>m</sub>)</span> down the links to <span class="math">r<sub>n</sub></span> carries <span class="math">x</span> to <span class="math">¬<sup>n−m</sup>x = ¬x</span>, and the identity edge returns to <span class="math">r<sub>m</sub></span>, giving <span class="math">x(r<sub>m</sub>) ⊑<sub>e</sub> ¬x(r<sub>m</sub>)</span> for both values, so no valuation is coherent. Conversely, if every class consists of positions of one parity, the two alternating valuations of Proposition 7.1 assign one value to each class, so they respect every identity edge, and they respect every link; by Lemma 5.1 of the framework article they are coherent. The parity partition itself is the period-2 quotient. A quotient coarser than it merges the two parities and so contains a class with positions of both parities. A coherent quotient has classes inside single parities and therefore refines the parity partition. The passage from period 2 to period 1 is the identification of the two classes, which is the addition of <span class="math">C<sub>e</sub></span> to the kernel of <span class="math">e</span>. □
+    </p>
+</div>
+<p>
+    This answers the question of why there are two roles and not three or thirty. There are infinitely many positions, two is the smallest number of classes into which they can be gathered without contradiction, and every coherent way of gathering them refines the split into pointer and target. The role split of Section 3 is the coarsest representation of the liar that an evaluating perspective can hold coherently, and the classical derivation is the attempt to hold one class fewer.
+</p>
+<p>
+    The period-2 quotient has a name. Two positions, each attributing falsity to the other, is the open pair: two sentences of which each asserts that the other is false (Sorensen 2001; Armour-Garb and Woodbridge 2006). Its dependency has exactly two coherent valuations, exchanged by the symmetry that swaps the positions, and nothing in its content selects one. The liar, evaluated without the collapse, is the open pair, and the symmetry of the open pair is total for the liar because the two positions are occurrences of one sentence.
+</p>
+<div class="theorem">
+    <strong>Corollary 7.4 (Semantic Status of the Liar):</strong> At every evaluating perspective that holds the liar edges and no net-identity path between the roles, the coherent valuations of the liar are exactly the two alternating valuations, exchanged by the role symmetry; every coherent valuation assigns the two occurrences different values; and the content of the sentence determines nothing further. This status is the same at every such perspective.
+</div>
+<div class="complete-proof">
+    <p>
+        <strong>Proof:</strong> By Theorem 4.3 (i) together with Corollary 5.2, such a perspective admits exactly the two alternating valuations. By Theorem 7.2 these are the coherent valuations of the period-2 quotient, which is the open pair. The exchange of <span class="math">Ptr</span> and <span class="math">Tgt</span> carries each alternating valuation to the other and preserves the liar edges, so the two valuations are related by that symmetry, and no judgment in the closure distinguishes them. □
+    </p>
+</div>
+<p>
+    The status has two components. The constraint <span class="math">v(Ptr) ≠ v(Tgt)</span> is determinate: it holds in every coherent valuation and is the content of the sentence. The value at either position is not determinate: the symmetry exchanges the two valuations and nothing selects between them. In the vocabulary of fixed-point semantics the liar is ungrounded, and the accounts that treat the open pair as pathological because of this symmetry are describing the same fact. Section 8 turns the constraint into the verdict: the identification of the two occurrences is forbidden, and that is what distinguishes the liar from every ungrounded sentence whose identification is merely open.
+</p>
+
+<h3>7.3 Mixed Cycles and the Odd-Cycle Criterion</h3>
+<p>
+    A reference cycle need not attribute falsity at every link. A link at which one sentence asserts that the next is true contributes identity edges rather than negating edges. Let a cycle have <span class="math">k</span> positions and <span class="math">m</span> negating links, the remaining <span class="math">k − m</span> links being identity links.
+</p>
+<div class="theorem">
+    <strong>Theorem 7.5 (General Parity):</strong> A reference cycle with <span class="math">m</span> negating links admits a coherent valuation at <span class="math">e</span> if and only if <span class="math">m</span> is even. When <span class="math">m</span> is even, the coherent valuations are exactly the two obtained by choosing a value at one position and propagating it around the cycle.
+</div>
+<div class="complete-proof">
+    <p>
+        <strong>Proof:</strong> A closed walk around the cycle once carries <span class="math">x</span> to <span class="math">¬<sup>m</sup>x</span>, so every position satisfies <span class="math">x ⊑<sub>e</sub> ¬<sup>m</sup>x</span> at that position. If <span class="math">m</span> is odd, this is a same-position negating judgment for every value, and no coherent valuation exists. If <span class="math">m</span> is even, every closed walk has an even net number of negations by the argument of Theorem 7.2, propagation of a chosen value around the cycle returns the chosen value, and the resulting valuation respects every link; no valuation that fails to propagate correctly across some link respects that link. □
+    </p>
+</div>
+<p>
+    Theorem 7.5 is the balance theorem for signed graphs (Harary 1953) applied to reference cycles: a signed graph is balanced exactly when every cycle carries an even number of negative edges, and a reference cycle is coherent exactly when it is balanced. It recovers the classical criterion for finite reference paradoxes. A cycle of <span class="math">k</span> sentences each asserting that the next is false is paradoxical exactly when <span class="math">k</span> is odd: the open pair is coherent, the liar triple is not. A cycle of <span class="math">N</span> sentences in which each asserts that the next is true and the last asserts that the first is false has <span class="math">m = 1</span> and is paradoxical for every <span class="math">N</span>; any <span class="math">N − 1</span> of its links are jointly satisfiable and all <span class="math">N</span> are not, and for <span class="math">N = 4</span> the structure is the one Abramsky, Barbosa, Kishida, Lal, and Mansfield (2015) identify with the Popescu–Rohrlich box. A cycle with <span class="math">m = 0</span> is a truth-teller cycle, coherent and undetermined. In digraph terms the criterion is that a finite reference graph without an odd cycle has a kernel, and the dangerous finite patterns are the odd cycles (Rabern, Rabern, and Macauley 2013).
+</p>
+<p>
+    The parity invariant is coarser than the cohomological obstruction used to witness contextuality, which distinguishes structures that parity does not. It is finer than the two-role model taken alone, which sees every cycle as one transformation and one collapse. Cycles of different lengths and signatures are different quotients of different unfoldings, and the framework distinguishes them by the parity of the net transformation each quotient forces around its loop.
+</p>
+
+<h3>7.4 The Liar as a Subjective Number</h3>
+<p>
+    The framework article makes the unfolding into a ring. Over a field <span class="math">K</span> of characteristic other than <span class="math">2</span>, a subjective number over the loop graph is a function from the positions <span class="math">r<sub>n</sub></span> of the unfolding to <span class="math">K</span>, its reading at each position, with <span class="math">n</span> now ranging over all integers so that the ray of Section 7.1 is extended backward by the occurrences that refer to <span class="math">r<sub>0</sub></span>; readings add and multiply pointwise, so every reading is a ring homomorphism, and the deck transformation, which moves every position one step along the reference, acts by a ring automorphism. Encode true as <span class="math">1</span> and false as <span class="math">−1</span>, so that the liar's transformation <span class="math">F=¬</span> is multiplication by <span class="math">−1</span>.
+</p>
+<div class="theorem">
+    <strong>Theorem 7.6 (The Liar Unit):</strong> Let <span class="math">σ</span> be the subjective number with reading <span class="math">(−1)<sup>n</sup></span> at <span class="math">r<sub>n</sub></span>. Then:
+    <p>(i) <span class="math">σ</span> and <span class="math">−σ</span> are exactly the two coherent valuations of the unfolding (Proposition 7.1), and <span class="math">σ<sup>2</sup>=1</span>.</p>
+    <p>(ii) The deck transformation sends <span class="math">σ</span> to <span class="math">−σ</span>: re-reading the liar after following its reference once negates it.</p>
+    <p>(iii) <span class="math">σ</span> is a function of position on the period-<span class="math">k</span> quotient if and only if <span class="math">k</span> is even. The two-role quotient is the coarsest on which the liar's value is a function of position, and on the classical one-position quotient it is not a function at all.</p>
+    <p>(iv) The ring <span class="math">K[σ]=K⊕Kσ</span> is isomorphic to <span class="math">K×K</span> by the pair of readings at the pointer and the target; the deck transformation is the swap of the two coordinates, and the numbers it fixes are the classical numbers <span class="math">K</span>.</p>
+</div>
+<div class="complete-proof">
+    <p>
+        <strong>Proof:</strong> This is Theorem 10.5 of the framework article read on the liar. (i) The alternating valuations of Proposition 7.1 are <span class="math">±(−1)<sup>n</sup></span> in the encoding, and <span class="math">((−1)<sup>n</sup>)<sup>2</sup>=1</span> at every position. (ii) Shifting the position by one changes the sign. (iii) <span class="math">σ</span> is constant on the classes <span class="math">r<sub>n</sub>≡r<sub>n+k</sub></span> exactly when <span class="math">(−1)<sup>k</sup>=1</span>, which is Theorem 7.2 for this valuation. (iv) The map <span class="math">a+bσ↦(a+b,a−b)</span> is a ring homomorphism because readings are, it is bijective because <span class="math">2</span> is invertible, and the deck transformation carries <span class="math">a+bσ</span> to <span class="math">a−bσ</span>, which swaps the coordinates and fixes exactly the pairs with equal coordinates. □
+    </p>
+</div>
+<p>
+    This is the liar's value stated positively. The sentence has a value, <span class="math">σ</span>; the value is an ordinary element of an ordinary ring; from either occurrence it behaves like any other number; and its one peculiarity, that it reads true from one occurrence and false from the other, is the content of the sentence. The classical evaluator's demand for one value is the demand that <span class="math">σ</span> be a constant, which it is not, and the demand yields nothing because there is nothing to yield. There is no real number whose square is <span class="math">−1</span>, and the complex numbers supply one together with a conjugation that swaps it with its negative; there is no classical value that is its own negation, and the subjective numbers supply one together with a re-reading that swaps it with its negative. The parity theorem, the coarsest-quotient theorem, and the Observer Theorem are the statements that <span class="math">σ</span> descends to even quotients, to the two-role quotient first, and to the classical quotient never. Spencer-Brown (1969) and Kauffman (2002) proposed an imaginary truth value for the liar, modeled on <span class="math">√−1</span> and on the oscillation between true and false; the unit <span class="math">σ</span> differs in satisfying <span class="math">σ<sup>2</sup>=1</span>, in being derived from the unfolding rather than assigned, and in carrying the descent criterion that ties it to the licensing of the collapse.
+</p>
+
+        <img src="images/liar_paradox4.jpg" alt="Reflexive dependency maps: the unfolding of the liar and its cyclic quotients, with parity deciding coherence" width="1024" height="1792" decoding="async" loading="lazy">
+        <p class="caption">Universe 00110000</p>
+<h2>8. Licensing and the Resolution</h2>
+<p>
+    The results of Sections 3 through 7 assemble into a criterion and a theorem. The criterion says when an evaluator may identify two positions. The theorem says what the liar is.
+</p>
+
+<h3>8.1 Licensing</h3>
+<div class="theorem">
+    <strong>Definition 8.1 (Licensed, Forbidden, Open):</strong> Let <span class="math">e</span> have base kernel <span class="math">K</span> containing no identity edge between positions <span class="math">s</span> and <span class="math">t</span>, let the imports of <span class="math">e</span> be unchanged by additions to <span class="math">K</span> (which holds when <span class="math">CPA<sub>e</sub> ≡ 0</span>), and let <span class="math">Coh<sub>e</sub></span> be nonempty. The identification of <span class="math">s</span> and <span class="math">t</span> at <span class="math">e</span> is the addition to <span class="math">K</span> of the identity edges <span class="math">x(s) ⊑<sub>e</sub> x(t)</span> and <span class="math">x(t) ⊑<sub>e</sub> x(s)</span> for all <span class="math">x</span>. It is <em>licensed</em> if every <span class="math">v ∈ Coh<sub>e</sub></span> has <span class="math">v(s) = v(t)</span>; <em>forbidden</em> if no <span class="math">v ∈ Coh<sub>e</sub></span> does; <em>open</em> otherwise. It is <em>determining</em> if all coherent valuations of the enlarged closure agree on the common value of <span class="math">s</span> and <span class="math">t</span>. A set of identifications is jointly licensed if every coherent valuation agrees on each pair, jointly forbidden if no coherent valuation agrees on every pair, and jointly open otherwise.
+</div>
+<div class="theorem">
+    <strong>Theorem 8.2 (Licensing Theorem):</strong> Let <span class="math">R<sup>⋆′</sup><sub>e</sub></span> be the closure of <span class="math">K</span> together with the identification of <span class="math">s</span> and <span class="math">t</span>. The coherent valuations of <span class="math">R<sup>⋆′</sup><sub>e</sub></span> are exactly <span class="math">{v ∈ Coh<sub>e</sub> : v(s) = v(t)}</span>. Hence a licensed identification leaves the coherent valuations unchanged, a forbidden identification leaves none, and an open identification leaves a nonempty proper subset. The same holds for a set of identifications, with agreement required on every pair.
+</div>
+<div class="complete-proof">
+    <p>
+        <strong>Proof:</strong> This is Theorem 5.2 of the framework article. In the present setting the argument is short. A valuation respects every judgment of a closure generated without adoption if and only if it respects every base entry: reflexive judgments are respected by every valuation, respect is preserved under transitive composition, and every closed judgment is obtained from base entries by those rules. The base entries of <span class="math">R<sup>⋆′</sup><sub>e</sub></span> are those of <span class="math">K</span> together with the identity edges, and a valuation respects the identity edges for <span class="math">s</span> and <span class="math">t</span> if and only if <span class="math">v(s) = v(t)</span>. With adoption, <span class="math">Coh<sub>e</sub></span> is the set of valuations that respect the base entries of <span class="math">e</span> together with every imported judgment, and the proof is unchanged. □
+    </p>
+</div>
+<p>
+    Two of the constructions below, Curry's sentence and the revenge liar, relate more than two positions. For them the kernel is allowed to contain a conjunctive edge <span class="math">a<sub>1</sub>(s<sub>1</sub>), …, a<sub>k</sub>(s<sub>k</sub>) ⊑<sub>e</sub> b(t)</span>, which a valuation respects when <span class="math">v(s<sub>i</sub>) = a<sub>i</sub></span> for every <span class="math">i</span> implies <span class="math">v(t) = b</span>. Coherence is respect of every kernel entry, identity edges are as before, and Theorem 8.2 holds word for word, since its proof uses only that coherence is respect of every entry. The parity results of Sections 4 and 7 concern binary edges and are not used for conjunctive ones.
+</p>
+
+<h3>8.2 Classification</h3>
+<div class="theorem">
+    <strong>Theorem 8.3 (Classification):</strong> At an evaluating perspective holding the content edges of the construction named and no identity edges:
+    <p>(i) Liar. The identification of <span class="math">Ptr</span> and <span class="math">Tgt</span> is forbidden.</p>
+    <p>(ii) Truth-teller. The identification is licensed and not determining: both constant valuations remain.</p>
+    <p>(iii) Grounded sentence. Let a sentence <span class="math">G</span> have occurrences <span class="math">G<sup>Ptr</sup></span> and <span class="math">G<sup>Tgt</sup></span>, and let a non-semantic fact fix its value <span class="math">c</span>. The fact fixes the value at both occurrences, since the target is the sentence as evaluated and the pointer is the sentence as asserted, and neither depends on any other sentence. The kernel records this as the entries <span class="math">¬c(G<sup>Ptr</sup>) ⊑<sub>e</sub> c(G<sup>Ptr</sup>)</span> and <span class="math">¬c(G<sup>Tgt</sup>) ⊑<sub>e</sub> c(G<sup>Tgt</sup>)</span>, which forbid the value <span class="math">¬c</span> at each occurrence. The identification is licensed and determining.</p>
+    <p>(iv) Open pair. Each identification is open; both together are open and not determining.</p>
+    <p>(v) Indirect and odd cycles. For the two-cycle "A: B is true; B: A is false," and for every reference cycle with an odd number of negating links, each single identification is open and the full set is forbidden.</p>
+    <p>(vi) Yablo. Each single identification is open and the full set is forbidden.</p>
+</div>
+<div class="complete-proof">
+    <p>
+        <strong>Proof:</strong> (i) By Proposition 3.1 and Theorem 4.3 (i), every coherent valuation is alternating, so none assigns the two occurrences one value.
+    </p>
+    <p>
+        (ii) The truth-teller's content edges are <span class="math">x(Tgt) ⊑<sub>e</sub> x(Ptr)</span> and <span class="math">x(Ptr) ⊑<sub>e</sub> x(Tgt)</span>, which are the identity edges themselves; every coherent valuation is constant, and both constants are coherent by Theorem 6.1.
+    </p>
+    <p>
+        (iii) A valuation respects <span class="math">¬c(G<sup>Ptr</sup>) ⊑<sub>e</sub> c(G<sup>Ptr</sup>)</span> only if <span class="math">v(G<sup>Ptr</sup>) ≠ ¬c</span>, that is, <span class="math">v(G<sup>Ptr</sup>) = c</span>, and likewise at the target. So the only coherent valuation is the constant <span class="math">c</span>, every coherent valuation agrees on the pair, and after identification the common value is <span class="math">c</span>.
+    </p>
+    <p>
+        (iv) With positions <span class="math">A<sup>Ptr</sup>, A<sup>Tgt</sup>, B<sup>Ptr</sup>, B<sup>Tgt</sup></span> and links <span class="math">A<sup>Ptr</sup> = ¬B<sup>Tgt</sup></span>, <span class="math">B<sup>Ptr</sup> = ¬A<sup>Tgt</sup></span>, the coherent valuations are the four choices of <span class="math">(A<sup>Ptr</sup>, B<sup>Ptr</sup>)</span>; identifying <span class="math">A</span> leaves two, identifying both leaves the two alternating valuations <span class="math">A = ¬B</span>.
+    </p>
+    <p>
+        (v) For the two-cycle with links <span class="math">A<sup>Ptr</sup> = B<sup>Tgt</sup></span> and <span class="math">B<sup>Ptr</sup> = ¬A<sup>Tgt</sup></span>, identifying <span class="math">A</span> alone leaves the coherent valuations <span class="math">A = B<sup>Tgt</sup></span>, <span class="math">B<sup>Ptr</sup> = ¬A</span> for either value of <span class="math">A</span>, while a valuation with <span class="math">A<sup>Ptr</sup> ≠ A<sup>Tgt</sup></span> is also coherent, so the identification is open; identifying both gives <span class="math">A = B = ¬A</span>, which no valuation satisfies. For a general odd cycle the full identification is the odd quotient of Theorem 7.5 and is forbidden, while any single identification leaves an open chain, which is coherent, and some coherent valuation of the chain disagrees at the identified pair.
+    </p>
+    <p>
+        (vi) Section 9.2 (e). □
+    </p>
+</div>
+<p>
+    The classification separates the liar from every other case by a single feature. For the liar, one identification, of one sentence's two occurrences, is forbidden by the content of that sentence alone. The truth-teller's identification is licensed, the grounded sentence's is licensed and determining, the open pair's are open, and the cycles and Yablo need the classical evaluator to identify several sentences' occurrences at once before anything is forbidden. Section 9 shows that Grelling, Russell, and Berry share the liar's feature, and that Curry is the open case with a consequence.
+</p>
+
+<h3>8.3 The Resolution Theorem</h3>
+<div class="theorem">
+    <strong>Theorem 8.4 (Resolution of the Liar):</strong> Let <span class="math">e</span> be any evaluating perspective whose base kernel contains the liar edges. Then:
+    <p>(a) <em>Adequacy.</em> The role-indexed representation preserves the reference of the demonstrative and the content of the falsity predicate, and its two positions are the classes of the coarsest coherent quotient of the dependency unfolding, which every coherent quotient refines.</p>
+    <p>(b) <em>Status.</em> Every coherent valuation at <span class="math">e</span> assigns the two occurrences different values, and the two coherent valuations are exchanged by the role symmetry. The identification of the occurrences is forbidden.</p>
+    <p>(c) <em>Localization.</em> A contradiction is derivable at <span class="math">e</span> if and only if a net-identity path between the occurrences is assembled in the closure of <span class="math">e</span>.</p>
+    <p>(d) <em>Provenance.</em> Every derivation of a contradiction at <span class="math">e</span> contains an identity entry, and <span class="math">H<sub>e</sub></span> records it together with the perspectives through which it was adopted.</p>
+    <p>(e) <em>Transmission.</em> A perspective holding only the liar edges derives the contradiction if and only if it adopts, at either role, from a perspective that supplies a segment of a net-identity path; refusing such adoption confers immunity.</p>
+    <p>(f) <em>Preservation.</em> At every position, bivalence, disquotation, self-reference, and classical inference hold. The principle rejected is occurrence identity where it is forbidden, which the classical truth schema imposes uniformly and which for the liar is refuted by the sentence's own content.</p>
+</div>
+<div class="complete-proof">
+    <p>
+        <strong>Proof:</strong> (a) is Section 3.1, Section 3.2, and Corollary 7.3. (b) is Corollary 7.4 and Theorem 8.3 (i). (c) is Theorem 4.3 (iii) with Corollary 5.2. (d) is Theorem 4.7. (e) is Theorem 5.1 and Corollary 5.2. For (f): every coherent valuation assigns each position exactly one value; disquotation is the liar edge, since the pointer's attribution of falsity to the target is correct exactly when the target is false; the reference map sends both bearers to <span class="math">L</span>; Theorem 4.3 (i) shows that inference from the liar edges yields no contradiction at any position. Occurrence identity is the second component of the classical truth schema, and by (b) it is forbidden for the liar. □
+    </p>
+</div>
+
+<h3>8.4 The Requirements Met</h3>
+<table style="width: 90%; margin: 1em auto;">
     <tr>
-        <th><span class="math">v<sub>Tgt</sub>(L)</span></th>
-        <th><span class="math">¬v<sub>Tgt</sub>(L)</span></th>
-        <th><span class="math">v<sub>Ptr</sub>(L)</span></th>
-        <th>Directed relation satisfied?</th>
+        <th>Requirement</th>
+        <th>Where it is met</th>
     </tr>
     <tr>
-        <td>true</td>
-        <td>false</td>
-        <td>false</td>
-        <td>yes</td>
+        <td>A determinate semantic status for the liar.</td>
+        <td>Theorem 8.4 (b): the two occurrences cannot share a value; the identification is forbidden; the status is the same at every evaluator.</td>
     </tr>
     <tr>
-        <td>false</td>
-        <td>true</td>
-        <td>true</td>
-        <td>yes</td>
+        <td>The failing step identified and shown to be unjustified.</td>
+        <td>Theorems 4.3 and 4.7 locate the step in an identity judgment contributed by neither reference nor predication; Theorem 8.3 (i) shows the judgment is refuted by the sentence's own content; Corollary 7.3 shows the two-position representation is the coarsest coherent one.</td>
+    </tr>
+    <tr>
+        <td>Classical principles preserved, and what is given up stated exactly.</td>
+        <td>Theorem 8.4 (f): bivalence, disquotation, self-reference, and classical inference hold at every position; occurrence identity is withdrawn exactly where Definition 8.1 forbids it.</td>
+    </tr>
+    <tr>
+        <td>Revenge handled by the same mechanism.</td>
+        <td>Theorem 10.1: the revenge liar's self-identification is forbidden when the evaluator's only accessible target is its own, and the joint self-identification across every self-accessing perspective is forbidden; revenge on the unfolding is Yablo, whose identifications are jointly forbidden.</td>
+    </tr>
+    <tr>
+        <td>No relocation into the meta-theory.</td>
+        <td>Sections 2.3 and 4.4: the meta-theory belongs to no perspective, validates no judgment, and assigns <span class="math">L</span> no value; Section 10.5 states the diagonal fact.</td>
     </tr>
 </table>
+
+<h3>8.5 What Each Component of the Machinery Does</h3>
+<table style="width: 90%; margin: 1em auto;">
+    <tr>
+        <th>Component</th>
+        <th>Role in the resolution</th>
+    </tr>
+    <tr>
+        <td>Intrinsic perspectives, <span class="math">a(s)</span></td>
+        <td>Make the two occurrences of <span class="math">L</span> two objects, <span class="math">Ptr</span> and <span class="math">Tgt</span>, without splitting the expression (Section 3).</td>
+    </tr>
+    <tr>
+        <td>Evaluating perspective, <span class="math">⊑<sub>e</sub></span></td>
+        <td>Makes the identification a judgment that a perspective holds or lacks (Section 4).</td>
+    </tr>
+    <tr>
+        <td>Base kernel and closure</td>
+        <td>Separate what the sentence contributes, the liar edges, from what an evaluator adds, the identity edges, and from what follows (Theorem 4.3).</td>
+    </tr>
+    <tr>
+        <td>Coherent valuations of the closure</td>
+        <td>Define licensed, forbidden, and open identifications and decide the liar (Theorems 8.2 and 8.3).</td>
+    </tr>
+    <tr>
+        <td>Least-fixpoint closure</td>
+        <td>Makes derivability a matter of paths, so that parity decides contradiction (Lemma 4.2, Theorems 7.2 and 7.5).</td>
+    </tr>
+    <tr>
+        <td>Guard <span class="math">CPA<sub>p</sub>(q,u)</span></td>
+        <td>Governs adoption, so that identifications are transmissible and blockable, and represents access in revenge sentences (Theorem 5.1, Section 10).</td>
+    </tr>
+    <tr>
+        <td>Proof terms and provenance functor <span class="math">H<sub>p</sub></span></td>
+        <td>Trace every contradiction to its identity entry and its source (Theorem 4.7).</td>
+    </tr>
+    <tr>
+        <td>Meta-theory outside <span class="math">P</span></td>
+        <td>Global view without global section (Proposition 4.6, Section 4.4).</td>
+    </tr>
+    <tr>
+        <td>Reading ring and the unit <span class="math">σ</span></td>
+        <td>Gives the liar a value that is an element of a ring, with the two occurrences as its two readings (Theorem 7.6).</td>
+    </tr>
+    <tr>
+        <td>Fixed-point criterion on the collapsed object</td>
+        <td>Distinguishes the liar from the truth-teller once an identification is present (Theorem 6.1).</td>
+    </tr>
+</table>
+
+<h3>8.6 The Classical Error</h3>
 <p>
-    The role-indexed liar therefore does not lack local Boolean assignments. What it lacks is a stable unindexed assignment that identifies the two roles.
+    The classical evaluator adds the identification of every sentence's occurrences to its kernel as an axiom. Theorem 8.3 says what that axiom is in each case. For a grounded sentence it is a theorem: the same fact fixes both occurrences, and this is why the habit exists and why it is harmless almost everywhere. For the truth-teller it is a theorem of the content and adds nothing. For the open pair it is an unforced choice among coherent valuations. For an odd cycle or for Yablo it is a set of individually coherent choices that is jointly refuted. For the liar it is a single judgment refuted by the sentence's own content. The classical evaluator treats these cases alike, and the paradox is the case in which the axiom contradicts the content. The error is one of adoption: what the dependency licenses in some cases, leaves open in others, and forbids in one is taken as an axiom in all. The machinery makes each case visible: the identification is a kernel entry, its status is read off the coherent valuations, and its consequences and provenance are theorems.
+</p>
+<h2>9. The Identification Schema</h2>
+<p>
+    Sections 4 through 8 treat one sentence. The form of the result is general. A construction supplies a dependency between positions, the classical reading identifies some of those positions, and the identification has a status that the dependency fixes in advance. This section states the form as a definition and a theorem, and then works through the classical paradoxes of self-reference with it.
 </p>
 
+<h3>9.1 The Schema</h3>
 <div class="theorem">
-    <strong>Theorem 4.1 (Satisfiability of the Directed Liar Relation):</strong> The role-indexed relation <span class="math">v<sub>Ptr</sub>(L)=¬v<sub>Tgt</sub>(L)</span> is satisfiable over <span class="math">{true,false}</span> when <span class="math">Ptr</span> and <span class="math">Tgt</span> are not collapsed.
+    <strong>Definition 9.1 (Identification Form):</strong> A <em>dependency</em> at an evaluator <span class="math">e</span> is a kernel of content edges, binary or conjunctive, over a set of positions, with <span class="math">Coh<sub>e</sub></span> nonempty. A construction has <em>identification form</em> when its classical reading is the collapse at <span class="math">e</span> of a set <span class="math">S</span> of pairs of positions of the dependency, that is, the addition of the identity edges for every pair in <span class="math">S</span>. It is an <em>identification paradox</em> when <span class="math">S</span> is jointly forbidden: the content is coherent and the identification that the classical reading makes leaves no coherent valuation.
+</div>
+<div class="theorem">
+    <strong>Theorem 9.2 (Schema Theorem):</strong> Let the dependency at <span class="math">e</span> be coherent, let the imports of <span class="math">e</span> be unchanged by additions to its kernel, let <span class="math">S</span> be a set of pairs of positions, and let no generator of <span class="math">e</span> be an identity edge for a pair in <span class="math">S</span>. Write <span class="math">e<sup>S</sup></span> for <span class="math">e</span> with <span class="math">S</span> collapsed.
+    <p>(1) <span class="math">e<sup>S</sup></span> is incoherent if and only if <span class="math">S</span> is jointly forbidden at <span class="math">e</span>.</p>
+    <p>(2) If the content edges are binary, the values are <span class="math">{true, false}</span>, and the generators of <span class="math">e<sup>S</sup></span> are closed under contraposition, then <span class="math">e<sup>S</sup></span> is incoherent if and only if at some position <span class="math">w</span> both <span class="math">true(w) ⊑ false(w)</span> and <span class="math">false(w) ⊑ true(w)</span> hold, and at least one of the two has every derivation passing through an identity entry for a pair in <span class="math">S</span>, which the history <span class="math">H<sub>e<sup>S</sup></sub></span> records.</p>
+    <p>(3) The identification enters the closure of any other perspective only through that perspective's own kernel or through an import its guard permits, and the history of any derivation that uses it names the perspective it was adopted from.</p>
 </div>
 <div class="complete-proof">
     <p>
-        <strong>Proof:</strong> Let <span class="math">v<sub>Tgt</sub>(L)=true</span> and <span class="math">v<sub>Ptr</sub>(L)=false</span>. Then <span class="math">¬v<sub>Tgt</sub>(L)=false</span>, so <span class="math">v<sub>Ptr</sub>(L)=¬v<sub>Tgt</sub>(L)</span>. Alternatively, let <span class="math">v<sub>Tgt</sub>(L)=false</span> and <span class="math">v<sub>Ptr</sub>(L)=true</span>. Then <span class="math">¬v<sub>Tgt</sub>(L)=true</span>, so the relation again holds. These are the only two Boolean cases, and both assign exactly one Boolean value to each role-indexed position. Hence the directed relation is satisfiable without role collapse. □
+        <strong>Proof:</strong> Parts (1) to (3) are parts (1) to (4) of Theorem 5.3 of the framework article, with the liar's roles replaced by the positions of the dependency. Part (2) is the two-literal satisfiability criterion of Aspvall, Plass, and Tarjan (1979), applied to a closure rather than to a formula. The liar edges are closed under contraposition, since the contrapositive of <span class="math">x(Ptr) ⊑ ¬x(Tgt)</span> is <span class="math">x(Tgt) ⊑ ¬x(Ptr)</span>, so (2) applied to the liar recovers the Observer Theorem and the Provenance Theorem, and (3) recovers the Transmission Theorem. □
     </p>
 </div>
-
-<h3>4.2 Contradiction With the Universality Assumption</h3>
 <p>
-    The classical derivation adds the collapse condition:
-</p>
-<div class="math-block">
-    <span class="math">UA: v<sub>Ptr</sub>(L) = v<sub>Tgt</sub>(L).</span>
-</div>
-<p>
-    Combining the directed liar relation with <span class="math">UA</span> yields:
-</p>
-<div class="math-block">
-    <span class="math">v<sub>Tgt</sub>(L) = ¬v<sub>Tgt</sub>(L).</span>
-</div>
-<p>
-    No Boolean value satisfies this equation.
+    The schema says that a paradox of this family has three parts and that only one of them is defective. The dependency is coherent. The evaluator is a perspective with a kernel. The identification is an entry of that kernel whose status the dependency already fixes. A construction is paradoxical when the entry is forbidden and the evaluator adds it anyway, and the theorem says that the resulting contradiction is located at the entry, is traceable to it, and travels only along guards.
 </p>
 
+<h3>9.2 Instances</h3>
+<p>
+    Each instance below is given by its positions, its content, the identification the classical reading makes, and the verdict of Theorem 8.2 on that identification.
+</p>
+<p>
+    <strong>(a) Grelling.</strong> A word is heterological when it does not describe itself (Grelling and Nelson 1908). Is "heterological" heterological? The predicate applied to the word is one occurrence of the question, <span class="math">H<sup>Ptr</sup></span>, and the word applying to itself, which the predicate asks about, is the other, <span class="math">H<sup>Tgt</sup></span>. The content is that the predicate applies exactly when the word does not apply to itself: <span class="math">v(H<sup>Ptr</sup>) = ¬v(H<sup>Tgt</sup>)</span>, recorded as the four liar edges between <span class="math">H<sup>Ptr</sup></span> and <span class="math">H<sup>Tgt</sup></span>. By Theorem 8.3 (i) the identification is forbidden. Grelling's paradox is the liar with a predicate in place of a demonstrative.
+</p>
+<p>
+    <strong>(b) Curry.</strong> Let <span class="math">K</span> be the sentence "if <span class="math">K</span> is true then <span class="math">C</span>," for an arbitrary sentence <span class="math">C</span> (Curry 1942). The positions are <span class="math">K<sup>Ptr</sup></span>, <span class="math">K<sup>Tgt</sup></span>, and <span class="math">C</span>. The content is the equation <span class="math">v(K<sup>Ptr</sup>) = (v(K<sup>Tgt</sup>) → v(C))</span>, recorded as the four conjunctive edges <span class="math">x(K<sup>Tgt</sup>), y(C) ⊑<sub>e</sub> (x → y)(K<sup>Ptr</sup>)</span> for <span class="math">x, y ∈ V</span>. The coherent valuations are the four choices of <span class="math">(v(K<sup>Tgt</sup>), v(C))</span>, each with <span class="math">v(K<sup>Ptr</sup>)</span> determined. The classical reading identifies <span class="math">K<sup>Ptr</sup></span> with <span class="math">K<sup>Tgt</sup></span>. By Theorem 8.2 the surviving valuations are those with <span class="math">v(K<sup>Tgt</sup>) = (v(K<sup>Tgt</sup>) → v(C))</span>. With <span class="math">v(K<sup>Tgt</sup>) = true</span> this requires <span class="math">v(C) = true</span>; with <span class="math">v(K<sup>Tgt</sup>) = false</span> the right side is <span class="math">true</span>, so no valuation survives. Exactly one valuation survives, <span class="math">v(K<sup>Ptr</sup>) = v(K<sup>Tgt</sup>) = v(C) = true</span>. The identification is therefore open, since one of the four coherent valuations agrees on the pair and three do not, and it is determining, and what it determines is <span class="math">v(C) = true</span>. This is Curry's paradox stated exactly: the classical derivation passes between <span class="math">K</span> as asserted and <span class="math">K</span> as evaluated through the truth schema, that passage is the identification, the identification is an unforced choice, and the arbitrary conclusion <span class="math">C</span> is the value that the choice determines. When <span class="math">C</span> is fixed false on independent grounds, recorded as the entry <span class="math">true(C) ⊑<sub>e</sub> false(C)</span>, no valuation survives the identification and it is forbidden: Curry's sentence with a false consequent is the liar.
+</p>
+<p>
+    <strong>(c) Russell.</strong> Let <span class="math">R</span> be the class of all sets that are not members of themselves (Russell 1903). The comprehension principle says that <span class="math">x ∈ R</span> exactly when <span class="math">x ∉ x</span>, and the instance <span class="math">x := R</span> reads: <span class="math">R ∈ R</span> exactly when <span class="math">R ∉ R</span>. The two sides are two occurrences of the membership fact. On the left, <span class="math">R</span> is the container, the class that comprehension defines; on the right, <span class="math">R</span> is the argument, a set asked whether it belongs to itself. Let <span class="math">m<sup>Ptr</sup></span> be the fact with <span class="math">R</span> as container and <span class="math">m<sup>Tgt</sup></span> the fact with <span class="math">R</span> as argument. The content is <span class="math">v(m<sup>Ptr</sup>) = ¬v(m<sup>Tgt</sup>)</span>, the four liar edges, and by Theorem 8.3 (i) the identification of the two occurrences is forbidden. The evaluator that makes it is naive comprehension read with one membership relation regardless of the role a set plays. The theory of types (Russell 1908) and stratified comprehension (Quine 1937) keep the container occurrence and the argument occurrence at different indices, so that the identification is never made; in the present terms they refuse a forbidden identification.
+</p>
+<p>
+    <strong>(d) Berry.</strong> Consider the phrase "the least integer not nameable in fewer than nineteen syllables," which has eighteen syllables (Russell 1908). Let <span class="math">n</span> be the integer the phrase describes. Two stocks of names are in play: the stock the phrase quantifies over, and that stock enlarged by the phrase itself. Let <span class="math">N<sup>Tgt</sup></span> be the statement that <span class="math">n</span> is nameable in fewer than nineteen syllables, evaluated in the first stock, and <span class="math">N<sup>Ptr</sup></span> the same statement evaluated in the second. The content has three parts. By the definition of <span class="math">n</span>, <span class="math">N<sup>Tgt</sup></span> is false, recorded as <span class="math">true(N<sup>Tgt</sup>) ⊑<sub>e</sub> false(N<sup>Tgt</sup>)</span>. Every name in the first stock is a name in the second, recorded as <span class="math">true(N<sup>Tgt</sup>) ⊑<sub>e</sub> true(N<sup>Ptr</sup>)</span>. And the phrase names <span class="math">n</span> in eighteen syllables, so <span class="math">N<sup>Ptr</sup></span> is true, recorded as <span class="math">false(N<sup>Ptr</sup>) ⊑<sub>e</sub> true(N<sup>Ptr</sup>)</span>. The only coherent valuation has <span class="math">v(N<sup>Tgt</sup>) = false</span> and <span class="math">v(N<sup>Ptr</sup>) = true</span>, so the identification of the two stocks is forbidden. The classical evaluator treats the stock of names as one stock regardless of whether the phrase is counted in it, and that is the identification.
+</p>
+<p>
+    <strong>(e) Yablo.</strong> Let sentences <span class="math">Y<sub>n</sub></span>, for <span class="math">n ∈ ω</span>, each say that every later sentence is false (Yablo 1993; Cook 2014). The positions are <span class="math">Y<sub>n</sub><sup>Ptr</sup></span> and <span class="math">Y<sub>n</sub><sup>Tgt</sup></span> for every <span class="math">n</span>, and the content at <span class="math">n</span> is the conjunctive constraint that <span class="math">Y<sub>n</sub><sup>Ptr</sup></span> is true exactly when <span class="math">Y<sub>m</sub><sup>Tgt</sup></span> is false for every <span class="math">m &gt; n</span>. The valuation with every target false and every pointer true is coherent. A single identification <span class="math">Y<sub>n</sub><sup>Ptr</sup> ~ Y<sub>n</sub><sup>Tgt</sup></span> is open: the valuation with every target false except <span class="math">Y<sub>n</sub><sup>Tgt</sup></span>, which is true, with <span class="math">Y<sub>m</sub><sup>Ptr</sup></span> false for <span class="math">m &lt; n</span> and true for <span class="math">m ≥ n</span>, is coherent and agrees at <span class="math">n</span>, while the all-targets-false valuation is coherent and disagrees. The full set of identifications is forbidden: with every pointer identified with its target, if some <span class="math">Y<sub>n</sub></span> is true then every later sentence is false, so <span class="math">Y<sub>n+1</sub></span> is false and some sentence later than <span class="math">n + 1</span> is true, against the falsity of every sentence later than <span class="math">n</span>; and if every sentence is false then every sentence later than <span class="math">0</span> is false, which makes <span class="math">Y<sub>0</sub></span> true. This is Theorem 8.3 (vi).
+</p>
+<p>
+    <strong>(f) Revenge.</strong> The revenge liar, "this sentence is not true at any perspective," has positions <span class="math">R<sup>Ptr</sup>(e)</span> and <span class="math">R<sup>Tgt</sup>(q)</span> for every accessible perspective <span class="math">q</span>. Its single self-identification is forbidden when the evaluator's only accessible target is its own and open otherwise, and its joint self-identification across every self-accessing perspective is forbidden. Section 10 proves this.
+</p>
+<table style="width: 95%; margin: 1em auto;">
+    <tr>
+        <th>Construction</th>
+        <th>Positions</th>
+        <th>Content</th>
+        <th>Identification</th>
+        <th>Verdict</th>
+    </tr>
+    <tr>
+        <td>Liar</td>
+        <td><span class="math">Ptr, Tgt</span></td>
+        <td><span class="math">v(Ptr) = ¬v(Tgt)</span></td>
+        <td><span class="math">Ptr ~ Tgt</span></td>
+        <td>Forbidden</td>
+    </tr>
+    <tr>
+        <td>Truth-teller</td>
+        <td><span class="math">Ptr, Tgt</span></td>
+        <td><span class="math">v(Ptr) = v(Tgt)</span></td>
+        <td><span class="math">Ptr ~ Tgt</span></td>
+        <td>Licensed, not determining</td>
+    </tr>
+    <tr>
+        <td>Grounded sentence</td>
+        <td><span class="math">G<sup>Ptr</sup>, G<sup>Tgt</sup></span></td>
+        <td>Both fixed to <span class="math">c</span> by a non-semantic fact</td>
+        <td><span class="math">G<sup>Ptr</sup> ~ G<sup>Tgt</sup></span></td>
+        <td>Licensed, determining</td>
+    </tr>
+    <tr>
+        <td>Grelling</td>
+        <td><span class="math">H<sup>Ptr</sup>, H<sup>Tgt</sup></span></td>
+        <td><span class="math">v(H<sup>Ptr</sup>) = ¬v(H<sup>Tgt</sup>)</span></td>
+        <td><span class="math">H<sup>Ptr</sup> ~ H<sup>Tgt</sup></span></td>
+        <td>Forbidden</td>
+    </tr>
+    <tr>
+        <td>Curry</td>
+        <td><span class="math">K<sup>Ptr</sup>, K<sup>Tgt</sup>, C</span></td>
+        <td><span class="math">v(K<sup>Ptr</sup>) = (v(K<sup>Tgt</sup>) → v(C))</span></td>
+        <td><span class="math">K<sup>Ptr</sup> ~ K<sup>Tgt</sup></span></td>
+        <td>Open, determining <span class="math">v(C) = true</span>; forbidden when <span class="math">C</span> is fixed false</td>
+    </tr>
+    <tr>
+        <td>Russell</td>
+        <td><span class="math">m<sup>Ptr</sup>, m<sup>Tgt</sup></span></td>
+        <td><span class="math">v(m<sup>Ptr</sup>) = ¬v(m<sup>Tgt</sup>)</span></td>
+        <td><span class="math">m<sup>Ptr</sup> ~ m<sup>Tgt</sup></span></td>
+        <td>Forbidden</td>
+    </tr>
+    <tr>
+        <td>Berry</td>
+        <td><span class="math">N<sup>Ptr</sup>, N<sup>Tgt</sup></span></td>
+        <td><span class="math">N<sup>Tgt</sup></span> false, <span class="math">N<sup>Ptr</sup></span> true</td>
+        <td><span class="math">N<sup>Ptr</sup> ~ N<sup>Tgt</sup></span></td>
+        <td>Forbidden</td>
+    </tr>
+    <tr>
+        <td>Open pair</td>
+        <td><span class="math">A<sup>Ptr</sup>, A<sup>Tgt</sup>, B<sup>Ptr</sup>, B<sup>Tgt</sup></span></td>
+        <td><span class="math">A<sup>Ptr</sup> = ¬B<sup>Tgt</sup></span>, <span class="math">B<sup>Ptr</sup> = ¬A<sup>Tgt</sup></span></td>
+        <td>Both pairs</td>
+        <td>Open, not determining</td>
+    </tr>
+    <tr>
+        <td>Odd cycle</td>
+        <td><span class="math">k</span> sentences, two occurrences each</td>
+        <td>Links with an odd number of negations</td>
+        <td>All pairs</td>
+        <td>Each open; all together forbidden</td>
+    </tr>
+    <tr>
+        <td>Yablo</td>
+        <td><span class="math">Y<sub>n</sub><sup>Ptr</sup>, Y<sub>n</sub><sup>Tgt</sup></span>, <span class="math">n ∈ ω</span></td>
+        <td><span class="math">Y<sub>n</sub><sup>Ptr</sup></span> true iff all later targets false</td>
+        <td>All pairs</td>
+        <td>Each open; all together forbidden</td>
+    </tr>
+    <tr>
+        <td>Revenge</td>
+        <td><span class="math">R<sup>Ptr</sup>(e)</span>, <span class="math">R<sup>Tgt</sup>(q)</span></td>
+        <td><span class="math">R<sup>Ptr</sup>(e)</span> true iff all accessible targets false</td>
+        <td>Self-pair at <span class="math">e</span>; all self-pairs</td>
+        <td>Forbidden when only the self-target is accessible, else open; all self-pairs forbidden</td>
+    </tr>
+</table>
+
+<h3>9.3 Uniform Accounts of Paradox</h3>
+<p>
+    Two uniform accounts of the paradoxes of self-reference are the closest relatives of the schema. Yanofsky (2003), following Lawvere (1969), shows that they share a diagonal argument: a transformation without a fixed point is applied along a self-referential map, and the absence of the fixed point is the contradiction. In the present account that argument appears as Theorem 6.1, on the collapsed object, where <span class="math">F</span> has no fixed point. Priest (2002) presents the paradoxes through the inclosure schema, as limits that are transcended and closed at once, and takes the resulting contradictions to be true. The identification schema locates the same constructions one step earlier. The content of each is coherent, the diagonal argument runs only after an identification has been added, and the identification has a status that can be read off the content before it is added. What the schema supplies is a classification the other accounts do not attempt: which identifications are safe, which are choices with consequences, and which are refuted.
+</p>
+
+<h2>10. Revenge</h2>
+
+<h3>10.1 Revenge Sentences</h3>
+<p>
+    A revenge sentence quantifies over evaluating perspectives from within one: "this sentence is not true at any perspective." In the role-indexed representation the sentence <span class="math">R</span> has a pointer occurrence <span class="math">R<sup>Ptr</sup>(e)</span> at the evaluating perspective <span class="math">e</span> and a target occurrence <span class="math">R<sup>Tgt</sup>(q)</span> at every perspective <span class="math">q</span> in the domain <span class="math">U ⊆ P</span> quantified over. Which targets <span class="math">e</span> may use is fixed by the guard: the effective domain is
+</p>
+<div class="math-block">
+    <span class="math">U<sub>e</sub> = {q ∈ U : CPA<sub>e</sub>(q, R<sup>Tgt</sup>(q)) = 1}.</span>
+</div>
+<p>
+    The content of the sentence at <span class="math">e</span> is a conjunction over the effective domain: <span class="math">R<sup>Ptr</sup>(e)</span> is true exactly when every accessible target is false. It is recorded as conjunctive edges in the sense of Section 8.1, and a valuation is coherent for the revenge dependency when it satisfies the biconditional
+</p>
+<div class="math-block">
+    <span class="math">v(R<sup>Ptr</sup>(e)) = true  iff  for every q ∈ U<sub>e</sub>, v(R<sup>Tgt</sup>(q)) = false.</span>
+</div>
+<p>
+    As with the liar, the content contributes no identity edge: nothing in the sentence says that <span class="math">R<sup>Ptr</sup>(e)</span> and <span class="math">R<sup>Tgt</sup>(e)</span> carry one value. The phrase "any perspective" can denote all modeled perspectives, all perspectives accessible from <span class="math">e</span>, or an unrestricted totality, and these choices give different effective domains and different dependencies. A revenge sentence therefore has a determinate dependency only once its evaluating perspective, its domain, and the guard values are fixed; the results below hold for every such choice.
+</p>
+
+<h3>10.2 Self-Access</h3>
 <div class="theorem">
-    <strong>Theorem 4.2 (Contradiction Requires Role Collapse):</strong> In Boolean semantics, the liar contradiction follows from the directed liar relation together with <span class="math">UA</span>.
+    <strong>Theorem 10.1 (Revenge):</strong>
+    <p>(a) For every domain and every guard, the revenge dependency at <span class="math">e</span> without identity edges is coherent.</p>
+    <p>(b) Suppose <span class="math">e ∈ U<sub>e</sub></span>. The identification of <span class="math">R<sup>Ptr</sup>(e)</span> with <span class="math">R<sup>Tgt</sup>(e)</span> is forbidden if <span class="math">U<sub>e</sub> = {e}</span> and open otherwise. In the open case, every coherent valuation that agrees on the two positions has <span class="math">v(R<sup>Ptr</sup>(e)) = false</span> and <span class="math">v(R<sup>Tgt</sup>(q)) = true</span> for some other accessible <span class="math">q</span>.</p>
+    <p>(c) Suppose every perspective <span class="math">q ∈ U</span> evaluates <span class="math">R</span>, with effective domain <span class="math">U<sub>q</sub> ⊆ U</span> and <span class="math">q ∈ U<sub>q</sub></span>. Then, at any evaluator that holds the content of every <span class="math">q ∈ U</span>, the joint identification of <span class="math">R<sup>Ptr</sup>(q)</span> with <span class="math">R<sup>Tgt</sup>(q)</span> for all <span class="math">q ∈ U</span> is forbidden.</p>
 </div>
 <div class="complete-proof">
     <p>
-        <strong>Proof:</strong> Assume the directed liar relation <span class="math">v<sub>Ptr</sub>(L) = ¬v<sub>Tgt</sub>(L)</span>. Add <span class="math">UA</span>, so <span class="math">v<sub>Ptr</sub>(L) = v<sub>Tgt</sub>(L)</span>. Substituting <span class="math">v<sub>Tgt</sub>(L)</span> for <span class="math">v<sub>Ptr</sub>(L)</span> in the directed relation gives <span class="math">v<sub>Tgt</sub>(L)=¬v<sub>Tgt</sub>(L)</span>. If <span class="math">v<sub>Tgt</sub>(L)=true</span>, then <span class="math">¬v<sub>Tgt</sub>(L)=false</span>; if <span class="math">v<sub>Tgt</sub>(L)=false</span>, then <span class="math">¬v<sub>Tgt</sub>(L)=true</span>. In neither case is <span class="math">v<sub>Tgt</sub>(L)=¬v<sub>Tgt</sub>(L)</span>. Therefore the contradiction follows from adding the role collapse. □
+        <strong>Proof:</strong> (a) The valuation assigning false to every target and true to the pointer satisfies the biconditional.
     </p>
-</div>
-
-        <img src="images/liar_paradox3.jpg" alt="The liar cycle created when pointer and target roles are collapsed" width="1024" height="1792" decoding="async" loading="lazy">
-        <p class="caption">Universe 00110000</p>
-<h3>4.3 Local Consistency Without Collapse</h3>
-<p>
-    In the role-indexed account, <span class="math">v<sub>Ptr</sub>(L)</span> and <span class="math">v<sub>Tgt</sub>(L)</span> are values at different evaluative positions. A local contradiction would require one fixed role or perspective to validate both <span class="math">A</span> and <span class="math">¬A</span> at the same position. The directed relation alone does not produce such a pair.
-</p>
-<div class="theorem">
-    <strong>Theorem 4.3 (Local Consistency of the Liar Relation):</strong> The relation <span class="math">v<sub>Ptr</sub>(L) = ¬v<sub>Tgt</sub>(L)</span> does not force a Boolean contradiction inside either role unless <span class="math">UA</span> is added.
-</div>
-<div class="complete-proof">
     <p>
-        <strong>Proof:</strong> A Boolean contradiction inside one role would require an equation of the form <span class="math">v<sub>r</sub>(L)=¬v<sub>r</sub>(L)</span> for the same role <span class="math">r</span>, or it would require the same role-indexed bearer to receive both Boolean values. The directed liar relation contains two different role labels and has the form <span class="math">v<sub>Ptr</sub>(L)=¬v<sub>Tgt</sub>(L)</span>. By Theorem 4.1, assignments exist in which each role receives exactly one Boolean value and the directed relation is satisfied. The equation <span class="math">v<sub>r</sub>(L)=¬v<sub>r</sub>(L)</span> appears only if <span class="math">Ptr</span> and <span class="math">Tgt</span> are identified. Hence the directed relation is locally consistent. □
+        (b) Suppose <span class="math">v</span> is coherent and <span class="math">v(R<sup>Ptr</sup>(e)) = v(R<sup>Tgt</sup>(e)) = c</span>. If <span class="math">c = true</span>, the pointer's truth requires every accessible target to be false, including <span class="math">R<sup>Tgt</sup>(e)</span>, which is true. So <span class="math">c = false</span>, and the pointer's falsity requires some accessible target to be true; it is not <span class="math">R<sup>Tgt</sup>(e)</span>, so it is <span class="math">R<sup>Tgt</sup>(q)</span> for some <span class="math">q ∈ U<sub>e</sub></span> other than <span class="math">e</span>. If <span class="math">U<sub>e</sub> = {e}</span> there is no such <span class="math">q</span> and no agreeing valuation exists: forbidden. If some other <span class="math">q</span> is accessible, the valuation with the pointer false, <span class="math">R<sup>Tgt</sup>(e)</span> false, and <span class="math">R<sup>Tgt</sup>(q)</span> true is coherent and agrees, while the valuation of (a) is coherent and disagrees: open, with the stated form of every agreeing valuation.
     </p>
-</div>
-
-<h3>4.4 Admissible Collapse</h3>
-<p>
-    Collapse is a quotient on role-indexed bearers. It is admissible only when supplied by an independent semantic convention that preserves the dependency component. A collapse map <span class="math">c</span> sends role-indexed bearers to unindexed bearers. The liar collapse is the special case in which
-</p>
-<div class="math-block">
-    <span class="math">c(L,Ptr)=c(L,Tgt).</span>
-</div>
-<p>
-    For a self-referential transformation <span class="math">F:V→V</span>, the role-indexed relation is
-</p>
-<div class="math-block">
-    <span class="math">v<sub>Ptr</sub> = F(v<sub>Tgt</sub>).</span>
-</div>
-<p>
-    If the collapse is applied, the quotient forces both role values to be represented by one value <span class="math">v</span>, giving
-</p>
-<div class="math-block">
-    <span class="math">v = F(v).</span>
-</div>
-<p>
-    This equation is a coherence test for a previously specified collapse. It is not a source of collapse. When the equation has no solution, the attempted quotient destroys the local role-indexed assignment and cannot provide a legitimate unindexed Boolean value for that component.
-</p>
-<div class="theorem">
-    <strong>Theorem 4.4 (Collapse Criterion for Finite Value Spaces):</strong> Let <span class="math">V</span> be a finite value space and <span class="math">F:V→V</span>. An independently specified collapse of <span class="math">v<sub>Ptr</sub>=F(v<sub>Tgt</sub>)</span> into one unindexed value is coherent exactly when <span class="math">F</span> has a fixed point.
-</div>
-<div class="complete-proof">
     <p>
-        <strong>Proof:</strong> If the collapse is coherent, then both role values are represented by some <span class="math">v∈V</span>. Substituting this collapsed value into the directed relation gives <span class="math">v=F(v)</span>, so <span class="math">v</span> is a fixed point of <span class="math">F</span>. Conversely, if <span class="math">F</span> has a fixed point <span class="math">v</span>, then assigning <span class="math">v</span> to both roles satisfies the collapsed equation. Thus coherence of the collapsed equation is equivalent to the existence of a fixed point of <span class="math">F</span>. For the liar over <span class="math">{true,false}</span>, <span class="math">F=¬</span> has no fixed point. Hence the directed liar component has no coherent unindexed Boolean value under that collapse. □
+        (c) Suppose <span class="math">v</span> is coherent for the content of every <span class="math">q ∈ U</span> and agrees on every self-pair; write <span class="math">w<sub>q</sub></span> for the common value at <span class="math">q</span>. If <span class="math">w<sub>q</sub> = true</span> for some <span class="math">q</span>, then since <span class="math">q ∈ U<sub>q</sub></span> the content at <span class="math">q</span> requires <span class="math">v(R<sup>Tgt</sup>(q)) = false</span>, that is, <span class="math">w<sub>q</sub> = false</span>. So <span class="math">w<sub>q</sub> = false</span> for every <span class="math">q ∈ U</span>. Then the content at any <span class="math">q</span> requires some <span class="math">q' ∈ U<sub>q</sub></span> with <span class="math">v(R<sup>Tgt</sup>(q')) = true</span>, that is, <span class="math">w<sub>q'</sub> = true</span>, against what was just shown. No such <span class="math">v</span> exists. □
     </p>
 </div>
-
-<h3>4.5 Truth-Teller and Cogito Cases</h3>
 <p>
-    Self-reference alone is not paradoxical. For the truth-teller, <span class="math">F(v)=v</span>. The collapsed equation <span class="math">v=v</span> is satisfiable but underdetermines the value. For a performative self-confirming case such as the cogito, the relevant transformation is not Boolean negation but a stabilizing dependence between the act of evaluation and the content evaluated. The role-indexed method therefore distinguishes contradiction, underdetermination, and self-confirmation by inspecting the transformation rather than treating all self-reference alike.
+    Self-access is the liar's identity edge at the level of the guard. When the evaluator's only accessible target is its own, the revenge sentence is the liar, and its identification is forbidden by Theorem 8.3 (i). When other targets are accessible, the single identification is open, and every valuation that makes it also makes the sentence false at <span class="math">e</span> and true at some other target. What the revenge argument needs is more than the single identification. It runs: by the account, <span class="math">R</span> has the value true at no perspective; so what <span class="math">R</span> says is the case; so <span class="math">R</span> is true; so <span class="math">R</span> is true at <span class="math">e</span>, against the first step. The first step identifies <span class="math">R<sup>Ptr</sup>(q)</span> with <span class="math">R<sup>Tgt</sup>(q)</span> at every perspective, and the third identifies <span class="math">R<sup>Ptr</sup>(e)</span> with them. The argument makes the joint self-identification, and by Theorem 10.1 (c) that identification is forbidden. Revenge is decided by the same criterion as the liar, and it is the joint case of Theorem 8.3, alongside the odd cycles and Yablo.
 </p>
 
-        <h2>5. Embedding in Subjective Numbers</h2>
+<h3>10.3 Worked Revenge Model</h3>
 <p>
-    The role-indexed analysis can be embedded in the subjective numbers framework by treating roles as intrinsic perspectives. Let
+    Let <span class="math">P ⊇ {e, a, b}</span>, let <span class="math">U = {a, b}</span>, and let <span class="math">CPA<sub>e</sub>(a, R<sup>Tgt</sup>(a)) = CPA<sub>e</sub>(b, R<sup>Tgt</sup>(b)) = 1</span>. In a coherent valuation with both accessible targets false, <span class="math">R<sup>Ptr</sup>(e)</span> is true. No self-identification is in play, since <span class="math">e ∉ U<sub>e</sub></span>, and no contradiction follows.
 </p>
-<div class="math-block">
-    <span class="math-set">P</span><span class="math"> = {Ptr,Tgt}</span>, &nbsp; <span class="math-set">V</span><span class="math"> = {true,false}</span>.
-</div>
 <p>
-    The subjective numbers <span class="math">true(Ptr)</span>, <span class="math">false(Ptr)</span>, <span class="math">true(Tgt)</span>, and <span class="math">false(Tgt)</span> encode value-at-role positions. The liar dependency is represented by a base transformation from target values to pointer values:
-</p>
-<div class="math-block">
-    <span class="math">R<sup>∘</sup><sub>Ptr</sub>(Tgt,Ptr,x,¬x)=true</span> &nbsp; for <span class="math">x∈{true,false}</span>.
-</div>
-<p>
-    The collapse condition is not part of this base kernel. It would require additional judgments identifying <span class="math">x(Tgt)</span> with <span class="math">x(Ptr)</span> for the relevant values, or an unrestricted adoption principle that erases the distinction between the two roles.
-</p>
-<div class="theorem">
-    <strong>Theorem 5.1 (Subjective-Numbers Embedding):</strong> In the two-role subjective-numbers model, the liar dependency is representable as a closed positive directed judgment without deriving a same-role negating judgment such as <span class="math">x(Ptr) ⊑<sub>Ptr</sub> ¬x(Ptr)</span> or <span class="math">x(Tgt) ⊑<sub>Tgt</sub> ¬x(Tgt)</span>, unless a collapse path or equivalent unrestricted guard is added.
-</div>
-<div class="complete-proof">
-    <p>
-        <strong>Proof:</strong> The base kernel contains directed edges from target-role values to their negated pointer-role values:
-    </p>
-    <div class="math-block">
-        <span class="math">x(Tgt) ⊑<sub>Ptr</sub> ¬x(Ptr).</span>
-    </div>
-    <p>
-        Reflexivity gives only same-object identities of the form <span class="math">x(r) ⊑<sub>p</sub> x(r)</span>. Transitivity composes already available edges but cannot by itself reverse a role label or identify <span class="math">Ptr</span> with <span class="math">Tgt</span>. CPA is guarded composition: it lets one perspective compose through a permitted judgment of another perspective; it does not erase intrinsic role labels unless the relevant guard and path supply that passage. Therefore no same-role negating judgment is generated from the directed liar edge alone. Such a judgment requires an added path from the pointer role back to the target role, an explicit collapse judgment, or an unrestricted guard with the same effect. □
-    </p>
-</div>
-
-        <img src="images/liar_paradox2.jpg" alt="Subjective-number embedding keeps liar roles as distinct indexed positions" width="1024" height="1792" decoding="async" loading="lazy">
-        <p class="caption">Universe 00110000</p>
-<h2>6. General Schema for Reflexive Dependencies</h2>
-<p>
-    A reflexive evaluative construction can be represented by a transformation <span class="math">F</span> applied across roles:
-</p>
-<div class="math-block">
-    <span class="math">v<sub>Ptr</sub> = F(v<sub>Tgt</sub>).</span>
-</div>
-<p>
-    The collapse condition gives the fixed-point equation:
-</p>
-<div class="math-block">
-    <span class="math">v = F(v).</span>
-</div>
-<p>
-    Different self-referential structures correspond to different transformations and dependency patterns.
-</p>
-<ul style="font-size: 18px;">
-    <li><strong>Liar:</strong> <span class="math">F(v) = ¬v</span>, giving <span class="math">v = ¬v</span> under collapse.</li>
-    <li><strong>Truth-teller:</strong> <span class="math">F(v) = v</span>, giving <span class="math">v = v</span> under collapse.</li>
-    <li><strong>Cogito:</strong> the transformation is performative self-confirmation: the act of testing for thought supplies evidence of thought.</li>
-    <li><strong>Curry-style cases:</strong> the transformation is conditional and must be analyzed with its target proposition specified.</li>
-    <li><strong>Yablo-style cases:</strong> the dependency is an infinite forward chain rather than a direct self-reference loop.</li>
-    <li><strong>Berry-style cases:</strong> the transformation changes the context in which definability is assessed.</li>
-</ul>
-<p>
-    The direct result applies to liar-like truth-value negation cycles. Other paradoxes require separate formal dependency maps. The shared diagnostic is the same: identify the evaluating role, the evaluated role, the transformation between them, and the rule that permits or forbids collapse.
+    Now take <span class="math">U' = {e, a, b}</span> with <span class="math">CPA<sub>e</sub>(e, R<sup>Tgt</sup>(e)) = 1</span> as well. The dependency is still coherent: <span class="math">R<sup>Tgt</sup>(e)</span> false and <span class="math">R<sup>Ptr</sup>(e)</span> true satisfies it. The self-identification at <span class="math">e</span> is open: the valuation with <span class="math">R<sup>Ptr</sup>(e)</span> false, <span class="math">R<sup>Tgt</sup>(e)</span> false, and <span class="math">R<sup>Tgt</sup>(a)</span> true is coherent and agrees. Let <span class="math">a</span> and <span class="math">b</span> evaluate <span class="math">R</span> as well, each with effective domain <span class="math">U'</span>. The joint identification of the three self-pairs is forbidden by Theorem 10.1 (c). An evaluator that adds it, natively or by adopting judgments that assemble it, has no coherent valuation, and by Theorem 9.2 (3) the record of its derivation names the entries and the sources.
 </p>
 
-<h2>7. Comparative Analysis</h2>
+<h3>10.4 Revenge on the Unfolding</h3>
 <p>
-    The comparison is diagnostic. It identifies which structural constraint each approach uses to handle semantic circularity.
+    The sharpest revenge sentence for the present account quantifies over the positions of the unfolding itself: "this sentence is false at every position." Its content at each position <span class="math">r<sub>n</sub></span> is that <span class="math">r<sub>n</sub><sup>Ptr</sup></span> is true exactly when every target <span class="math">r<sub>m</sub><sup>Tgt</sup></span> in the quantified range is false; with the range restricted to later positions, this is Yablo's paradox with its occurrences split, and Section 9.2 (e) applies. Without identity edges the dependency is coherent, each single identification is open, and the full set is forbidden. By Theorem 9.2 (2), any derivation of the contradiction contains identity entries. The revenge sentence behaves exactly as the liar does under the licensing criterion: its content is coherent, and what is forbidden is the classical evaluator's identification of its occurrences.
 </p>
-<table style="width: 100%; margin: 1em auto;">
+
+<h3>10.5 The Diagonal Reading</h3>
+<p>
+    Theorem 10.1 is a diagonal fact, and it should be read as one. For every evaluating perspective in <span class="math">P</span> there is a revenge sentence whose self-identification is forbidden at that perspective, and for every community of perspectives with self-access the joint self-identification is forbidden. The account stores this parameter in a different place from a hierarchy of languages. There the restriction is imposed uniformly on the language, and every speaker inherits it. Here access is a guard value of a perspective: two perspectives in one model may have different guards, one may include itself and face a forbidden identification while another excludes itself and does not, and the consequences of each choice are theorems about that perspective. The meta-theory surveys all of them. It is not a member of <span class="math">P</span>, has no guards, and is the subject of no revenge sentence formulated over <span class="math">P</span>. The meta-theory can itself be made a perspective and subjected to a further revenge sentence, at the cost of a larger perspective set, in which the same theorem holds again.
+</p>
+<h2>11. Comparison with Prior Accounts</h2>
+<p>
+    For each approach the table records where the parameter omitted by the classical derivation is stored, whether the party that performs the collapse is represented, what the approach says about the liar, and how it relates to the present account.
+</p>
+<table style="width: 95%; margin: 1em auto;">
     <tr>
         <th>Approach</th>
-        <th>Structural move</th>
+        <th>Where the parameter lives</th>
+        <th>Evaluator represented</th>
         <th>Effect on the liar</th>
         <th>Relation to the present account</th>
     </tr>
     <tr>
-        <td>Tarski</td>
-        <td>Separates object language and metalanguage.</td>
-        <td>Blocks self-application of the truth predicate.</td>
-        <td>Prevents role-collapse by hierarchy.</td>
+        <td>Semantic hierarchy (Tarski 1956)</td>
+        <td>In the language, as a hierarchy of levels; a truth predicate applies only to sentences of a lower level.</td>
+        <td>No.</td>
+        <td>The liar cannot be formed.</td>
+        <td>The hierarchy blocks the identification by forbidding the predicate from reaching its own level, and it bans harmless self-reference with the paradoxical kind. Here the identification is a datum of a perspective, its status is decided by the content, and its consequences are theorems.</td>
     </tr>
     <tr>
-        <td>Kripke</td>
-        <td>Uses partial fixed-point semantics.</td>
-        <td>Leaves the liar ungrounded.</td>
-        <td>Tracks failure of stable unindexed assignment.</td>
+        <td>Fixed-point semantics (Kripke 1975)</td>
+        <td>In the stages of a partial valuation.</td>
+        <td>No.</td>
+        <td>Ungrounded at the fixed point.</td>
+        <td>Theorem 6.1 on the collapsed object is Kripke's criterion. The stage construction operates on an already identified sentence; Theorem 8.3 decides, before the construction, whether the identification was licensed.</td>
     </tr>
     <tr>
-        <td>Paraconsistent logic</td>
-        <td>Restricts explosion when contradiction is admitted.</td>
-        <td>Allows gluts without triviality.</td>
-        <td>Keeps reasoning controlled after contradiction is allowed.</td>
+        <td>Revision theory (Gupta and Belnap 1993)</td>
+        <td>In time, as revision stages.</td>
+        <td>No.</td>
+        <td>Unstable with period 2.</td>
+        <td>The revision period is the period of the coarsest coherent quotient (Corollary 7.3); the representation here is static.</td>
     </tr>
     <tr>
-        <td>Revision theory</td>
-        <td>Uses staged re-evaluation.</td>
-        <td>Models repeated change in semantic status.</td>
-        <td>Interprets repeated traversal dynamically.</td>
+        <td>Dialetheism (Priest 2006)</td>
+        <td>Nowhere; the contradiction is accepted as a glut.</td>
+        <td>No.</td>
+        <td>Both true and false, without explosion.</td>
+        <td>Explosion is avoided by weakening the logic; here by keeping positions apart, with no glut at any position.</td>
+    </tr>
+    <tr>
+        <td>Paracomplete theories (Field 2008)</td>
+        <td>Nowhere; the liar is a gap, with a weakened conditional.</td>
+        <td>No.</td>
+        <td>Neither true nor false.</td>
+        <td>A gap is a third status; here the liar has two indexed values and no unindexed one, and absence is not a value.</td>
+    </tr>
+    <tr>
+        <td>Contextualism (Burge 1979; Glanzberg 2004) and assessment sensitivity (MacFarlane 2014)</td>
+        <td>In the context of the truth predicate, or in the context of assessment.</td>
+        <td>Partly: context shifts are triggered by reasoning about the liar, and an assessor is a parameter of truth.</td>
+        <td>The liar's evaluation forces a shift to a new context.</td>
+        <td>The closest relatives in spirit. Here the party that shifts is a perspective with a kernel, a guard, and a provenance record, and the shift is licensed or forbidden by Definition 8.1.</td>
+    </tr>
+    <tr>
+        <td>Situation semantics (Barwise and Etchemendy 1987)</td>
+        <td>Between the sentence and the world, as the situation a proposition is about, modeled with non-well-founded sets (Aczel 1988).</td>
+        <td>No; the situation is a portion of the world fixed by demonstrative conventions.</td>
+        <td>False in the actual situation; the liar is a diagonal argument.</td>
+        <td>A verdict is given there and withheld here. The situation shift corresponds to the meta-theory's view of a perspective's collapse from outside it. Gupta (1989) objects that truth there varies with the situation parameter while the non-semantic facts stay fixed; here the two occurrences differ in position, and no non-semantic fact is asked to vary.</td>
+    </tr>
+    <tr>
+        <td>Reference graphs (Gaifman 1992; Cook 2004; Walicki 2009; Rabern, Rabern, and Macauley 2013; Beringer and Schindler 2017)</td>
+        <td>Between sentences, as a dependency graph built from semantic dependence (Leitgeb 2005).</td>
+        <td>No; the re-collapse has no agent.</td>
+        <td>Paradox at re-collapse; the dangerous finite patterns are the odd cycles.</td>
+        <td>Theorem 7.5 recovers the odd-cycle criterion; the Observer Theorem represents the agent of the re-collapse. Each sentence receives one truth-bearer there, so the identification of a sentence's occurrences is performed by the encoding before the analysis begins.</td>
+    </tr>
+    <tr>
+        <td>Contextuality (Abramsky and Brandenburger 2011; Abramsky, Barbosa, Kishida, Lal, and Mansfield 2015)</td>
+        <td>Between measurement contexts, as a presheaf over a cover.</td>
+        <td>No; the global section has no demander.</td>
+        <td>Liar cycles have no global section, witnessed by a cohomological obstruction (see also Penrose 1992).</td>
+        <td>Global view versus global section is stated at the object level (Section 4.4). The encoding assigns one variable per sentence, so the single-sentence liar is the equation <span class="math">x = ¬x</span> over a trivial cover; the identification of occurrences happens in the translation. The parity invariant of Section 7 is coarser than the cohomological one.</td>
     </tr>
     <tr>
         <td>Subjective numbers</td>
-        <td>Indexes roles and guards cross-perspective passage.</td>
-        <td>Represents the liar as <span class="math">v<sub>Ptr</sub>(L) = ¬v<sub>Tgt</sub>(L)</span>.</td>
-        <td>Locates contradiction in the added collapse condition.</td>
+        <td>In the kernel and guards of an evaluating perspective.</td>
+        <td>Yes.</td>
+        <td>Contradiction at <span class="math">e</span> exactly when an identification is assembled in the closure of <span class="math">e</span>; the liar's identification is forbidden by its own content; traced by provenance and transmissible through guards.</td>
+        <td>The present account.</td>
     </tr>
 </table>
-<h3>7.1 Expressive Scope</h3>
+
+<h3>11.1 Neighbors of the Machinery</h3>
 <p>
-    The framework can model structural features of these approaches, including hierarchy, partiality, local inconsistency management, and repeated traversal. The claim here is diagnostic. It does not assert strict subsumption over Tarski, Kripke, paraconsistent logic, or revision theory.
+    The formal apparatus has relatives outside the theory of truth. Nested epistemic operators (Fagin, Halpern, Moses, and Vardi 1995) can express that one agent holds a relation between what two other agents hold; the subjective-number judgment <span class="math">a(s) ⊑<sub>p</sub> b(t)</span> expresses the same content with the perspective of each value carried by the value itself, so that the value is an object and the judgment a relation between objects. Trust logics in which one agent trusts another about a topic (Liau 2003) have a guard of the same arity as <span class="math">CPA<sub>p</sub>(q, u)</span>; here the topic is the position at which an adopted judgment lands, and Theorem 5.1 shows that for the liar the topic-relativity of trust does not isolate the roles. Justification logic (Artemov 2001) annotates formulas with the evidence that supports them, and provenance semirings (Green, Karvounarakis, and Tannen 2007) annotate data with its derivation. The provenance functor belongs to this family, and it is what allows Example 5.1 to distinguish a perspective that collapsed on its own from one that inherited a collapse.
 </p>
-<h3>7.2 Local Classicality</h3>
 <p>
-    Inside a fixed indexed position, Boolean reasoning proceeds normally. Explosion is avoided because the directed liar relation alone does not place both <span class="math">v</span> and <span class="math">¬v</span> in one indexed position. The contradiction appears when the Universality Assumption identifies the pointer and target roles.
+    None of these neighbors supplies the combination used above: a value with an intrinsic perspective, a judgment with a separate evaluating perspective, and a guard on composition indexed by the landing position. The Observer Theorem and the Transmission Theorem depend on that combination.
 </p>
 
-<h2>8. Related Paradox Families and Revenge</h2>
+<h3>11.2 Local Classicality</h3>
 <p>
-    A reflexive construction can be represented by two roles and a value transformation. The Universality Assumption adds <span class="math">v<sub>Ptr</sub> = v<sub>Tgt</sub></span>, producing the collapsed equation <span class="math">v = F(v)</span>. For the liar, <span class="math">F(v)=¬v</span>. Repeated traversal of <span class="math">F</span> gives a period-2 evaluation cycle because <span class="math">F(F(v))=v</span>.
-</p>
-<p>
-    For the truth-teller, <span class="math">F(v)=v</span>. The collapsed equation <span class="math">v=v</span> is stable but underdetermines a unique value. The contrast shows that self-reference alone is not the source of contradiction. The transformation acting across the reflexive dependency matters.
-</p>
-<h3>8.1 Selected Paradox Families</h3>
-<ul style="font-size: 18px;">
-    <li><strong>Russell-like cases:</strong> The dependency uses membership and non-membership under unrestricted comprehension. The relevant collapse is not merely truth-role collapse but the assumption that every predicate determines a set in the same universe.</li>
-    <li><strong>Curry-like cases:</strong> The dependency uses conditional self-application. A Curry sentence must be analyzed with its target proposition specified and with its rule for exporting the conditional controlled.</li>
-    <li><strong>Yablo-like cases:</strong> The dependency is an infinite non-well-founded chain rather than a direct self-reference loop. The role-indexed method asks which node evaluates which later nodes and whether a global collapse over the chain is licensed.</li>
-    <li><strong>Berry-like cases:</strong> The dependency changes the definability context by the act of description. The context in which a phrase is defined and the context in which it is counted must be distinguished.</li>
-</ul>
-<p>
-    These cases share a diagnostic pattern. Each requires its own dependency map and transformation analysis.
-</p>
-<h3>8.2 Revenge Sentences</h3>
-<p>
-    Revenge sentences attempt to quantify over perspectives from within a perspective. A sentence such as "this sentence is not true from any perspective" must specify three parameters before it has a determinate semantic object: the evaluating perspective, the domain of quantified perspectives, and the access rule governing which perspectives the evaluator may use.
-</p>
-<p>
-    Let <span class="math">U⊆P</span> be the stated domain, let <span class="math">e</span> be the evaluating perspective, and let <span class="math">Acc(e,q)</span> record whether <span class="math">e</span> has access to <span class="math">q</span>. The effective domain seen from <span class="math">e</span> is
-</p>
-<div class="math-block">
-    <span class="math">U<sub>e</sub>={q∈U:Acc(e,q)=1}.</span>
-</div>
-<p>
-    The revenge condition is then:
-</p>
-<div class="math-block">
-    <span class="math">v<sub>e</sub>(R<sub>U</sub>) = true</span> iff for every <span class="math">q∈U<sub>e</sub></span>, <span class="math">v<sub>q</sub>(R<sub>U</sub>) ≠ true</span>.
-</div>
-<p>
-    If <span class="math">e∉U<sub>e</sub></span>, the evaluator is making a higher-level claim about an accessible domain that does not include its own evaluating position. If <span class="math">e∈U<sub>e</sub></span>, the evaluator's own status becomes one of the quantified cases, and the revenge sentence recreates the liar pattern at the level of quantified access. Thus revenge is not blocked by a verbal ban on "all perspectives"; it is analyzed by making the domain and access relation explicit.
-</p>
-<div class="theorem">
-    <strong>Theorem 8.1 (Revenge Requires Domain and Access Data):</strong> A revenge sentence is not a single well-defined semantic object until its evaluating perspective, quantified domain, and access relation are fixed.
-</div>
-<div class="complete-proof">
-    <p>
-        <strong>Proof:</strong> The phrase "any perspective" can denote all modeled perspectives, all perspectives accessible from a given evaluator, or an unrestricted totality. These choices give different effective domains <span class="math">U<sub>e</sub></span>. The truth condition also changes with the access relation, because a perspective cannot use another perspective's judgment unless access is supplied. Hence two structures may contain the same visible sentence while assigning different semantic statuses to it because their domains or access relations differ. Therefore the revenge sentence is not determined until those parameters are fixed. □
-    </p>
-</div>
-
-<h3>8.3 Worked Revenge Model</h3>
-<p>
-    Let <span class="math">P={e,a,b}</span>, let the stated revenge domain be <span class="math">U={a,b}</span>, and let <span class="math">Acc(e,a)=Acc(e,b)=1</span>. Set <span class="math">v<sub>a</sub>(R<sub>U</sub>)=false</span> and <span class="math">v<sub>b</sub>(R<sub>U</sub>)=false</span>. Then <span class="math">U<sub>e</sub>={a,b}</span>, and the evaluating perspective <span class="math">e</span> validates <span class="math">R<sub>U</sub></span>, because every accessible perspective in the stated domain fails to validate it as true. No contradiction follows, since <span class="math">e</span> is not in the effective domain.
-</p>
-<p>
-    Now take <span class="math">U'={e,a,b}</span> and set <span class="math">Acc(e,e)=Acc(e,a)=Acc(e,b)=1</span>. Then <span class="math">e∈U'<sub>e</sub></span>, and the condition includes the evaluator's own truth status:
-</p>
-<div class="math-block">
-    <span class="math">v<sub>e</sub>(R<sub>U'</sub>)=true</span> iff <span class="math">v<sub>e</sub>(R<sub>U'</sub>)≠true</span> and the other accessible cases fail to be true.
-</div>
-<p>
-    The self-inclusion of <span class="math">e</span> recreates the collapse pattern. If <span class="math">Acc(e,e)=0</span> while access to <span class="math">a</span> and <span class="math">b</span> remains available, the self-including equation is not generated. The result depends on the specified access structure, not on an unrestricted universal standpoint.
-</p>
-
-        <img src="images/liar_paradox4.jpg" alt="Reflexive dependency maps for liar-like paradox families" width="1024" height="1792" decoding="async" loading="lazy">
-        <p class="caption">Universe 00110000</p>
-<h2>9. Philosophical Implications</h2>
-<p>
-    The Universality Assumption works well in stable contexts where the evaluator is not part of the evaluated object. Self-referential constructions expose the assumption as a rule that must be licensed rather than silently applied.
-</p>
-<p>
-    Local classical reasoning remains available. The framework changes the transfer rule between roles, perspectives, or contexts. A claim validated in one indexed position may be imported into another only when the relevant guard permits it.
-</p>
-<p>
-    The liar has directed role-indexed content and lacks a legitimate unindexed Boolean value under the inadmissible collapse demanded by <span class="math">UA</span>.
-</p>
-
-<h2>10. Using Mathematics Without Restricting Self-Reference</h2>
-<p>
-    The role-indexed account does not forbid self-reference. It represents self-reference as an evaluative dependency with explicit roles. In liar-like cases, the dependency includes negation. In stabilizing cases, the dependency preserves value. In infinite or context-shifting cases, the dependency map must be specified before a global truth demand is applied.
-</p>
-<p>
-    The mathematical role of subjective numbers is to keep the indexed positions, directed relations, and passage rules visible. This gives a disciplined way to analyze reflexive constructions without forcing a single unindexed truth standpoint.
+    Inside a fixed position, Boolean reasoning proceeds normally. Explosion is avoided because the liar edges alone never place both <span class="math">x</span> and <span class="math">¬x</span> at one position under one evaluator. A contradiction appears at an evaluator only when that evaluator has identified the positions, and it appears then as a same-position negating judgment whose derivation is recorded. No fixed indexed position validates both a value and its negation unless its evaluator has collapsed, and an evaluator that has collapsed is one whose kernel or adopted judgments say so.
 </p>
 
 <section class="slide-deck-section" aria-labelledby="liarSlideDeckTitle">
@@ -923,44 +1294,65 @@
         </button>
     </figure>
 </section>
-<h2>11. Conclusion</h2>
+<h2>12. Conclusion</h2>
 <p>
-    The liar paradox arises from a directed role relation together with a collapse assumption. The sentence occupies a pointer role and a target role. Its content gives <span class="math">v<sub>Ptr</sub>(L) = ¬v<sub>Tgt</sub>(L)</span>. Classical contradiction follows when the Universality Assumption adds <span class="math">v<sub>Ptr</sub>(L) = v<sub>Tgt</sub>(L)</span>.
+    The liar sentence occupies two positions of one dependency, and its content is a pair of negating edges between them. An evaluating perspective that holds those edges holds the whole dependency and admits exactly two coherent valuations: at that perspective the liar is the open pair. A contradiction appears when, and only when, the perspective's closure contains an identity edge between the positions, the judgment that one occurrence has the value of the other. That judgment is contributed by neither the demonstrative nor the predicate. It is contributed by the evaluator, natively or by adoption through a guard, and every derivation of the contradiction names it and its source.
 </p>
 <p>
-    Subjective numbers provide a formal language for this diagnosis. Evaluations are indexed by perspective, cross-perspective imports are governed by explicit <span class="math">CPA</span> guards, and local reasoning remains classical inside each fixed perspective. The liar sentence is represented as a directed evaluative dependency with no legitimate unindexed truth value.
+    The two positions are themselves a quotient. Following the reference of the sentence produces an infinite ray, every quotient of that ray that keeps the two parities apart is coherent, every quotient that merges them is not, and the two-role structure is the coarsest coherent quotient. The classical derivation is the passage from two classes to one. Mixed reference cycles obey the same parity, which is the classical criterion that the dangerous finite patterns are the odd cycles. Made into a number, the liar is the unit <span class="math">σ</span> with <span class="math">σ<sup>2</sup>=1</span> whose two readings are the two values the classical evaluator tried to merge, and re-reading it around the loop is the conjugation that records the refusal.
 </p>
-<h3>11.1 Summary of Contributions</h3>
-<ul style="font-size: 18px;">
-    <li><strong>Role-indexed analysis:</strong> The pointer role and target role are separated before truth-value assignment.</li>
-    <li><strong>Semantic adequacy:</strong> Expression identity is distinguished from role identity; collapse requires a separate rule.</li>
-    <li><strong>Explicit collapse principle:</strong> The Universality Assumption is stated as a formal condition.</li>
-    <li><strong>Model existence:</strong> The directed liar relation is shown satisfiable without collapse.</li>
-    <li><strong>Guarded transfer:</strong> Cross-perspective inference is controlled by <span class="math">CPA</span>. Unrestricted global transitivity is excluded.</li>
-    <li><strong>Local classicality:</strong> No fixed indexed position validates both a value and its negation.</li>
-    <li><strong>Controlled scope:</strong> Liar-like negating cycles are handled directly. Curry, Russell, Yablo, and Berry require separate dependency analyses.</li>
-</ul>
-<h3>11.2 Future Directions</h3>
-<ul style="font-size: 18px;">
-    <li>Develop a full formal treatment of Curry-style conditional self-application.</li>
-    <li>Model Yablo-style infinite dependency chains using non-well-founded provenance.</li>
-    <li>Specify domain restrictions and access rules for revenge sentences that quantify over perspectives.</li>
-    <li>Connect the role-indexed account to revision sequences and fixed-point semantics.</li>
-</ul>
+<p>
+    Bivalence, disquotation, self-reference, and classical inference are all retained at every position. The one principle given up is the identification of a sentence's value across its two occurrences where that identification is forbidden, and for the liar it is forbidden by the sentence's own content. To resolve the paradox with this machinery is to represent the evaluator, locate the identification in its kernel, decide by the coherent valuations whether it is licensed, forbidden, or open, and trace it in its provenance when it is made anyway. The same procedure decides Grelling, Curry, Russell, Berry, Yablo, and the revenge liar, and it says in each case which identification the classical reading made and what status it had.
+</p>
+<p>
+    The meta-theory sees every perspective and belongs to none. It has a global view of the liar and no global section for it, and the distinction between those two is the distinction between representing a multiplicity of positions and demanding one value across them. The paradox lives in the second demand, and the demand has an address: the kernel of whoever makes it.
+</p>
+
 <h3>References</h3>
 <ul style="font-size: 18px;">
-    <li>Aczel, Peter. <em>Non-Well-Founded Sets</em>. CSLI Lecture Notes, 1988.</li>
+    <li>Abramsky, Samson, Rui Soares Barbosa, Kohei Kishida, Raymond Lal, and Shane Mansfield. "Contextuality, Cohomology and Paradox." <em>24th EACSL Annual Conference on Computer Science Logic (CSL 2015)</em>, Leibniz International Proceedings in Informatics 41, 2015, 211–228.</li>
+    <li>Abramsky, Samson, and Adam Brandenburger. "The Sheaf-Theoretic Structure of Non-Locality and Contextuality." <em>New Journal of Physics</em> 13, no. 11, 2011, 113036.</li>
+    <li>Aczel, Peter. <em>Non-Well-Founded Sets</em>. CSLI Lecture Notes 14, 1988.</li>
+    <li>Armour-Garb, Bradley, and James A. Woodbridge. "Dialetheism, Semantic Pathology, and the Open Pair." <em>Australasian Journal of Philosophy</em> 84, no. 3, 2006, 395–416.</li>
+    <li>Artemov, Sergei. "Explicit Provability and Constructive Semantics." <em>Bulletin of Symbolic Logic</em> 7, no. 1, 2001, 1–36.</li>
+    <li>Aspvall, Bengt, Michael F. Plass, and Robert Endre Tarjan. "A Linear-Time Algorithm for Testing the Truth of Certain Quantified Boolean Formulas." <em>Information Processing Letters</em> 8, no. 3, 1979, 121–123.</li>
     <li>Barwise, Jon, and John Etchemendy. <em>The Liar: An Essay on Truth and Circularity</em>. Oxford University Press, 1987.</li>
-    <li>Descartes, René. <em>Meditations on First Philosophy</em>. 1641.</li>
+    <li>Beringer, Timo, and Thomas Schindler. "A Graph-Theoretic Analysis of the Semantic Paradoxes." <em>Bulletin of Symbolic Logic</em> 23, no. 4, 2017, 442–492.</li>
+    <li>Burge, Tyler. "Semantical Paradox." <em>The Journal of Philosophy</em> 76, no. 4, 1979, 169–198.</li>
+    <li>Cook, Roy T. "Patterns of Paradox." <em>The Journal of Symbolic Logic</em> 69, no. 3, 2004, 767–774.</li>
+    <li>Cook, Roy T. <em>The Yablo Paradox: An Essay on Circularity</em>. Oxford University Press, 2014.</li>
+    <li>Curry, Haskell B. "The Inconsistency of Certain Formal Logics." <em>The Journal of Symbolic Logic</em> 7, no. 3, 1942, 115–117.</li>
+    <li>Dyrkolbotn, Sjur, and Michał Walicki. "Propositional Discourse Logic." <em>Synthese</em> 191, no. 5, 2014, 863–899.</li>
+    <li>Fagin, Ronald, Joseph Y. Halpern, Yoram Moses, and Moshe Y. Vardi. <em>Reasoning About Knowledge</em>. MIT Press, 1995.</li>
     <li>Field, Hartry. <em>Saving Truth from Paradox</em>. Oxford University Press, 2008.</li>
+    <li>Gaifman, Haim. "Pointers to Truth." <em>The Journal of Philosophy</em> 89, no. 5, 1992, 223–261.</li>
+    <li>Glanzberg, Michael. "A Contextual-Hierarchical Approach to Truth and the Liar Paradox." <em>Journal of Philosophical Logic</em> 33, no. 1, 2004, 27–88.</li>
+    <li>Green, Todd J., Grigoris Karvounarakis, and Val Tannen. "Provenance Semirings." <em>Proceedings of the 26th ACM Symposium on Principles of Database Systems (PODS 2007)</em>, 2007, 31–40.</li>
+    <li>Grelling, Kurt, and Leonard Nelson. "Bemerkungen zu den Paradoxieen von Russell und Burali-Forti." <em>Abhandlungen der Fries'schen Schule</em>, Neue Folge 2, 1908, 301–334.</li>
+    <li>Gupta, Anil. "Critical Notice: Jon Barwise and John Etchemendy, The Liar: An Essay on Truth and Circularity." <em>Philosophy of Science</em> 56, no. 4, 1989, 697–709.</li>
     <li>Gupta, Anil, and Nuel Belnap. <em>The Revision Theory of Truth</em>. MIT Press, 1993.</li>
-    <li>Hintikka, Jaakko. "Cogito, Ergo Sum: Inference or Performance?" <em>The Philosophical Review</em> 71, no. 1, 1962.</li>
-    <li>Kripke, Saul. "Outline of a Theory of Truth." <em>The Journal of Philosophy</em> 72, no. 19, 1975.</li>
+    <li>Harary, Frank. "On the Notion of Balance of a Signed Graph." <em>Michigan Mathematical Journal</em> 2, no. 2, 1953, 143–146.</li>
+    <li>Kauffman, Louis H. "Time, Imaginary Value, Paradox, Sign and Space." In <em>Computing Anticipatory Systems: CASYS 2001</em>, AIP Conference Proceedings 627, American Institute of Physics, 2002.</li>
+    <li>Kripke, Saul. "Outline of a Theory of Truth." <em>The Journal of Philosophy</em> 72, no. 19, 1975, 690–716.</li>
+    <li>Lawvere, F. William. "Diagonal Arguments and Cartesian Closed Categories." In <em>Category Theory, Homology Theory and Their Applications II</em>, Lecture Notes in Mathematics 92, Springer, 1969, 134–145.</li>
+    <li>Leitgeb, Hannes. "What Truth Depends On." <em>Journal of Philosophical Logic</em> 34, no. 2, 2005, 155–192.</li>
+    <li>Liau, Churn-Jung. "Belief, Information Acquisition, and Trust in Multi-Agent Systems: A Modal Logic Formulation." <em>Artificial Intelligence</em> 149, no. 1, 2003, 31–60.</li>
+    <li>MacFarlane, John. <em>Assessment Sensitivity: Relative Truth and Its Applications</em>. Oxford University Press, 2014.</li>
+    <li>Penrose, Roger. "On the Cohomology of Impossible Figures." <em>Leonardo</em> 25, no. 3/4, 1992, 245–247. Originally published in <em>Structural Topology</em> 17, 1991, 11–16.</li>
+    <li>Priest, Graham. <em>Beyond the Limits of Thought</em>. 2nd ed., Oxford University Press, 2002.</li>
     <li>Priest, Graham. <em>In Contradiction: A Study of the Transconsistent</em>. 2nd ed., Oxford University Press, 2006.</li>
+    <li>Quine, W. V. "New Foundations for Mathematical Logic." <em>The American Mathematical Monthly</em> 44, no. 2, 1937, 70–80.</li>
+    <li>Rabern, Landon, Brian Rabern, and Matthew Macauley. "Dangerous Reference Graphs and Semantic Paradoxes." <em>Journal of Philosophical Logic</em> 42, no. 5, 2013, 727–765.</li>
     <li>Russell, Bertrand. <em>The Principles of Mathematics</em>. Cambridge University Press, 1903.</li>
+    <li>Russell, Bertrand. "Mathematical Logic as Based on the Theory of Types." <em>American Journal of Mathematics</em> 30, no. 3, 1908, 222–262.</li>
     <li>Simmons, Keith. <em>Universality and the Liar: An Essay on Truth and the Diagonal Argument</em>. Cambridge University Press, 1993.</li>
-    <li>Tarski, Alfred. "The Concept of Truth in Formalized Languages." 1935/1936.</li>
-    <li>Yablo, Stephen. "Paradox without Self-Reference." <em>Analysis</em> 53, no. 4, 1993.</li>
+    <li>Sorensen, Roy. <em>Vagueness and Contradiction</em>. Oxford University Press, 2001.</li>
+    <li>Spencer-Brown, George. <em>Laws of Form</em>. Allen and Unwin, 1969.</li>
+    <li>Tarski, Alfred. "The Concept of Truth in Formalized Languages." In <em>Logic, Semantics, Metamathematics</em>, Oxford University Press, 1956, 152–278. Originally published 1935.</li>
+    <li>Walicki, Michał. "Reference, Paradoxes and Truth." <em>Synthese</em> 171, no. 1, 2009, 195–226.</li>
+    <li>Wen, Lan. "Semantic Paradoxes as Equations." <em>The Mathematical Intelligencer</em> 23, no. 1, 2001, 43–48.</li>
+    <li>Yablo, Stephen. "Paradox without Self-Reference." <em>Analysis</em> 53, no. 4, 1993, 251–252.</li>
+    <li>Yanofsky, Noson S. "A Universal Approach to Self-Referential Paradoxes, Incompleteness and Fixed Points." <em>Bulletin of Symbolic Logic</em> 9, no. 3, 2003, 362–386.</li>
 </ul>
 <div class="circle-container">
             <div class="arrow left" onclick="shiftSlide(-1)">&#10094;</div>
@@ -971,7 +1363,7 @@
         </div>
     </article>
     </main>
-    <div id="footer"></div>
+    <div id="footer"><footer class="footer"><p><span class="footer-ai-note">Created through human and AI collaboration.</span></p></footer></div>
 
     <div class="slideshow-lightbox" id="slideDeckLightbox" role="dialog" aria-modal="true" aria-labelledby="slideDeckLightboxTitle" hidden>
         <button type="button" class="slide-deck-close" aria-label="Close slide deck">x</button>
@@ -984,8 +1376,7 @@
         <button type="button" class="slide-deck-nav slide-deck-next" aria-label="Next slide">&#10095;</button>
     </div>
     <script defer src="liarparadox-inline.js?v=2"></script>
-    <script defer src="../../js/components.min.js?v=8"></script>
-    <script defer src="article-subscribe.min.js?v=16"></script>
+    <script defer src="../../js/components.min.js?v=10"></script>
     <script defer src="slider.min.js?v=5"></script>
 
 </body>

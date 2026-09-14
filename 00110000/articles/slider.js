@@ -69,6 +69,7 @@ const pages = [
     { href: "constant.html", label: "Fine-Structure Constant" },
     { href: "nothing.html", label: "SOMETHING RATHER THAN NOTHING" },
     { href: "reasonable.html", label: "Effectiveness of Mathematics" },
+    { href: "scombinator.html", label: "S COMBINATOR" },
 
 
 

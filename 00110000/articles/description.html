@@ -8,7 +8,7 @@
     <title>The Theory of Minimal Description</title>
     <meta name="description"
         content="A framework for analyzing the efficient encoding of concepts in natural languages.">
-    <link href="article-style.min.css?v=45" rel="stylesheet" />
+    <link href="article-style.min.css?v=47" rel="stylesheet" />
     <link rel="icon" type="image/png" href="../../images/favicon.png">
 </head>
 
@@ -42,1199 +42,703 @@
         <hr>
 
         <h2>Abstract</h2>
-        <p>
-            We introduce the Theory of Minimal Description (TMD), a framework designed to analyze the efficient encoding
-            of concepts in natural languages. TMD posits that for every concept within a language, there exists a
-            minimal set of words necessary and sufficient to uniquely and bidirectionally describe it. We formalize TMD
-            using mathematical models rooted in information theory and complexity theory, explicitly considering the
-            influence of context, expertise, and culture. This framework extends to encompass recursive semantic
-            structures, information density patterns, and metaphorical language, introducing novel principles including
-            Semantic Directionality, the Semantic Density Regularity Principle for semantic categories, and a unified theory of
-            Linguistic Information Equilibrium that transforms our understanding of how meaning is structured and
-            evolves in natural language.
-        </p>
+        <p>The Theory of Minimal Description (TMD) studies how a language encodes a concept in the fewest words
+            that still pick it out exactly. A minimal description must be understood both ways: the speaker's words
+            identify one concept, and no other concept fits those words. It must collapse when any word is removed,
+            it must stay inside the shared vocabulary of the language, and it must connect the concept to the rest
+            of the language's web of meaning. From these four principles the theory derives a direction in the
+            definitional network of a language, from specific words toward a small set of primitives that are
+            learned by experience, and it proves that this direction is what keeps chains of definitions finite. It
+            then measures descriptions in bits, using the surprisal of words, and from the measurements it states
+            three testable proposals: that concepts in one semantic category share a characteristic information
+            density, that categories can be recovered from that density, and that the total information carried by
+            the working vocabulary of a speech community stays close to a constant while its words change. The
+            same machinery treats metaphors as compression and treats expertise and culture as settings that change
+            which description is minimal.</p>
+
+        <h2>Minimal Description in Plain Terms</h2>
+        <p>In the party game Taboo, you have to make your teammate say a target word without saying it yourself,
+            and the fewer clue words you need, the better you are playing. "Domesticated animal that barks" gets
+            "dog". Drop "barks" and the phrase covers cats and horses; drop "domesticated" and it admits
+            jackals; drop "animal" and it stops describing anything. That is the whole idea of a minimal
+            description. It is the shortest set of words that makes a listener land on exactly one concept, and it
+            is minimal in a strict sense: take any word away and the description stops working.</p>
+        <p>Two facts about this game matter. First, the right clue depends on who is listening. Two builders
+            can say "joist" to each other; one of them talking to a customer has to say "the beam that holds
+            up the floor". The description is still minimal, and minimal for that listener. Second, the
+            clues must themselves be understood. If you look up a word in a dictionary, its definition uses
+            other words, and looking those up leads to still other words. The chain has to end somewhere,
+            and it ends at words you never learned from a definition: words like "see", "big", "before", and
+            "want", which you learned by pointing and by living. Every dictionary rests on such a base, and
+            the theory shows that every chain of definitions must point toward that base or the dictionary
+            would go in circles.</p>
+        <p>Once descriptions are counted in words, and words are weighed by how surprising they are, a language
+            turns into something that can be measured. Concepts of the same kind, such as vehicles or colors, turn
+            out to be described at a similar density of information. A good metaphor packs a long literal
+            description into a short phrase. And a language as a whole behaves like a city with a fixed housing
+            stock: new words move in only as old words move out or are compressed, so the total load on its
+            speakers stays about the same. These are the claims the rest of the article makes exact.</p>
 
         <h2>1. Introduction</h2>
-        <p>
-            Language is a cornerstone of human cognition and communication, enabling the formation, exchange, and
-            evolution of ideas. Understanding the mechanisms by which languages efficiently encode concepts is therefore
-            of paramount importance across diverse fields, including linguistics, cognitive science, artificial
-            intelligence, and education. This paper introduces the Theory of Minimal Description (TMD), which aims to
-            define and analyze the minimal linguistic representation required to achieve unambiguous and bidirectional
-            communication of any given concept within a language.
-        </p>
-        <p>
-            TMD distinguishes itself by specifically focusing on the bidirectional and minimal mapping between concepts
-            and
-            their linguistic expressions. This focus bridges theoretical linguistics with 
-            information theory, providing a novel lens through which to examine semantic
-            structure and efficiency.
-        </p>
-        <p>
-            Our contributions are threefold:
-        </p>
-        <ul style="font-size: 20px;">
-            <li><strong>Novel Framework:</strong> We present TMD as a rigorous theoretical framework for understanding
-                semantic compression, uniquely characterized by its emphasis on minimal bidirectional descriptions
-                essential for unambiguous communication within a language.</li>
-            <li><strong>Mathematical Formalization:</strong> We formalize TMD using mathematical models, connecting it
-                with principles from information theory and complexity theory, thereby providing quantitative tools for
-                semantic analysis.</li>
-     
-        </ul>
+        <p>Language lets ideas be formed, exchanged, and passed on, and much of that power comes from economy. A
+            speaker rarely says everything that is true of a thing; the speaker says what is enough. The Theory of
+            Minimal Description asks what "enough" means when a concept has to be communicated without error inside
+            one language, and it builds a framework around the answer: for every concept there is a set of words
+            that is necessary and sufficient to identify it, and that set can be analyzed with the tools of
+            information theory.</p>
+        <p>The question has a history. Aristotle defined by naming the genus and the difference, "a human is a
+            rational animal" (Barnes 1984). Grice (1975) stated the pragmatic rule that a speaker should be as
+            informative as required and no more. In computational linguistics, Dale and Reiter (1995) studied how to
+            generate a referring expression that distinguishes one object from the others in view, and they showed
+            that finding the shortest such expression is computationally hard. Wierzbicka (1996) proposed that all
+            meanings can be paraphrased in a few dozen semantic primes. Studies of dictionary graphs found that every
+            word in a dictionary can be defined from a small kernel of words, and that the kernel contains a still
+            smaller core (Blondin Massé et al. 2008; Vincent-Lamarre et al. 2016).</p>
+        <p>TMD joins these lines and adds four things. It treats the minimal description of a concept, within a whole language, beyond objects in view, as an object with a formal definition and a test for
+            minimality, the collapse property. It proves that the network of definitions has a direction, and that
+            the direction is what makes definitions terminate. It measures descriptions in bits, so that concepts,
+            categories, and languages can be compared. And it states three empirical proposals about semantic
+            density, emergent categories, and the information equilibrium of a lexicon that follow from the
+            measurements.</p>
+
         <img src="images/TMD1.jpg" alt="TMD Framework" width="1024" height="1792" decoding="async" loading="lazy">
         <p class="caption">Universe 00110000</p>
         <h2>2. Core Principles</h2>
-        <p>
-            TMD is grounded in four core principles that collectively define and constrain the identification of minimal
-            descriptions: Bidirectional Uniqueness, Collapse Property, Language Containment, and Network Connection.
-        </p>
+        <p>Four principles define a minimal description and constrain how it can be found: Bidirectional
+            Uniqueness, the Collapse Property, Language Containment, and Network Connection.</p>
 
-        <h2>2.1. Bidirectional Uniqueness</h2>
-        <p>
-            A minimal description must establish a perfect bidirectional mapping between a concept and its linguistic
-            representation. This principle ensures that communication is both accurate and unambiguous:
-        </p>
+        <h3>2.1 Bidirectional Uniqueness</h3>
+        <p>Fix a language <em>L</em>. Let <em>ℂ</em> be the set of concepts that speakers of <em>L</em> can
+            communicate, let <em>W<sub>L</sub></em> be its vocabulary, and let <em>D<sub>L</sub></em> be the set of
+            descriptions, the finite phrases that can be formed from <em>W<sub>L</sub></em>. An interpretation
+            function <em>ι<sub>L</sub></em> sends each description to the concept a competent listener takes it to
+            mean, or to the value ⊥ when the description is ambiguous or picks out nothing:</p>
+        <p style="text-align: center; font-weight: bold;">ι<sub>L</sub>: D<sub>L</sub> → ℂ ∪ {⊥}</p>
+        <p>A description <em>d</em> describes the concept <em>c</em> when <em>ι<sub>L</sub>(d) = c</em>. Because
+            <em>ι<sub>L</sub></em> is a function, this already says that no other concept fits <em>d</em>: a
+            description that could mean two things is sent to ⊥. The two directions of communication are therefore
+            built into one condition. From concept to description, a speaker who holds <em>c</em> chooses a
+            <em>d</em> with <em>ι<sub>L</sub>(d) = c</em>. From description to concept, a listener who receives
+            <em>d</em> recovers <em>c</em> and nothing else.</p>
+        <p>Perfect bidirectional uniqueness is an ideal that real communication approaches. Speakers and listeners
+            differ in knowledge, so the description that achieves uniqueness for one pair can fail for another.
+            Section 4 makes the listener explicit. Zipf (1949) described the tension the ideal resolves: a speaker
+            would prefer few words with many meanings, a listener would prefer many words with one meaning each, and
+            a language settles between them. Bidirectional uniqueness is the listener's side of that bargain
+            stated as a requirement.</p>
+
+        <h3>2.2 Collapse Property</h3>
+        <p>A description that identifies a concept can still carry dead weight. Minimality forbids it.</p>
+        <div class="theorem">
+            <strong>Definition 2.1 (Minimal Description):</strong> A description <em>d</em> is a minimal description of
+            <em>c</em> in <em>L</em> when <em>ι<sub>L</sub>(d) = c</em> and, for every word <em>w</em> in
+            <em>d</em>, the shortened description <em>d − w</em> obtained by removing <em>w</em> satisfies
+            <em>ι<sub>L</sub>(d − w) ≠ c</em>.
+        </div>
+        <p>Removing any single word must break the description: either it becomes ambiguous or empty, so that
+            <em>ι<sub>L</sub>(d − w) = ⊥</em>, or it slides to a different concept <em>c′</em>. "Domesticated
+            animal that barks" is a minimal description of dog. Remove "barks" and the phrase covers cats and
+            horses; remove "domesticated" and it admits jackals; remove "animal" and it stops being a description
+            at all. Every word does work.</p>
+        <p>The collapse property is a local test: it checks each word, one at a time. A description can pass it
+            and still fail to be the shortest description of its concept, because a different phrase might reach
+            uniqueness with fewer words. Section 5 adds the global condition. In the literature on referring
+            expressions the local condition appears as the absence of redundant attributes, and Dale and Reiter
+            (1995) showed that their incremental algorithm can leave redundancy in place while a search for the
+            shortest description removes it at exponential cost. The collapse property is what a speaker can check
+            without that search.</p>
+
+        <h3>2.3 Language Containment</h3>
+        <p>Each language is treated as a self-contained semantic system. A minimal description is built from words
+            that the language community commonly understands. It does not lean on external codes, on translations,
+            or on private notation. Two consequences follow.</p>
         <ul style="font-size: 20px;">
-
-            <li><strong>Concept to Description:</strong> Given a concept, there must exist a description in the language
-                that accurately and comprehensively represents it. This is denoted as <em>f<sub>L</sub>(c) = d</em>,
-                where <em>f<sub>L</sub></em> is the interpretation function for language L, <em>c</em> is the concept,
-                and <em>d</em> is the description. <em>f<sub>L</sub>(c)</em> can be understood as the process by which a
-                speaker encodes a concept into a linguistic description within language L.
+            <li>Word meanings are culturally embedded, so the minimal description of a concept is shaped by the
+                culture that speaks the language. What a community already knows can be left unsaid (Section 4.2).
             </li>
-            <li><strong>Description to Concept:</strong> Conversely, upon receiving the description, a listener must be
-                able to uniquely and unambiguously identify the original concept. This is formalized as
-                <em>f<sub>L</sub><sup>−1</sup>(d) = c</em>, ensuring that no concept other than <em>c</em> maps to
-                <em>d</em> under the inverse interpretation function <em>f<sub>L</sub><sup>−1</sup></em>.
-                <em>f<sub>L</sub><sup>−1</sup>(d)</em> represents the process by which a listener decodes a linguistic
-                description back to its intended concept.
-            </li>
+            <li>Languages lexicalize the world differently, so the same concept can need different numbers of
+                words, and different grammatical shapes, in different languages. A concept that one language names
+                with a single word another describes with a phrase. Minimal descriptions are language-relative, and
+                comparisons across languages must compare the descriptions themselves.</li>
         </ul>
-        <p>
-            This bidirectional requirement extends beyond simple denotation, emphasizing the necessity for mutual
-            understanding in effective communication. While the ideal of perfect bidirectional uniqueness is a
-            theoretical construct, TMD posits it as a target that minimal descriptions approximate. The principle
-            acknowledges that factors such as varying expertise levels between communicators can influence the specific
-            minimal description required for successful bidirectional mapping.
-        </p>
-   
 
-        <h2>2.2. Collapse Property</h2>
-        <p>
-            A defining characteristic of a truly minimal description is the collapse property, which rigorously defines
-            minimality:
-        </p>
+        <h3>2.4 Network Connection Principle</h3>
+        <p>A description is valid only when it ties the concept into the wider web of meaning of the language. A
+            valid minimal description must satisfy three requirements.</p>
         <ul style="font-size: 20px;">
-
-            <li><strong>Minimality Criterion:</strong> The removal of any single word from a minimal description must
-                disrupt the bidirectional uniqueness. This means that altering the description by removing any component
-                word will either lead to ambiguity (the description could refer to multiple concepts) or inaccuracy (the
-                description no longer correctly identifies the original concept). Formally, for any word
-                <em>w<sub>i</sub></em> in a minimal description <em>d</em>, the modified description <em>d′ = d \
-                    {w<sub>i</sub>}</em> will fail to maintain bidirectional uniqueness, such that
-                <em>f<sub>L</sub><sup>−1</sup>(f<sub>L</sub>(d′)) ≠ c</em>, or there exists some distinct concept <em>c′
-                    ≠ c</em> such that <em>f<sub>L</sub><sup>−1</sup>(f<sub>L</sub>(d′)) = c′</em>.
-            </li>
+            <li>It connects the concept to at least one concept that is distinct from it and from its immediate
+                synonyms. A description made only of synonyms stays inside a closed loop.</li>
+            <li>It avoids circular definition. Defining "self" as "I" and "I" as "self" satisfies uniqueness in a
+                narrow sense and tells a learner nothing, because neither term is anchored outside the pair.</li>
+            <li>It keeps pathways open to other semantic domains, so that the concept can be related to
+                neighboring concepts through the words of its description.</li>
         </ul>
-        <p>
-            The collapse property acts as a stringent test for minimality, ensuring that every word in a minimal
-            description plays an essential role in uniquely identifying the concept. For example, "domesticated animal that barks" uniquely describes a dog - remove any word, and it becomes
-            ambiguous.
+        <p>Three consequences follow. Network connection puts a lower bound on the length of minimal
+            descriptions: a phrase that must reach outside the concept's synonym cluster usually needs more than one
+            word. It explains how new concepts enter a language: a new minimal description must attach to the
+            existing network before the new word is usable, which keeps the vocabulary coherent as it grows. And it
+            explains part of the variation across cultures: communities organize their semantic networks
+            differently, so the same concept is connected, and therefore described, in different ways. Section 3
+            shows that the ban on circularity is also what gives the network its direction.</p>
 
-        </p>
-     
+        <h2>3. Semantic Directionality</h2>
+        <p>Dictionaries define words with other words. Following the definitions from any entry leads through
+            more and more general words and stops at words that are learned by experience. TMD states this as a
+            property of the definitional network, derives it from the principles of Section 2, and then reads its
+            consequences for how a language organizes meaning.</p>
 
-        <h2>2.3. Language Containment</h2>
-        <p>
-            TMD treats each language as a self-contained semantic system. This principle underscores the importance of
-            language-specific structure in determining minimal descriptions:
-        </p>
+        <h3>3.1 The Definitional Network</h3>
+        <div class="theorem">
+            <strong>Definition 3.1 (Definitional Graph):</strong> The definitional graph of <em>L</em> is the directed
+            graph <em>G<sub>L</sub></em> whose vertices are the words of <em>W<sub>L</sub></em>, with an edge from
+            <em>w</em> to <em>u</em> whenever <em>u</em> occurs in the minimal description of the concept that
+            <em>w</em> names. A word with no outgoing edge is a semantic primitive, and <em>P ⊂ W<sub>L</sub></em>
+            is the set of primitives.
+        </div>
+        <p>Primitives are the words whose meaning a speaker acquires without a verbal definition: by pointing, by
+            doing, by feeling. Wierzbicka (1996) argued that a set of about sixty semantic primes, words such as
+            I, you, someone, something, want, know, good, big, before, and because, suffices to paraphrase every
+            meaning in every language studied, and Goddard and Wierzbicka (2002) tested the claim across many
+            languages. Dictionary graphs show the same structure from the other side. Blondin Massé et al. (2008)
+            and Vincent-Lamarre et al. (2016) found that every word in a dictionary can be reached by definition from
+            a kernel of about a tenth of its entries, and that the kernel itself contains a smaller core of words
+            that define one another. The primitives of TMD are the words at which definition stops.</p>
+        <div class="theorem">
+            <strong>Definition 3.2 (Definitional Depth):</strong> The depth of a word is defined by
+            <em>depth(w) = 0</em> for <em>w ∈ P</em> and <em>depth(w) = 1 + max depth(u)</em> over the words
+            <em>u</em> in the minimal description of <em>w</em>, whenever this recursion terminates. The depth of a
+            concept is the depth of its minimal description, <em>1 + max depth(u)</em> over its words.
+        </div>
+
+        <h3>3.2 The Directionality Theorem</h3>
+        <div class="theorem">
+            <strong>Proposition 3.3 (Semantic Directionality):</strong> Suppose <em>W<sub>L</sub></em> is finite and the
+            Network Connection Principle holds, so that no chain of minimal descriptions returns to a word it has
+            already used. Then every word has a finite depth, every chain of definitions reaches a primitive in at
+            most <em>|W<sub>L</sub>|</em> steps, and every word <em>u</em> that occurs in the minimal description of
+            <em>w</em> satisfies <em>depth(u) &lt; depth(w)</em>.
+        </div>
+        <div class="complete-proof">
+            <p><strong>Proof:</strong> The ban on circular definition says that <em>G<sub>L</sub></em> has no directed
+            cycle. A finite directed graph without cycles has no infinite path, because an infinite path in a finite
+            graph must repeat a vertex, and the segment between two visits of that vertex is a cycle. So every
+            path of definitions ends, and it can only end at a vertex with no outgoing edge, which is a primitive.
+            A path visits each vertex at most once, so its length is at most <em>|W<sub>L</sub>|</em>. Depth is now
+            well defined by induction on the length of the longest path from a word: primitives have depth 0, and a
+            word whose description words all have finite depth has finite depth by the recursion. Finally, if
+            <em>u</em> occurs in the minimal description of <em>w</em>, then <em>depth(w) = 1 + max depth(u′) ≥ 1 +
+            depth(u) &gt; depth(u)</em>. ∎</p>
+        </div>
+        <p>The proposition turns an observation about dictionaries into a consequence of the principles. Minimal
+            descriptions always point downward in depth, toward the primitives. This is the semantic gravity of a
+            language: a specific concept is pulled toward the general words that define it, and those toward the
+            words learned by experience. The converse also holds. If some description pointed upward or sideways,
+            following definitions could circle forever, and the collapse and uniqueness tests could never be
+            completed, because a listener would never reach words whose meaning is already secured.</p>
+
+        <h3>3.3 Levels of the Hierarchy</h3>
+        <p>Depth sorts the vocabulary into levels, and three of them have distinct roles.</p>
         <ul style="font-size: 20px;">
-
-            <li><strong>Common Understanding:</strong> Minimal descriptions must be composed of words that are commonly
-                understood within the language community. They should not rely on external references, codes, or
-                translations that are not part of the shared linguistic repertoire.</li>
-            <li><strong>Cultural and Linguistic Context:</strong> The determination of a minimal description is
-                inherently shaped by the cultural and linguistic context of the language. Semantic organization and word
-                meanings are culturally embedded, and TMD acknowledges this influence.</li>
-            <li><strong>Cross-Linguistic Variations:</strong> Due to variations in semantic organization and
-                lexicalization patterns across languages, the minimal description for the same concept may differ
-                significantly between languages. Different languages may require varying numbers of words or distinct
-                grammatical structures to achieve minimal description for a concept.</li>
+            <li>Primitives, at depth 0, are the anchors. They are few, they are learned early, and they are
+                reached by many chains, so they have the highest connectivity in the graph.</li>
+            <li>Basic-level words, at small depth, are the workhorses of description. Rosch et al. (1976) showed
+                that categories at one level, chair rather than furniture or kitchen chair, are the ones people name
+                first, learn first, and name with the shortest words, and that members at that level share the most
+                attributes. Basic-level words are where the genus of most definitions comes from.</li>
+            <li>Specialized words, at large depth, carry the densest information. Their minimal descriptions are
+                built from words lower in the hierarchy, and a single one of them can stand for a whole phrase of
+                basic-level words.</li>
         </ul>
-        <p>
-            This principle highlights the language-relative nature of minimal descriptions, emphasizing that semantic
-            efficiency is optimized within the specific context of each language and its associated culture.
-        </p>
- 
+        <p>Definition has the classical shape of genus and difference (Barnes 1984). The genus is one word from a
+            lower level, and the differences are the words that separate the concept from its siblings under that
+            genus. So the downward step of a definition is a single word, the genus, while uniqueness is supplied
+            by the differences. A general word cannot serve as a minimal description of a specific one by itself:
+            "animal" does not identify dog, because uniqueness fails. The asymmetry between levels is therefore an
+            asymmetry of roles. Specific words are defined through general ones, and general ones are defined
+            through still more general ones, until the primitives, which are not defined at all.</p>
 
-        <h2>2.4. Network Connection Principle</h2>
-        <p>
-            The validity of minimal descriptions is fundamentally contingent upon their integration within the broader
-            semantic network of a language. This principle ensures that minimal descriptions are not isolated
-            definitions but are meaningfully connected to the wider web of meaning within the language.
-        </p>
-        <h2>2.4.1. Fundamental Requirements</h2>
-        <p>
-            For a description to be considered a valid minimal description within TMD, it must satisfy the following
-            network-based requirements:
-        </p>
+        <h3>3.4 Stability of the Network</h3>
+        <p>Directionality gives the network two stability properties, and both follow from Proposition 3.3.</p>
         <ul style="font-size: 20px;">
-
-            <li>It must connect to at least one concept that is semantically distinct from both the concept being
-                described and its immediate synonyms. This ensures that the description is grounded in the broader
-                semantic landscape and not just within a closed loop of synonymous terms.</li>
-            <li>It must avoid purely circular definitions that create closed semantic loops, such as defining a word
-                solely in terms of itself or its direct synonyms, without any external semantic anchoring.</li>
-            <li>It must maintain pathways to other semantic domains within the language. A valid minimal description
-                should facilitate connections to related conceptual areas, reflecting the interconnected nature of
-                semantic knowledge.</li>
-         
+            <li>Anchoring. Every chain of definitions ends at a primitive, so there is no infinite regress of
+                meaning. Many chains converge on the same few primitives, which makes those words robust: a change
+                elsewhere in the vocabulary leaves them and the chains that reach them intact.</li>
+            <li>Growth accommodation. A new specific word enters the language by receiving a minimal description
+                in existing, lower-depth words. The new vertex has outgoing edges only, so it creates no cycle, and
+                the depth of every existing word is unchanged. Vocabulary can grow without disturbing the
+                foundation, which is how technical vocabularies are absorbed.</li>
         </ul>
-      
+        <p>These properties match what has been measured. Steyvers and Tenenbaum (2005) found that semantic
+            networks built from word associations, from WordNet, and from a thesaurus are small-world networks in
+            the sense of Watts and Strogatz (1998), with short paths between any two words and dense local
+            clustering, and that their connectivity is spread very unevenly, with a few hub words of very high
+            degree. Hubs of high degree at low depth are what anchoring predicts, and a growth process that attaches
+            new words to existing ones is the model they proposed for how such networks arise.</p>
 
-        <h2>2.4.2. Invalid Circular Definitions</h2>
-        <p>
-            Consider potential minimal descriptions that violate the Network Connection Principle, such as:
-        </p>
-        <ul style="font-size: 20px;">
+        <h3>3.5 Efficiency and Cognition</h3>
+        <p>Directionality lets a language satisfy competing demands at once. Reference is efficient, because a
+            specialized word packs a phrase of basic-level words into one token; a specialist says "stenosis" where
+            a phrase would otherwise be needed. Grounding is secure, because every word descends to the primitives.
+            Learning is staged: a learner who holds the primitives and the basic level can acquire any specialized
+            word by its description, which is how expertise is taught, and it is why Chi, Feltovich, and Glaser
+            (1981) found experts sorting problems by deep principles while novices sort by surface features. The
+            expert's vocabulary sits higher in the hierarchy and compresses more.</p>
+        <p>The same structure carries culture. A community's semantic network preserves the categories it draws,
+            the differences it counts as decisive, and the primitives it grounds meaning in. New technical terms can
+            be added without remaking the network, and specialized knowledge stays accessible in principle, because
+            every specialized word has a description in words that non-specialists share. Directionality is a
+            functional adaptation: it organizes meaning so that a language is both precise and learnable.</p>
 
-            <li>Defining "Self" as simply "I."</li>
-            <li>Defining "I" as simply "self."</li>
-        </ul>
-        <p>
-            While these definitions might appear to satisfy the Bidirectional Uniqueness principle in a limited sense,
-            they are considered invalid under TMD because they create a closed semantic loop. These circular definitions
-            fail to connect the concepts "Self" and "I" to the broader semantic network of the language, rendering them
-            semantically isolated and uninformative within the larger linguistic system.
-        </p>
-
-      
-
-        <h2>2.4.3. Implications for TMD</h2>
-        <p>
-            The Network Connection Principle has several important implications for the Theory of Minimal Description:
-        </p>
-        <ul style="font-size: 20px;">
-
-            <li><strong>Minimal Length Lower Bound:</strong> The requirement for network connection imposes a natural
-                lower bound on the length of minimal descriptions. To establish meaningful connections within the
-                semantic network, descriptions often need to include multiple words, preventing overly simplistic or
-                circular definitions.</li>
-         
-            <li><strong>Language Evolution and Integration of New Concepts:</strong> The Network Connection Principle
-                provides a mechanism for understanding how new concepts are integrated into existing semantic networks.
-                New minimal descriptions must establish connections to the pre-existing network to become valid and
-                usable within the language, ensuring semantic coherence during vocabulary expansion.</li>
-            <li><strong>Cross-Cultural Variation in Descriptions:</strong> This principle helps explain why minimal
-                descriptions may vary across cultures. Different cultures may organize their semantic networks in
-                distinct ways, leading to variations in how concepts are connected and, consequently, in their minimal
-                descriptions.</li>
-        </ul>
-
-        <h2>3. Semantic Directionality: A Fundamental Organizing Principle</h2>
-        <p>
-            The Network Connection Principle reveals a deeper organizational structure within semantic networks: the
-            principle of Semantic Directionality. This principle, emerging from asymmetric definitional relationships,
-            appears to be a fundamental feature of how languages self-organize meaning, creating efficient and robust
-            semantic systems.
-        </p>
-        <h2>3.1. Asymmetric Definitional Mapping</h2>
-        <p>
-            We observe a consistent pattern in language where definitional relationships are often asymmetric. Specific
-            or technical terms can frequently be minimally described by more general, common terms using fewer words.
-            Conversely, general terms typically require more elaborate, multi-word descriptions that ground them within
-            broader semantic networks.
-        </p>
-        <h2>3.1.1. Formal Definition</h2>
-        <p>
-            Let <em>W</em> be the set of all words in a language L. For certain pairs of words <em>w₁, w₂ ∈ W</em>, we
-            observe the following asymmetric minimal description pattern:
-        </p>
-        <ul style="font-size: 20px;">
-
-            <li>MD(<em>w₁</em>) = <em>w₂</em> (The Minimal Description of <em>w₁</em> is simply <em>w₂</em>, indicating
-                a single-word minimal description).</li>
-            <li>BUT</li>
-            <li>MD(<em>w₂</em>) ≠ <em>w₁</em> and |MD(<em>w₂</em>)| ≥ 2 (The Minimal Description of <em>w₂</em> is not
-                <em>w₁</em> and requires multiple words, indicating a multi-word minimal description).
-            </li>
-        </ul>
-        <p>
-            Where MD(<em>w</em>) represents the minimal description function, which, for a given word <em>w</em>,
-            returns its minimal description according to TMD principles.
-        </p>
-        
-
-        <h2>3.2. Hierarchical Organization</h2>
-        <p>
-            This asymmetric mapping phenomenon naturally leads to a hierarchical organization of semantic space. 
-        </p>
-        <h2>3.2.1. Level Properties:</h2>
-        <ul style="font-size: 20px;">
-
-            <li><strong>Higher levels:</strong> Characterized by more specific terms with denser information content.
-                These terms often represent specialized concepts and rely on more general terms for their minimal
-                descriptions.</li>
-            <li><strong>Middle levels:</strong> Function as bridging terms with moderate network connectivity. These
-                terms serve as intermediaries, linking specific terms to more fundamental, general concepts.</li>
-            <li><strong>Lower levels:</strong> Composed of fundamental, general concepts with the highest network
-                connectivity. These are basic-level terms that serve as semantic anchors, extensively connected to
-                numerous other concepts.</li>
-        </ul>
-        <h2>3.2.2. Semantic Flow:</h2>
-        <p>
-            The directional flow of meaning, as dictated by Semantic Directionality, moves predominantly from specific
-            to general terms. This creates a form of "semantic gravity," where more specific concepts are 'pulled'
-            towards more general, fundamental concepts for their minimal descriptions:
-        </p>
-        <p style="text-align: center; font-style: italic;">
-            Level n (Specific) → Single-word mapping downward to level n-1 (Bridging)<br>
-            Level n-1 (Bridging) → Multi-word mapping upward to Level 1 (Fundamental)<br>
-            Level 1 (Fundamental) → Grounded in shared experience and serve as semantic anchors
-        </p>
-
-        <h2>3.3. Network Stability Properties</h2>
-        <p>
-            This directional organization, driven by Semantic Directionality, endows semantic networks with several
-            stability features. These properties align with characteristics observed in small-world networks, which are
-            known for their robustness and efficiency, suggesting that language leverages efficient network structures
-            for semantic organization.
-        </p>
-        <h2>3.3.1. Anchoring:</h2>
-        <ul style="font-size: 20px;">
-
-            <li><strong>Fundamental concepts serve as semantic anchors:</strong> General, fundamental concepts act as
-                stable points within the semantic network. Their multi-word descriptions and high connectivity make them
-                robust anchors for meaning.</li>
-            <li><strong>Multiple paths converge to these anchors:</strong> Due to Semantic Directionality, numerous
-                specific and bridging terms ultimately map to these fundamental concepts through their minimal
-                descriptions, creating multiple semantic pathways leading to the anchors.</li>
-            <li><strong>Prevention of infinite definitional regression:</strong> The grounding of semantic networks in
-                fundamental, experientially-based concepts prevents infinite definitional regression. </li>
-        </ul>
-        <h2>3.3.2. Growth Accommodation:</h2>
-        <ul style="font-size: 20px;">
-
-            <li><strong>New specific terms easily map to existing general terms:</strong> The directional nature of
-                semantic mapping allows for the seamless integration of new, specific terms into the language. New
-                words, representing specialized concepts, can readily be minimally described using existing, more
-                general terms already present in the network.</li>
-            <li><strong>Network stability maintained during vocabulary expansion:</strong> The hierarchical and
-                directional structure ensures that the semantic network remains stable even as the vocabulary expands.
-                New terms are incorporated without disrupting the fundamental organization, maintaining overall semantic
-                coherence.</li>
-            <li><strong>Natural integration of specialized knowledge:</strong> Semantic Directionality facilitates the
-                natural integration of specialized knowledge and technical vocabularies into the broader language
-                system. Technical terms, being more specific, readily map to existing general vocabulary, allowing for
-                efficient communication of specialized information.</li>
-        </ul>
-        <h2>3.4. Information Theoretic Implications</h2>
-        <p>
-            Semantic Directionality optimizes several competing constraints inherent in language, leading to an
-            efficient and robust system for meaning representation and communication. These optimizations can be
-            understood from an information-theoretic perspective.
-        </p>
-        <h2>3.4.1. Efficiency:</h2>
-        <ul style="font-size: 20px;">
-
-            <li><strong>Single-word downward mapping provides efficient reference:</strong> The ability to use single
-                words to minimally describe more specific terms provides an efficient mechanism for reference. This
-                reduces cognitive load in communication, allowing for quick and concise expression of complex ideas.
-            </li>
-            <li><strong>Information density increases with specificity:</strong> Specific terms, located higher in the
-                semantic hierarchy, inherently carry a higher density of information. This allows for nuanced
-                communication, where more information can be conveyed concisely using specialized vocabulary.</li>
-            <li><strong>Minimal cognitive overhead for specialized terms:</strong> By mapping specialized terms to more
-                common vocabulary for minimal description, the cognitive overhead associated with learning and
-                processing specialized language is minimized. The existing semantic network provides a scaffolding for
-                understanding new, specialized terms.</li>
-        </ul>
-        <h2>3.4.2. Stability:</h2>
-        <ul style="font-size: 20px;">
-
-            <li><strong>Multi-word upward definitions ensure proper grounding:</strong> The requirement for multi-word
-                descriptions for general terms ensures that these fundamental concepts are properly grounded within the
-                semantic network. This grounding provides semantic stability and prevents ambiguity in the
-                interpretation of basic vocabulary.</li>
-            <li><strong>Network connectivity maintained at all levels:</strong> Semantic Directionality ensures that
-                network connectivity is maintained across all levels of the semantic hierarchy. Specific, bridging, and
-                fundamental terms are all interconnected, creating a robust and integrated semantic system.</li>
-            <li><strong>Robustness against language evolution:</strong> The directional organization contributes to the
-                robustness of language against evolutionary changes. The hierarchical structure and anchoring in
-                fundamental concepts provide a stable framework that can accommodate lexical innovation and semantic
-                shifts over time without system-wide disruption.</li>
-        </ul>
-        <h2>3.5. Cognitive and Cultural Implications</h2>
-        <p>
-            The principle of Semantic Directionality has significant implications for understanding both cognitive
-            processes related to language and the cultural evolution of language.
-        </p>
-        <h2>3.5.1. Knowledge Organization:</h2>
-        <ul style="font-size: 20px;">
-
-            <li><strong>Reflects natural categorization processes:</strong> Semantic Directionality mirrors natural
-                human categorization processes, where we tend to categorize specific instances under more general
-                categories. This alignment suggests that language structure reflects fundamental cognitive organization.
-            </li>
-            <li><strong>Mirrors expert-novice knowledge relationships:</strong> The hierarchical structure and
-                directionality align with the organization of knowledge in expert-novice relationships. Experts possess
-                and use more specialized vocabulary (higher levels), while novices begin with more general terms (lower
-                levels). Semantic Directionality reflects the way expertise is structured and communicated.</li>
-            <li><strong>Facilitates learning and communication:</strong> The directional mapping from specific to
-                general terms facilitates both language learning and communication.</li>
-        </ul>
-        <h2>3.5.2. Cultural Evolution:</h2>
-        <ul style="font-size: 20px;">
-
-            <li><strong>Allows efficient integration of new technical terms:</strong> Semantic Directionality allows for
-                the efficient incorporation of new technical and specialized terms into a language as culture and
-                technology evolve. This adaptability is crucial for languages to remain relevant and expressive in
-                changing environments.</li>
-            <li><strong>Preserves cultural knowledge in network structure:</strong> The semantic network, structured by
-                directionality, embodies and preserves cultural knowledge. The relationships between specific and
-                general terms, and the grounding in fundamental concepts, reflect culturally shared understandings and
-                categorizations.</li>
-            <li><strong>Enables specialization while maintaining accessibility:</strong> Semantic Directionality enables
-                linguistic specialization (development of technical vocabularies) while maintaining accessibility to the
-                broader language community. Specialized terms remain linked to general vocabulary, ensuring that
-                specialized knowledge can be communicated and understood, at least in principle, by non-specialists.
-            </li>
-        </ul>
-
-        <h2>3.6. Theoretical Significance</h2>
-        <p>
-            Semantic Directionality represents a fundamental self-organizing principle of language, emerging naturally
-            from basic network properties and leading to the creation of stable and efficient semantic structures. These
-            structures facilitate both precise and accessible communication. Semantic Directionality suggests that the
-            hierarchical organization of meaning is not arbitrary but rather a functional adaptation that optimizes
-            language for both cognitive processing and communicative effectiveness.
-        </p>
         <img src="images/TMD2.jpg" alt="Knowledge Organization" width="1024" height="1792" decoding="async" loading="lazy">
         <p class="caption">Universe 00110000</p>
-        <h2>4. Context Dependency and Expertise Levels</h2>
-        <p>
-            Understanding how context and expertise influence minimal descriptions is essential for a complete theory of
-            semantic organization. TMD recognizes that minimal descriptions are not absolute but are dynamically adjusted
-            based on the communicative context and the knowledge levels of the participants.
-        </p>
-        <h2>4.1. Impact of Expertise on Minimal Descriptions</h2>
-        <p>
-            The level of expertise shared between speakers and listeners directly impacts the minimal description
-            required to achieve bidirectional uniqueness. Communication between experts in a field often relies on
-            significantly compressed descriptions compared to communication with laypersons.
-        </p>
+        <h2>4. Context, Expertise, and Culture</h2>
+        <p>The interpretation function of Section 2.1 belongs to a listener. Write <em>ι<sub>L,A</sub></em> for the
+            interpretation shared by an audience <em>A</em>, and <em>MD<sub>L,A</sub>(c)</em> for the minimal
+            description of <em>c</em> relative to that audience. Minimal descriptions are not absolute. They are
+            adjusted to what the audience already holds, and the adjustment follows two rules.</p>
+
+        <h3>4.1 Expertise</h3>
+        <p>Between experts, a single technical word is often a minimal description, because both parties hold its
+            definition. Toward a lay audience the same concept must be unpacked into lower-depth words until
+            uniqueness is restored. Consider the concept neuron.</p>
         <ul style="font-size: 20px;">
-
-            <li><strong>Experts:</strong> When communicating among themselves, experts can effectively use technical
-                jargon or highly specialized terms as minimal descriptions. These terms function as compressed
-                representations of complex concepts, relying on a shared, deep understanding of the domain.</li>
-            <li><strong>Laypersons:</strong> In contrast, when communicating with laypersons, or when experts need to
-                explain concepts to those outside their field, minimal descriptions must become more general and
-                elaborated. This elaboration is necessary to bridge the knowledge gap and ensure bidirectional
-                understanding.</li>
+            <li>For neuroscientists: "electrically excitable cell that transmits nerve impulses". Each word is
+                secured for that audience, and the phrase identifies the concept.</li>
+            <li>For a general audience: "cell in the brain and nerves that sends electrical signals to other cells,
+                forming networks that process information". The added words replace terms the audience does not
+                hold with terms it does.</li>
         </ul>
-        <p>
-            Consider the concept of a "Neuron" as an example:
-        </p>
+        <p>Both phrases are minimal for their audience. What changes is <em>ι<sub>L,A</sub></em>, and with it the
+            set of words that count as secured. This is the form that the expert-novice difference takes in TMD, and
+            it is why a speaker must model the listener before choosing a description, the common ground that Clark
+            (1996) placed at the center of language use.</p>
+
+        <h3>4.2 Culture and Implicit Information</h3>
+        <p>Shared cultural knowledge is implicit information, and implicit information shortens descriptions. A
+            concept that a culture holds in common needs fewer words inside that culture, because the audience
+            supplies the rest. The Japanese concept Golden Week shows the effect.</p>
         <ul style="font-size: 20px;">
-
-            <li><strong>Expert Minimal Description of "Neuron":</strong> Within neuroscience, an expert minimal
-                description could be simply: "Electrically excitable cell transmitting nerve impulses." This concise
-                description encapsulates the core functional properties of a neuron for someone with background
-                knowledge.</li>
-            <li><strong>Layperson Minimal Description of "Neuron":</strong> To communicate the concept to a layperson, a
-                more elaborated description is necessary, such as: "Cell in the brain and nervous system that sends
-                electrical signals to other cells, forming networks that process information." This description uses
-                more general and accessible terms to convey the basic idea of a neuron without assuming specialized
-                knowledge.</li>
+            <li>In Japan: "the spring holidays at the end of April". The audience knows that a cluster of national
+                holidays falls there and that the cluster has a name.</li>
+            <li>Elsewhere: "a series of Japanese national holidays in late April and early May that forms an
+                extended vacation period". The words "Japanese", "national", and "extended vacation period" replace
+                what the Japanese audience already knew.</li>
         </ul>
-        <p>
-            The minimal description must be dynamically adjusted based on the anticipated knowledge level of the
-            audience to effectively maintain bidirectional uniqueness. This context-sensitive nature of minimal
-            descriptions aligns with research on expert-novice differences in domain conceptualization and the
-            characteristics of specialized discourse communities.
-        </p>
-        <h2>4.2. Cultural Context and Implicit Information</h2>
-        <p>
-            Cultural context provides a rich source of implicit information that significantly influences minimal
-            descriptions. Shared cultural knowledge and assumptions can dramatically reduce the number of words required
-            for a minimal description in culturally situated communication.
-        </p>
-        <ul style="font-size: 20px;">
+        <p>Minimal descriptions are therefore optimized twice: for length within the language, and for the
+            knowledge of the audience. Section 8 shows that metaphor uses the same lever, a shared source domain, to
+            shorten descriptions further.</p>
 
-            <li><strong>Shared Cultural Knowledge:</strong> Concepts that are deeply embedded in a culture and are part
-                of common cultural knowledge often require fewer words to describe minimally within that culture. The
-                shared cultural background provides a wealth of implicit context that reduces the need for explicit
-                linguistic elaboration.</li>
-            <li><strong>Implicit Assumptions:</strong> Speakers communicating within a shared cultural context can rely
-                on implicit assumptions about what the listener already knows. This allows them to omit information that
-                is considered culturally presupposed, further compressing minimal descriptions.</li>
-        </ul>
-        <p>
-            A salient example of cultural context influencing minimal description is the Japanese concept of "Golden
-            Week":
-        </p>
-        <ul style="font-size: 20px;">
-
-            <li>In Japan, "Golden Week" refers to a well-known series of consecutive national holidays occurring at the
-                end of April and beginning of May.
-                <ul style="font-size: 20px;">
-
-                    <li>Minimal Description in Japan: Within Japan, a minimal description could be simply: "Annual
-                        spring holidays at the end of April." The cultural context makes it implicitly understood that
-                        this refers to the cluster of national holidays in late April/early May.</li>
-                    <li>Minimal Description for Non-Japanese Audience: For an audience unfamiliar with Japanese culture,
-                        a minimal description requires more detail: "Series of Japanese national holidays in late April
-                        and early May that form an extended vacation period." This description explicitly specifies
-                        "Japanese national holidays" and the timeframe to provide necessary context for understanding.
-                    </li>
-                </ul>
-            </li>
-        </ul>
-        <p>
-            This contextual dependency underscores the importance of considering common ground and shared cultural
-            schemas in understanding how minimal descriptions function in real-world communication. Minimal descriptions
-            are not only linguistically minimal but also culturally and contextually optimized for efficient information
-            transfer.
-        </p>
-   
         <h2>5. Formalization and Information Content</h2>
-        <p>
-            To rigorously analyze minimal descriptions and quantify their properties, TMD employs mathematical
-            formalization, drawing upon concepts from information theory and complexity theory. This formal framework
-            allows for precise analysis of descriptive efficiency and cross-linguistic comparisons.
-        </p>
-        <h2>5.1. Mathematical Formalization</h2>
-        <p>
-            Let ℂ be the set of all possible concepts, and let L be a specific natural language. Let D<sub>L</sub>
-            represent the set of all possible descriptions that can be formed in language L.
-        </p>
-        <p>
-            We define the Minimal Description Function, MD<sub>L</sub>, as follows:
-        </p>
-        <p style="text-align: center; font-weight: bold;">MD<sub>L</sub>(c) = arg min<sub>d ∈ D<sub>L</sub></sub> { |d|
-            | f<sub>L</sub><sup>-1</sup>(d) = c and ∀c′ ≠ c, f<sub>L</sub><sup>-1</sup>(d) ≠ c′ }</p>
-        <p>
-            Where:
-        </p>
-        <ul style="font-size: 20px;">
+        <p>The principles of Section 2 fix what counts as a minimal description. This section defines the minimal
+            description function and gives it a measure in bits, so that descriptive efficiency can be compared
+            across concepts and across languages.</p>
 
-            <li>|d| represents the word count of the description <em>d</em>. This serves as a measure of the length or
-                complexity of the description.</li>
-            <li>f<sub>L</sub><sup>-1</sup> is the interpretation function that maps descriptions from the language L to
-                concepts in ℂ. As previously defined, <em>f<sub>L</sub><sup>-1</sup>(d) = c</em> signifies that
-                description <em>d</em> in language L is interpreted as concept <em>c</em>.</li>
-            <li>The condition <em>∀c′ ≠ c, f<sub>L</sub><sup>-1</sup>(d) ≠ c′</em> is the Uniqueness Condition, ensuring
-                that the description <em>d</em> maps exclusively to the intended concept <em>c</em>, and not to any
-                other concept <em>c′</em>.</li>
-            <li><em>arg min<sub>d ∈ D<sub>L</sub></sub></em> indicates that the Minimal Description Function selects the
-                description <em>d</em> from the set of all possible descriptions D<sub>L</sub> that minimizes the word
-                count |d|, while still satisfying the condition of uniquely describing concept <em>c</em>.</li>
-        </ul>
-        <p>
-            This formalization extends the principle of minimum description length to the domain of natural language
-            semantics. It provides a framework for quantifying descriptive efficiency by identifying the shortest
-            linguistic expression that uniquely and bidirectionally represents a concept.
-        </p>
+        <h3>5.1 The Minimal Description Function</h3>
+        <p>Write <em>|d|</em> for the number of words in a description <em>d</em>. The minimal description function
+            selects, among the descriptions that identify <em>c</em>, one of shortest length:</p>
+        <p style="text-align: center; font-weight: bold;">MD<sub>L</sub>(c) = arg min<sub>d ∈ D<sub>L</sub></sub>
+            { |d| : ι<sub>L</sub>(d) = c }</p>
+        <p>Three remarks make the definition precise. The condition <em>ι<sub>L</sub>(d) = c</em> already contains
+            uniqueness, because an ambiguous description is sent to ⊥ (Section 2.1). A shortest description
+            satisfies the collapse property automatically, since removing a word from it would produce a shorter
+            description of <em>c</em>, which cannot exist; the collapse property is the local test, and shortest
+            length is the global condition it approximates. And the minimum need not be unique: several phrases of
+            the same length can identify <em>c</em>, and TMD treats them as equivalent minimal descriptions, to be
+            chosen among by the audience rules of Section 4. The Network Connection Principle is imposed as a
+            constraint on the set over which the minimum is taken.</p>
+        <p>The definition transfers the principle of minimum description length (Rissanen 1978) from data to
+            meaning: the complexity of a concept is the length of the shortest phrase that identifies it. Dale and
+            Reiter (1995) proved that the corresponding search over attributes of objects in view is NP-hard, and
+            the same holds here, so real speakers approximate <em>MD<sub>L</sub></em> with incremental strategies
+            and check the result with the collapse test.</p>
 
-        <h2>5.2. Minimal Dictionary Representation</h2>
-        <p>
-            To quantify linguistic efficiency in information-theoretic terms, we introduce the concept of a minimal
-            dictionary D. For a given minimal description <em>d</em>, we consider the set of unique words required to
-            construct <em>d</em> as the minimal dictionary. Each word <em>w<sub>i</sub></em> in this dictionary D is
-            assigned a unique binary code for information content measurement.
-        </p>
-        <p>
-            <strong>Binary Encoding Scheme:</strong>
-        </p>
-        <ul style="font-size: 20px;">
+        <h3>5.2 Bits per Word</h3>
+        <p>Word count treats every word as equal. Words are not equal: "the" is expected almost everywhere, and
+            "stenosis" almost nowhere. Shannon (1948) gave the measure that respects the difference. If a word
+            <em>w</em> occurs with probability <em>p(w)</em> in the language, its information content, its
+            surprisal, is</p>
+        <p style="text-align: center; font-weight: bold;">I(w) = −log<sub>2</sub> p(w)</p>
+        <p>and the information content of a description is the sum over its words:</p>
+        <p style="text-align: center; font-weight: bold;">I(d) = ∑<sub>i=1</sub><sup>n</sup> I(w<sub>i</sub>) =
+            −∑<sub>i=1</sub><sup>n</sup> log<sub>2</sub> p(w<sub>i</sub>)</p>
+        <p>The probabilities come from a corpus of the language. The simplest choice is unigram frequency. A
+            finer choice is the probability of each word given the words before it, which is the quantity that
+            predicts human reading effort word by word (Hale 2001; Levy 2008). Under the finer choice the words of a
+            description share information, and <em>I(d)</em> counts each word only for what it adds.</p>
+        <p>A useful special case sets a fixed defining vocabulary <em>V</em> and treats its words as equally likely.
+            Then every word costs <em>log<sub>2</sub>|V|</em> bits, and a prefix-free code assigns each word a
+            binary string of length <em>⌈log<sub>2</sub>|V|⌉</em>, so that</p>
+        <p style="text-align: center; font-weight: bold;">I(d) = n × ⌈log<sub>2</sub>|V|⌉</p>
+        <p>This is the coding-theoretic lower bound for <em>n</em> symbols drawn from a set of size <em>|V|</em>.
+            Learner's dictionaries already work this way: the Longman Dictionary of Contemporary English writes
+            every definition with a controlled defining vocabulary of about two thousand words, and Ogden (1930)
+            built Basic English from 850. With <em>|V|</em> near two thousand, each defining word costs eleven bits,
+            and a five-word definition carries 55 bits. The uniform bound is what the surprisal measure reduces to
+            when nothing is known about word frequencies, and it is the right measure when the question is how
+            many distinct defining words a language needs.</p>
 
-            <li>Each unique word <em>w<sub>i</sub></em> in the minimal dictionary D is assigned a distinct binary code,
-                B(<em>w<sub>i</sub></em>). The assignment can be based on the word's index within the dictionary, or any
-                consistent encoding scheme.</li>
-            <li>The length of each binary code, i.e., the number of bits required to represent each word, is determined
-                by the size of the minimal dictionary |D|. Assuming a prefix-free code for efficient decoding, the
-                minimum number of bits per word is given by <em>Bits per word = ⌈log₂(|D|)⌉</em>, where ⌈x⌉ is the
-                ceiling function, rounding x up to the nearest integer. This formula derives from basic information
-                theory, specifically the lower bound for encoding symbols in a set.</li>
-        </ul>
-        <p>
-            This approach is analogous to minimum encoding methods in information theory, where shorter codes are
-            assigned to more frequent symbols to minimize the average code length. In TMD, we apply this principle to
-            semantic units (words in minimal descriptions) rather than character sequences, focusing on the efficiency
-            of semantic encoding.
-        </p>
-        <h2>5.3. Information Content Measurement</h2>
-        <p>
-            The total information content I(d) of a minimal description <em>d</em> can then be calculated based on the
-            binary encoding of its constituent words:
-        </p>
-        <p style="text-align: center; font-weight: bold;">I(d) = n × ⌈log₂(|D|)⌉</p>
-        <p>
-            Where:
-        </p>
-        <ul style="font-size: 20px;">
+        <h3>5.3 Comparing Concepts and Languages</h3>
+        <p><em>I(MD<sub>L</sub>(c))</em> is a lower bound on the bits a speaker of <em>L</em> must transmit to
+            identify <em>c</em> from scratch, and it is comparable across concepts within a language and, with the
+            same probability model, across languages. Two concepts with equal word counts can differ in bits when
+            one is described in rarer words, and two languages can describe the same concept in different word
+            counts but similar bits, which is the quantity the cross-linguistic hypotheses of Section 7 are about.
+            Piantadosi, Tily, and Gibson (2011) found, across eleven languages, that the length of a word tracks its
+            average information content in context better than its frequency. Languages already spend letters in
+            proportion to bits; TMD applies the same accounting to whole descriptions.</p>
 
-            <li><em>n</em> is the number of words in the minimal description <em>d</em> (i.e., <em>n = |d|</em>).</li>
-            <li>|D| is the size of the minimal dictionary D, representing the number of unique words used in the
-                description <em>d</em>.</li>
-        </ul>
-        <p>
-            This framework provides a lower bound on the number of bits required to encode a concept uniquely using its
-            minimal linguistic description. It enables quantitative comparisons of information content across different
-            minimal descriptions and potentially across languages, offering a metric for evaluating semantic efficiency.
-        </p>
-      
         <img src="images/TMD4.jpg" alt="Recursive Properties of Minimal Descriptions" width="1024" height="1792" decoding="async" loading="lazy">
         <p class="caption">Universe 00110000</p>
-
         <h2>6. Recursive Properties of Minimal Descriptions</h2>
-        <p>
-            Natural language exhibits recursion, where linguistic units can be embedded within units of the same type.
-            TMD extends to consider this recursive nature, acknowledging that words used in minimal descriptions
-            themselves possess minimal descriptions, potentially leading to nested layers of semantic representation.
-        </p>
-        <h2>6.1. Recursive Definition Structure</h2>
-        <p>
-            Within TMD, each word employed in a minimal description can itself be further minimally described within the
-            same language system. This creates a hierarchical structure of nested descriptions, where the meaning of a
-            word is not only defined by its immediate description but also by the descriptions of the words within that
-            description, and so on.
-        </p>
-        <p>
-            <strong>Formal Definition of Recursive Information Content:</strong> For any description <em>d = {w₁, w₂,
-                ..., wₙ}</em>, the total information content, taking into account recursive descriptions, is defined as:
-        </p>
-        <p style="text-align: center; font-weight: bold;">I<sub>total</sub>(d) = ∑<sub>i=1</sub><sup>n</sup> [
-            I(w<sub>i</sub>) + I<sub>total</sub>(MD<sub>L</sub>(w<sub>i</sub>)) ]</p>
-        <p>
-            Where:
-        </p>
+        <p>Every word in a minimal description has a minimal description of its own. The meaning of a phrase
+            therefore rests on nested layers of description, and TMD measures the whole stack.</p>
+
+        <h3>6.1 Recursive Information Content</h3>
+        <div class="theorem">
+            <strong>Definition 6.1 (Recursive Information Content):</strong> For a description <em>d = {w<sub>1</sub>,
+            …, w<sub>n</sub>}</em>,
+            <p style="text-align: center; font-weight: bold;">I<sub>total</sub>(d) = ∑<sub>i=1</sub><sup>n</sup> [
+                I(w<sub>i</sub>) + I<sub>total</sub>(MD<sub>L</sub>(w<sub>i</sub>)) ]</p>
+            with <em>I<sub>total</sub>(MD<sub>L</sub>(w)) = 0</em> for every primitive <em>w ∈ P</em>.
+        </div>
+        <p>Each word contributes its own surprisal and the recursive content of its description. Primitives
+            contribute only their own surprisal, because their meaning is not carried by words.</p>
+
+        <h3>6.2 Recursive Minimality</h3>
+        <p>A description <em>d</em> of <em>c</em> is recursively minimal when three conditions hold: <em>d</em>
+            is a minimal description of <em>c</em> in the sense of Section 2; every word of <em>d</em> has a minimal
+            description in <em>L</em> that satisfies the same principles; and <em>I<sub>total</sub>(d)</em> is
+            least among the descriptions of <em>c</em> that satisfy the first two conditions. The third condition
+            prefers, among equally short descriptions, the one built from words that are themselves cheap to
+            ground. A description in basic-level words is recursively cheaper than one of the same length in
+            specialized words, which is the quantitative form of the advice to define in plain terms.</p>
+
+        <h3>6.3 Termination</h3>
+        <p>Recursion raises the question of regress: does the stack of descriptions bottom out? Proposition 3.3
+            answers it, and the answer is exact.</p>
+        <div class="theorem">
+            <strong>Proposition 6.2 (Finiteness of Recursive Content):</strong> With <em>W<sub>L</sub></em> finite,
+            <em>I<sub>total</sub>(d)</em> is finite for every description <em>d</em> if and only if the definitional
+            graph <em>G<sub>L</sub></em> has no directed cycle, that is, if and only if the Network Connection
+            Principle holds.
+        </div>
+        <div class="complete-proof">
+            <p><strong>Proof:</strong> If <em>G<sub>L</sub></em> has no cycle, Proposition 3.3 gives every word a finite
+            depth, and <em>I<sub>total</sub></em> is computed by induction on depth: it is a finite sum at depth 0,
+            and at depth <em>k</em> it is a finite sum of terms already computed at smaller depths. If
+            <em>G<sub>L</sub></em> has a cycle <em>w<sub>1</sub> → w<sub>2</sub> → … → w<sub>m</sub> →
+            w<sub>1</sub></em>, then the recursion for <em>I<sub>total</sub>(MD<sub>L</sub>(w<sub>1</sub>))</em>
+            calls itself through the cycle and never reaches a base case, so the sum has infinitely many positive
+            terms and diverges, and the same holds for any description that contains a word from which the cycle
+            is reachable. ∎</p>
+        </div>
+        <p>Circular definition is therefore worse than uninformative: it is the one thing
+            that makes the information content of a language undefined. Primitives are the termination points, and
+            the convergence condition can be stated directly: for every concept <em>c</em> there is a
+            <em>k</em> such that the words reached after <em>k</em> applications of <em>MD<sub>L</sub></em> include a
+            primitive, and every chain from <em>c</em> reaches one. Cognitive linguistics reaches the same base from
+            the other direction: the small set of primes of Wierzbicka (1996) is a candidate for <em>P</em>, and the
+            dictionary kernel of Vincent-Lamarre et al. (2016) is its empirical image.</p>
+
+        <h3>6.4 Computation</h3>
+        <p>A computational model can be built from lexical resources such as WordNet (Miller 1995), whose
+            hypernym links supply the genus of each word, together with a corpus for the probabilities. Because a
+            full recursion visits the whole dictionary, a depth-limited version is used in practice:</p>
+        <p style="text-align: center; font-weight: bold;">I<sub>total,k</sub>(d) = ∑<sub>i=1</sub><sup>n</sup> [
+            I(w<sub>i</sub>) + I<sub>total,k−1</sub>(MD<sub>L</sub>(w<sub>i</sub>)) ], &nbsp;
+            I<sub>total,0</sub>(d) = 0</p>
+        <p>where <em>k</em> is the maximum recursion depth. Take chair, with the minimal description "a seat for one
+            person, with a back". Its content words have descriptions of their own: seat, "a thing made for sitting
+            on"; person, "an individual human being"; back, "the part that supports a sitter's spine". With
+            <em>k = 2</em> the model counts the description of chair and the descriptions of its words, and stops.
+            Raising <em>k</em> approaches <em>I<sub>total</sub></em> from below, and the value of <em>k</em> at which
+            the estimate stabilizes measures how deep the meaning of a word reaches into the language. Comparing
+            the model with human judgments of definitional relatedness is the natural test.</p>
+
+        <h2>7. Information Density and the Semantic Density Regularity Principle</h2>
+        <p>With descriptions measured in bits, TMD can ask how information is distributed across concepts, and it
+            finds a regularity that ties information density to semantic categories.</p>
+
+        <h3>7.1 Density Metrics</h3>
+        <p>Let <em>c</em> be a concept with minimal description <em>d</em> and with a single word <em>w</em> that
+            names it in <em>L</em>. When a concept is named by a multi-word term, a representative head word is
+            used. Two metrics compare the description with the name.</p>
         <ul style="font-size: 20px;">
-
-            <li>I(w<sub>i</sub>) represents the direct information content of the word <em>w<sub>i</sub></em>,
-                calculated as in Section 5.3, based on its minimal dictionary and binary encoding.</li>
-            <li>I<sub>total</sub>(MD<sub>L</sub>(w<sub>i</sub>)) represents the recursive information content of the
-                minimal description of the word <em>w<sub>i</sub></em> itself. This term embodies the recursive aspect
-                of the definition, indicating that the information content of a word is not just intrinsic but also
-                depends on the information content of its own minimal description.</li>
-            <li>The summation ∑<sub>i=1</sub><sup>n</sup> iterates over all words <em>w<sub>i</sub></em> in the
-                description <em>d</em>, accumulating their direct information content and their recursive information
-                content.</li>
+            <li>Bit Ratio: <em>BR(c) = I(d) / I(w)</em>. The ratio of the information in the description to the
+                surprisal of the name. A high Bit Ratio means the name compresses a great deal: a rare word standing
+                for a long description has a low ratio, a common word standing for the same description a high
+                one.</li>
+            <li>Density Ratio: <em>DR(c) = ρ(d) / I(w)</em>, where <em>ρ(d) = I(d) / |d|</em> is the average
+                information per word of the description. The Density Ratio compares the information density of the
+                description with the information of the name. A value near 1 means the name and the words that
+                define it carry information at the same rate.</li>
         </ul>
-        <h2>6.2. Recursive Minimality Condition</h2>
-        <p>
-            A description <em>d</em> is considered recursively minimal if and only if it satisfies the following
-            conditions:
-        </p>
-        <ol style="font-size: 20px;">
-            <li><em>d</em> is a minimal description for concept <em>c</em> according to the principles outlined in
-                Section 2 (Bidirectional Uniqueness, Collapse Property, Network Connection, Language Containment).</li>
-            <li>Each word <em>w<sub>i</sub></em> in <em>d</em> possesses a minimal description
-                MD<sub>L</sub>(w<sub>i</sub>) within the language L, adhering to the same TMD principles.</li>
-            <li>The total recursive information content I<sub>total</sub>(d) is minimized. This means that no
-                alternative description <em>d'</em>, either for the concept <em>c</em> or for any of the words within
-                <em>d</em>, can result in a lower total recursive information content while still satisfying the
-                conditions of minimality and bidirectional uniqueness.
-            </li>
-        </ol>
-        <p>
-            To address the potential for infinite regress in recursive definitions, a practical approach assumes the
-            existence of a base vocabulary of semantic primitives. These primitives are considered to be semantically
-            fundamental and do not require further linguistic definition within the system. 
-        </p>
+        <p>Both ratios are defined because <em>I(w) &gt; 0</em> for every word that occurs with probability below 1.
+            Under the uniform bound of Section 5.2 the Bit Ratio reduces to <em>|d|</em> and the Density Ratio to 1
+            for every concept, so the metrics carry information only when word probabilities are used. That is the
+            reason surprisal, and not word count alone, is the measure of Section 5.</p>
 
-        <h2>6.3. Termination Condition for Recursive Definitions</h2>
-        <p>
-            The recursive nature of minimal descriptions raises an important theoretical challenge: avoiding infinite semantic regression. TMD addresses this challenge by establishing clear termination conditions for recursive definitions, ensuring that the semantic system remains well-founded and computationally tractable.
-        </p>
-        
-        <h2>6.3.1. Semantic Primitives as Termination Points</h2>
-        <p>
-            TMD posits the existence of a finite set of semantic primitives P ⊂ W (where W is the set of all words in language L) that serve as termination points in recursive definition chains. These primitives have the following properties:
-        </p>
+        <h3>7.2 Hypotheses</h3>
         <ul style="font-size: 20px;">
-            <li><strong>Fundamental Meaning:</strong> Semantic primitives represent concepts that are directly grounded in human experience and cognition, without requiring further linguistic decomposition for understanding.</li>
-            <li><strong>Recursive Termination:</strong> For any word w ∈ P, we define I<sub>total</sub>(MD<sub>L</sub>(w)) = 0, effectively terminating the recursive calculation at this point.</li>
-            <li><strong>Network Centrality:</strong> Semantic primitives typically demonstrate high centrality within the semantic network, serving as anchoring points for numerous other concepts.</li>
+            <li>Abstractness. Abstract concepts have higher Bit Ratios than concrete ones. Their descriptions must
+                do more work to reach uniqueness, because they are less directly grounded in perception, while their
+                names are often common words.</li>
+            <li>Category clustering. Concepts in one semantic category have similar Density Ratios, and the
+                variance of <em>DR</em> within a category is smaller than the variance across categories.</li>
+            <li>Cross-linguistic invariance. Density Ratios agree across languages more closely than word counts
+                do, because the ratio removes the language's lexicalization choices and keeps the information
+                structure of the concept.</li>
         </ul>
-        <p>
-            This approach aligns with findings in cognitive linguistics suggesting that a relatively small set of basic concepts forms the foundation for more complex semantic structures across languages.
-        </p>
-        
-        <h2>6.3.2. Mathematical Convergence Properties</h2>
-        <p>
-            For any concept c with minimal description d, the recursive information content I<sub>total</sub>(d) converges to a finite value if and only if every recursive chain of definitions eventually reaches at least one semantic primitive. Formally:
-        </p>
-        <p style="text-align: center; font-weight: bold;">
-            ∀c ∈ ℂ, ∃k ∈ ℕ such that chain<sub>k</sub>(MD<sub>L</sub>(c)) ∩ P ≠ ∅
-        </p>
-        <p>
-            Where chain<sub>k</sub>(MD<sub>L</sub>(c)) represents the set of all words reached after k recursive applications of the minimal description function starting from concept c.
-        </p>
-        <p>
-            This convergence property ensures that the recursive information content is well-defined for all concepts in the language, avoiding potential theoretical issues of infinite recursion while maintaining the framework's mathematical consistency.
-        </p>
 
-        <h2>6.4. Computational Implementation Approach</h2>
-        <p>
-            A computational model for recursive minimal descriptions can be implemented using lexical resources and
-            distributional semantic techniques. Due to computational limitations and the practical need to avoid
-            infinite recursion, a depth-limited recursion algorithm is a viable approach.
-        </p>
-        <p style="text-align: center; font-weight: bold;">
-            I<sub>total,k</sub>(d) = ∑<sub>i=1</sub><sup>n</sup> [ I(w<sub>i</sub>) +
-            I<sub>total,k-1</sub>(MD<sub>L</sub>(w<sub>i</sub>)) ]
-        </p>
-        <p>
-            Where:
-        </p>
+        <h3>7.3 The Semantic Density Regularity Principle</h3>
+        <div class="theorem">
+            <strong>Principle 7.1 (Semantic Density Regularity):</strong> There is, for each semantic category, a
+            threshold <em>ε<sub>s</sub></em> such that any two concepts <em>c<sub>1</sub>, c<sub>2</sub></em> of the
+            category satisfy
+            <p style="text-align: center; font-weight: bold;">|DR(c<sub>1</sub>) − DR(c<sub>2</sub>)| ≤
+                ε<sub>s</sub></p>
+        </div>
+        <p>The principle is an empirical hypothesis, and its rationale comes from the shape of definitions.
+            Members of one category share a genus and differ by differentiae of similar specificity, so their
+            descriptions have similar lengths and similar information. Their names sit at the same level of the
+            hierarchy, so the names have similar surprisal, which is the basic-level effect of Rosch et al. (1976).
+            The ratio of two similar quantities is similar. Within vehicles, car, truck, and bus are each "a road
+            vehicle with an engine, for carrying" something, and each name is a common basic-level word, so their
+            Density Ratios agree; a category with a different genus and a different level of naming will settle at a
+            different ratio.</p>
+        <p>The threshold relation is not an equivalence: two concepts can each be within <em>ε<sub>s</sub></em> of
+            a third while differing from each other by more. Category membership is therefore defined by
+            clustering, and density is a necessary condition for it. Two concepts count as members of one category
+            when they are semantically similar above a threshold <em>θ</em> and their densities agree:</p>
+        <p style="text-align: center; font-weight: bold;">C(c<sub>1</sub>, c<sub>2</sub>) = 1 if sim(c<sub>1</sub>,
+            c<sub>2</sub>) ≥ θ and |DR(c<sub>1</sub>) − DR(c<sub>2</sub>)| ≤ ε<sub>s</sub>; 0 otherwise</p>
+        <p>A semantic category is a maximal set of concepts in which every pair satisfies <em>C = 1</em>. Colors
+            and emotions can have similar densities and still form two categories, because they fail the similarity
+            test; two colors with different densities fail the density test.</p>
+        <p>Three consequences are testable. Category boundaries should appear as discontinuities in Density Ratio
+            when concepts are ordered by similarity. If the regularity holds across languages, it points to a
+            cognitive constraint on how meaning is packed, shared by speakers of unrelated languages. And the
+            clusters recovered from density and similarity should agree with the categories speakers recognize
+            without any taxonomy being imposed in advance, which is the emergence claim of Section 9.</p>
+
+        <h2>8. Metaphorical Compression</h2>
+        <p>Metaphor conveys complex ideas in few words. TMD treats it as a compression mechanism and measures the
+            compression.</p>
+
+        <h3>8.1 Metaphor as Compression</h3>
+        <p>A conceptual metaphor is a mapping <em>M: T → S</em> from a target domain <em>T</em> to a source domain
+            <em>S</em>, under which the target is understood and expressed in the vocabulary of the source (Lakoff
+            and Johnson 1980). "Time is money" maps time onto a resource that can be spent, saved, and wasted. The
+            mapping lets a short phrase in source vocabulary stand for a longer literal description of the target,
+            and the gain is the Compression Ratio:</p>
+        <p style="text-align: center; font-weight: bold;">CR = |MD(T<sub>literal</sub>)| /
+            |MD(T<sub>metaphorical</sub>)|</p>
+        <p>where the numerator is the word count of the minimal literal description of the target concept and the
+            denominator the word count of its minimal metaphorical description. "You are wasting my time" has four
+            content words. A literal description of the same content, "you are using the hours I have available
+            without producing anything I value", has ten. The ratio is about 2.5, and the four words work only
+            because the audience already holds the mapping. Metaphor is therefore the strongest case of Section 4:
+            a shared source domain is implicit information, and it shortens descriptions by a measurable factor.
+            The same ratios can be computed in bits with the measure of Section 5.2.</p>
+
+        <h3>8.2 An Optimal Range</h3>
+        <p>Compression has a cost. A metaphor that compresses too little offers no advantage over the literal
+            phrase; one that compresses too much becomes obscure, because the listener has to reconstruct too much
+            of the target from the source. TMD predicts that the metaphors a culture keeps lie in a band of
+            Compression Ratios that balances brevity against the effort of decoding. The prediction can be tested
+            by computing ratios for a large sample of conventional metaphors and relating them to prevalence,
+            memorability, and cross-cultural portability. Metaphors near the band should be the most widespread and
+            the most durable; metaphors far above it should be rare, literary, or short-lived.</p>
+
+        <h3>8.3 Consequences</h3>
         <ul style="font-size: 20px;">
-
-            <li><em>k</em> represents the maximum recursion depth. This parameter limits the number of recursive steps
-                in calculating the total information content, making the computation tractable.</li>
-            <li>I<sub>total,k</sub>(d) denotes the depth-limited recursive information content of description
-                <em>d</em>, calculated up to a recursion depth of <em>k</em>.
-            </li>
-            <li>The base case for recursion is defined as I<sub>total,0</sub>(d) = 0 for any description <em>d</em>.
-                This means that at recursion depth 0, the recursive information content is considered to be zero,
-                effectively terminating the recursion at the specified depth limit.</li>
+            <li>Metaphors are efficient descriptions of abstract concepts, which is where the Bit Ratios of Section
+                7 are highest and where compression is most valuable.</li>
+            <li>Their effectiveness depends on culture, because the source domain must be familiar. A mapping whose
+                source is unknown to the audience compresses nothing, which explains why metaphors travel unevenly
+                across cultures.</li>
+            <li>Their optimal range is a cognitive balance between information density and processing load, the
+                same balance that sets the length of minimal descriptions in general.</li>
         </ul>
-        <p>
-            To illustrate this concept, consider the recursive analysis of the minimal description for "chair":
-        </p>
-        <ul style="font-size: 20px;">
 
-            <li>Minimal description: "a piece of furniture designed for one person to sit on with a back support"</li>
-            <li>Each word in this description has its own minimal description. For example:
-                <ul style="font-size: 20px;">
-
-                    <li>"furniture" → "movable household objects intended for use or decoration"</li>
-                    <li>"sit" → "rest one's weight on one's buttocks"</li>
-                    <li>"back" → "posterior part of the human body from shoulders to waist"</li>
-                </ul>
-            </li>
-            <li>These second-level descriptions contain words that themselves have minimal descriptions, and so on.</li>
-            <li>With a depth limit k=2, we would calculate the information content of the original description "chair,"
-                plus the information content of each word's minimal description, but we would not proceed further down
-                the recursive chain.</li>
-        </ul>
-        <p>
-            Such a computational model could be tested through comparison with human intuitions about semantic
-            relationships and definitional networks. Varying the recursion depth parameter k could provide insights into
-            the optimal depth for capturing semantic meaning without introducing excessive complexity.
-        </p>
-
-        <h2>7. Information Density Patterns and Semantic Density Regularity Principle</h2>
-        <p>
-            TMD explores patterns in information density within minimal descriptions and proposes a Semantic Density Regularity Principle for Semantic Categories. This principle suggests an underlying regularity in how information is
-            distributed across semantic categories in language.
-        </p>
-        <h2>7.1. Information Density Metrics</h2>
-        <p>
-            To quantify information density and analyze patterns across semantic categories, we introduce two key
-            metrics: Bit Ratio (BR) and Density Ratio (DR). These metrics allow us to compare the information content of
-            a minimal description to the information content of the word representing the concept itself.
-        </p>
-        <ol>
-            <li><strong>Bit Ratio (BR):</strong>
-                <p style="text-align: center; font-weight: bold;">BR(c) = I(d) / I(w)</p>
-                <p>
-                    Where:
-                </p>
-                <ul style="font-size: 20px;">
-
-                    <li>I(d) is the information content of the minimal description <em>d</em> for concept <em>c</em>,
-                        calculated as described in Section 5.3.</li>
-                    <li>I(w) is the information content of the single word <em>w</em> that primarily represents the
-                        concept <em>c</em> in the language. If the concept is primarily represented by a multi-word
-                        term, a representative single word proxy should be selected for this calculation. The
-                        information content I(w) is calculated using the same method as I(d), considering the minimal
-                        dictionary for the single word.</li>
-                </ul>
-                <p>
-                    The Bit Ratio quantifies the relative increase in information content when a concept is represented
-                    by its minimal description compared to its single-word representation. A higher BR indicates that
-                    the minimal description adds significantly more information than the single word alone.
-                </p>
-            </li>
-            <li><strong>Density Ratio (DR):</strong>
-                <p style="text-align: center; font-weight: bold;">DR(c) = ρ(d) / ρ(w)</p>
-                <p>
-                    Where:
-                </p>
-                <ul style="font-size: 20px;">
-
-                    <li>ρ(d) is the bit density of the minimal description <em>d</em>, defined as I(d) / |d|, where |d|
-                        is the word count of description d. This measures the average information content per word in
-                        the minimal description.</li>
-                    <li>ρ(w) is the bit density of the single word <em>w</em> representing concept <em>c</em>,
-                        calculated as I(w).</li><br>
-                </ul>
-                <p>
-                    The Density Ratio compares the bit density of the minimal description to the bit density of the
-                    single word. It provides insights into how the compactness of information encoding changes when
-                    moving from a single-word representation to a minimal description. A DR close to 1 suggests that the
-                    information density is relatively conserved, while a DR significantly different from 1 indicates a
-                    change in density.
-                </p>
-            </li>
-        </ol>
-
-        <h2>7.2. Theoretical Correlations</h2>
-        <p>
-            Analyzing these metrics across semantic hierarchies and diverse concept categories reveals potential
-            correlations between information density and semantic properties. These correlations suggest underlying
-            principles governing semantic organization and information encoding.
-        </p>
-        <ol style="font-size: 20px;">
-            <li><strong>Abstractness Correlation:</strong> Hypothesis: More abstract concepts tend to exhibit higher Bit
-                Ratios (BR(c)). This suggests that the minimal descriptions of abstract concepts are proportionally more
-                information-rich compared to their single-word representations than is the case for concrete concepts.
-                Abstract concepts may require more elaborate descriptions to achieve bidirectional uniqueness due to
-                their less direct grounding in perception and experience.</li>
-            <li><strong>Category Clustering:</strong> Hypothesis: Concepts belonging to the same semantic category tend
-                to exhibit similar Density Ratios (DR(c)). Furthermore, the variance in DR within a semantic category is
-                expected to be lower than the variance in DR across different semantic categories. This suggests that
-                semantic categories are characterized by relatively consistent information density patterns in their
-                minimal descriptions.</li>
-            <li><strong>Cross-linguistic Patterns:</strong> Hypothesis: Similar information density patterns,
-                particularly Density Ratios, may emerge across different languages, even if the word counts and specific
-                words in minimal descriptions vary significantly. This would suggest that there are universal
-                information-theoretic constraints on semantic encoding that transcend language-specific lexicalization
-                patterns.</li>
-        </ol>
-
-        <h2>7.3. Semantic Density Regularity Principle for Semantic Categories</h2>
-        <p>
-            Based on the analysis of Density Ratios and the observed patterns, we propose a Semantic Density Regularity Principle for Semantic Categories. This principle posits that concepts that form an emergent semantic category exhibit a relatively constant Density Ratio in their minimal descriptions, suggesting a principle of semantic regularity within semantic domains.
-        </p>
-        <h2>7.3.1. Fundamental Principle</h2>
-        <p style="text-align: center; font-weight: bold;">|DR(c₁) − DR(c₂)| ≤ εₛ</p>
-        <p>
-            Where:
-        </p>
-        <ul style="font-size: 20px;">
-
-            <li>DR(c₁) and DR(c₂) are the Density Ratios for two concepts c₁ and c₂, respectively.</li>
-            <li>εₛ (epsilon-sub-s) is the category-specific threshold. This threshold represents the
-                maximum allowable difference in Density Ratios for concepts to be considered within the same semantic
-                category with respect to Semantic Density Regularity Principle. The value of εₛ may vary somewhat across
-                different semantic categories, reflecting category-specific variations in information density
-                constraints.</li>
-        </ul>
-        <p>
-            This principle states that for any two concepts c₁ and c₂ that belong to the same semantic category, the
-            absolute difference between their Density Ratios will be less than or equal to the category-specific
-            threshold εₛ. This implies that concepts within a semantic category tend to exhibit a regular level of
-            information density in their minimal linguistic descriptions.
-        </p>
-        <h2>7.3.2. Derivation</h2>
-        <p>
-            The Semantic Density Regularity Principle can be theoretically derived from principles of optimal coding and
-            cognitive processing constraints. For any two concepts c₁ and c₂ where similarity in Density Ratios indicates category emergence:
-        </p>
-        <p style="text-align: center; font-weight: bold;">sim(c₁, c₂) ≥ θ ⟹ |DR(c₁) − DR(c₂)| ≤ εₛ</p>
-        <p>
-            Where:
-        </p>
-        <ul style="font-size: 20px;">
-
-            <li>sim(c₁, c₂) is a semantic similarity function that measures the degree of semantic relatedness between
-                concepts c₁ and c₂.</li>
-            <li>θ (theta) is a semantic similarity threshold. If the semantic similarity between c₁ and c₂ exceeds this
-                threshold (sim(c₁, c₂) ≥ θ), it indicates that they are sufficiently similar to be considered within the
-                same semantic category for the purposes of Semantic Density Regularity Principle.</li>
-            <li>The implication (⟹) indicates that if the semantic similarity is above the threshold, then the Density
-                Ratios of c₁ and c₂ will be constrained to be within the category-specific threshold εₛ.
-            </li>
-        </ul>
-        <p>
-            This relationship emerges from the optimization of cognitive resources in semantic processing. Concepts that cluster by Density Ratio are likely processed and represented in similar ways, leading to the emergence of semantic categories in the cognitive
-            system. Maintaining regular information density within categories may be a strategy to optimize cognitive processing
-            load and facilitate efficient categorization and retrieval.
-        </p>
-        <p>
-            For example, within the category of "vehicles," concepts like "car," "truck," and "bus" might have similar
-            density ratios, reflecting a consistent relationship between their single-word representations and their
-            minimal descriptions. This consistency allows for efficient cognitive processing of related concepts, as the
-            brain can apply similar decoding strategies across the category.
-        </p>
-        <h2>7.3.3. Theoretical Implications</h2>
-        <ul style="font-size: 20px;">
-
-            <li><strong>Information-Theoretic Basis for Category Formation:</strong> The Semantic Density Regularity Principle
-                suggests that semantic categories may naturally emerge based on information density patterns. Concepts
-                that cluster together in terms of Density Ratio may naturally form semantic categories. This provides an
-                information-theoretic foundation for understanding semantic categorization.</li>
-            <li><strong>Cross-Linguistic Invariance in Information Density:</strong> If the principle holds
-                across languages, it would suggest that there are universal cognitive constraints on how meaning is
-                encoded in language, particularly regarding information density within semantic categories. 
-            </li>
-            <li><strong>Prediction of Semantic Category Boundaries:</strong> Analysis of Density Ratio discontinuities
-                could potentially predict semantic category boundaries. Sharp changes or discontinuities in Density
-                Ratios between concepts might indicate transitions between semantic categories. This offers a novel,
-                quantitative method for semantic field analysis and for identifying the boundaries between conceptual
-                domains.</li>
-        </ul>
-    
-        <h2>8. Metaphorical Compression in Minimal Descriptions</h2>
-        <p>
-            Metaphors are recognized as powerful tools in language for conveying complex ideas efficiently. TMD examines
-            metaphors as semantic compression mechanisms, analyzing how they function within the framework of minimal
-            descriptions to achieve conciseness and impact.
-        </p>
-        <h2>8.1. Metaphors as Semantic Compression Mechanisms</h2>
-        <ul style="font-size: 20px;">
-
-            <li><strong>Definition of Metaphorical Mapping:</strong> A metaphorical mapping M: T → S relates a target
-                domain T to a source domain S. In this mapping, elements from the target domain (the concept being
-                described metaphorically) are understood and expressed in terms of elements from the source domain (a
-                more familiar or concrete domain).</li>
-            <li><strong>Compression Ratio (CR) of Metaphorical Description:</strong> To quantify the semantic
-                compression achieved by a metaphor, we define the Compression Ratio (CR) as:<br><br>
-                <p style="text-align: center; font-weight: bold;">CR = |MinDesc(T<sub>literal</sub>)| /
-                    |MinDesc(T<sub>metaphorical</sub>)|</p>
-                <p>
-                    Where:
-                </p>
-                <ul style="font-size: 20px;">
-
-                    <li>|MinDesc(T<sub>literal</sub>)| is the word count of the minimal literal description of the
-                        target domain concept T. This represents the length of a non-metaphorical, direct description of
-                        the concept.</li>
-                    <li>|MinDesc(T<sub>metaphorical</sub>)| is the word count of the minimal metaphorical description of
-                        the same target domain concept T. This is the length of the description when using a metaphor to
-                        express the concept.</li>
-                </ul><br>
-                <p>
-                    The Compression Ratio quantifies how much shorter the metaphorical description is compared to the
-                    literal description. A higher CR indicates greater semantic compression achieved by the metaphor.
-                </p>
-            </li>
-        </ul>
-     
-
-        <h2>8.2. Validation Approach for Metaphorical Compression</h2>
-        <p>
-            To systematically investigate metaphorical compression within TMD, compression ratios could be measured
-            across a wide range of common conceptual metaphors. This hypothesized range suggests an optimal level of semantic compression that balances communicative
-            efficiency with maintaining cognitive accessibility and understandability. Metaphors achieving compression
-            ratios within this range may be particularly effective because they provide significant conciseness without
-            sacrificing too much clarity or requiring excessive cognitive effort to decode.
-        </p>
-        <p>
-            A potential validation study could categorize common metaphors (such as "Time is money") based on their compression ratios and assess
-            their prevalence, memorability, and cross-cultural portability. This would help determine whether there is
-            indeed an optimal compression range for metaphorical expressions.
-        </p>
-        <h2>8.3. Implications for TMD</h2>
-        <ul style="font-size: 20px;">
-
-            <li><strong>Metaphors as Efficient Compression Mechanisms:</strong> Metaphors demonstrate the capacity to
-                achieve substantial semantic compression, as quantified by high Compression Ratios. This efficiency
-                makes metaphors powerful tools for conveying complex or abstract ideas in a concise and memorable
-                manner.</li>
-            <li><strong>Cultural Dependency of Metaphorical Effectiveness:</strong> The effectiveness of metaphors is
-                inherently dependent on shared cultural understanding and conceptual mappings. The source domain of a
-                metaphor must be culturally familiar and resonant for the metaphorical mapping to be readily understood
-                and to achieve its intended compression. This explains cross-cultural variations in the prevalence and
-                effectiveness of specific metaphors.</li>
-            <li><strong>Cognitive Accessibility and Optimal Compression:</strong> The hypothesized
-                optimal compression range suggests that there is a cognitive balance in metaphorical
-                compression. While metaphors compress information, they must also remain cognitively accessible and
-                interpretable. Excessive compression might lead to obscurity or ambiguity, while insufficient
-                compression may not provide significant communicative advantages. Optimal metaphorical compression
-                likely balances information density with processing constraints, maximizing communicative efficiency
-                within cognitive limits.</li>
-        </ul>
         <img src="images/TMD3.jpg" alt="Metaphorical Compression" width="1024" height="1792" decoding="async" loading="lazy">
         <p class="caption">Universe 00110000</p>
-        <h2>9. Theoretical Implications and Emergent Linguistic Categories</h2>
-        <p>
-            TMD has significant theoretical implications, particularly in relation to information theory and existing
-            semantic theories. It also offers a novel perspective on the nature of linguistic categories, suggesting
-            that they may be emergent properties of information density patterns rather than externally imposed
-            classifications.
-        </p>
-        <h2>9.1. Relationship to Information Theory</h2>
+        <h2>9. Information Theory and Emergent Categories</h2>
+
+        <h3>9.1 Descriptions as Programs</h3>
+        <p>Algorithmic information theory measures the complexity of an object by the length of the shortest
+            program that produces it (Kolmogorov 1965; Li and Vitányi 2008). TMD is the semantic counterpart:
+            the complexity of a concept is the length, in words or in bits, of the shortest phrase that identifies
+            it. Words are the units of the code, as bits are the units of a program, and the minimal description is
+            the shortest program a listener can run to reach the concept. Three consequences follow from the
+            analogy.</p>
         <ul style="font-size: 20px;">
-
-            <li><strong>Connection to Complexity Theory:</strong> Complexity theory measures the information content of
-                an entity as the length of the shortest possible description that can fully specify that entity. TMD
-                draws a parallel to complexity theory by measuring semantic complexity in terms of the length of the
-                minimal linguistic description (in words).</li>
-            <li><strong>TMD as Semantic Complexity Measure:</strong> TMD can be viewed as a semantic analog of
-                complexity theory applied to natural language. TMD focuses on words and
-                linguistic descriptions within a language system. Minimal word count in TMD is analogous to minimal
-                program length in complexity theory, both aiming to capture the inherent complexity of an entity through
-                its shortest possible description.</li>
-        </ul>
-        <p>
-            Implications of this relationship:
-        </p>
-        <ul style="font-size: 20px;">
-
-            <li><strong>Words as Semantic Units:</strong> Within the TMD framework, words in minimal descriptions
-                function analogously to bits in computational information theory. Words serve as fundamental units of
-                semantic information encoding, similar to how bits are fundamental units of digital information. This
-                analogy provides a bridge between linguistic semantics and quantitative information theory.</li>
-            <li><strong>Minimal Word Count as Measure of Semantic Complexity:</strong> The minimal word count in a TMD
-                description reflects the conceptual complexity and inherent information content of a concept. Concepts
-                requiring longer minimal descriptions are inherently more semantically complex, analogous to how objects
-                with higher complexity require longer programs to describe. This provides a quantitative measure of
-                semantic complexity grounded in linguistic description length.</li>
-            <li><strong>Language as an Optimized Encoding System:</strong> Language, viewed through the lens of TMD, can
-                be understood as a highly evolved and optimized encoding system for meaning. Syntactic and semantic
-                rules within a language function to optimize the trade-off between communicative precision and
-                descriptive efficiency, much like efficient coding schemes in information theory aim to optimize data
-                representation.</li>
-        </ul>
-     
-
-        <h2>9.2. Emergent Linguistic Categories: A Paradigm Shift</h2>
-        <p>
-            A significant theoretical insight emerging from TMD is the proposition that linguistic categories may be
-            emergent properties of information density patterns, rather than pre-defined or externally imposed
-            classifications. This perspective represents a potential paradigm shift in our understanding of language
-            organization, suggesting that semantic structure arises from quantifiable information properties.
-        </p>
-        <h2>9.2.1. From Imposed to Emergent Classification</h2>
-        <p>
-            Traditional linguistic theory often relies on externally imposed categorization systems. However, TMD suggests an alternative view: that linguistic
-            categories could emerge naturally from measurable information properties inherent in language itself.
-            Categories, in this view, are not arbitrary groupings but rather reflect underlying patterns in information
-            density and semantic relationships. This shift towards emergent classification offers a more objective and
-            data-driven approach to understanding semantic organization.
-        </p>
-        <h2>9.2.2. Mathematical Emergence of Categories</h2>
-        <p>
-            Within TMD, semantic categories can be mathematically defined as emerging from information density
-            clustering. The category membership of concepts can be determined based on the similarity of their Density
-            Ratios:
-        </p>
-        <p style="text-align: center; font-weight: bold;">
-            C(c₁, c₂) = { 1 if |DR(c₁) − DR(c₂)| ≤ εₛ; 0 otherwise }
-        </p>
-        <p>
-            Where:
-        </p>
-        <ul style="font-size: 20px;">
-
-            <li>C(c₁, c₂) is a category membership function that returns 1 if concepts c₁ and c₂ are considered to be in
-                the same category based on Density Ratio similarity, and 0 otherwise.</li>
-            <li>|DR(c₁) − DR(c₂)| is the absolute difference between the Density Ratios of concepts c₁ and c₂.</li>
-            <li>εₛ is the category-specific threshold, as defined in Section 7.3.1.</li>
-        </ul>
-        <p>
-            A semantic category K emerges when for all pairs of concepts c₁, c₂ within K, the category membership
-            function C(c₁, c₂) = 1. This means that all concepts within category K exhibit Density Ratios that are
-            sufficiently similar, falling within the threshold εₛ.
-        </p>
-        <p>
-            For instance, by analyzing the Density Ratios of color terms (e.g., "red," "blue," "green"), we might
-            discover that they naturally cluster together with similar DR values, while terms for emotions (e.g.,
-            "anger," "joy," "fear") form a different cluster with their own characteristic DR values. These emergent
-            clusters would correspond to our intuitive understanding of semantic categories without requiring
-            pre-defined taxonomies.
-        </p>
-        <p>
-            This formulation provides a quantitative and testable basis for understanding category formation. Semantic
-            categories, in this emergent view, are not arbitrary labels but rather represent clusters of concepts that
-            exhibit similar information density properties in their minimal linguistic descriptions. This approach
-            allows for objective identification and analysis of semantic categories based on measurable
-            information-theoretic properties.
-        </p>
-     
-
-        <h2>10. The Unified Theory of Semantic Density Regularity and Linguistic Information Equilibrium</h2>
-        <p>
-            Building upon the foundational principles of TMD, we propose a Unified Theory of Semantic Density Regularity and
-            Linguistic Information Equilibrium. This theory integrates the Semantic Density Regularity Principle with a dynamic
-            equilibrium model of language, positing these as core principles governing the organization and evolution of
-            semantic systems.
-        </p>
-        <h2>10.1. Core Principles of Semantic Density Regularity</h2>
-        <ul style="font-size: 20px;">
-
-            <li><strong>Recursive Self-Reference and Regularity Thresholds:</strong> The threshold values (εₛ) that
-                define semantic categories based on Density Ratios are not arbitrary but are themselves subject to the
-                Semantic Density Regularity Principle. This suggests a recursive self-referential property of semantic
-                categories, where the principles governing category formation are also reflected in the properties of
-                the categories themselves. Categories manifest as self-referential structures maintained
-                Semantic Density Regularity Principle.</li>
-            <li><strong>Natural Emergence of Categories from Information Density:</strong> Semantic categories emerge
-                naturally from information density patterns without requiring externally imposed classification criteria
-                or pre-defined semantic boundaries. The inherent properties of minimal descriptions and their
-                information density distributions give rise to category structure, reflecting a bottom-up, emergent
-                organization of meaning.</li>
-        </ul>
-
-        <h2>10.2. Linguistic Information Equilibrium Hypothesis</h2>
-        <p>
-            We propose the Linguistic Information Equilibrium Hypothesis, which posits that languages operate under a
-            principle of information equilibrium. This hypothesis suggests that the total information capacity of a
-            language remains relatively stable over time, while the semantic space within the language dynamically
-            redistributes to accommodate evolving conceptual needs and cultural changes.
-        </p>
-        <h2>10.2.1. Core Proposition</h2>
-        <p style="text-align: center; font-weight: bold;">
-            I<sub>total</sub>(L, t) = ∑<sub>w ∈ L</sub> I(w, t) ≈ K
-        </p>
-        <p>
-            Where:
-        </p>
-        <ul style="font-size: 20px;">
-
-            <li>I<sub>total</sub>(L, t) represents the total information capacity of language L at a given time t. This
-                is defined as the sum of the information content of all words <em>w</em> in the vocabulary of language L
-                at time t.</li>
-            <li>I(w, t) is the information content of a specific word <em>w</em> in language L at time t, calculated
-                according to the TMD framework (e.g., using minimal dictionary and binary encoding, potentially
-                considering recursive information content).</li>
-            <li>K is a quasi-constant value representing the relatively stable total information capacity of the
-                language. While K may fluctuate within certain bounds over very long timescales, it is hypothesized to
-                remain approximately constant in the short to medium term, reflecting cognitive and social constraints
-                on the overall information load a language system can effectively manage.</li>
-        </ul>
-        <h2>10.2.2. Dynamic Equilibrium Model</h2>
-        <p style="text-align: center; font-weight: bold;">
-            ΔI<sub>compression</sub>(t) + ΔI<sub>obsolescence</sub>(t) ≈ ΔI<sub>expansion</sub>(t)
-        </p>
-        <p>
-            This equation represents a Dynamic Equilibrium Model for linguistic information. It suggests that changes in
-            the total information content of a language are governed by a dynamic balance between three primary
-            processes:
-        </p>
-        <ul style="font-size: 20px;">
-
-            <li>ΔI<sub>compression</sub>(t): Represents the change in total information content due to semantic
-                compression processes. This includes mechanisms like metaphor formation, semantic bleaching, and the
-                evolution of more concise minimal descriptions for existing concepts. Semantic compression reduces the
-                information content associated with certain parts of the vocabulary.</li>
-            <li>ΔI<sub>obsolescence</sub>(t): Represents the change in total information content due to lexical
-                obsolescence. As some words and concepts become less relevant or fall out of use, their information
-                content effectively diminishes or is removed from the active language system. This contributes to a
-                decrease in total information content.</li>
-            <li>ΔI<sub>expansion</sub>(t): Represents the change in total information content due to lexical expansion.
-                This includes the introduction of new words to describe novel concepts, technological advancements, or
-                cultural innovations. Lexical expansion increases the total information content of the language.</li>
-        </ul>
-        <p>
-            The equation posits that, over time, the decrease in information content due to semantic compression and
-            lexical obsolescence is approximately balanced by the increase in information content from lexical
-            expansion. This dynamic equilibrium maintains a relatively stable total information capacity for the
-            language, even as its vocabulary and semantic structure evolve.
-        </p>
-      
-    
-        <h2>10.2.3. Cognitive Limits and Linguistic Equilibrium: A Dunbar-like Principle</h2>
-        <p>
-            The Linguistic Information Equilibrium Hypothesis is fundamentally constrained by human cognitive capacity.
-            Just as Dunbar's number suggests a cognitive limit on the number of stable social relationships humans can
-            manage, we propose a similar principle applies to language: there's a cognitive limit to the total
-            "information symbols" (words, semantic units) a language can effectively maintain.
-        </p>
-        <p>
-            This isn't about a strict count, but rather the overall cognitive load imposed by the vocabulary and
-            semantic complexity. Exceeding this cognitive capacity would hinder communication efficiency and
-            learnability. The Linguistic Information Equilibrium, therefore, represents a dynamic adaptation to keep
-            language within manageable cognitive bounds, ensuring its effectiveness as a communication system.
-            Mechanisms like semantic compression and lexical obsolescence act as balancing forces against lexical
-            expansion, maintaining this equilibrium and reflecting inherent human cognitive limitations in handling
-            linguistic information.
-        </p>
-
-        <h2>10.3. Integration of Regularity and Equilibrium</h2>
-        <p>
-            The Unified Theory of Semantic Density Regularity and Linguistic Information Equilibrium integrates these two core
-            principles to provide a comprehensive framework for understanding language as a dynamic and self-regulating
-            system. Language structures, according to this theory, maintain equilibrium at multiple levels of
-            organization:
-        </p>
-        <ul style="font-size: 20px;">
-
-            <li><strong>Semantic Category Level:</strong> Semantic density regularity within semantic categories
-                (Semantic Density Regularity Principle) enables efficient categorization and semantic processing. By maintaining
-                relatively constant information density within categories, language optimizes cognitive resources for
-                semantic representation and retrieval.</li>
-            <li><strong>Lexical Level:</strong> The overall information capacity of the lexicon (Linguistic Information
-                Equilibrium Hypothesis) remains relatively stable over time, despite continuous vocabulary changes and
-                semantic evolution. This equilibrium ensures that the language system as a whole remains manageable
-                within cognitive constraints, even as it adapts to changing communicative needs.</li>
-            <li><strong>Cognitive Level:</strong> Both principles of regularity and equilibrium reflect fundamental
-                constraints on human information processing and memory. The limited cognitive capacity of language users
-                shapes both the organization of semantic categories and the overall information load that a language
-                system can effectively sustain.</li>
-        </ul>
-
-        <h2>10.4. Theoretical Support and Implications</h2>
-        <p>
-            The Unified Theory of Semantic Density Regularity and Linguistic Information Equilibrium provides a comprehensive
-            theoretical framework for understanding a range of phenomena related to language structure, evolution, and
-            cognition:
-        </p>
-        <ul style="font-size: 20px;">
-
-            <li><strong>Understanding Semantic Evolution:</strong> The theory explains how languages adapt to new
-                conceptual domains and changing communicative needs while maintaining internal coherence and stability.
-                The dynamic equilibrium model accounts for how lexical innovation and semantic change are balanced to
-                maintain a functional and manageable language system over time.</li>
-            <li><strong>Explaining Cross-linguistic Universals:</strong> The theory provides a basis for understanding
-                why similar organizational patterns and semantic categories emerge across typologically diverse
-                languages. Universal cognitive constraints and information-theoretic optimization principles, reflected
-                in regularity and equilibrium, could drive convergent evolution of language structure across cultures.
+            <li>Minimal word count, or better <em>I(MD<sub>L</sub>(c))</em>, is a measure of semantic complexity: a
+                concept that needs a long description is more complex, as an object that needs a long program is.
             </li>
-            <li><strong>A Framework for Category Formation and Structure:</strong> The emergent nature of semantic
-                categories, driven by information density patterns and regularity, offers a new perspective on
-                category formation. The theory provides a quantitative and objective basis for understanding how
-                semantic categories arise and are structured within language.</li>
-            <li><strong>Cognitive Economy and Efficiency in Language:</strong> The Unified Theory highlights the
-                principle of cognitive economy as a driving force in language design. Both semantic density regularity and
-                linguistic equilibrium contribute to optimizing communication efficiency within the limitations of human
-                cognitive processing capacity. Language, in this view, is a highly efficient system for encoding and
-                transmitting meaning, shaped by fundamental information-theoretic principles and cognitive constraints.
-            </li>
+            <li>Language is an evolved code. Its rules for building phrases balance precision against length, as a
+                good code balances distinctness against length, and Zipf (1949) showed that the balance between
+                speaker and listener effort leaves the statistical signature that Ferrer i Cancho and Solé (2003)
+                later derived from a least-effort model.</li>
+            <li>The analogy has a limit that the surprisal measure respects: program length is defined up to a
+                constant that depends on the machine, and description length is defined up to the audience, so
+                comparisons are meaningful within a fixed audience and probability model.</li>
         </ul>
 
+        <h3>9.2 Categories as Emergent Clusters</h3>
+        <p>Linguistic theory often starts from a classification and asks how words fit it. TMD reverses the order.
+            Categories are recovered from measurable properties of descriptions, by the membership function of
+            Section 7.3, and a category is a cluster of concepts whose descriptions have similar information density
+            and whose meanings are similar. Nothing about the classification is fixed in advance. Applied to color
+            words, the procedure should return the color terms as one cluster; applied to emotion words, another;
+            and the boundaries between clusters should coincide with the categories that speakers recognize. Where
+            they do not coincide, the measurement has found a category that the classification missed, or a
+            classification that the language does not support, and both are results. The claim is quantitative and
+            testable, which is what distinguishes it from a taxonomy.</p>
+
+        <h2>10. Semantic Density Regularity and Linguistic Information Equilibrium</h2>
+        <p>The density regularity of Section 7 governs categories. A second regularity governs the lexicon as a
+            whole, and the two together describe a language as a self-regulating system.</p>
+
+        <h3>10.1 Regularity at the Category Level</h3>
+        <p>Categories emerge from information density without an imposed classification, and the thresholds
+            <em>ε<sub>s</sub></em> that define them are themselves regular: categories at the same level of the
+            hierarchy have similar thresholds, because their members are named and defined at similar levels.
+            Regularity within categories reduces the cost of processing them, since one decoding strategy serves all
+            members, and this economy is the reason the regularity persists.</p>
+
+        <h3>10.2 The Linguistic Information Equilibrium Hypothesis</h3>
+        <div class="theorem">
+            <strong>Hypothesis 10.1 (Linguistic Information Equilibrium):</strong> For the working vocabulary
+            <em>L<sub>t</sub></em> of a speech community at time <em>t</em>,
+            <p style="text-align: center; font-weight: bold;">I<sub>total</sub>(L, t) = ∑<sub>w ∈ L<sub>t</sub></sub>
+                I(w, t) ≈ K</p>
+            where <em>I(w, t)</em> is the information content of <em>w</em> at time <em>t</em> and <em>K</em> is a
+            quasi-constant that changes only over long timescales.
+        </div>
+        <p>The hypothesis concerns the vocabulary a community actually uses, and the difference from the union of everything ever printed matters, because the printed lexicon of English grew through the twentieth
+            century while many words fell out of use (Michel et al. 2011), and Petersen et al. (2012) found that the
+            rate at which new words enter a language falls as the language expands. A growing archive and a
+            bounded working vocabulary are compatible, and the hypothesis is about the second.</p>
+        <p>Change in the total is governed by three processes:</p>
+        <p style="text-align: center; font-weight: bold;">ΔI<sub>compression</sub>(t) + ΔI<sub>obsolescence</sub>(t)
+            ≈ ΔI<sub>expansion</sub>(t)</p>
+        <ul style="font-size: 20px;">
+            <li>Compression: metaphor, semantic bleaching, and the shortening of descriptions reduce the
+                information carried by existing words.</li>
+            <li>Obsolescence: words that leave use take their information with them.</li>
+            <li>Expansion: new words for new concepts, techniques, and practices add information.</li>
+        </ul>
+        <p>Equilibrium holds when the losses balance the gains, so that the total stays near <em>K</em> while the
+            vocabulary turns over.</p>
+
+        <h3>10.3 A Dunbar-like Limit</h3>
+        <p>What fixes <em>K</em> is cognition. Dunbar (1992) argued that the size of stable social groups is
+            bounded by neocortex size, and the bound is a limit on the relationships a person can maintain. The
+            equilibrium hypothesis proposes a limit of the same kind on the information a community's vocabulary
+            can carry: a bound on the total load of words and definitions that speakers can learn, hold, and use
+            with reliable uniqueness. The bound applies to total load, and a word count is only a proxy for it. Exceeding it would cost learnability and
+            communicative efficiency, so compression and obsolescence act as restoring forces against expansion.
+            The equilibrium is the adaptation that keeps a language inside its speakers' capacity.</p>
+
+        <h3>10.4 Equilibrium at Three Levels</h3>
+        <ul style="font-size: 20px;">
+            <li>Category level: density regularity keeps members of a category at a common information density,
+                which economizes processing and retrieval.</li>
+            <li>Lexical level: information equilibrium keeps the total load of the working vocabulary near
+                <em>K</em> through turnover.</li>
+            <li>Cognitive level: both regularities express the same limit on memory and processing in the
+                speakers of the language.</li>
+        </ul>
+        <p>Together the two principles explain how a language absorbs new domains while staying coherent, why
+            similar categories appear in unrelated languages, why categories have the structure they have, and why
+            economy is a design force in language. The tests are concrete. Density regularity is tested on
+            lexical resources with a corpus probability model. Equilibrium is tested on diachronic corpora by
+            computing <em>I<sub>total</sub></em> for the working vocabulary of successive decades with one defining
+            vocabulary held fixed, and the hypothesis predicts a bounded series with turnover under it.</p>
 
         <h2>11. Conclusion</h2>
-        <p>
-            The Theory of Minimal Description (TMD) provides a comprehensive framework for analyzing semantic
-            organization in natural languages. It offers novel insights into how languages efficiently encode meaning
-            while maintaining communicative precision and bidirectional understanding. By formalizing the concept of
-            minimal descriptions through information-theoretic principles and considering the critical roles of network
-            connectivity, semantic directionality, and information density, TMD bridges linguistic theory with
-            quantitative approaches from semantics and cognitive science.
-        </p>
-        <p>
-            Key contributions of TMD include:
-        </p>
-        <ul style="font-size: 20px;">
+        <p>The Theory of Minimal Description gives semantic organization a formal core. A minimal description is
+            the shortest phrase that identifies a concept for a listener, tested by the collapse of the description
+            when any word is removed, contained in the language, and connected to its network. The network of
+            definitions has a direction, proved from the ban on circular definition: every description points
+            toward a small set of primitives, every chain of definitions terminates, and the recursive information
+            content of a language is finite exactly when this holds. Descriptions can be measured in bits by the
+            surprisal of their words, and the measurement supports three proposals that can be tested against
+            lexical resources and corpora: members of a semantic category share an information density, categories
+            can be recovered from density and similarity without an imposed taxonomy, and the working vocabulary of
+            a speech community carries a nearly constant total of information while its words turn over.</p>
+        <p>The framework is language-relative and audience-relative by construction, so it applies to expertise,
+            to culture, and to metaphor with the same equations. Its applications reach natural language
+            processing, where minimal descriptions and depth-limited recursion are computable from existing
+            resources; education, where staged learning follows the depth of the hierarchy; cross-cultural
+            communication, where implicit information can be counted; and cognitive modeling, where the equilibrium
+            hypothesis states a limit that can be measured.</p>
 
-            <li>A formal framework for identifying and analyzing minimal descriptions based on the principles of
-                Bidirectional Uniqueness, Collapse Property, Language Containment, and Network Connection. These
-                principles collectively define the criteria for minimal and effective semantic representation.</li>
-            <li>The identification of Semantic Directionality as a fundamental organizing principle in lexical
-                semantics. This principle reveals an inherent asymmetry in definitional relationships, structuring
-                semantic space hierarchically and contributing to network stability and efficiency.</li>
-            <li>Mathematical formalization of semantic density regularity within semantic categories (Semantic Density Regularity Principle). This principle suggests an emergent property of semantic categories, arising from the
-                consistent information density patterns in their minimal descriptions and providing an
-                information-theoretic basis for semantic categorization.</li>
-            <li>A Unified Theory of Semantic Density Regularity and Linguistic Information Equilibrium. This theory integrates
-                the Semantic Density Regularity Principle with a dynamic equilibrium model, proposing that languages operate
-                under a principle of information equilibrium, maintaining a relatively stable total information capacity
-                while dynamically adapting to evolving communicative needs.</li>
-         
+        <h3>References</h3>
+        <ul style="font-size: 18px;">
+            <li>Barnes, Jonathan, editor. <em>The Complete Works of Aristotle: The Revised Oxford Translation</em>.
+                Princeton University Press, 1984.</li>
+            <li>Blondin Massé, Alexandre, Guillaume Chicoisne, Yassine Gargouri, Stevan Harnad, Olivier Picard, and
+                Odile Marcotte. "How Is Meaning Grounded in Dictionary Definitions?" <em>Proceedings of the 3rd
+                    Textgraphs Workshop on Graph-Based Algorithms for Natural Language Processing</em>, Coling 2008,
+                17–24.</li>
+            <li>Chi, Michelene T. H., Paul J. Feltovich, and Robert Glaser. "Categorization and Representation of
+                Physics Problems by Experts and Novices." <em>Cognitive Science</em> 5, no. 2, 1981, 121–152.</li>
+            <li>Clark, Herbert H. <em>Using Language</em>. Cambridge University Press, 1996.</li>
+            <li>Dale, Robert, and Ehud Reiter. "Computational Interpretations of the Gricean Maxims in the
+                Generation of Referring Expressions." <em>Cognitive Science</em> 19, no. 2, 1995, 233–263.</li>
+            <li>Dunbar, R. I. M. "Neocortex Size as a Constraint on Group Size in Primates." <em>Journal of Human
+                    Evolution</em> 22, no. 6, 1992, 469–493.</li>
+            <li>Ferrer i Cancho, Ramon, and Ricard V. Solé. "Least Effort and the Origins of Scaling in Human
+                Language." <em>Proceedings of the National Academy of Sciences</em> 100, no. 3, 2003, 788–791.</li>
+            <li>Goddard, Cliff, and Anna Wierzbicka, editors. <em>Meaning and Universal Grammar: Theory and
+                    Empirical Findings</em>. 2 vols., John Benjamins, 2002.</li>
+            <li>Grice, H. P. "Logic and Conversation." In <em>Syntax and Semantics 3: Speech Acts</em>, edited by
+                Peter Cole and Jerry L. Morgan, Academic Press, 1975, 41–58.</li>
+            <li>Hale, John. "A Probabilistic Earley Parser as a Psycholinguistic Model." <em>Proceedings of the
+                    Second Meeting of the North American Chapter of the Association for Computational
+                    Linguistics</em>, 2001, 159–166.</li>
+            <li>Kolmogorov, A. N. "Three Approaches to the Quantitative Definition of Information." <em>Problems of
+                    Information Transmission</em> 1, no. 1, 1965, 1–7.</li>
+            <li>Lakoff, George, and Mark Johnson. <em>Metaphors We Live By</em>. University of Chicago Press,
+                1980.</li>
+            <li>Levy, Roger. "Expectation-Based Syntactic Comprehension." <em>Cognition</em> 106, no. 3, 2008,
+                1126–1177.</li>
+            <li>Li, Ming, and Paul Vitányi. <em>An Introduction to Kolmogorov Complexity and Its Applications</em>.
+                3rd ed., Springer, 2008.</li>
+            <li><em>Longman Dictionary of Contemporary English</em>. 6th ed., Pearson Education, 2014.</li>
+            <li>Michel, Jean-Baptiste, Yuan Kui Shen, Aviva Presser Aiden, Adrian Veres, Matthew K. Gray, The Google
+                Books Team, Joseph P. Pickett, et al. "Quantitative Analysis of Culture Using Millions of Digitized
+                Books." <em>Science</em> 331, no. 6014, 2011, 176–182.</li>
+            <li>Miller, George A. "WordNet: A Lexical Database for English." <em>Communications of the ACM</em> 38,
+                no. 11, 1995, 39–41.</li>
+            <li>Ogden, C. K. <em>Basic English: A General Introduction with Rules and Grammar</em>. Kegan Paul,
+                Trench, Trubner, 1930.</li>
+            <li>Petersen, Alexander M., Joel N. Tenenbaum, Shlomo Havlin, H. Eugene Stanley, and Matjaž Perc.
+                "Languages Cool as They Expand: Allometric Scaling and the Decreasing Need for New Words."
+                <em>Scientific Reports</em> 2, 2012, 943.</li>
+            <li>Piantadosi, Steven T., Harry Tily, and Edward Gibson. "Word Lengths Are Optimized for Efficient
+                Communication." <em>Proceedings of the National Academy of Sciences</em> 108, no. 9, 2011,
+                3526–3529.</li>
+            <li>Rissanen, J. "Modeling by Shortest Data Description." <em>Automatica</em> 14, no. 5, 1978,
+                465–471.</li>
+            <li>Rosch, Eleanor, Carolyn B. Mervis, Wayne D. Gray, David M. Johnson, and Penny Boyes-Braem. "Basic
+                Objects in Natural Categories." <em>Cognitive Psychology</em> 8, no. 3, 1976, 382–439.</li>
+            <li>Shannon, C. E. "A Mathematical Theory of Communication." <em>Bell System Technical Journal</em> 27,
+                1948, 379–423 and 623–656.</li>
+            <li>Steyvers, Mark, and Joshua B. Tenenbaum. "The Large-Scale Structure of Semantic Networks:
+                Statistical Analyses and a Model of Semantic Growth." <em>Cognitive Science</em> 29, no. 1, 2005,
+                41–78.</li>
+            <li>Vincent-Lamarre, Philippe, Alexandre Blondin Massé, Marcos Lopes, Mélanie Lord, Odile Marcotte, and
+                Stevan Harnad. "The Latent Structure of Dictionaries." <em>Topics in Cognitive Science</em> 8, no.
+                3, 2016, 625–659.</li>
+            <li>Watts, Duncan J., and Steven H. Strogatz. "Collective Dynamics of 'Small-World' Networks."
+                <em>Nature</em> 393, 1998, 440–442.</li>
+            <li>Wierzbicka, Anna. <em>Semantics: Primes and Universals</em>. Oxford University Press, 1996.</li>
+            <li>Zipf, George Kingsley. <em>Human Behavior and the Principle of Least Effort</em>. Addison-Wesley,
+                1949.</li>
         </ul>
-        <p>
-            These theoretical advances offered by TMD have potential practical applications in diverse fields such as
-            natural language processing, education, cross-cultural communication, and cognitive modeling. As research
-            continues to develop and empirically validate TMD through diverse methodologies and datasets, this framework
-            will contribute to a deeper and more quantitative understanding of language.
-        </p>
         <div class="circle-container">
             <div class="arrow left" onclick="shiftSlide(-1)">&#10094;</div>
             <div class="circle-wrapper">
@@ -1245,10 +749,9 @@
 
     </article>
     </main>
-    <div id="footer"></div>
+    <div id="footer"><footer class="footer"><p><span class="footer-ai-note">Created through human and AI collaboration.</span></p></footer></div>
 
-    <script defer src="../../js/components.min.js?v=8"></script>
-    <script defer src="article-subscribe.min.js?v=16"></script>
+    <script defer src="../../js/components.min.js?v=10"></script>
     <script defer src="slider.min.js?v=5"></script>
 </body>
 

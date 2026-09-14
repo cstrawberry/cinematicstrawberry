@@ -7,7 +7,7 @@
     <meta name="format-detection" content="telephone=no">
     <title>The Something-Nothing Spectrum: Shared Semantic Encoding</title>
     <meta name="description" content="This paper introduces a framework for classifying words along a something-nothing spectrum, representing the continuum between existence and non-existence.">
-    <link href="article-style.min.css?v=45" rel="stylesheet" />
+    <link href="article-style.min.css?v=47" rel="stylesheet" />
     <link rel="icon" type="image/png" href="../../images/favicon.png">
 </head>
 
@@ -39,12 +39,28 @@
         <hr>
 
         <h2>Abstract</h2>
-        <p>This paper introduces a framework for classifying words along a something-nothing spectrum, representing the continuum between existence and non-existence. By assigning numerical values between 0 and 1 to words based on their ontological proximity to existence or non-existence, this framework offers a method for studying how language reflects and shapes perception of being. The classification process leverages large language models (LLMs), which provide scalable word classifications rooted in broad human linguistic data. The approach opens research paths across linguistics, artificial intelligence (AI), and cross-domain machine-to-machine communication.</p>
+        <p>The something-nothing spectrum classifies words along the continuum between existence and non-existence. By assigning numerical values between 0 and 1 to words based on their ontological proximity to existence or non-existence, this framework offers a method for studying how language reflects and shapes perception of being. The classification uses large language models, which give scalable word classifications rooted in broad human usage (Mikolov et al. 2013; Brown et al. 2020). Placing words on a rated scale has a long precedent in the semantic differential of Osgood, Suci, and Tannenbaum (1957), and the choice of which senses to rate raises the difficulty Bolinger (1965) identified in dividing meaning into units. Wierzbicka (1996) argues that a small set of primes underlies such divisions, and Shannon (1948) supplies the measure for what a rated vocabulary can carry. The approach opens research paths across linguistics, artificial intelligence (AI), and cross-domain machine-to-machine communication.</p>
+
+        <h2>The Spectrum in Plain Terms</h2>
+        <p>Sort a pile of words by how much they assert that something is there. "Boulder" goes at one end.
+            "Vacuum" goes near the other. "Shadow" sits awkwardly in the middle, since a shadow is a real thing
+            made of an absence. That ordering is what the spectrum measures.</p>
+        <p>Assigning each word a number between 0 and 1 turns the intuition into something usable. The number
+            says how close a word sits to asserting presence, so the vocabulary of a language becomes a
+            distribution rather than a list, and questions about it become measurable: which fields lean toward
+            presence, whether languages differ, whether a text drifts one way as it goes on.</p>
+        <p>Language models do the placing, and the reason is practical. They have absorbed enormous amounts of
+            human usage, so their judgments about which words are close to which reflect how the words are
+            actually used, and they are consistent enough to repeat. Whether their placements match human
+            judgment is a question for the same experiment that uses them.</p>
+        <p>The application here is encoding. Once every word carries a number, a binary string can be written as
+            a sequence of words and read back, which lets numbers travel as text and text be checked for
+            numerical structure.</p>
 
         <h2>1. Introduction</h2>
         <p>The <strong>Something-Nothing Spectrum</strong> presents an innovative method to classify words based on their association with the concepts of presence ("something") or absence ("nothing"). This quantitative approach illuminates the deeper ontological layers of human communication, offering insights into how we cognitively encode existence.</p>
 
-        <p>This paper aims to:</p>
+        <p>The work below sets out to:</p>
         <ul style="font-size: 20px;">
             <li>Introduce a robust methodology for classifying words along the Something-Nothing Spectrum.</li>
             <li>Explore the implications of such a classification in linguistics and AI.</li>
@@ -127,7 +143,7 @@
 
         <ul style="font-size: 20px;">
             <li><strong>LLM Biases</strong>: Despite the use of multiple models, biases present in the training data of LLMs may still affect word classification. Ongoing validation and cross-model comparison are essential to mitigate this issue.</li>
-            <li><strong>Contextual Sensitivity</strong>: The ontological weight of a word may shift depending on its context. Future iterations of this framework could explore dynamic, context-aware classifications rather than static ones.</li>
+            <li><strong>Contextual Sensitivity</strong>: The ontological weight of a word shifts with its context, so the unit scored is the word in use rather than the dictionary entry. The classification step of Section 2.3 supplies the surrounding text with each query, and the resulting value is indexed to that occurrence.</li>
             <li><strong>Computational Complexity</strong>: Processing large corpora, especially when converting entire texts to binary sequences, can be computationally intensive. Developing more efficient algorithms for large-scale application is crucial.</li>
             <li><strong>Maintaining Semantic Nuance</strong>: While the binary representation allows for efficient data transfer, there's a risk of losing subtle semantic nuances. Ongoing research is needed to refine the balance between compression and preservation of meaning.</li>
         </ul>
@@ -136,6 +152,22 @@
         <p>The Something-Nothing Spectrum framework represents a pioneering approach to understanding language's relationship to existence and non-existence. By assigning numerical values to words and converting text into ontological patterns, the framework opens new possibilities for linguistic analysis, AI development, and machine-to-machine communication.</p>
 
         <p>The integration of sophisticated interpretation mechanisms, including grammatical filtering, context awareness, and dynamic dictionaries, helps machines process and transmit abstract concepts while maintaining linguistic coherence. This creates a shared machine-readable representation that can support human analysis and automated processing.</p>
+
+        <h3>References</h3>
+        <ul style="font-size: 18px;">
+            <li>Bolinger, Dwight. "The Atomization of Meaning." <em>Language</em> 41, no. 4, 1965,
+                555&ndash;573.</li>
+            <li>Brown, Tom B., et al. "Language Models Are Few-Shot Learners." <em>Advances in Neural Information
+                    Processing Systems</em> 33, 2020, 1877&ndash;1901.</li>
+            <li>Mikolov, Tomas, Kai Chen, Greg Corrado, and Jeffrey Dean. "Efficient Estimation of Word
+                Representations in Vector Space." arXiv:1301.3781, 2013.</li>
+            <li>Osgood, Charles E., George J. Suci, and Percy H. Tannenbaum. <em>The Measurement of Meaning</em>.
+                University of Illinois Press, 1957.</li>
+            <li>Shannon, C. E. "A Mathematical Theory of Communication." <em>Bell System Technical Journal</em>
+                27, 1948, 379&ndash;423 and 623&ndash;656.</li>
+            <li>Wierzbicka, Anna. <em>Semantics: Primes and Universals</em>. Oxford University Press, 1996.</li>
+        </ul>
+
 
 
         <div class="circle-container">
@@ -148,10 +180,9 @@
 
     </article>
     </main>
-    <div id="footer"></div>
+    <div id="footer"><footer class="footer"><p><span class="footer-ai-note">Created through human and AI collaboration.</span></p></footer></div>
 
-    <script defer src="../../js/components.min.js?v=8"></script>
-    <script defer src="article-subscribe.min.js?v=16"></script>
+    <script defer src="../../js/components.min.js?v=10"></script>
     <script defer src="slider.min.js?v=5"></script>
 </body>
 

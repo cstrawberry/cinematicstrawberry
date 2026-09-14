@@ -1,0 +1,92 @@
+/* Article-specific additions; the shared gravity/quantum typography stays in article-style.min.css. */
+.s-article { --s-ink: #253b46; --s-blue: #236681; --s-soft: #e8f1f5; --s-rule: #d4dde0; }
+.s-article .header { position: static; }
+.s-article .logo-text { display: block; }
+.s-article .logo-container a { color: inherit; }
+.s-article #article > article > * { content-visibility: visible; contain-intrinsic-size: none; }
+.s-article a:focus-visible, .s-article button:focus-visible { outline: 3px solid var(--s-blue); outline-offset: 4px; }
+.s-article .skip-link { position: absolute; top: -100px; background: #fafafa; padding: 8px 16px; z-index: 10; }
+.s-article .skip-link:focus { top: 8px; }
+.s-article h2 { margin-top: 40px; }
+.s-article .source-note { margin: 28px 0; padding: 16px 20px; border-left: 3px solid var(--s-blue); background: #f0f3f4; }
+.s-article .source-note p { margin: 0; font-size: 18px; }
+.s-article code { font-family: Consolas, 'Courier New', monospace; font-size: .87em; color: #253b46; }
+.s-article .math-inline { white-space: normal; color: #35434c; }
+.s-article .equation { display: flex; flex-wrap: wrap; justify-content: center; align-items: baseline; gap: 8px 20px; color: var(--s-ink); font-size: clamp(23px, 4vw, 32px); margin: 30px 0; }
+.s-article .equation > span { white-space: nowrap; }
+.s-article .compact-equation { font-size: clamp(20px, 3.5vw, 27px); gap: 7px 12px; }
+.s-article .event-statement { font-size: clamp(20px, 2.6vw, 24px); line-height: 1.55; color: var(--s-ink); padding: 18px 22px; border-left: 3px solid var(--s-blue); margin: 25px 0; }
+.s-article figure { margin: 34px 0 40px; }
+.s-article .explainer figcaption { font-size: 16px; line-height: 1.5; color: #586369; margin-top: 16px; text-align: left; }
+.s-article figcaption a { text-decoration: underline; text-underline-offset: 3px; }
+.s-article .art-figure { max-width: 610px; margin: 40px auto; }
+.s-article .art-figure img { width: 100%; margin-bottom: 0; }
+.s-article .art-figure .caption { margin-top: 16px; margin-bottom: 0; }
+.s-article .explainer { border-top: 1px solid var(--s-rule); border-bottom: 1px solid var(--s-rule); padding: 23px 0; }
+.s-article .explainer h3 { margin-bottom: 15px; text-shadow: none; }
+.s-article .viz-controls { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 20px; }
+.s-article [hidden] { display: none !important; }
+.s-article .viz-controls button { font: 16px/1.3 Georgia, serif; color: var(--s-ink); background: transparent; border: 1px solid #9fadb4; border-radius: 3px; padding: 11px 15px; min-height: 44px; cursor: pointer; }
+.s-article .viz-controls button:hover { background: #e8eef1; }
+.s-article .viz-controls button[aria-pressed="true"] { background: var(--s-ink); border-color: var(--s-ink); color: #fff; }
+.s-article .rule-tree { width: 100%; height: auto; display: block; max-width: 640px; margin: 8px auto 15px; overflow: visible; }
+.s-article .tree-edges { stroke: #8498a1; stroke-width: 2; fill: none; }
+.s-article .tree-nodes text { font: 32px Georgia, serif; fill: var(--s-ink); text-anchor: middle; dominant-baseline: central; paint-order: stroke; stroke: #fafafa; stroke-width: 8px; stroke-linejoin: round; }
+.s-article .tree-nodes .z-node circle { fill: var(--s-soft); stroke: var(--s-blue); stroke-width: 1.5; }
+.s-article .tree-nodes .z-node text { stroke: var(--s-soft); }
+.s-article .viz-status { font-size: 18px; color: #34454e; min-height: 3em; margin: 16px 0; }
+.s-article .queue-display { display: flex; align-items: center; flex-wrap: wrap; gap: 14px; padding: 18px 0; }
+.s-article .queue-bits { display: flex; gap: 8px; }
+.s-article .bit { display: grid; place-items: center; width: 48px; height: 54px; font: 26px Consolas, monospace; background: #edf0f1; color: var(--s-ink); border-bottom: 3px solid #a4b2b8; }
+.s-article .front-bit { background: var(--s-soft); border-bottom-color: var(--s-blue); }
+.s-article .queue-direction, .s-article .queue-phase { font-size: 16px; color: #53636b; }
+.s-article .queue-phase { margin-left: auto; }
+.s-article table { display: table; width: 100%; border-collapse: collapse; overflow: visible; font-size: 18px; color: #34454e; }
+.s-article caption { text-align: left; font-size: 16px; color: #53636b; padding: 4px 0 12px; }
+.s-article th, .s-article td { padding: 12px 10px; text-align: left; border-bottom: 1px solid var(--s-rule); }
+.s-article thead th { font-weight: normal; font-size: 16px; line-height: 1.3; vertical-align: bottom; }
+.s-article tbody th { font-weight: normal; }
+.s-article .trace-table td { text-align: right; font-variant-numeric: tabular-nums; }
+.s-article .trace-table thead th:not(:first-child) { text-align: right; }
+.s-article .selected-row { background: var(--s-soft); }
+.s-article .memory-table { table-layout: fixed; }
+.s-article .memory-table th { width: 38%; }
+.s-article .memory-table th:not(:first-child) { width: 31%; }
+.s-article .message-code { display: inline-block; font: 20px Consolas, monospace; min-width: 48px; padding: 4px 8px; background: var(--s-soft); }
+.s-article .wiring-sequence { padding: 0; margin: 0; list-style: none; }
+.s-article .wiring-sequence li { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 5px 24px; padding: 12px 0; border-bottom: 1px solid #e0e5e7; }
+.s-article .wiring-sequence li:last-child { border-bottom: 0; }
+.s-article .wiring-sequence span { color: #586369; font-size: 17px; }
+.s-article .wiring-sequence code { font-size: 20px; }
+.s-article .foundation-root { max-width: 340px; margin: 20px auto 0; padding: 14px 20px; border: 1px solid var(--s-rule); text-align: center; color: var(--s-ink); }
+.s-article .foundation-root strong { display: block; font-size: 22px; }
+.s-article .foundation-root span { display: block; font-size: 18px; margin-top: 5px; }
+.s-article .foundation-figure .foundation-bridge { text-align: center; font-size: 17px; line-height: 1.5; margin: 15px 0; color: #586369; }
+.s-article .foundation-loop { padding: 15px; background: var(--s-soft); color: var(--s-ink); font-size: 22px; line-height: 1.5; text-align: center; }
+.s-article .foundation-paths { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px; margin: 20px 0; }
+.s-article .foundation-path { padding: 18px 12px; border: 1px solid var(--s-rule); color: var(--s-ink); text-align: center; }
+.s-article .foundation-path h4 { font-size: 20px; line-height: 1.4; margin: 0 0 16px; }
+.s-article .foundation-path p { font-size: 18px; line-height: 1.5; margin: 8px 0; }
+.s-article .foundation-arrow { display: block; color: var(--s-blue); font-size: 22px; line-height: 1.2; }
+.s-article .foundation-figure .foundation-join { margin: 0; padding: 15px 18px; border-left: 3px solid var(--s-blue); background: #f0f3f4; font-size: 18px; line-height: 1.5; color: var(--s-ink); }
+.s-article .references { padding-left: 25px; }
+.s-article .references li { font-size: 17px; margin-bottom: 15px; }
+.s-article .circle-container button { padding: 0; border: 0; font-family: inherit; line-height: 1; }
+.s-article :target { scroll-margin-top: 20px; }
+@media (max-width: 480px) {
+    .s-article .foundation-paths { grid-template-columns: 1fr; gap: 14px; }
+    .s-article .foundation-loop { font-size: 19px; padding: 14px 8px; }
+    .s-article .queue-phase { width: 100%; margin-left: 0; }
+    .s-article th, .s-article td { padding: 10px 5px; font-size: 16px; }
+    .s-article thead th { font-size: 14px; }
+    .s-article .memory-table th { width: 35%; }
+    .s-article .memory-table th:not(:first-child) { width: 32.5%; }
+    .s-article .event-statement { padding: 12px 16px; }
+    .s-article .equation { gap: 5px 12px; }
+}
+@media print {
+    .s-article { max-width: none; width: auto; margin: 0; }
+    .s-article .header, .s-article .skip-link, .s-article .viz-controls, .s-article .circle-container { display: none; }
+    .s-article figure, .s-article .equation { break-inside: avoid; }
+    .s-article h2, .s-article h3 { break-after: avoid; }
+}

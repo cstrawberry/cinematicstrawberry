@@ -1,0 +1,71 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><title>The Unfolding and Parity</title><style>/* Shared style for the liar slide deck. Rendered at 1600x900. */
+html, body { margin: 0; padding: 0; }
+body { width: 1600px; height: 900px; overflow: hidden; background: #f7f3ea; color: #16243f;
+  font-family: Georgia, "Palatino Linotype", "Book Antiqua", "Times New Roman", serif; position: relative; }
+.frame { position: absolute; inset: 14px; border: 1.5px solid #6d7385; }
+.mark { position: absolute; width: 26px; height: 26px; }
+.mark::before, .mark::after { content: ""; position: absolute; background: #8a90a0; }
+.mark::before { left: 12px; top: 0; width: 1.5px; height: 26px; }
+.mark::after { top: 12px; left: 0; height: 1.5px; width: 26px; }
+.mark.tl { left: 58px; top: 60px; } .mark.tr { right: 58px; top: 60px; }
+.mark.bl { left: 58px; bottom: 60px; } .mark.br { right: 58px; bottom: 60px; }
+.ruler { position: absolute; top: 250px; bottom: 250px; width: 1.5px; background: #9aa0b0; }
+.ruler.l { left: 42px; } .ruler.r { right: 42px; }
+.ruler i { position: absolute; left: -6px; width: 13px; height: 1.5px; background: #9aa0b0; }
+h1 { margin: 0; text-align: center; font-weight: 700; font-size: 74px; letter-spacing: -0.5px; padding-top: 58px; }
+h1.small { font-size: 64px; }
+.sub { text-align: center; font-size: 32px; margin-top: 8px; color: #24365a; }
+.divider { width: 340px; margin: 22px auto 0; height: 1.5px; background: #9aa0b0; position: relative; }
+.divider::after { content: ""; position: absolute; left: 50%; top: -6px; width: 10px; height: 10px; background: #f7f3ea; border: 1.5px solid #6d7385; transform: translateX(-50%) rotate(45deg); }
+.body { position: absolute; left: 110px; right: 110px; top: 250px; bottom: 120px; }
+.cols { display: flex; gap: 48px; height: 100%; }
+.col { flex: 1; }
+.col h3 { margin: 0 0 12px; font-size: 34px; text-align: center; border-bottom: 1.5px solid #9aa0b0; padding-bottom: 8px; }
+p, li { font-size: 27px; line-height: 1.35; }
+p { margin: 10px 0; }
+ul { margin: 6px 0 0 0; padding-left: 28px; }
+li { margin: 8px 0; }
+.blue { color: #2f5f9e; } .orange { color: #c8642b; } .navy { color: #16243f; }
+.node { width: 200px; height: 200px; border-radius: 50%; border: 3px solid #16243f; display: flex; align-items: center; justify-content: center; text-align: center; font-size: 30px; font-weight: 700; box-shadow: inset 0 0 0 6px #f7f3ea, inset 0 0 0 7.5px #16243f; }
+.node.blue { background: #7fa2d0; } .node.orange { background: #d9865a; }
+.math { font-family: "Cambria Math", Cambria, "Times New Roman", serif; font-style: italic; }
+.box { border: 1.5px solid #6d7385; padding: 16px 22px; background: #fbf9f3; }
+.box.accent { border-left: 6px solid #16243f; }
+.footer { position: absolute; left: 110px; right: 110px; bottom: 58px; text-align: center; font-size: 27px; font-style: italic; color: #24365a; border-top: 1.5px solid #9aa0b0; padding-top: 14px; }
+table { border-collapse: collapse; width: 100%; font-size: 24px; }
+th, td { border: 1.5px solid #6d7385; padding: 8px 12px; text-align: left; vertical-align: top; }
+th { color: #c8642b; font-weight: 700; background: #f1ece0; }
+.center { text-align: center; }
+.arrow { display: inline-block; width: 220px; height: 3px; background: #16243f; position: relative; vertical-align: middle; }
+.arrow::after { content: ""; position: absolute; right: -2px; top: -8px; border-left: 16px solid #16243f; border-top: 9px solid transparent; border-bottom: 9px solid transparent; }
+.arrow.orange { background: #c8642b; } .arrow.orange::after { border-left-color: #c8642b; }
+.arrow.back { transform: rotate(180deg); }
+.small { font-size: 23px; }
+.tag { display: inline-block; padding: 2px 12px; border: 1.5px solid #16243f; border-radius: 4px; font-weight: 700; font-size: 24px; margin-right: 8px; }
+.tag.forb { border-color: #c8642b; color: #c8642b; } .tag.lic { border-color: #2f5f9e; color: #2f5f9e; } .tag.open { border-color: #6d7385; color: #3d4560; }
+</style></head><body><div class="frame"></div>
+<div class="mark tl"></div><div class="mark tr"></div><div class="mark bl"></div><div class="mark br"></div>
+<div class="ruler l"><i style="top:0"></i><i style="top:25%"></i><i style="top:50%"></i><i style="top:75%"></i><i style="bottom:0"></i></div>
+<div class="ruler r"><i style="top:0"></i><i style="top:25%"></i><i style="top:50%"></i><i style="top:75%"></i><i style="bottom:0"></i></div>
+<h1>The Unfolding and Parity</h1><div class="sub">Why there are two roles and not three or thirty</div><div class="divider"></div><div class="body">
+<div style="text-align:center;font-size:34px" class="math">r<sub>0</sub> → r<sub>1</sub> → r<sub>2</sub> → r<sub>3</sub> → r<sub>4</sub> → …   each link: v(r<sub>n</sub>) = ¬v(r<sub>n+1</sub>)</div>
+<p class="center small">Following the reference of the sentence gives a ray of positions. The ray is coherent: the two alternating valuations respect every link.</p>
+<div class="cols" style="height:auto;margin-top:16px">
+ <div class="col">
+  <h3>Quotients</h3>
+  <ul>
+   <li>A quotient gathers positions into classes and adds identity edges inside each class.</li>
+   <li>Period <span class="math">k</span>: identify <span class="math">r<sub>n</sub></span> with <span class="math">r<sub>n+k</sub></span>. Coherent <b>iff</b> <span class="math">k</span> is even.</li>
+   <li>A quotient is coherent <b>iff</b> every class keeps one parity.</li>
+  </ul>
+ </div>
+ <div class="col">
+  <h3>Two classes and one class</h3>
+  <ul>
+   <li><span class="blue">Period 2</span>: even positions = Pointer, odd = Target. The coarsest coherent quotient; every coherent quotient refines it.</li>
+   <li><span class="orange">Period 1</span>: one class, one self-loop, <span class="math">x(r) ⊑ ¬x(r)</span>. The classical liar.</li>
+   <li>A cycle with <span class="math">m</span> negating links is coherent iff <span class="math">m</span> is even: the odd-cycle criterion.</li>
+   <li>The liar unit <span class="math">σ</span>: <span class="math">σ<sup>2</sup> = 1</span>, reads true at even and false at odd positions, descends only to even quotients.</li>
+  </ul>
+ </div>
+</div></div><div class="footer">The Universality Assumption is the passage from two classes to one</div></body></html>
