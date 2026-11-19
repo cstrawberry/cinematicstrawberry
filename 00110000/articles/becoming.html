@@ -40,7 +40,7 @@
         <hr>
         <h2>Abstract</h2>
         <p>
-            The Space of Becoming models adaptive experience as an interval of predictive performance with two edges. Below the lower edge a system does no better than a matched random baseline, so nothing it produces counts as prediction. At the upper edge the response law leaves no room to improve, so no error signal remains and revision stops. Adaptation happens strictly between them. On this reading the limits on self-prediction supply the gap that makes learning possible, and the edges are registered per task and score rather than being constants shared by every system. 
+            The Space of Becoming models adaptive experience as an interval of predictive performance with two edges. Below the lower edge a system does no better than a matched random baseline, so nothing it produces counts as prediction. The upper edge sits below perfect prediction: the response law lets performance approach it and never reach it at finite cost, so some error is always left to learn from. Adaptation happens strictly between them. On this reading the limits on self-prediction supply the gap that makes learning possible, and the edges are set per task and score rather than being constants shared by every system. 
         </p>
 
                 <h2>The Space in Plain Terms</h2>
@@ -50,11 +50,12 @@
             not easily, where roughly every other point turns on something the player could have done
             differently.</p>
         <p>That band has two edges and both matter. Below the lower edge a system does no better than guessing, so
-            nothing it does counts as anticipation and nothing it records counts as a lesson. At the upper edge
-            there is no error left, so there is nothing to correct and the system stops changing. Adaptation
+            nothing it does counts as anticipation and nothing it records counts as a lesson. Perfect prediction lies beyond the upper edge: with no error left there would be nothing to correct,
+            and the system would stop changing. The upper edge itself sits short of that point, and each step
+            toward it costs more than the last. Adaptation
             happens strictly between the edges, and it needs both of them.</p>
         <p>This is why the impossibility of perfect self-prediction is not bad news for a mind. A system that
-            could forecast itself exactly would sit at the upper edge permanently, holding a complete and final
+            could forecast itself exactly would sit beyond the upper edge permanently, holding a complete and final
             account of itself with nothing left to revise. The gap between what a system expects of itself and
             what it turns out to do is the same gap that lets it become something else.</p>
         <p>One caution about the edges. They are set per task and per measure, so a system can be inside the band
@@ -120,9 +121,9 @@
             Where:
             <ul>
                 <li><strong>PP(t)</strong>: <i>Predictive performance of the system at time <code>t</code></i></li>
-                <li><strong>α</strong>: <i>the performance of the matched random baseline for the registered task; at or below it the system does no better than chance.</i></li>
-                <li><strong>β</strong>: <i>the ceiling set by the excitation floor of the system’s response law; it is approached asymptotically and not reached at any finite complexity.</i></li>
-                <li><strong>α<sub>SPAP</sub></strong>: <i>The class-relative self-prediction coherence boundary for a registered task and score, which guaranteed perfect self-prediction cannot reach. Its placement relative to β follows only when a bridge registers the same system, task, score, and window.</i></li>
+                <li><strong>α</strong>: <i>the performance of the matched random baseline for the given task; at or below it the system does no better than chance.</i></li>
+                <li><strong>β</strong>: <i>the ceiling set by the system’s response law; it is approached asymptotically and not reached at any finite complexity.</i></li>
+                <li><strong>α<sub>SPAP</sub></strong>: <i>The self-prediction coherence boundary for a given class of systems, task and score. Perfect self-prediction lies beyond it and is impossible. Where it lies relative to β follows only when both are set for the same system, task, score, and window.</i></li>
             </ul>
         </p>
         <h3>5.2. Boundary Conditions</h3>
@@ -131,7 +132,7 @@
         </p>
         <ul>
             <li><strong>At PP(t) ≤ α</strong>: The system's predictive power is too weak, leading to disordered experience.</li>
-            <li><strong>At PP(t) ≥ β</strong>: The system approaches predictive stasis and increasing resource costs, reducing the uncertainty required for learning and adaptation.</li>
+            <li><strong>As PP(t) approaches β</strong>: Resource costs grow without limit, and the uncertainty required for learning and adaptation shrinks without ever disappearing.</li>
             <li><strong>Within (α, β)</strong>: A workable balance is maintained, allowing recurring patterns and flexible update from new information.</li>
         </ul>
         <h3>5.3. Properties of the Space</h3>
@@ -140,10 +141,10 @@
         </p>
         <ul>
             <li><strong>Boundedness</strong>: Conscious experience is inherently limited by both minimum and maximum predictive thresholds.</li>
-            <li><strong>Dynamic Stability</strong>: Within these bounds, systems sustain the necessary balance between order and unpredictability to foster adaptation.</li>
+            <li><strong>Dynamic Stability</strong>: Within these bounds, systems sustain the necessary balance between order and unpredictability to foster adaptation. Staying within them takes active regulation, since a system left uncorrected with a steady chance of drifting out leaves the band sooner or later.</li>
         </ul>
         <p>
-            The interval is registered for a task, a score, and an evaluation window. Two systems on different tasks have different edges, and no universal interval is claimed.
+            The interval is set for a task, a score, and an evaluation window. Two systems on different tasks have different edges, and no universal interval is claimed.
         </p>
 
         <h2>6. Conclusion</h2>

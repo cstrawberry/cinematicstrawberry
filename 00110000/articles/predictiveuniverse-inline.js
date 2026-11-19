@@ -102,11 +102,11 @@
                                 const stages = [
                                     { in: 0.6, out: 4.6, outDur: 1.0, label: 'SPAP boundary  →  K₀ = 3 bits' },
                                     { in: 3.2, out: 9.4, outDur: 1.0, label: 'd₀ = 8  minimal carrier' },
-                                    { in: 5.4, out: 14.6, outDur: 1.0, label: 'ε₀ = ln 2  irreducible update floor' },
+                                    { in: 5.4, out: 14.6, outDur: 1.0, label: 'ε₀ = ln 2  structural record size' },
                                     { in: 7.0, out: 9.4, outDur: 1.0, label: 'a = 2,  b = 6  active / inactive split' },
                                     { in: 9.8, out: Infinity, outDur: 1.0, label: 'M = 24  interface modes' },
-                                    { in: 12.2, out: Infinity, outDur: 1.0, label: 'k = 12  prediction modes  ·  Golay split' },
-                                    { in: 14.9, out: Infinity, outDur: 1.0, label: 'D = 4  spacetime' }
+                                    { in: 12.2, out: Infinity, outDur: 1.0, label: 'k = 12  prediction / recovery split' },
+                                    { in: 14.9, out: Infinity, outDur: 1.0, label: 'D = 4  carrier dimension' }
                                 ];
                                 const PERIOD = 18.5;
                                 const FADE_IN = 1.0;

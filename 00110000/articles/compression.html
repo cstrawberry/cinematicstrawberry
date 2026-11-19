@@ -41,7 +41,7 @@
         <p>The <strong>Law of Compression (LoC)</strong> is the communication-level expression of the Predictive Universe framework's Principle of Compression Efficiency (PCE): preserve predictive value while minimizing the total cost of signal use. <a href="meaning.html"
                     style="text-decoration: none; border-bottom: 1px solid transparent; transition: border-bottom 0.3s;"
                     onmouseover="this.style.borderBottomColor='black';"
-                    onmouseout="this.style.borderBottomColor='transparent';">Meaning</a> is treated operationally as realized predictive improvement <em>&Delta;Q</em>, measured as reduced uncertainty or as reduced divergence from the truth in the sense of Kullback and Leibler (1951), while expected usefulness is captured by Meaning Potential, <em>MP(s) = E[&Delta;Q(s)]</em>. Efficient communication is assessed by the relation between Meaning Potential and Signal Cost, written publicly as <em>PCE(s) &approx; MP(s)/SC(s)</em> or optimized as <em>MP(s) - &lambda;SC(s)</em>. Examples from MIDI, language, culture, and machine communication show how compressed signals remain meaningful when a receiver has the context needed to convert minimal structure into predictive improvement.</p>
+                    onmouseout="this.style.borderBottomColor='transparent';">Meaning</a> is treated operationally as realized predictive improvement <em>&Delta;Q</em>, measured as reduced uncertainty or as reduced divergence from the truth in the sense of Kullback and Leibler (1951), while expected usefulness is captured by Meaning Potential, <em>MP(s) = E[&Delta;Q(s)]</em>. Efficient communication is assessed by the relation between Meaning Potential and Signal Cost: PCE's objective is the net benefit <em>MP(s) - &lambda;SC(s)</em>, and the ratio <em>CE(s) &approx; MP(s)/SC(s)</em> gives a signal's compression efficiency. Examples from MIDI, language, culture, and machine communication show how compressed signals remain meaningful when a receiver has the context needed to convert minimal structure into predictive improvement.</p>
 
                 <h2>The Law in Plain Terms</h2>
         <p>Say "the usual" to a barista who knows you and a coffee arrives. Say it to a stranger and nothing
@@ -81,8 +81,8 @@
         <p>The Law of Compression (LoC) addresses the tendency of predictive systems to reduce processing demands while preserving the distinctions that matter for action, inference, and coordination. Ordinary data compression aims at reconstructing a signal, and the shortest description that does so is the criterion Rissanen (1978) formalized. The Law of Compression aims instead at preserving the signal's capacity to produce <em>&Delta;Q</em> in a receiver.</p>
        
         <h3>2.2 Mathematical Formulation</h3>
-        <p>For a signal <em>s</em> relative to a receiver, context, and task, <strong>PCE</strong> takes the form:</p>
-        <p style="text-align: center; font-size: 1.2em;"><em>PCE(s | R, K, &tau;) &approx; MP(s | R, K, &tau;) / SC(s | R, K, &tau;)</em></p>
+        <p>For a signal <em>s</em> relative to a receiver, context, and task, the <strong>compression efficiency (CE)</strong> takes the form:</p>
+        <p style="text-align: center; font-size: 1.2em;"><em>CE(s | R, K, &tau;) &approx; MP(s | R, K, &tau;) / SC(s | R, K, &tau;)</em></p>
         <p>where:</p>
         <ul style="font-size: 20px;">
 
@@ -92,7 +92,7 @@
             <li><strong>MP(s | R, K, &tau;):</strong> The expected predictive improvement produced by signal <em>s</em> for receiver <em>R</em> in context <em>K</em> for task <em>&tau;</em>.</li>
             <li><strong>SC(s | R, K, &tau;):</strong> The total cost of producing, transmitting, receiving, decoding, interpreting, and updating the signal for that receiver and task.</li>
         </ul>
-        <p>For optimization, the same idea can be expressed as a net objective: <em>MP(s) - &lambda;SC(s)</em>, where <em>&lambda;</em> weights resource scarcity. This formulation keeps compression tied to predictive usefulness and prevents data reduction from becoming the only metric.</p>
+        <p>PCE itself is the net objective <em>MP(s) - &lambda;SC(s)</em>, where <em>&lambda;</em> weights resource scarcity, and where the ratio and the net objective rank signals differently, the net objective decides. This formulation keeps compression tied to predictive usefulness and prevents data reduction from becoming the only metric.</p>
 
         <p>LoC also depends on the <a href="instantiation.html"
                     style="text-decoration: none; border-bottom: 1px solid transparent; transition: border-bottom 0.3s;"
@@ -111,7 +111,7 @@
 
         <p style="text-align: center; font-size: 1.2em;"><em>&Delta;Q(s) &le; 0</em></p>
 
-        <p>A signal with negative predictive effect may still contain data, and it may still consume resources, but it fails as meaningful communication for that receiver and task. This distinction is central to the Law of Compression: meaning is the predictive improvement achieved relative to the cost of using the signal, rather than the amount of information transmitted.</p>
+        <p>A signal with negative predictive effect may still contain data, and it may still consume resources, but it fails as meaningful communication for that receiver and task. This distinction is central to the Law of Compression: meaning is the predictive improvement a signal achieves rather than the amount of information transmitted, and efficiency weighs that improvement against the cost of using the signal.</p>
 
         <h3>2.5 Proposed Methodologies for Empirical Validation</h3>
         <p>To empirically evaluate LoC, methods should estimate realized predictive improvement <em>&Delta;Q</em> or expected <em>MP</em> relative to <em>SC</em>. Useful methods include:</p>

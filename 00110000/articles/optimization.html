@@ -111,8 +111,8 @@
                 while minimizing the cost of acquiring, storing, transmitting, and updating that information.
             </p>
             <p>
-                In simple terms, PCE favors predictive structures that deliver high meaning or predictive benefit per
-                unit of signal
+                In simple terms, PCE favors predictive structures that deliver high meaning or predictive benefit at
+                low signal
                 cost. This is why compression, hierarchy, attention, and adaptive resolution recur throughout natural
                 and artificial
                 intelligence: they improve predictive usefulness while reducing physical and informational expense.
@@ -720,18 +720,18 @@
                         I<sub>proc</sub> = I<sub>tot</sub> - I<sub>pred</sub>
                     </p>
                     <p>
-                        Principle of Compression Efficiency (PCE) can be
-                        understood as the ratio between meaning preservation (M<sub>p</sub>) and signal
-                        cost (S<sub>c</sub>):
+                        The Principle of Compression Efficiency (PCE) judges a strategy by its predictive gain minus a weighted
+                        resource cost. Compression strategies can also be compared by their compression efficiency (CE), the
+                        ratio between meaning preservation (M<sub>p</sub>) and signal cost (S<sub>c</sub>):
                     </p>
                     <p style="text-align: center; font-weight: bold;">
-                        PCE = M<sub>p</sub> / S<sub>c</sub>
+                        CE = M<sub>p</sub> / S<sub>c</sub>
                     </p>
                     <p>
                         Where M<sub>p</sub> represents how well the compression preserves the signal's capacity to
                         improve
                         prediction accuracy,
-                        and S<sub>c</sub> represents the resources required for transmission and processing. Higher PCE
+                        and S<sub>c</sub> represents the resources required for transmission and processing. Higher CE
                         values indicate more
                         efficient compression strategies that maintain predictive benefit while minimizing resource
                         costs.
@@ -882,7 +882,7 @@
                     <p>
                         Building on the formal POP framework, the Law of Prediction gives a public-facing way to express
                         diminishing returns in prediction under physical limits. In PU-aligned notation, predictive
-                        performance is represented as a bounded performance variable <em>PP</em>, with a branch-dependent ceiling rather than
+                        performance is represented as a bounded performance variable <em>PP</em>, with a task-dependent ceiling rather than
                         unrestricted accuracy approaching perfect certainty.
                     </p>
                     <p style='text-align: center; font-weight: bold;'>
@@ -900,11 +900,11 @@
                         and <em>&kappa;<sub>eff</sub></em> is an efficiency coefficient.
                     </p>
                     <p>
-                        This form is a branch-level interpolation for a declared task, score, and evaluation window rather than a universal law. It preserves the intuition of diminishing returns while remaining closer to the formal framework. Prediction improves as invested complexity rises and approaches the upper boundary asymptotically without reaching it for any finite complexity. The parameter <em>&beta;</em> is a response-law coordinate. It is a different quantity from a certified pathwise ceiling and from any task-relative self-prediction boundary, and neither the compression principle nor the viability axiom derives this response law on its own.
+                        This form is an interpolation for a given task, score, and evaluation window rather than a universal law. It preserves the intuition of diminishing returns while remaining closer to the formal framework. Prediction improves as invested complexity rises and approaches the upper boundary asymptotically without reaching it for any finite complexity. The parameter <em>&beta;</em> is the level this curve approaches. It is a different quantity from the ceiling proved for a learner whose prediction error never falls below a fixed floor and from any task-relative self-prediction boundary, and neither the compression principle nor the viability axiom derives this response law on its own.
                     </p>
                     <p>
                         This expression is intended for the viable prediction regime, where
-                        <em>C &ge; C<sub>op</sub></em>. Below this threshold, the system has not yet instantiated
+                        <em>C &gt; C<sub>op</sub></em>. Below this threshold, the system has not yet instantiated
                         the minimal operational complexity needed for the predictive task, so the model should be read
                         as failing to reach viable prediction rather than as producing a meaningful value below
                         <em>&alpha;</em>.

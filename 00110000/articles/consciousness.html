@@ -191,7 +191,7 @@
                 warrant relative to the Cogito. They are a bookkeeping convention and nothing more.</p>
         </div>
         <p>Four identifications are excluded, and excluding them is what keeps the rest honest. The mark is not a
-            physical bit, because a physical bit requires a carrier, a protocol, and a cost ledger. It is not a
+            physical bit, because a physical bit requires a carrier, a protocol, and an account of its costs. It is not a
             thermodynamic record, because that requires a reset and an energy account. It is not a partition of
             reality into self and non-self, because that is an ontological claim and this is an epistemic one. And
             it is not the verification value used in Section 3, because that is a value attached to registered
@@ -255,8 +255,8 @@
             response reading the system's current nominated state, <em>p</em> for the response reading the stored
             prediction about it, and <em>c</em> for the response marking which phase the cycle is in.</p>
         <div class="proposition">
-            <p><strong>Proposition 4.1 (What must be readable).</strong> A realization of self-referential
-                prediction must satisfy three conditions. Stepping before the cycle-closing reset is injective on
+            <p><strong>Definition 4.1 (What must be readable).</strong> The realization class used for the count is
+                fixed by three conditions. Stepping before the cycle-closing reset is injective on
                 visited configurations, so distinctions the comparison needs are not merged. A phase response
                 separates the predict-and-store step from the compare-and-update step, because one transition law
                 cannot perform both from configurations that agree on <em>(φ, p)</em>. And <em>φ</em> and
@@ -361,17 +361,17 @@
 
         <h3>6.1 The Space of Becoming</h3>
         <div class="definition">
-            <p><strong>Definition 6.1 (Space of Becoming).</strong> For a registered task and score, let
+            <p><strong>Definition 6.1 (Space of Becoming).</strong> For a fixed task and scoring rule, let
                 <em>α</em> be the performance of the matched random baseline and <em>β</em> the ceiling set by the
                 excitation floor of the system's response law. A viable predictive system operates strictly inside
                 the open interval, <em>α &lt; PP(t) &lt; β</em>.</p>
         </div>
         <p>Both ends are earned. Below <em>α</em> the system does no better than chance, so nothing it does counts
             as prediction. At <em>β</em> the response law leaves no room to improve, so there is no error signal
-            and no basis for revision. The interval is where learning is possible, and its endpoints are registered
-            per task rather than being universal constants shared by every system.</p>
-        <p>The relation of <em>β</em> to the self-prediction boundary <em>α<sub>SPAP</sub></em> holds only when a
-            bridge registers the same system, task, score, and window for both. Without that bridge the two numbers
+            and no basis for revision. The interval is where learning is possible, and its endpoints are fixed
+            task by task rather than being universal constants shared by every system.</p>
+        <p>The relation of <em>β</em> to the self-prediction boundary <em>α<sub>SPAP</sub></em> holds only when both
+            are shown to refer to the same system, task, score, and window. Without that link the two numbers
             describe different things.</p>
 
         <h3>6.2 The Prediction Optimization Problem</h3>
@@ -411,8 +411,7 @@
         <h3>7.2 The Principle of Compression Efficiency</h3>
         <div class="definition">
             <p><strong>Definition 7.4 (PCE).</strong> Systems favour signals that maximize predictive benefit
-                against the full cost of acquiring, representing, processing, and maintaining them, either as the
-                ratio of meaning potential to signal cost or as the net utility
+                against the full cost of acquiring, representing, processing, and maintaining them, measured as the net utility
                 <em>MP − λ · SC</em>.</p>
         </div>
         <p>This is why a compressed signal can carry more than a long one: a short message that closes a large gap
@@ -477,7 +476,7 @@
                 <tr>
                     <td><strong>K₀</strong></td>
                     <td>The <strong>Horizon Constant</strong> (3 bits), the minimum informational complexity required
-                        for non-trivial self-referential prediction.</td>
+                        for non-trivial self-referential prediction on the stated realization class.</td>
                 </tr>
                 <tr>
                     <td><strong>DSRO</strong></td>

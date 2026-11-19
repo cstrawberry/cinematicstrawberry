@@ -74,12 +74,13 @@
                 current one more often than half the time, so the threshold is where self-referential prediction
                 becomes both expressible and useful. It is a lower bound on a stated class, and not an absolute
                 complexity floor for every predictor, a measure of memory span, or a criterion for consciousness.
-                Above the threshold the <a href="self-referential.html"
+                Above the threshold the register can run the rule behind the <a href="self-referential.html"
                     style="text-decoration: none; border-bottom: 1px solid transparent; transition: border-bottom 0.3s;"
                     onmouseover="this.style.borderBottomColor='black';"
                     onmouseout="this.style.borderBottomColor='transparent';">Self-Referential Paradox of Accurate
-                    Prediction</a> applies: a system with this structure can model and improve itself, and no
-                predictor in its class is exact on every system the class can build.</p>
+                    Prediction</a>, setting its next state to the opposite of its stored forecast, and in a class rich enough to code,
+                simulate and compose its own predictors, no
+                predictor is exact on every system the class can build.</p>
         </section>
 
         <section id="plain-terms">
@@ -94,8 +95,9 @@
             <p>Three yes-or-no facts have eight combinations, and a system that has to reach all eight needs at
                 least eight distinguishable internal configurations. Counting those in bits gives three. That is
                 the Horizon Constant: the smallest register in which a system can hold a prediction about itself,
-                keep the prediction while the world moves, and check it afterward. Below three bits there is no
-                room for the loop, and what is left is a device that reacts but never grades itself.</p>
+                keep the prediction while the world moves, check it afterward, and pass through every combination of the three facts on the way. A loop that
+                skips combinations can make do with six configurations and still grade its forecasts, so the count
+                of eight rests on that last requirement.</p>
             <p>Two things follow, and they pull in opposite directions. The threshold is enough. A three-bit
                 register can already beat guessing in any world where tomorrow tends to look like today, which is
                 the simplest kind of regularity a forecaster can exploit. The threshold is also where the trouble
@@ -173,7 +175,9 @@
                 <code>{0,1}<sup>3</sup></code> is required to be surjective: every combination of the three
                 responses actually occurs in the run. Call this the full-coverage condition (FC). Without it a
                 realization could dodge the count by never entering, say, the state where a stored prediction of 1
-                meets a current value of 0, which is exactly the case verification exists to handle.</p>
+                meets a current value of 0. Such a loop exists: it satisfies (O1) through (O3), runs the rule that writes
+                the opposite of its stored prediction, still sees both matches and mismatches, and visits only six
+                configurations. The count of eight comes from (FC); (O1) through (O3) govern how the loop steps.</p>
         </section>
 
         <section id="the-bound">
@@ -274,7 +278,7 @@
                     <code>1/2 + γ</code>. The matched baseline that ignores the history is correct with
                     probability <code>1/2</code>. ∎</p>
             </div>
-            <p>So the threshold is not merely where the loop fits; it is where prediction starts paying. Persistence
+            <p>So the loop pays as soon as it fits. Persistence
                 is the weakest regularity worth exploiting, and the smallest self-referential register already
                 exploits it.</p>
         </section>
@@ -289,8 +293,8 @@
                 require</p>
             <p style="text-align: center;"><code>log<sub>2</sub> d<sub>0</sub> ≥ 3</code>, so
                 <code>d<sub>0</sub> ≥ 8</code></p>
-            <p>and the minimal branch of the framework takes <code>d<sub>0</sub> = 8</code>, which needs a separate
-                argument that no smaller carrier saturates the comparator. What the counting supplies on its own is
+            <p>and the framework takes the smallest carrier this count allows, <code>d<sub>0</sub> = 8</code>, which needs a separate
+                argument that every larger carrier giving the same responses costs strictly more to maintain. What the counting supplies on its own is
                 the inequality. Anything that fixes the value exactly is a further step, and the wider
                 <a href="predictiveuniverse.html"
                     style="text-decoration: none; border-bottom: 1px solid transparent; transition: border-bottom 0.3s;"
@@ -316,7 +320,7 @@
             </div>
             <div class="proof">
                 <h3>Proof</h3>
-                <p>Suppose such a <code>P<sub>f</sub></code> exists. By closure, the class contains the system
+                <p>Suppose such a <code>P<sub>f</sub></code> exists. Because the class is closed under that construction, it contains the system
                     <code>S<sub>diag</sub></code> that obtains <code>P<sub>f</sub></code>'s forecast
                     <code>φ̂</code> for its own next component and sets that component to
                     <code>φ<sub>t+1</sub> = NOT(φ̂)</code>. Correctness on <code>S<sub>diag</sub></code> requires
@@ -343,7 +347,7 @@
             <p>Popper (1950) and MacKay (1960) reached the same barrier from the side of free choice and physical
                 determinism: a predictor cannot supply a prediction to an agent who can then falsify it, and the
                 obstruction survives whether the underlying dynamics are deterministic or not. What Theorem 3 adds
-                to those arguments is the register: the barrier appears exactly where the loop first fits, at three
+                to those arguments is the register: the negating rule the diagonal construction uses already fits in three
                 bits, and not somewhere higher up.</p>
             <p>There is also a structural way to see why the loop cannot be completed by unfolding it. Suppose a
                 state description is required to contain, as a literal proper part, the value of its own
@@ -364,8 +368,7 @@
                 a self-referential task, and Theorem 3 fixes what it can never reach.</p>
             <p>Three consequences follow, each scoped to the class the theorems name.</p>
             <ul style="font-size: 20px;">
-                <li>Self-referential predictive knowledge needs at least the three-bit structure. Below it the
-                    comparison that turns a forecast into knowledge cannot be carried out.</li>
+                <li>Self-referential predictive knowledge needs at least the three-bit structure.</li>
                 <li>No system in the class holds a predictor exact on every system the class can build, including
                     the systems built from itself. Complete self-knowledge of the predictive kind is unavailable
                     from inside.</li>
@@ -403,7 +406,7 @@
                 perfectly distinguishable alternatives in a complex Hilbert space forces dimension at least
                 eight.</p>
             <p>The threshold works in both directions. It is enough for a register to beat chance wherever the
-                world repeats itself more often than not, and it is already enough for the diagonal construction
+                world repeats itself more often than not, and it already holds the negating rule of the diagonal construction
                 that denies any predictor exactness across its own class. Everything above the threshold buys
                 accuracy on particular tasks and leaves the barrier where it is.</p>
             <p><code>K<sub>0</sub></code> is a lower bound on a stated class. It supports later analysis of
